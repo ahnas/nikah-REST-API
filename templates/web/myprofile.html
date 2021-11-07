@@ -1,0 +1,139 @@
+
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title %}My Profile{% endblock %}
+
+
+{% block content %}
+{% include "web/partials/header2.html" %}
+    
+    <section class="explore pb-0">
+      <div class="container">
+          <div class="row exx inter">
+              
+              
+              <div class="col-12 smsm">
+                <p>Hello, Username <span><i class="icofont-hand" style="color: #cfcc1e;"></i></span></p> 
+              </div>
+            </div>
+              <div class="col-6 hrr d-none  ">  
+
+              </div>
+              <div class="row inter kert justify-content-center">
+              <div class="col-lg-8 col-md-10 col-sm-10 col-11 exxd">
+                  <ul class="d-flex justify-content-center p-0">
+                    <li>  <a  class="activee" href="{% url 'web:myprofile' %}">My Profile </a></li>
+                    <li>  <a  href="{% url 'web:partnerpref' %}">Partner Preferences </a></li>
+                    <li>  <a  href="{% url 'web:addphotos' %}">Add Photos</a></li>
+                    <li>  <a  href="{% url 'web:changepass' %}">Change Password</a></li>
+                     
+                  </ul>
+              </div>
+            </div>
+          
+          
+      </div>
+    </section>
+    
+
+    <div class="container mt-5 myprofile">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                <img width="100%" src="{% static 'web/image/profile.jpg' %}" alt="">
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                <h4>Ayisha Hesh</h4>
+
+        <div class="row proff">
+            <div class="col-lg-4 col-md-4 col-sm-5 col-4"><label for="">Username</label></div> <div class="col-lg-8 col-md-8 col-sm-7 col-8"><p> : <b>KMI101212</b> </p></div>
+            <div class="col-lg-4 col-md-4 col-sm-5 col-4"><label for="">E-mail</label></div> <div class="col-lg-8 col-md-8 col-sm-7 col-8"><p> : <b>Ayshra@gmail.com</b> </p><span><a href="#">Click here to change password  </a></span></div>
+            <div class="col-lg-4 col-md-4 col-sm-5 col-4"><label for="">Age</label></div> <div class="col-lg-8 col-md-8 col-sm-7 col-8"><p> : <b>22</b> </p></div>
+            <div class="col-lg-4 col-md-4 col-sm-5 col-4"><label for="">Sex</label></div> <div class="col-lg-8 col-md-8 col-sm-7 col-8"><p> : <b>Female</b> </p></div>
+            <div class="col-lg-4 col-md-4 col-sm-5 col-4"><label for="">Location</label></div> <div class="col-lg-8 col-md-8 col-sm-7 col-8"><p> : <b>Ramanatukara, Calicut <span><a href="#">Change</a></span>  </b> </p></div>
+            <div class="col-lg-4 col-md-4 col-sm-5 col-4"><label for="">Religion</label></div> <div class="col-lg-8 col-md-8 col-sm-7 col-8"><p> : <b>Muslim <span><a href="#">Change</a></span>  </b> </p></div>
+            <div class="col-lg-4 col-md-4 col-sm-5 col-4"><label for="">Profile created by</label></div> <div class="col-lg-8 col-md-8 col-sm-7 col-8"><p> : <b>Myself </b> </p></div>
+        </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5 perso">
+       
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-12">
+                <h2>Personal Information</h2>
+            </div>
+            <div class="col-lg-3 col-md-5 col-sm-7 col-8">
+                <div class="linne">
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Nationality</label></div> <div class="col-7"><p> : <b>Indian <span><a href="#">Change</a></span> </b> </p></div></div></div>
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Ethinicity</label></div> <div class="col-7"><p> : <b>Asian <span><a href="#">Change</a></span> </b>  </p></div></div></div>
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Height</label></div> <div class="col-7"><p> : <b>183 cm <span><a href="#">Change</a></span> </b> </p></div></div></div>
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Weight</label></div> <div class="col-7"><p> : <b>75 kg <span><a href="#">Change</a></span> </b> </p></div></div></div>
+
+                    
+        </div>
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-12">
+                <h2>Location & Contact Details</h2>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-7 col-8">
+                <div class="linne">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">Native Country</label></div> <div class="col-7"><p> : <b>India <span><a href="#">Change</a></span> </b> </p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">native State</label></div> <div class="col-7"><p> : <b>Kerala <span><a href="#">Change</a></span> </b>  </p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">Native District</label></div> <div class="col-7"><p> : <b>Kozhikode<span><a href="#">Change</a></span> </b> </p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">Native City</label></div> <div class="col-7"><p> : <b>Ramanatukara <span><a href="#">Change</a></span> </b> </p></div></div></div>      
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">Primary Number</label></div> <div class="col-7"><p> : <b>985874563 <span><a href="#">Change</a></span> </b> </p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">Secondary Number</label></div> <div class="col-7"><p> : <b>5432874563 <span><a href="#">Change</a></span> </b>  </p></div></div></div>
+            </div>
+
+
+            <div class="col-12 text-center">
+                <button class="btn mt-5">Save & Submit</button>
+                </div>
+
+        </div>
+
+      
+   
+   
+   
+   
+    <div class="container-fluid d-none" id="chatnav">
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="nav-menu iconn">
+                    <ul>
+                      <li><a href="#"><i class="icofont-binoculars mr-2"></i>Explore</a></li>
+                      <li><a href="#about"><i class="icofont-ui-text-chat mr-2"></i>Chat</a></li>
+                      <li class="active"><a href="#portfolio"><i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
+                      
+                      
+                      <li id="userna"><a href="#features"><i class="icofont-ui-user ml-2"></i></a></li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+
+    </div>
+
+
+        
+    {% endblock %}
+    {% block javascript %}
+    <script src="{% static 'web/js/getmachedprofiles.js' %}"></script>
+    {% endblock %}

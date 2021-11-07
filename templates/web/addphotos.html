@@ -1,0 +1,101 @@
+
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title %}Add Photos{% endblock %}
+
+
+{% block content %}
+{% include "web/partials/header2.html" %}
+    
+    <section class="explore pb-0">
+      <div class="container">
+          <div class="row exx inter">
+              
+              
+              <div class="col-12 smsm">
+                <p>Hello, Username <span><i class="icofont-hand" style="color: #cfcc1e;"></i></span></p> 
+              </div>
+            </div>
+              <div class="col-6 hrr d-none  ">  
+
+              </div>
+              <div class="row inter kert justify-content-center">
+              <div class="col-lg-8 col-md-10 col-sm-10 col-11 exxd">
+                  <ul class="d-flex justify-content-center p-0">
+                    <li>  <a href="{% url 'web:myprofile' %}">My Profile </a></li>
+                    <li>  <a  href="{% url 'web:partnerpref' %}">Partner Preferences </a></li>
+                    <li>  <a class="activee" href="{% url 'web:addphotos' %}">Add Photos</a></li>
+                    <li>  <a  href="{% url 'web:changepass' %}">Change Password</a></li>
+                     
+                  </ul>
+              </div>
+            </div>
+          
+          
+      </div>
+    </section>
+    
+
+
+    <div class="container text-center shots">
+        <p class="mb-5">Add your best shots <i style="color: red;" class="icofont-nerd-smile"></i></p>
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                <img width="100%" src="{% static 'web/image/profile.jpg' %}" alt="dfsd">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 plus ">
+                <img width="100%" src="{% static 'web/image/plus.png' %}" alt="dfsd">
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 plus shots-sm">
+                <img width="100%" src="{% static 'web/image/plus.png' %}" alt="dfsd">
+            </div>
+
+            <div class="col-12">
+            <button class="btn mt-5">Save Changes</button>
+            </div>
+
+        </div>
+    </div>
+        
+
+    <!-- <div class="container pager mt-3">
+        <div class="row member justify-content-center trmatch">
+
+
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 text-center">
+                <i class="icofont-ui-love-add ma" style="color: #1C57C9;"></i>
+                <p class="maa">You have no Matches now</p>
+            </div>
+            
+            
+
+            
+
+        </div>
+    </div> -->
+
+      
+    <div class="container-fluid d-none" id="chatnav">
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="nav-menu iconn">
+                    <ul>
+                      <li><a href="#"><i class="icofont-binoculars mr-2"></i>Explore</a></li>
+                      <li><a href="#about"><i class="icofont-ui-text-chat mr-2"></i>Chat</a></li>
+                      <li class="active"><a href="#portfolio"><i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
+                      
+                      
+                      <li id="userna"><a href="#features"><i class="icofont-ui-user ml-2"></i></a></li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+
+    </div>
+
+
+        
+    {% endblock %}
+    {% block javascript %}
+    <script src="{% static 'web/js/getmachedprofiles.js' %}"></script>
+    {% endblock %}

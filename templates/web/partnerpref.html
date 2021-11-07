@@ -1,0 +1,200 @@
+
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title %}Partner Preference{% endblock %}
+
+
+{% block content %}
+{% include "web/partials/header2.html" %}
+    
+    <section class="explore pb-0">
+      <div class="container">
+          <div class="row exx inter">
+              
+              
+              <div class="col-12 smsm">
+                <p>Hello, Username <span><i class="icofont-hand" style="color: #cfcc1e;"></i></span></p> 
+              </div>
+            </div>
+              <div class="col-6 hrr d-none  ">  
+
+              </div>
+              <div class="row inter kert justify-content-center">
+              <div class="col-lg-8 col-md-10 col-sm-10 col-11 exxd">
+                  <ul class="d-flex justify-content-center p-0">
+                    <li>  <a href="{% url 'web:myprofile' %}">My Profile </a></li>
+                    <li>  <a class="activee" href="{% url 'web:partnerpref' %}">Partner Preferences </a></li>
+                    <li>  <a  href="{% url 'web:addphotos' %}">Add Photos</a></li>
+                    <li>  <a  href="{% url 'web:changepass' %}">Change Password</a></li>
+                     
+                  </ul>
+              </div>
+            </div>
+          
+          
+      </div>
+    </section>
+    
+
+
+
+
+    <div class="container mt-5">
+        <div class="row justify-content-right">
+            
+            <div class="col-lg-10">
+
+                
+
+  
+
+                <form action="">
+                    <h4 class="preff ">Tell Us What you Are Looking for in a Life Partner</h4>
+
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Age : </label>
+                        <div class="col-sm-6">
+                           <input type="range" class="form-control" id="inputPassword">
+                        </div>
+                      </div>
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Height : </label>
+                        <div class="col-sm-6">
+                           <input type="range" class="form-control " id="inputPassword">
+                        </div>
+                      </div>
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Martial Status : </label>
+                        <div class="col-sm-6">
+                           <select class="form-control" name="" id="">
+                               <option value="">Self</option>
+                               <option value="">Double</option>
+                               <option value="">ljyv</option>
+                           </select>
+                        </div>
+                      </div>
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Complexion : </label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="" id="">
+                                <option value="">Very Fair</option>
+                                <option value="">Double</option>
+                                <option value="">ljyv</option>
+                            </select>
+                        </div>
+                      </div>
+
+                      <h4 class="preff ">Educational & Professional Details</h4>
+
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Education : </label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="" id="">
+                                <option value="">Under Graduate</option>
+                                <option value="">Double</option>
+                                <option value="">ljyv</option>
+                            </select>
+                        </div>
+                      </div>
+
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Working with : </label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="" id="">
+                                <option value="">IT Company</option>
+                                <option value="">Double</option>
+                                <option value="">ljyv</option>
+                            </select>
+                        </div>
+                      </div>
+                      
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Profession Area : </label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="" id="">
+                                <option value="">Design and Development</option>
+                                <option value="">Double</option>
+                                <option value="">ljyv</option>
+                            </select>
+                        </div>
+                      </div>
+
+                      <h4 class="preff ">Location details</h4>
+
+                      
+                     
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Present Country : </label>
+                        <div class="col-sm-6">
+                           <select class="form-control" name="" id="">
+                               <option value="">India</option>
+                               <option value="">Double</option>
+                               <option value="">ljyv</option>
+                           </select>
+                        </div>
+                      </div>
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Present State : </label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="" id="">
+                                <option value="">Kearal</option>
+                                <option value="">Double</option>
+                                <option value="">ljyv</option>
+                            </select>
+                        </div>
+                      </div>
+
+                      <div class="mb-3 row chanpas">
+                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Present District : </label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="" id="">
+                                <option value="">Doesn't Matter</option>
+                                <option value="">Double</option>
+                                <option value="">ljyv</option>
+                            </select>
+                        </div>
+                      </div>
+
+
+
+
+
+
+                      <div class="col-12 text-center">
+                        <button class="btn mt-4">Save & Submit</button>
+                        </div>
+                </form>
+
+
+            </div>
+        
+        </div>
+    </div>
+    
+
+      
+    <div class="container-fluid d-none" id="chatnav">
+        <div class="row">
+            <div class="col-sm-12">
+                <nav class="nav-menu iconn">
+                    <ul>
+                      <li><a href="#"><i class="icofont-binoculars mr-2"></i>Explore</a></li>
+                      <li><a href="#about"><i class="icofont-ui-text-chat mr-2"></i>Chat</a></li>
+                      <li class="active"><a href="#portfolio"><i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
+                      
+                      
+                      <li id="userna"><a href="#features"><i class="icofont-ui-user ml-2"></i></a></li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+
+    </div>
+
+
+        
+    {% endblock %}
+    {% block javascript %}
+    <script src="{% static 'web/js/getmachedprofiles.js' %}"></script>
+    
+    {% endblock %}
