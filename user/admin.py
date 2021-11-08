@@ -75,6 +75,7 @@ class UserEducationLocationContactAdmin(admin.ModelAdmin):
 # class UserPropertiesAdmin(admin.ModelAdmin):
 #     list_display = ('name','user')
 admin.site.register(models.LikeProfile)
+admin.site.register(models.ProfessionTable)
 
   
 

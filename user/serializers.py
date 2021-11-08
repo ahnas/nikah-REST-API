@@ -114,3 +114,7 @@ class UserPreferencesSerializer(serializers.ModelSerializer):
         read_only_fields = ('user',)
 
 
+class ProfesionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ProfessionTable
+        fields='__all__'

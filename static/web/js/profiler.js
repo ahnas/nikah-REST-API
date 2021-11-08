@@ -103,6 +103,7 @@ $(document).ready(function () {
             var height = $('#height').val();
             var weight = $('#weight').val();
             var martialStatus = $('#martialStatus').val();
+            var numberofChildresn = $('#childrens').val();
             var complexion = $('#complexion').val();
             var ethnicGroup = $('#ethnicGroup').val();
             var bodyType = $('#bodyType').val();
@@ -110,6 +111,11 @@ $(document).ready(function () {
             var motherTongue = $('#motherTongue').val();
             var fatherOccupation = $('#fatherOccupation').val();
             var motherOccupation = $('#motherOccupation').val();
+            var numberofsiblings = $('#numberofsiblings').val();
+            var elderBrothers = $('#elderBrothers').val();
+            var marriedBrothers = $('#marriedBrothers').val();
+            var youngerSisters = $('#youngerSisters').val();
+            var marriedSisters = $('#marriedSisters').val();
             var brothers = $('#brothers').val();
             var sisters = $('#sisters').val();
             var financialStatus = $('#financialStatus').val();
@@ -140,7 +146,19 @@ $(document).ready(function () {
                 "financialStatus": financialStatus,
                 "smoking": smoking,
                 "drinking":drinking,
+                "numberofChildresn":numberofChildresn,
+                "numberofsiblings":numberofsiblings,
+                "elderBrothers":elderBrothers,
+                "marriedBrothers":marriedBrothers,
+                "youngerSisters":youngerSisters,
+                "marriedSisters":marriedSisters,
+
             }
+            var total_siblings = parseInt(elderBrothers)+parseInt(marriedBrothers)+parseInt(youngerSisters)+parseInt(marriedSisters)
+            if (parseInt(numberofsiblings)!=0 && parseInt(total_siblings)==0){
+                return siblingError();
+            }
+
             $.ajax({
                 url: "http://127.0.0.1:8000/api/user/properties/",
                 type: 'POST',

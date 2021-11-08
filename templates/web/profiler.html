@@ -111,8 +111,8 @@
                         <div class="form-group row" id="numberodChildren">
                             
                             <div class="col-sm-6">
-                                <label for="inputWebsite">No of Chiledrens</label>
-                                <input type="number" id="childrens" name="childrens" class="form-control">
+                                <label for="inputWebsite">No of Children</label>
+                                <input type="number" id="childrens" name="childrens" class="form-control" value=0>
                                  
 
                             </div>
@@ -134,7 +134,7 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputContactNumber">Physical Status</label>
-                                <input name="physicalStatus" id="physicalStatus" type="text" class="form-control" placeholder="Physical Status">
+                                {{form.physicalStatus}}
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputWebsite">Mother Tongue</label>
@@ -148,20 +148,37 @@
                                 {{form.fatherOccupation}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Mother Tongue</label>
+                                <label for="inputWebsite">Mother Occupation</label>
                                 {{form.motherOccupation}}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">Brothers</label>
-                                {{form.brothers}}
+                            <div class="col-sm-12">
+                                <label for="inputWebsite">No of Siblings</label>
+                                <input type="number" name="numberofsiblings" id="numberofsiblings" value=0 class="required form-control">
                             </div>
-                            <div class="col-sm-6">
-                                <label for="inputWebsite">Sisters</label>
-                                {{form.sisters}}
+                        </div>
+                        <div id="siblingdetails">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label for="inputContactNumber">Elder Brother</label>
+                                <input type="number" name="elderBrothers" id="elderBrothers" value=0 class="required form-control">
                             </div>
+                            <div class="col-sm-3">
+                                <label for="inputWebsite">Married Brother</label>
+                                <input type="number" name="marriedBrothers" id="marriedBrothers" value=0 class="required form-control">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="inputWebsite">Younger Sister</label>
+                                <input type="number" name="youngerSisters" id="youngerSisters" value=0 class="required form-control">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="inputWebsite">Married Sister</label>
+                                <input type="number" name="marriedSisters" id="marriedSisters" value=0 class="required form-control">
+                            </div>
+                        </div>
+                        <h6 class="error m-0" style="font-weight: 600; position:relative;top:-30px;"  id="siblingError"></h6>
                         </div>
 
                         <div class="form-group row">
@@ -205,6 +222,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script src="{% static 'web/js/header.js' %}"></script>
+        <script src="{% static 'web/js/helper.js' %}"></script>
         <script src="{% static 'web/js/profilecheckA.js' %}"></script>
      {% endblock %}
 

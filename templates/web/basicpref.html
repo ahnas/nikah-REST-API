@@ -1,0 +1,156 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title %}Basic Partner Preferences{% endblock %}
+
+{% block content %}
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+
+
+
+
+
+<section class="profiler">
+
+    <div class="container">
+        <div class="row profiler-head">
+
+
+
+            <div class="col-lg-10 col-md-11 col-sm-12 col-11 pro-box">
+                <div class="row text-center">
+                    <div class="col-12">
+
+
+                        <p class="mb-1"><span class="">|</span> Basic Partner Preferences </p>
+                        <h6  class="mb-3"> <b>To Find Your Perfect Match, Fill your Partner Preferences</b></h6>
+                    </div>
+
+                </div>
+
+                <form action="{% url 'web:imageupload' %}" name="modify">
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputAddressLine2">Age From</label>
+                            {{form.ageFrom}}
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputAddressLine2">Age To</label>
+                            {{form.ageTo}}
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputCity">Martial Status</label>
+                            {{form.martialStatus}}
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Complexion</label>
+                            {{form.complexion}}
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group row">
+
+                        <div class="col-sm-3">
+                            <label for="inputContactNumber">Height From</label>
+                            {{form.heightFrom}}
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="inputContactNumber">Height To</label>
+                            {{form.heightTo}}
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="inputContactNumber">Weight From</label>
+                            {{form.weightFrom}}
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="inputContactNumber">Weight To</label>
+                            {{form.weightTo}}
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group row">
+                        
+                        <div class="col-sm-6">
+                            <label for="highestEducation">Highest Education</label>
+                            {{form.education}}
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Financial Status</label>
+                            {{form.financialStatus}}
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <div class="col-sm-12">
+                            <label for="highestEducation">Present Country</label>
+                            {{form.country}}
+                        </div>
+
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Present State</label>
+                            {{form.district}}
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="highestEducation">Present City</label>
+                            {{form.city}}
+                        </div>
+
+
+                    </div>
+                    <div class="form-group row text-center">
+                        <div class="col">
+                            <button type="submit"  class="btn btn-primary px-4 save">Save & Continue</button>
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+{% block javascript %}
+<!-- 
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+           
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+        <script src="{% static 'web/js/profiler.js' %}"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <script src="{% static 'web/js/header.js' %}"></script>
+        <script src="{% static 'web/js/profilecheckA.js' %}"></script> -->
+<script src="{% static 'web/js/helper.js' %}"></script>
+
+{% endblock %}
+
+{% endblock %}

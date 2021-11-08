@@ -39,7 +39,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputLastname">Profession</label>
-                                <input type="text" class="form-control" name="profession" id="profession" placeholder="profession">
+                                <select  class="form-control" name="profession" id="profession">
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -120,7 +121,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputWebsite">Relation</label>
-                                <input type="text" class="form-control" name="relation" id="relation" placeholder="relation">
+                                {{form.relation}}
                             </div>
                         </div>
 
@@ -150,7 +151,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputWebsite">Religiousness</label>
-                                <input type="text" class="form-control" name="religiousness" id="religiousness" placeholder="religiousness">
+                                {{form.religiousness}}
                             </div>
                             
                         </div>
@@ -200,6 +201,7 @@
         <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script src="{% static 'web/js/header.js' %}"></script>
         <script src="{% static 'web/js/profileCheckB.js' %}"></script>
+        <script src="{% static 'web/js/helper.js' %}"></script>
      {% endblock %}
 
 
