@@ -50,7 +50,7 @@ class UserProperties(models.Model):
 
     GENDER_CHOICES = (('male', 'Male'),('female', 'Female'),('other', 'Other'))
     profileCreated_CHOICES = (('self','Self'),('parent','Parent'),('sibling','Sibling'),('brother','Brother'),('sister','Sister'),('friend','Friend'),('other','Other'))
-    martialStatus_CHOICES = (('Never Married','Never Married'),('Widowed','Widowed'),('Divorced','Divorced'))
+    martialStatus_CHOICES = (('Never Married','Never Married'),('Widowed','Widowed'),('Divorced','Divorced'),('Awaiting Divorse','Awaiting Divorse'),('Married','Married'))
     bodyType_CHOICES = ((None,None),('Slim','Slim'),('Average','Average'),('Athlatic','Athlatic'),('Heavy','Heavy'))
     community_CHOICES = (('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jamayath Islam ','Jamayath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
     smoking_CHOICES = (('Yes','Yes'),('No','No'),('occasionally','occasionally'),('Addicted',('Addicted')))
