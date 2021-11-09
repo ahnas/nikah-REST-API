@@ -3,6 +3,7 @@ import json
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db.models.deletion import CASCADE
+from django.db.models.fields import BigAutoField
 from django.db.models.fields.related import ForeignKey, OneToOneField
 from django.http.response import JsonResponse
 from versatileimagefield.fields import VersatileImageField
@@ -96,7 +97,9 @@ class UserProperties(models.Model):
     financialStatus = models.CharField(max_length=225,choices=financialStatus_CHOICES,default="Middle Class")
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
-
+    workingwith = models.CharField(max_length=225,null=True)
+    workingas = models.CharField(max_length=225,blank=True)
+    
     class Meta:
         verbose_name_plural = ('UserProperties')
        
@@ -122,12 +125,16 @@ class UserEducationLocationContact(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,unique=True)
     highestEducation = models.CharField(max_length=225,choices=highestEducation_CHOICES,default="Masters")
     EduSpezialization = models.CharField(max_length=225,null=True,blank=True)
-    profession = models.CharField(max_length=225)
-    professionType = models.CharField(max_length=225)
+    profession = models.CharField(max_length=225,null=True,blank=True)
+    professionType = models.CharField(max_length=225,null=True,blank=True)
 
     nativeCountry = models.CharField(max_length=225)
     nativeState = models.CharField(max_length=225)
     nativeCity = models.CharField(max_length=225)
+
+    currentCountry = models.CharField(max_length=225,null=True,blank=True)
+    currentState = models.CharField(max_length=225,null=True,blank=True)
+    currentCity = models.CharField(max_length=225,null=True,blank=True)
 
     houseName = models.CharField(max_length=225)
     locality = models.CharField(max_length=225)
