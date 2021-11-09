@@ -109,7 +109,7 @@ def imageupload(request):
         preference.save()
 
         return redirect ('web:home')
-    return render(request, 'web/imageupload.html',) 
+    return render(request, 'web/imageupload.html',context={'is_imageupload':True}) 
 
 
 

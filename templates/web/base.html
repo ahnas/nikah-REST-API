@@ -25,7 +25,7 @@
     <link href="{% static 'web/css/responsive.css' %}" rel="stylesheet">
    
 
-</head>
+  </head>
 <body>
     {% include "web/partials/header.html" %}
     {% block content %}
@@ -55,6 +55,13 @@
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="{% static 'web/js/main.js' %}"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
+    <script src="{% static 'web/js/countrycode.js' %}"></script>
     
   {% block javascript %}{% endblock %}
 </body>
