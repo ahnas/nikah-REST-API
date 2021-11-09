@@ -668,24 +668,27 @@
                             <div class="col-sm-6">
                                 <label for="inputAddressLine2">Working With</label>
                                 <select name="workingwith" id="workingwith" class="form-control">
-                                    <option value="XI Arts">XI Arts</option>
-                                    <option value="XI Commerce">XI Commerce</option>
-                                    <option value="XI Science">XI Science</option>
-                                    <option value="XII Arts">XII Arts</option>
-                                    <option value="XII Commerce">XII Commerce</option>
-                                    <option value="XII Science">XII Science</option>
+                                    <option value="Private Sector">Private Sector</option>
+                                    <option value="Public Sector">Public Sector</option>
+                                    <option value="Civil Service">Civil Service</option>
+                                    <option value="Defence">Defence</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Self Employed">Self Employed</option>
+                                    <option value="NRI">NRI</option>
+                                    <option value="Not Working">Not Working</option>
                                 </select>
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputAddressLine2">Working as</label>
-                                <select name="workingas" id="workingas" class="form-control">
+                                <input type="text" class="form-control" name="workingas" id="workingas" placeholder="Working as">
+                                <!-- <select name="workingas" id="workingas" class="form-control">
                                     <option value="XI Arts">XI Arts</option>
                                     <option value="XI Commerce">XI Commerce</option>
                                     <option value="XI Science">XI Science</option>
                                     <option value="XII Arts">XII Arts</option>
                                     <option value="XII Commerce">XII Commerce</option>
                                     <option value="XII Science">XII Science</option>
-                                </select>
+                                </select> -->
                             </div>
                         </div>
 
@@ -867,9 +870,6 @@
             
         </script>
         <script>
-            $("#EduSpezialization").change(function(){
-                alert($(this).val())
-            });
         </script>
      {% endblock %}
 

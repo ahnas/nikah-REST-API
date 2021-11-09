@@ -6,6 +6,7 @@ from django.db.models.deletion import CASCADE
 from django.db.models.fields import BigAutoField
 from django.db.models.fields.related import ForeignKey, OneToOneField
 from django.http.response import JsonResponse
+from django.utils import tree
 from versatileimagefield.fields import VersatileImageField
 
 
@@ -84,6 +85,7 @@ class UserProperties(models.Model):
     bodyType = models.CharField(max_length=225,choices=bodyType_CHOICES,default="slim") 
     physicalStatus = models.CharField(max_length=225,choices=physicalStatus_CHOICES,default="Normal")
     motherTongue = models.CharField(max_length=225)
+    languagespoken = models.CharField(max_length=225,null=True,blank=True)
     familyType = models.CharField(max_length=225,choices=familyType_CHOICES,default="Nuclear Family",null=True,blank=True)
     fatherOccupation = models.CharField(max_length=225,choices=fatherOccupation_CHOICES,default='Private')
     motherOccupation = models.CharField(max_length=225,choices=motherOccupation_CHOICES,default='House Wife')
