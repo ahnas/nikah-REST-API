@@ -118,6 +118,7 @@ $(document).ready(function () {
             var marriedSisters = $('#marriedSisters').val();
             var brothers = $('#brothers').val();
             var sisters = $('#sisters').val();
+            var languagespoken = $('#languagespoken').val();
             var financialStatus = $('#financialStatus').val();
             var smoking = $('#smoking').val();
             var drinking = $('#drinking').val();
@@ -152,6 +153,7 @@ $(document).ready(function () {
                 "marriedBrothers":marriedBrothers,
                 "youngerSisters":youngerSisters,
                 "marriedSisters":marriedSisters,
+                "languagespoken":languagespoken,
 
             }
             var total_siblings = parseInt(elderBrothers)+parseInt(marriedBrothers)+parseInt(youngerSisters)+parseInt(marriedSisters)

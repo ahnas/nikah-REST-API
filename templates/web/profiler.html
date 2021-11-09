@@ -165,27 +165,67 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputWebsite">Mother Tongue</label>
-                                {{form.motherTongue}}
+                                <select name="motherTongue" id="motherTongue" class="required form-control">
+                                    <option value="Malayalam">Malayalam</option>
+                                    <option value="Tamil">Tamil</option>
+                                    <option value="Hindi">Hindi</option>
+                                    <option value="Kannada">Kannada</option>
+                                    <option value="Arabic">Arabic</option>
+                                    <option value="Urdu">Urdu</option>
+                                    <option value="Tulu">Tulu</option>
+                                    <option value="Beary">Beary</option>
+                                    <option value="Mahi">Mahi</option>
+                                    <option value="Konkani">Konkani</option>
+                                    <option value="Gujarati">Gujarati</option>
+                                    <option value="Marathi">Marathi</option>
+                                    <option value="Punjabi">Punjabi</option>
+                                </select>
                             </div>
                         </div>
-
                         <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label for="inputWebsite">Language Spoken</label>
+                                <select name="languagespoken" id="languagespoken" class="required form-control">
+                                    <option value="Malayalam">Malayalam</option>
+                                    <option value="Tamil">Tamil</option>
+                                    <option value="Hindi">Hindi</option>
+                                    <option value="Kannada">Kannada</option>
+                                    <option value="Arabic">Arabic</option>
+                                    <option value="Urdu">Urdu</option>
+                                    <option value="Tulu">Tulu</option>
+                                    <option value="Beary">Beary</option>
+                                    <option value="Mahi">Mahi</option>
+                                    <option value="Konkani">Konkani</option>
+                                    <option value="Gujarati">Gujarati</option>
+                                    <option value="Marathi">Marathi</option>
+                                    <option value="Punjabi">Punjabi</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="inputWebsite">Family Type</label>
+                                {{form.familyType}}
+                            </div>
                             <div class="col-sm-6">
                                 <label for="inputContactNumber">Father Occupation</label>
                                 {{form.fatherOccupation}}
                             </div>
+                        </div>
+                        
+                        
+                        <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputWebsite">Mother Occupation</label>
                                 {{form.motherOccupation}}
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <label for="inputWebsite">No of Siblings</label>
                                 <input type="number" name="numberofsiblings" id="numberofsiblings" value=0 class="required form-control">
                             </div>
+                            
                         </div>
+
                         <div id="siblingdetails">
                         <div class="form-group row">
                             <div class="col-sm-3">

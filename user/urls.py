@@ -29,8 +29,9 @@ urlpatterns = [
     path('test_auth/',views.TestAuthView.as_view(),name='testauth'),
     path('header_load/',views.LoadHeaderView.as_view(),name='header_load'),
     path('UpadteUserPreferences/',views.UpadteUserPreferences.as_view(),name='header_load'),
-     path('likeprofile/', views.LikedProfiles.as_view()),
-     path('Profesions/', views.Profesions.as_view()),
+    path('BasicPreferences/',views.BasicPreferences.as_view(),name='basicpreference'),
+    path('likeprofile/', views.LikedProfiles.as_view()),
+    path('Profesions/', views.Profesions.as_view()),
     path('likeprofile/<int:pk>/', views.LikedProfilesDetailed.as_view()),
     path('',include(router.urls)),
 
