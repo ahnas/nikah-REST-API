@@ -8,9 +8,36 @@
      .error{
          color: red;
      }
+
+     .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
+        padding-left: 84px;
+        width: 403px;
+    }
  </style>
 
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/css/intlTelInput.css" rel="stylesheet" media="screen">
+
+
+<header id="header" class="fixed-top headr">
+    <div class="container-fluid d-flex justify-content-between p-0">
+  
+      <h1 class="logo"><a href="{% url 'web:index' %}"><img src="{% static 'web/image/logo.png' %}"  alt=""></a></h1>
+
+      
+      
+      
+      <div class="ribtns" id="username" >
+        <a class="news ml-4" id="logout" href="#">Logout</a>
+      </div>
+      
+      
+  
+  
+    </div>
+  
+    </div>
+  </header>
 
     
 
@@ -48,7 +75,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputCity">Mobile Number</label>
-                                <input name="moblie" id="moblie" type="text" class="form-control" placeholder="Number">
+                                <input name="moblie" id="moblie" type="tel" class="form-control" placeholder="Number">
                             </div>
                             
                         </div>
@@ -251,7 +278,7 @@
       </section>
 
 
-
+      
       
       {% block javascript %}
 
