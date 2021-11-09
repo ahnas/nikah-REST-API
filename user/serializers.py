@@ -113,6 +113,11 @@ class UserPreferencesSerializer(serializers.ModelSerializer):
         fields='__all__'
         read_only_fields = ('user',)
 
+class BasicUserPreferencesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.UserPreferences
+        fields=('ageFrom','ageTo','martialStatus','complexion','heightFrom','heightTo','weightFrom','weightTo','education','financialStatus','country','city')
+        read_only_fields = ('user',)
 
 class ProfesionsSerializer(serializers.ModelSerializer):
     class Meta:

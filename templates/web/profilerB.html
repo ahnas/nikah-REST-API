@@ -266,7 +266,7 @@
                                     <option value="Bachelor of Visual Arts (Applied Art)">Bachelor of Visual Arts (Applied Art)</option>
                                     <option value="Bachelor of Visual Arts (Painting)">Bachelor of Visual Arts (Painting)</option>
                                     <option value="Bachelor of Visual Arts (Sculpture)">Bachelor of Visual Arts (Sculpture)</option>
-                                    <option value="Certificate in Welding Technology">Certificate in Welding Technology</option>
+                                    <option value="certificate in Welding Technology">Certificate in Welding Technology</option>
                                     <option value="Craft Course in Cookery">Craft Course in Cookery</option>
                                     <option value="Craft Course in Food & Beverage Service">Craft Course in Food & Beverage Service</option>
                                     <option value="Craft Course in Hotel Management & Catering Technology">Craft Course in Hotel Management & Catering Technology</option>
@@ -662,11 +662,28 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for="inputAddressLine2">Profession Type (Optional)</label>
-                                <input type="text" class="form-control" name="professionType" id="professionType" placeholder="professionType">
+                            <div class="col-sm-6">
+                                <label for="inputAddressLine2">Working With</label>
+                                <select name="workingwith" id="workingwith" class="form-control">
+                                    <option value="XI Arts">XI Arts</option>
+                                    <option value="XI Commerce">XI Commerce</option>
+                                    <option value="XI Science">XI Science</option>
+                                    <option value="XII Arts">XII Arts</option>
+                                    <option value="XII Commerce">XII Commerce</option>
+                                    <option value="XII Science">XII Science</option>
+                                </select>
                             </div>
-                            
+                            <div class="col-sm-6">
+                                <label for="inputAddressLine2">Working as</label>
+                                <select name="workingas" id="workingas" class="form-control">
+                                    <option value="XI Arts">XI Arts</option>
+                                    <option value="XI Commerce">XI Commerce</option>
+                                    <option value="XI Science">XI Science</option>
+                                    <option value="XII Arts">XII Arts</option>
+                                    <option value="XII Commerce">XII Commerce</option>
+                                    <option value="XII Science">XII Science</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="row text-center">
@@ -679,22 +696,39 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputCity">Native Country</label>
-                                <input type="text" class="form-control" name="nativeCountry" id="nativeCountry" placeholder="nativeCountry">
+                                <input type="text" class="form-control" name="nativeCountry" id="nativeCountry" placeholder="Native Country">
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputState">Native State</label>
-                                <input type="text" class="form-control" name="nativeState" id="nativeState" placeholder="nativeState">
+                                <input type="text" class="form-control" name="nativeState" id="nativeState" placeholder="Native State">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputContactNumber">Native City</label>
-                                <input type="text" class="form-control" name="nativeCity" id="nativeCity" placeholder="nativeCity">
+                                <input type="text" class="form-control" name="nativeCity" id="nativeCity" placeholder="Native City">
                             </div>
 
                             <div class="col-sm-6">
                                 <label for="inputContactNumber">House Name</label>
-                                <input type="text" class="form-control" name="houseName" id="houseName" placeholder="HouseName">
+                                <input type="text" class="form-control" name="houseName" id="houseName" placeholder="House Name">
+                            </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label for="inputCity">Current Country</label>
+                                <input type="text" class="form-control" name="currentCountry" id="currentCountry" placeholder="Current Country">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="inputState">Current State</label>
+                                <input type="text" class="form-control" name="currentState" id="currentState" placeholder="Current State">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label for="inputContactNumber">Current City</label>
+                                <input type="text" class="form-control" name="currentCity" id="currentCity" placeholder="Current City">
                             </div>
                             
                         </div>
@@ -721,11 +755,11 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputContactNumber">Primary Number</label>
-                                <input type="text" class="form-control" name="primaryNumber" id="primaryNumber" placeholder="primaryNumber">
+                                <input type="text" class="form-control" name="primaryNumber" id="primaryNumber" placeholder="Primary Number">
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputWebsite">Secondary Number</label>
-                                <input type="text" class="form-control" name="secondaryNumber" id="secondaryNumber" placeholder="secondaryNumber">
+                                <input type="text" class="form-control" name="secondaryNumber" id="secondaryNumber" placeholder="Secondary Number">
                             </div>
                             
                         </div>
@@ -734,7 +768,7 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputContactNumber">Preferered Person of Contact</label>
-                                <input type="text" class="form-control" name="preferedContact" id="preferedContact" placeholder="preferedContact">
+                                <input type="text" class="form-control" name="preferedContact" id="preferedContact" placeholder="Prefered Contact">
 
                             </div>
                             <div class="col-sm-6">
@@ -820,7 +854,6 @@
         <script src="{% static 'web/js/header.js' %}"></script>
         <script src="{% static 'web/js/profileCheckB.js' %}"></script>
         <script src="{% static 'web/js/helper.js' %}"></script>
-
     
      {% endblock %}
 
