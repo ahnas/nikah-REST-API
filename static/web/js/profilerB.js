@@ -1,6 +1,20 @@
 
 
 $(document).ready(function () {
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/Profesions/",
+        type: 'GET',
+        success: function (response) {
+            
+            $('#profession').html('')
+            const obj = JSON.parse(JSON.stringify(response));
+            for(let i = 0; i < obj.length ; i++){
+            $('#profession').append("<option value='"+obj[i].professionName+"'>"+obj[i].professionName+"</option>")
+            }
+            $('#profession').append("<option value='Other'>Other</option>")
+
+        }
+    });
     $("form[name='profilerB']").validate({ // initialize the plugin
         rules: {
             highestEducation: {
@@ -141,7 +155,7 @@ $(document).ready(function () {
                 success: function (response) {
                     // var responseText = jQuery.parseJSON(response);   
                     //sessionStorage.setItem("token", response['token'])
-                    window.location.href = "http://127.0.0.1:8000/imageupload/"
+                    window.location.href = "http://127.0.0.1:8000/basicpref/"
                 },
                 error: function (jqXHR) {
                     if (jqXHR.status == 400) { 

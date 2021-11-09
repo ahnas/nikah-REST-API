@@ -32,7 +32,7 @@ class UserPropertiesForm(forms.ModelForm):
             'weight': NumberInput(attrs={'id':'weight','name':'weight','class': 'required form-control'}),
             'complexion': Select(attrs={'id':'complexion','name':'complexion','class': 'required form-control'}),
             'ethnicGroup': Select(attrs={'id':'ethnicGroup','name':'ethnicGroup','class': 'required form-control'}),
-
+            'physicalStatus': Select(attrs={'id':'physicalStatus','name':'physicalStatus','class': 'required form-control'}),
         }
 
 class UserEducationLocationContactForm(forms.ModelForm):
@@ -44,6 +44,12 @@ class UserEducationLocationContactForm(forms.ModelForm):
             'readQuran': Select(attrs={'id':'readQuran','name':'readQuran','class': 'required form-control'}),
             'attendIslamicServices': Select(attrs={'id':'attendIslamicServices','name':'attendIslamicServices','class': 'required form-control'}),
             'highestEducation': Select(attrs={'id':'highestEducation','name':'highestEducation','class': 'required form-control'}),
+            'religiousness':Select(attrs={'id':'religiousness','name':'religiousness','class': 'required form-control'}),
+            'relation':Select(attrs={'id':'relation','name':'relation','class': 'required form-control'}),
+            
+            'nativeCountry':TextInput(attrs={'id':'nativeCountry','name':'nativeCountry','class': 'required form-control'}),
+            'nativeState':TextInput(attrs={'id':'nativeState','name':'nativeState','class': 'required form-control'}),
+            'nativeCity':TextInput(attrs={'id':'nativeCity','name':'nativeCity','class': 'required form-control'}),
         }
 
 class UserPreferencesForm(forms.ModelForm):
@@ -64,5 +70,10 @@ class UserPreferencesForm(forms.ModelForm):
             'smoking': Select(attrs={'id':'smoking','name':'smoking','class': 'form-control'}),
             'drinking': Select(attrs={'id':'drinking','name':'drinking','class': 'form-control'}),
             'complexion': Select(attrs={'id':'complexion','name':'complexion','class': 'form-control'}),
+            'financialStatus': Select(attrs={'id':'financialStatus','name':'financialStatus','class': 'form-control'}),
+            'education': Select(attrs={'id':'education','name':'education','class': 'form-control'}),
+            'country': TextInput(attrs={'id':'country','name':'country','class': 'form-control','placeholder':'Present Country'}),
+            'district': TextInput(attrs={'id':'district','name':'district','class': 'form-control','placeholder':'Present State'}),
+            'city': TextInput(attrs={'id':'city','name':'city','class': 'form-control','placeholder':'Present City'}),
         }
         

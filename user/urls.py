@@ -30,6 +30,7 @@ urlpatterns = [
     path('header_load/',views.LoadHeaderView.as_view(),name='header_load'),
     path('UpadteUserPreferences/',views.UpadteUserPreferences.as_view(),name='header_load'),
      path('likeprofile/', views.LikedProfiles.as_view()),
+     path('Profesions/', views.Profesions.as_view()),
     path('likeprofile/<int:pk>/', views.LikedProfilesDetailed.as_view()),
     path('',include(router.urls)),
 

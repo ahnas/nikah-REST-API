@@ -1,10 +1,11 @@
 
 $(document).ready(function () {
     $.ajax({
-        url: "http://127.0.0.x:8000/api/user/collectproperties/",
+        url: "http://127.0.0.1:8000/api/user/collectproperties/",
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
+            
             // $('#username').html("<a href='#' class='text-white'>"+myArr[1]+"</a>");
             const obj = JSON.parse(JSON.stringify(response));
             for(let i = 0; i < obj.length && i<=200; i++){
