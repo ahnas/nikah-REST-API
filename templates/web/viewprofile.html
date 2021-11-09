@@ -139,7 +139,7 @@
                 <div class="prremm">
                     <h2 class="mb-0" style="color: #1C57C9;">Premium Features</h2>
                     <p>Here is your premium features, explore it now!</p>
-                    <p class="text-center">You need to upgrade your membership plan to know the phone number and address of this profile.There is a relatively low fee for this.Fees can be paid in various ways.Click here to know about the various membership plans.</p>
+                    <p class="text-center">You to upgrade your membership plan to know the phone number and address of this profile.There is a relatively low fee for this.Fees can be paid in various ways.Click here to know about the various membership plans.</p>
                     <div class="col-12 text-center"><button class="btn">Click here to view</button></div>
             </div>
             </div>
@@ -159,7 +159,7 @@
                     <div class="row"><div class="col-5">Ethinicity</div> : <div class="col-6" id="ethnicGroup">Islam</div></div>
 
                     <div class="row"><div class="col-5">Mother Toungue</div> : <div class="col-6" id="motherTongue">Islam</div></div>
-                    <div class="row"><div class="col-5">Language Spoken</div> : <div class="col-6" id="profession">New Field</div></div>
+                    <div class="row"><div class="col-5">Language Spoken</div> : <div class="col-6" id="languagespoken">New Field</div></div>
                  </div>              
                 </div>
             </div> 
@@ -182,7 +182,7 @@
    
                        <div class="col-lg-3 col-md-4 col-sm-12 col-12 p-0 mb-3"><h2>Family Details</h2></div>
                        
-                       <div class="row"><div class="col-5">Family type</div> : <div class="col-6" id="relegion">New Field</div></div>
+                       <div class="row"><div class="col-5">Family type</div> : <div class="col-6" id="familyType">New Field</div></div>
                        <div class="row"><div class="col-5">Father Occupation</div> : <div class="col-6" id="fatherOccupation">Islam</div></div>
                        <div class="row"><div class="col-5">Mother Occupation</div> : <div class="col-6" id="motherOccupation">Islam</div></div>
                        <div class="row"><div class="col-5">No. of Siblings</div> : <div class="col-6" id="numberofsiblings">Islam</div></div>
@@ -202,9 +202,9 @@
                        
                        
                        <div class="row"><div class="col-5">Highest Education</div> : <div class="col-6" id="highestEducation2">Isla</div></div>
-                       <div class="row"><div class="col-5">Specification</div> : <div class="col-6" id="">New Filed</div></div>
-                       <div class="row"><div class="col-5">Working with</div> : <div class="col-6" id="martialStatuspc2">New Field</div></div>
-                       <div class="row"><div class="col-5">Working as</div> : <div class="col-6" id="martialStatuspc2">New Field</div></div>
+                       <div class="row"><div class="col-5">Specification</div> : <div class="col-6" id="EduSpezialization">New Filed</div></div>
+                       <div class="row"><div class="col-5">Working with</div> : <div class="col-6" id="workingwith">New Field</div></div>
+                       <div class="row"><div class="col-5">Working as</div> : <div class="col-6" id="workingas">New Field</div></div>
                        
                        </div>              
                    </div>
@@ -233,12 +233,12 @@
                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-0 mb-3"><h2>Partner Preferences</h2></div>
                        
                        
-                       <div class="row"><div class="col-5">Age</div> : <div class="col-6" id="dateOfBirthpcc">Need Data</div></div>
-                       <div class="row"><div class="col-5">Maritial status</div> : <div class="col-6" id="dateOfBirthpc">Need Data</div></div>
-                       <div class="row"><div class="col-5">Height</div> : <div class="col-6" id="martialStatuspc2">Need Data</div></div>
-                       <div class="row"><div class="col-5">Highest Education</div> : <div class="col-6" id="martialStatuspc2">Need Data</div></div>
-                       <div class="row"><div class="col-5">Community</div> : <div class="col-6" id="martialStatuspc2">Need Data</div></div>
-                       <div class="row"><div class="col-5">City</div> : <div class="col-6" id="martialStatuspc2">Need Data</div></div>
+                       <div class="row"><div class="col-5">Age</div> : <div class="col-6" id="dateOfBirthpcc">Data</div></div>
+                       <div class="row"><div class="col-5">Maritial status</div> : <div class="col-6" id="dateOfBirthpc">Data</div></div>
+                       <div class="row"><div class="col-5">Height</div> : <div class="col-6" id="martialStatuspc2">Data</div></div>
+                       <div class="row"><div class="col-5">Highest Education</div> : <div class="col-6" id="martialStatuspc2">Data</div></div>
+                       <div class="row"><div class="col-5">Community</div> : <div class="col-6" id="martialStatuspc2">Data</div></div>
+                       <div class="row"><div class="col-5">City</div> : <div class="col-6" id="martialStatuspc2">Data</div></div>
                        
                        </div>              
                    </div>
@@ -375,28 +375,15 @@
     </div>
 
     
-    <div class="container-fluid d-none" id="chatnav">
-        <div class="row">
-            <div class="col-sm-12">
-                <nav class="nav-menu iconn">
-                    <ul>
-                      <li class="active"><a href="#"><i class="icofont-binoculars mr-2"></i>Explore</a></li>
-                      <li><a href="#about"><i class="icofont-ui-text-chat mr-2"></i>Chat</a></li>
-                      <li><a href="#portfolio"><i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
-                      
-                      
-                      <li id="userna"><a href="#features"><i class="icofont-ui-user ml-2"></i></a></li>
-                    </ul>
-                  </nav>
-            </div>
-        </div>
-
-    </div>        
+    {% include "web/partials/mobilefooter.html" %}      
 
 
     {% endblock %}
     {% block javascript %}
+
     <script src="{% static 'web/js/profiledetails.js' %}"></script>
     <script src="{% static 'web/js/loadheader.js' %}"></script>
     <script src="{% static 'web/js/profileselect.js' %}"></script>
+    <script src="{% static 'web/js/header.js' %}"></script>
+
     {% endblock %}

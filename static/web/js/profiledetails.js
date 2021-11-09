@@ -17,8 +17,14 @@ $(document).ready(function () {
             $("#dateOfBirthpcc").html(age);
             $("#martialStatuspc").html(obj['profile'].martialStatus);
             $("#martialStatuspc2").html(obj['profile'].martialStatus);
+            $("#languagespoken").html(obj['profile'].languagespoken);
             $("#martialStatus").html(obj['profile'].martialStatus);
+            $("#workingwith").html(obj['profile'].workingwith);
+            $("#workingas").html(obj['profile'].workingas);
+            $("#EduSpezialization").html(obj['education'].EduSpezialization);
+
             $("#profileCreated").html(obj['profile'].profileCreated);
+            $("#familyType").html(obj['profile'].familyType);
             $("#nativeCityPC").html(obj['education'].nativeCity);
             $("#nativeCity").html(obj['education'].nativeCity);
             $("#height").html(obj['profile'].height);
