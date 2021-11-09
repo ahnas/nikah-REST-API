@@ -10,6 +10,9 @@
     }
 
 </style>
+<style>
+   
+</style>
 
 
     <header id="header" class="fixed-top p-5">
@@ -40,7 +43,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputLastname">Specialization</label>
-                                <select id="EduSpezialization" name="EduSpezialization"  class="form-control" >
+                                <select id="EduSpezialization" name="EduSpezialization" class="form-control livesearch">
                                     <option value="Doctor of Medicine Materia Medica">Doctor of Medicine Materia Medica</option>
                                     <option value="Doctor of Medicine Anaesthesia">Doctor of Medicine Anaesthesia</option>
                                     <option value="Doctor of Medicine Anatomy">Doctor of Medicine Anatomy</option>
@@ -812,7 +815,9 @@
       {% block javascript %}
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-            <!--  validation script  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
         <script src="{% static 'web/js/profilerB.js' %}"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -821,10 +826,20 @@
         <script src="{% static 'web/js/profileCheckB.js' %}"></script>
         <script src="{% static 'web/js/helper.js' %}"></script>
 
-    
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".livesearch").chosen();
+
+            })
+            
+        </script>
+        <script>
+            $("#EduSpezialization").change(function(){
+                alert($(this).val())
+            });
+        </script>
      {% endblock %}
 
-
-    
+     
 
     {% endblock %}
