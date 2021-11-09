@@ -3,8 +3,10 @@ import json
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db.models.deletion import CASCADE
+from django.db.models.fields import BigAutoField
 from django.db.models.fields.related import ForeignKey, OneToOneField
 from django.http.response import JsonResponse
+from django.utils import tree
 from versatileimagefield.fields import VersatileImageField
 
 
@@ -58,8 +60,10 @@ class UserProperties(models.Model):
     complexion_CHOICES = (('Fair skin','Fair skin'),('Extremely fair skin','Extremely fair skin'),('Black skin','Black skin'),('Medium skin','Medium skin'),('Olive skin','Olive skin'),('Brown skin','Brown skin'))
     relegion_CHOICES = (('Islam','Islam'),('Hindu','Hindu'),('Cristian','Cristian'),('Jainism','Jainism'),('Buddhist','Buddhist'),('Parsi','Parsi'),('Sikhism ','Sikhism '),('Others ','Others '),('Preferred not to say','Preferred not to say'))
     fatherOccupation_CHOICES = (('Private','Private'),('Self Employee','Self Employee'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
+    motherOccupation_CHOICES = (('House Wife','House Wife'),('Private','Private'),('Self Employee','Self Employee'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
     ethnicGroup_CHOICES = (('Indian','Indian'),('Malayali','Malayali'),('Urdu Muslim','Urdu Muslim'),('Tamil','Tamil'),('Mixed-Race','Mixed-Race'),('Others','Others'),)
     physicalStatus_CHOICES = (('Normal','Normal'),('Deaf','Deaf'),('Dump','Dump'),('Blind','Blind'),('Physically Challenged','Physically Challenged'),('Mentally Challenged','Mentally Challenged'),('Other Disabilities','Other Disabilities'),)
+    familyType_CHOICES = (('Nuclear Family','Nuclear Family'),('Joint Family','Joint Family'),('Extended Family','Extended Family'),('Other','Other'))
     
     """User Properties"""
     user = models.OneToOneField(User,on_delete=models.CASCADE,unique=True)
@@ -81,8 +85,10 @@ class UserProperties(models.Model):
     bodyType = models.CharField(max_length=225,choices=bodyType_CHOICES,default="slim") 
     physicalStatus = models.CharField(max_length=225,choices=physicalStatus_CHOICES,default="Normal")
     motherTongue = models.CharField(max_length=225)
+    languagespoken = models.CharField(max_length=225,null=True,blank=True)
+    familyType = models.CharField(max_length=225,choices=familyType_CHOICES,default="Nuclear Family",null=True,blank=True)
     fatherOccupation = models.CharField(max_length=225,choices=fatherOccupation_CHOICES,default='Private')
-    motherOccupation = models.CharField(max_length=225)
+    motherOccupation = models.CharField(max_length=225,choices=motherOccupation_CHOICES,default='House Wife')
     numberofsiblings = models.IntegerField(null=True,blank=True)
     elderBrothers = models.IntegerField(null=True,blank=True)
     marriedBrothers = models.IntegerField(null=True,blank=True)
@@ -93,7 +99,9 @@ class UserProperties(models.Model):
     financialStatus = models.CharField(max_length=225,choices=financialStatus_CHOICES,default="Middle Class")
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
-
+    workingwith = models.CharField(max_length=225,null=True)
+    workingas = models.CharField(max_length=225,blank=True)
+    
     class Meta:
         verbose_name_plural = ('UserProperties')
        
@@ -118,12 +126,17 @@ class UserEducationLocationContact(models.Model):
     userProperties=OneToOneField(UserProperties,on_delete=models.CASCADE,unique=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,unique=True)
     highestEducation = models.CharField(max_length=225,choices=highestEducation_CHOICES,default="Masters")
-    profession = models.CharField(max_length=225)
-    professionType = models.CharField(max_length=225)
+    EduSpezialization = models.CharField(max_length=225,null=True,blank=True)
+    profession = models.CharField(max_length=225,null=True,blank=True)
+    professionType = models.CharField(max_length=225,null=True,blank=True)
 
     nativeCountry = models.CharField(max_length=225)
     nativeState = models.CharField(max_length=225)
     nativeCity = models.CharField(max_length=225)
+
+    currentCountry = models.CharField(max_length=225,null=True,blank=True)
+    currentState = models.CharField(max_length=225,null=True,blank=True)
+    currentCity = models.CharField(max_length=225,null=True,blank=True)
 
     houseName = models.CharField(max_length=225)
     locality = models.CharField(max_length=225)

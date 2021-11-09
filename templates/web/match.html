@@ -55,27 +55,14 @@
     </div> -->
 
       
-    <div class="container-fluid d-none" id="chatnav">
-        <div class="row">
-            <div class="col-sm-12">
-                <nav class="nav-menu iconn">
-                    <ul>
-                      <li><a href="#"><i class="icofont-binoculars mr-2"></i>Explore</a></li>
-                      <li><a href="#about"><i class="icofont-ui-text-chat mr-2"></i>Chat</a></li>
-                      <li class="active"><a href="#portfolio"><i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
-                      
-                      
-                      <li id="userna"><a href="#features"><i class="icofont-ui-user ml-2"></i></a></li>
-                    </ul>
-                  </nav>
-            </div>
-        </div>
-
-    </div>
+    {% include "web/partials/mobilefooter.html" %}
 
 
         
     {% endblock %}
     {% block javascript %}
     <script src="{% static 'web/js/getmachedprofiles.js' %}"></script>
+
+    <script src="{% static 'web/js/header.js' %}"></script>
+
     {% endblock %}

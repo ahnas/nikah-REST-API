@@ -108,6 +108,12 @@ $(document).ready(function () {
             var profession = $('#profession').val();
             var professionType = $('#professionType').val();
             var nativeCountry = $('#nativeCountry').val();
+            var currentCountry = $('#currentCountry').val();
+            var currentState = $('#currentState').val();
+            var currentCity = $('#currentCity').val();
+            var workingwith = $('#workingwith').val();
+            var workingas = $('#workingas').val();
+            var EduSpezialization = $('#EduSpezialization').val();
             var nativeState = $('#nativeState').val();
             var nativeCity = $('#nativeCity').val();
             var primaryNumber = $('#primaryNumber').val();
@@ -144,6 +150,10 @@ $(document).ready(function () {
                 "readQuran": readQuran,
                 "madrassaEducation": madrassaEducation,
                 "attendIslamicServices": attendIslamicServices,
+                "workingwith":workingwith,
+                "workingas":workingas,
+                "EduSpezialization":EduSpezialization,
+
             }
             $.ajax({
                 url: "http://127.0.0.1:8000/api/user/Bproperties/",

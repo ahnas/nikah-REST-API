@@ -14,14 +14,28 @@ $(document).ready(function () {
             $('#ProfileName').html(obj['profile'].name+"<span class='float-right disp'>Like this profile? <button class='btnn ml-3'><i class='icofont-ui-love mr-2'></i>Like</button></span>")
             $('#dateOfBirth').html(age);
             $("#dateOfBirthpc").html(age);
+            $("#dateOfBirthpcc").html(age);
             $("#martialStatuspc").html(obj['profile'].martialStatus);
+            $("#martialStatuspc2").html(obj['profile'].martialStatus);
+            $("#languagespoken").html(obj['profile'].languagespoken);
             $("#martialStatus").html(obj['profile'].martialStatus);
+            $("#workingwith").html(obj['profile'].workingwith);
+            $("#workingas").html(obj['profile'].workingas);
+            $("#EduSpezialization").html(obj['education'].EduSpezialization);
+
             $("#profileCreated").html(obj['profile'].profileCreated);
+            $("#familyType").html(obj['profile'].familyType);
             $("#nativeCityPC").html(obj['education'].nativeCity);
             $("#nativeCity").html(obj['education'].nativeCity);
+            $("#height").html(obj['profile'].height);
+            $("#weight").html(obj['profile'].weight);
+            $("#numberofChildresn").html(obj['profile'].numberofChildresn);
+            $("#community").html(obj['profile'].community);
+            $("#nationality").html(obj['profile'].nationality);
             $("#bodyType").html(obj['profile'].bodyType+" | "+obj['profile'].height+" cm | "+obj['profile'].weight+"Kg");
             $("#relegion").html(obj['profile'].relegion +" | "+obj['profile'].community);
             $("#highestEducation").html(obj['education'].highestEducation);
+            $("#highestEducation2").html(obj['education'].highestEducation);
             $("#profession").html(obj['education'].profession);
             $("#motherTongue").html(obj['profile'].motherTongue);
             $("#ethnicGroup").html(obj['profile'].ethnicGroup);
@@ -43,6 +57,18 @@ $(document).ready(function () {
             $("#profileEmail").html(obj['user'].email);
             $("#describe").html(obj['education'].describe);
             $("#complexion").html(obj['profile'].complexion);
+            $("#fatherOccupation").html(obj['profile'].fatherOccupation);
+            $("#motherOccupation").html(obj['profile'].motherOccupation);
+            $("#numberofsiblings").html(obj['profile'].numberofsiblings);
+
+            $("#elderBrothers").html(obj['profile'].elderBrothers);
+            $("#marriedBrothers").html(obj['profile'].marriedBrothers); 
+            $("#youngerSisters").html(obj['profile'].youngerSisters);
+            $("#marriedSisters").html(obj['profile'].marriedSisters);
+            $("#financialStatus").html(obj['profile'].financialStatus);
+
+            
+            $("#nmId").append(obj['nmId']);
             $("#drinking").html(obj['profile'].drinking);
             var b=(parseInt(obj['profile'].brothers)>1) ? "s" : "";
             var s=(parseInt(obj['profile'].sisters)>1) ? "s" : "";

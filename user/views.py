@@ -64,6 +64,9 @@ class UserEducationLocationContactViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         """Create a new recipe"""
         property =UserProperties.objects.filter(user=self.request.user).first()
+        preference = UserPreferences()
+        preference.user=self.request.user
+        preference.save()
         serializer.save(user=self.request.user,userProperties=property)
 
 class TestAuthView(APIView):
@@ -156,7 +159,6 @@ class UserPropertiesAll(viewsets.ModelViewSet):
         likedprofile = LikeProfile.objects.filter(liked_by_user=userVerification)
         likeduserlist=[]
         for i in likedprofile:
-            print("#20"*50,i.liked_user_id)
             likeduserlist.append(i.liked_user)
         return self.queryset.filter(**sort_params).exclude(user__email__in=likeduserlist)
     
@@ -510,3 +512,25 @@ class Profesions(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
+
+
+class BasicPreferences(APIView):
+    queryset = models.UserPreferences.objects.all()
+    serializer_class = serializers.UserPreferencesSerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    def post(self, request, *args, **kwargs):
+        updateData = models.UserPreferences.objects.get(user=self.request.user)
+        updateData.martialStatus = request.POST['martialStatus']
+        updateData.ageFrom = request.POST['ageFrom']
+        updateData.ageTo = request.POST['ageTo']
+        updateData.heightFrom = request.POST['heightFrom']
+        updateData.heightTo = request.POST['heightTo']
+        updateData.weightFrom = request.POST['weightFrom']
+        updateData.weightTo = request.POST['weightTo']
+        updateData.complexion = request.POST['complexion']
+        updateData.district = request.POST['district']
+        updateData.city = request.POST['city']
+        updateData.country = request.POST['country']
+        updateData.save()
+        return JsonResponse({'message':'Success'})

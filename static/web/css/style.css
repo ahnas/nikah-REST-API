@@ -1,7 +1,9 @@
+
+
+
 body{
   font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  
+  font-size: 15px;  
 }
 
 a:hover{
@@ -63,7 +65,7 @@ display: none;
 #header .logo a {
   color: #fff;
   background-color: white;
-  padding: 11% 67%;
+  padding: 11% 66%;
 }
 .deaser .logo a {
   color: #fff;
@@ -194,9 +196,7 @@ display: none;
 }
 
 /* Get Startet Button */
-.ribtn a{
 
-}
 .get-started-btn {
   width: 100px;
   height: 35px;
@@ -1537,13 +1537,7 @@ h3::before {
   color: #FF0000;
   font-size: 15px !important;
 }
-.profiler{
-    /* background-image:url('../image/s2.png');
-    background-repeat: no-repeat;
-    background-position: right bottom; 
-    background-position-x: center;
-    padding: 130px 0; */
-}
+
 .profiler-head{
   justify-content: center;
   
@@ -1555,10 +1549,10 @@ h3::before {
   margin: 5% 0%;
 }
 .profiler-head span{
-  color:  #3acf6e;
+  color:  #000000;
   margin-left: 0px;
-  font-size: 26px;
-  font-weight: 800;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .profiler label{
@@ -2099,6 +2093,7 @@ h3::before {
 }
 
 .homeimages{
+  cursor: pointer;
   height: 170px;
     margin-left: 8px;
     width: 140px !important;
@@ -2180,4 +2175,45 @@ h3::before {
 }
 .justify-content-right{
   justify-content: right;
+}
+.chosen-container-single .chosen-single {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0 0 0 8px;
+  height: 38px !important;
+  border:1px solid #ced4da !important;
+  border-radius: 5px;
+  background-color: #fff !important;
+  
+  background-clip: padding-box;
+  box-shadow: 0 0 3px #fff inset,0 1px 1px rgba(0,0,0,.1);
+  color: #444;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 35px !important;
+  background: none !important;
+}
+.chosen-single span {
+  color: #000;
+}
+.viewp{
+  color: #1C57C9;
+  font-size: 22px;
+  font-weight: 600;
+}
+.parttt{
+  padding-left: 25px;
+}
+.viewp .row{
+  padding-bottom: 13px;
+}
+
+.prremm{
+  border: 1px solid black;
+  padding: 20px;
+}
+.perss h2{
+  font-weight: 600;
+  border-bottom: 3px solid #00AB3B;
 }

@@ -10,6 +10,25 @@
     }
 </style>
 
+<header id="header" class="fixed-top headr">
+    <div class="container-fluid d-flex justify-content-between p-0">
+  
+      <h1 class="logo"><a href="{% url 'web:index' %}"><img src="{% static 'web/image/logo.png' %}"  alt=""></a></h1>
+
+      
+      
+      
+      <div class="ribtns" id="username" >
+        <a class="news ml-4" id="logout" href="#">Logout</a>
+      </div>
+      
+      
+  
+  
+    </div>
+  
+    </div>
+  </header>
 
 
 
@@ -33,7 +52,7 @@
 
                 </div>
 
-                <form action="{% url 'web:imageupload' %}" name="modify">
+                <form action="" name="modify">
 
                     <div class="form-group row">
                         <div class="col-sm-6">
@@ -140,16 +159,17 @@
 
 
 {% block javascript %}
-<!-- 
+
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
            
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
-        <script src="{% static 'web/js/profiler.js' %}"></script>
+        <!-- <script src="{% static 'web/js/profiler.js' %}"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script src="{% static 'web/js/header.js' %}"></script>
-        <script src="{% static 'web/js/profilecheckA.js' %}"></script> -->
-<script src="{% static 'web/js/helper.js' %}"></script>
+        <script src="{% static 'web/js/profilecheckA.js' %}"></script>  -->
+        <script src="{% static 'web/js/helper.js' %}"></script>
+        <script src="{% static 'web/js/basicpriferenceadd.js' %}"></script>
 
 {% endblock %}
 

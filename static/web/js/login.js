@@ -38,9 +38,7 @@ $(document).ready(function () {
                 data: data,
                 // beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token 6660edb56e1809238b3239f9bb8e3c1961e11c6e');},
                 success: function (response) {
-                    // var responseText = jQuery.parseJSON(response);
                     localStorage.setItem("token", response['token'])
-                    //sessionStorage.setItem("token", response['token'])
                     window.location.href = "http://127.0.0.1:8000/home/"
                 },
                 error: function (jqXHR) {
