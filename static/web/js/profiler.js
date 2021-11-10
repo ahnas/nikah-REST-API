@@ -122,6 +122,7 @@ $(document).ready(function () {
             var financialStatus = $('#financialStatus').val();
             var smoking = $('#smoking').val();
             var drinking = $('#drinking').val();
+            var whenmarry = $('#whenmarry').val();
             data = {
                 "profileCreated": profileCreated,
                 "name": name,
@@ -154,7 +155,7 @@ $(document).ready(function () {
                 "youngerSisters":youngerSisters,
                 "marriedSisters":marriedSisters,
                 "languagespoken":languagespoken,
-
+                "whenmarry":whenmarry,
             }
             var total_siblings = parseInt(elderBrothers)+parseInt(marriedBrothers)+parseInt(youngerSisters)+parseInt(marriedSisters)
             if (parseInt(numberofsiblings)!=0 && parseInt(total_siblings)==0){
