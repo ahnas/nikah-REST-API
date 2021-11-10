@@ -129,6 +129,7 @@ $(document).ready(function () {
             var performNamaz = $('#performNamaz').val(); 
             var readQuran = $('#readQuran').val(); 
             var religiousness = $('#religiousness').val(); 
+            var annualincome = $('#annualincome').val(); 
             
             data = {
                 "highestEducation": highestEducation,
@@ -153,6 +154,10 @@ $(document).ready(function () {
                 "workingwith":workingwith,
                 "workingas":workingas,
                 "EduSpezialization":EduSpezialization,
+                "currentCountry":currentCountry,
+                "currentState":currentState,
+                "currentCity":currentCity,
+                "annualincome":annualincome,
 
             }
             $.ajax({
