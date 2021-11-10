@@ -22,7 +22,6 @@ router.register("MatchedProfiles",views.MatchedProfiles)
 
 
 
-
 urlpatterns = [
     path('create/', views.CreateUserView.as_view(), name='create'),
     path('token/', views.CreateTokenView.as_view(), name='token'),
@@ -33,6 +32,8 @@ urlpatterns = [
     path('likeprofile/', views.LikedProfiles.as_view()),
     path('Profesions/', views.Profesions.as_view()),
     path('likeprofile/<int:pk>/', views.LikedProfilesDetailed.as_view()),
+    path('UpdateUserProperties/',views.updateUserPropertiesDetails.as_view()),
+    path('updateUserLocationDetails/',views.updateUserEducationalDetails.as_view()),
     path('',include(router.urls)),
 
 ]
