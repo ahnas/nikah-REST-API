@@ -12,23 +12,20 @@
 
 <header id="header" class="fixed-top headr">
     <div class="container-fluid d-flex justify-content-between p-0">
-  
-      <h1 class="logo"><a href="{% url 'web:index' %}"><img src="{% static 'web/image/logo.png' %}"  alt=""></a></h1>
+       <h1 class="logo"><a href="{% url 'web:index' %}"><img src="{% static 'web/image/logo.png' %}"  alt=""></a></h1>
 
       
       
       
       <div class="ribtns" id="username" >
-        <a class="news ml-4" id="logout" href="#">Logout</a>
+        <a class="news ml-4" id="logout" href="#">
+            
+        </a>
       </div>
-      
-      
-  
-  
     </div>
-  
+
     </div>
-  </header>
+</header>
 
 
 
@@ -46,8 +43,8 @@
                     <div class="col-12">
 
 
-                        <p class="mb-1"><span class="">|</span> Basic Partner Preferences </p>
-                        <h6  class="mb-3"> <b>To Find Your Perfect Match, Fill your Partner Preferences</b></h6>
+                        <p class="mb-1"><span class=""></span> Basic Partner Preferences </p>
+                        <h6 class="mb-3"> <b>To Find Your Perfect Match, Fill your Partner Preferences</b></h6>
                     </div>
 
                 </div>
@@ -84,21 +81,31 @@
 
                         <div class="col-sm-3">
                             <label for="inputContactNumber">Height From</label>
-                            {{form.heightFrom}}
+                            <select name="heightFrom" id="heightFrom" class="required form-control">
+                                <option value=0>No Preference</option>
+                            </select>
+
                         </div>
 
                         <div class="col-sm-3">
                             <label for="inputContactNumber">Height To</label>
-                            {{form.heightTo}}
+                            <select name="heightTo" id="heightTo" class="required form-control">
+                                <option value=0>No Preference</option>
+                            </select>
+
                         </div>
                         <div class="col-sm-3">
                             <label for="inputContactNumber">Weight From</label>
-                            {{form.weightFrom}}
+                            <select name="weightFrom" id="weightFrom" class="required form-control">
+                                <option value=0>No Preference</option>
+                            </select>
                         </div>
 
                         <div class="col-sm-3">
                             <label for="inputContactNumber">Weight To</label>
-                            {{form.weightTo}}
+                            <select name="weightTo" id="weightTo" class="required form-control">
+                                <option value=0>No Preference</option>
+                            </select>
                         </div>
 
                     </div>
@@ -106,7 +113,7 @@
 
 
                     <div class="form-group row">
-                        
+
                         <div class="col-sm-6">
                             <label for="highestEducation">Highest Education</label>
                             {{form.education}}
@@ -142,7 +149,7 @@
                     </div>
                     <div class="form-group row text-center">
                         <div class="col">
-                            <button type="submit"  class="btn btn-primary px-4 save">Save & Continue</button>
+                            <button type="submit" class="btn btn-primary px-4 save">Save & Continue</button>
                         </div>
                     </div>
 
@@ -160,16 +167,28 @@
 
 {% block javascript %}
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-           
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
-        <!-- <script src="{% static 'web/js/profiler.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+<!-- <script src="{% static 'web/js/profiler.js' %}"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script src="{% static 'web/js/header.js' %}"></script>
         <script src="{% static 'web/js/profilecheckA.js' %}"></script>  -->
-        <script src="{% static 'web/js/helper.js' %}"></script>
-        <script src="{% static 'web/js/basicpriferenceadd.js' %}"></script>
+<script src="{% static 'web/js/helper.js' %}"></script>
+<script src="{% static 'web/js/basicpriferenceadd.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        for (var i = 137; i <= 213; i++) {
+            $('#heightTo').append("<option value=" + i + ">" + i + " cm  " + (i * 0.0328084).toFixed(1) + " ft</option>")
+            $('#heightFrom').append("<option value=" + i + ">" + i + " cm  " + (i * 0.0328084).toFixed(1) + " ft</option>")
+        }
+        for (var i = 30; i <= 140; i++) {
+            $('#weightFrom').append("<option value=" + i + ">" + i + " Kg </option>");
+            $('#weightTo').append("<option value=" + i + ">" + i + " Kg </option>");
+        }
+    });
+</script>
 
 {% endblock %}
 
