@@ -6,7 +6,9 @@ body{
   font-size: 15px;  
 }
 
-
+.skip{
+  padding: 4px 20px !important;
+}
 
 
 a:hover{
