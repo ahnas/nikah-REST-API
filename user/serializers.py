@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model,authenticate
 from django.db.models import fields
+from django.db.models.base import Model
 from django.utils.translation import gettext as _
 
 from rest_framework import serializers
@@ -123,3 +124,14 @@ class ProfesionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ProfessionTable
         fields='__all__'
+
+
+class UpdateUserPropertiesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.UserProperties
+        fields = ('height','weight')
+
+class updateUserLocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        Model = models.UserEducationLocationContact
+        fields = ('nativeCountry','nativeState','nativeCity','primaryNumber','secondaryNumber')
