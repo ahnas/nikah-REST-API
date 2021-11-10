@@ -34,6 +34,7 @@ class UserPropertiesForm(forms.ModelForm):
             'complexion': Select(attrs={'id':'complexion','name':'complexion','class': 'required form-control'}),
             'ethnicGroup': Select(attrs={'id':'ethnicGroup','name':'ethnicGroup','class': 'required form-control'}),
             'physicalStatus': Select(attrs={'id':'physicalStatus','name':'physicalStatus','class': 'required form-control'}),
+            'whenmarry': Select(attrs={'id':'whenmarry','name':'whenmarry','class': 'required form-control'}),
         }
 
 class UserEducationLocationContactForm(forms.ModelForm):
@@ -47,7 +48,6 @@ class UserEducationLocationContactForm(forms.ModelForm):
             'highestEducation': Select(attrs={'id':'highestEducation','name':'highestEducation','class': 'required form-control'}),
             'religiousness':Select(attrs={'id':'religiousness','name':'religiousness','class': 'required form-control'}),
             'relation':Select(attrs={'id':'relation','name':'relation','class': 'required form-control'}),
-            
             'nativeCountry':TextInput(attrs={'id':'nativeCountry','name':'nativeCountry','class': 'required form-control'}),
             'nativeState':TextInput(attrs={'id':'nativeState','name':'nativeState','class': 'required form-control'}),
             'nativeCity':TextInput(attrs={'id':'nativeCity','name':'nativeCity','class': 'required form-control'}),

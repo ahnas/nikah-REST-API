@@ -534,3 +534,29 @@ class BasicPreferences(APIView):
         updateData.country = request.POST['country']
         updateData.save()
         return JsonResponse({'message':'Success'})
+
+
+class updateUserPropertiesDetails(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    def put(self, request, *args, **kwargs):
+        instance = models.UserProperties.objects.get(user_id = self.request.user)
+        serializer = serializers.UpdateUserPropertiesSerializer(instance, data=request.data, **kwargs)
+        if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+        return Response(serializer.data)
+
+
+class updateUserEducationalDetails(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    def put(self, request, *args, **kwargs):
+        instance = models.UserProperties.objects.get(user_id = self.request.user)
+        serializer = serializers.UpdateUserPropertiesSerializer(instance, data=request.data, **kwargs)
+        if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+        return Response(serializer.data)
+        
+        
