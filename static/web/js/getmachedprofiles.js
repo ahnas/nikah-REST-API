@@ -1,4 +1,40 @@
 
+$(document).ready(function(){
+
+    
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/UpdateUserProperties/",
+        type: 'GET',
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+        success: function (response) {
+         
+        },
+       
+    });
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/UpdateUserLocationDetails/",
+        type: 'GET',
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+        success: function (response) {
+         
+        },
+       
+    });
+
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/UpdateUserImage/",
+        type: 'GET',
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+        success: function (response) {
+         
+        },
+       
+    });
+
+
+});
+
+
 $(document).ready(function () {
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/MatchedProfiles/",
