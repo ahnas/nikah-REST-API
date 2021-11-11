@@ -1821,9 +1821,26 @@
 }
 
 @media only screen and (max-width: 360px){
+    .viewp {
+        color: #1C57C9;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .viewp .row {
+        padding-bottom: 4px;
+    }
+    .likhh p {
+        padding: 10px 25px !important;
+        font-size: 10px !important;
+        margin: 0px 0px 0px 0px !important;
+        font-weight: bolder !important;
+    }
     .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
         padding-left: 84px;
         width: 263px !important;
+    }
+    .parutt{
+        margin-left: 0!important;
     }
     .preff {
         margin-bottom: 15px;

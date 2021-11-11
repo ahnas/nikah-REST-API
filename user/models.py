@@ -214,7 +214,7 @@ class UserPreferences(models.Model):
     community_CHOICES = ((None,'No Preference'),('Shafi','Shafi'),('Malilki','Malilki'),('Hanafi','Hanafi'),('Hambali','Hambali'))
     smoking_CHOICES = ((None,'No Preference'),('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'))
     financialStatus_CHOICES = ((None,'No Preference'),('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
-    complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Olive skin','Olive skin'),('Brown','Brown'),('Dark','Dark'))
+    complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Brown','Brown'),('Dark','Dark'))
     
     highestEducation_CHOICES = ((None,'No Preference'),('Masters', 'Masters'),('Doctorate', 'Doctorate'),('Bachelors', 'Bachelors'),('Diploma', 'Diploma'),('ITI', 'ITI'),('Islamic Education', 'Islamic Education'),('High School', 'High School'),('Other', 'Other'))
     
