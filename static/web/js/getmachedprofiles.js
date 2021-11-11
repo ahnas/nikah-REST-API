@@ -7,6 +7,7 @@ $(document).ready(function(){
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
+            console.log(response)
          
         },
        
@@ -16,6 +17,7 @@ $(document).ready(function(){
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
+            console.log(response)
          
         },
        
