@@ -16,6 +16,7 @@
     }
 }
 
+
 @media only screen and (max-width: 1200px){
     .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
         padding-left: 84px;
@@ -40,6 +41,12 @@
 }
 
 @media only screen and (max-width: 992px){
+    .ribtnss {
+        margin-left: 50px;
+        margin-right: 0px;
+
+        
+    }
     .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
         padding-left: 84px;
         width: 337px !important;
@@ -441,7 +448,7 @@
     }
     #hero {
         width: 100%;
-        height: 100vh;
+        
         background:none;
         background-size: cover;
         position: relative;
@@ -504,6 +511,17 @@
 
 }
 @media only screen and (max-width: 576px) {
+
+    .no {
+        padding-top: 0px;
+    }
+    
+    .sm-nnon{
+        display: none;
+    }
+    #find{
+        padding: 10px 0 60px 0;
+    }
     .nav-menu > ul > li {
         position: relative;
         white-space: nowrap;
@@ -564,13 +582,12 @@
         font-size: 12px;
     }
     .already{
-        top: 38px;
-        position: relative;
+        
         display: block !important;
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 600;
-        margin: 0px 0px 10px 0px;
-        padding-left: 30%;
+        margin: 25px 0px 10px 0px;
+        padding-left: 0%;
     
     }
     .news {
@@ -581,7 +598,7 @@
         font-weight: 600;
     }
     .newss {
-        float: right;
+        
         background-color: #ffffff;
         color: #3acf6e;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
@@ -590,25 +607,27 @@
         margin-bottom: 8px !important;
     }
     .noo p {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 600;
         margin: 0px 0px 10px 0px;
-        padding-left: 25%;
+        padding-left: 0;
+        text-align: center;
     }
     .ribtnss {
         margin-left: 15%;
         margin-right: 0px;
     }
     .no h4 {
-        padding-right: 16%;
-        padding-left: 21%;
-        font-size: 25px;
+        padding-right: 0%;
+        padding-left: 24%;
+        font-size: 41px;
+        line-height: 50px;
         font-weight: 600;
     }
 
 
     .relats img {
-        width: 420px;
+        width: 550px;
     }
 
 
@@ -622,16 +641,19 @@
         place-content: center;
     }
     .ribtns span {
+        display: none;
         font-weight: 600;
         margin-right: 30px;
     }
     .ribtns {
+        text-align: center;
         margin-right: 0px;
+        margin-left: 0px;
     }
     #header .logo a {
         color: #fff;
         background-color: white;
-        padding: 6% 56px;
+        padding: 7% 37px;
     }
     .woah{
         padding: 3% 0px;
@@ -993,9 +1015,10 @@
     }
 
     #hero h1 {
-        font-size: 25px !important;
-        line-height: 25px;
-        text-align: left;
+        padding-left: 0;
+        font-size: 42px !important;
+        line-height: 40px;
+        text-align: center;
     }
     #hero span{
         color: white !important;
@@ -1199,7 +1222,7 @@
         font-weight: bolder;
     }
     #header .logo img {
-        max-height: 35px;
+        max-height: 45px;
     }
     .has-search .form-control {
         padding-left: 3.375rem;
@@ -1294,6 +1317,19 @@
     
   }
 @media only screen and (max-width: 414px){
+    #hero:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 43%;
+        right: 0;
+        background-color: #e1ffeb;
+        border-bottom-left-radius: 202px
+    }
+    .mbsm-1 {
+        margin-bottom: 20px !important;
+    }
     
     .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
         padding-left: 84px;
@@ -1331,13 +1367,12 @@
         font-size: 11px;
     }
     .already {
-        top: 27px;
-        position: relative;
+        
         display: block !important;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 600;
-        margin: 0px 0px 10px -60px;
-        padding-left: 30%;
+        margin: 22px 0px 22px 0px;
+        padding-left: 0%;
     }
     .maa {
         padding: 0px 10px;
@@ -1351,10 +1386,10 @@
     }
      
     .noo p {
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 600;
-        margin: 0px 0px 20px 0px;
-        padding-left: 24%;
+        margin: 0px 0px 20px 0px ;
+        padding-left: 0%;
     }
 
    
@@ -1371,10 +1406,11 @@
         font-size: 14px;
     }
     .no h4 {
+        margin-bottom: 20px;
         padding-right: 0;
-        padding-left: 16%;
-        font-size: 25px;
-        line-height: 35px;
+        padding-left: 14%;
+        font-size: 35px;
+        line-height: 45px;
         font-weight: 600;
     }
     .relats {
@@ -1383,19 +1419,19 @@
         top: 15px;
     }
     .relats img {
-        width: 500px;
+        width: 530px;
         margin-bottom: 10px;
     }
 
     .news {
-        position: relative;
+        
         color: white;
         padding: 7px 16px;
         border-radius: 8px;
         background-color: #3acf6e;
         font-weight: 600;
-        top: -11px;
-        left: 33%;
+      
+        
     }
     .newss {
         background-color: #ffffff;
@@ -1412,16 +1448,17 @@
         margin-right: 0;
     }
     .ribtnss {
-        margin-left: 16%;
+        margin-bottom: 63px;
+        margin-left: 0%;
         margin-right: 0;
     }
     #header .logo img {
-        max-height: 35px;
+        max-height: 45px;
     }
     #header .logo a {
         color: #fff;
         background-color: white;
-        padding: 5% 15%;
+        padding: 3% 1% 4% 0%;
     }
     .ribtns span {
         font-weight: 600;
@@ -1711,7 +1748,7 @@
     }
     #hero {
         width: 100%;
-        height: 80vh;
+        
         background: none;
         background-size: cover;
         position: relative;
@@ -1721,10 +1758,10 @@
         margin-right: 15%;
     }
     #hero h1 {
-        font-size: 30px !important;
-        line-height: 35px;
-        text-align: left;
-        padding-left: 16%;
+        font-size: 41px !important;
+        line-height: 70px;
+        text-align: center;
+        padding-left: 0%;
     }
     .bannersub p {
         margin-bottom: 25px;
@@ -1772,7 +1809,30 @@
     }
     
 }
-@media only screen and (max-width: 384px){
+
+ @media only screen and (max-width: 384px){
+    #header .logo img {
+        max-height: 42px;
+    }
+    
+    
+    .ribtnss {
+        margin-bottom: 90px;
+        margin-left: 0%;
+        margin-right: 0;
+    }
+    .news {
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        background-color: #3acf6e;
+        font-weight: 600;
+    }
+    .newss {
+        background-color: #ffffff;
+        color: #3acf6e;
+        box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
+    }
     
     .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
         padding-left: 84px;
@@ -1781,46 +1841,77 @@
 
     #hero {
         width: 100%;
-        height: 90vh;
+       
         background: none;
         background-size: cover;
         position: relative;
     }
     .already {
-        top: 27px;
-        position: relative;
+        
         display: block !important;
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 600;
-        margin: 0px 0px 10px -60px;
-        padding-left: 30%;
+        margin: 20px 0px 20px 0px;
+        padding-left: 0%;
     }
     .relats img {
-        width: 430px;
+        width: 500px;
         margin-bottom: 5px;
-        margin-left: 20px;
+        margin-left: 0px;
     }
     #hero h1 {
-        font-size: 24px !important;
-        line-height: 24px;
-        text-align: left;
-        padding-left: 16%;
+        font-size: 40px !important;
+        line-height: 65px;
+        text-align: center;
+        padding-left: 0%;
     }
     .no h4 {
         padding-right: 0;
-        padding-left: 16%;
-        font-size: 22px;
-        line-height: 32px;
+        padding-left: 13%;
+        font-size: 32px;
+        line-height: 40px;
         font-weight: 600;
     }
     #header .logo a {
         color: #fff;
         background-color: white;
-        padding: 5% 11%;
+        padding: 3% 0%;
     }
-}
+    .ribtnss {
+        margin-bottom: 69px;
+        margin-left: 0%;
+        margin-right: 0;
+    }
+    #header .logo {
+        font-size: 35px;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+} 
 
-@media only screen and (max-width: 360px){
+ @media only screen and (max-width: 360px){
+    #header .logo img {
+        max-height: 40px;
+    }
+    #header .logo {
+        font-size: 36px;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    #hero h1 {
+        font-size: 40px !important;
+        line-height: 22px;
+        text-align: center;
+        padding-left: 0%;
+    }
     .viewp {
         color: #1C57C9;
         font-size: 16px;
@@ -1869,30 +1960,19 @@
         margin-bottom: 0px;
     }
     .already {
-        top: 30px;
-        position: relative;
+        
         display: block !important;
         font-size: 14px;
         font-weight: 600;
-        margin: 0px 0px 10px -48px;
-        padding-left: 30%;
+        margin: 16px 0px 20px 0px;
+        padding-left: 0%;
     }
-    .noo p {
-        font-size: 13px;
-        font-weight: 600;
-        margin: 0px 0px 10px 0px;
-        padding-left: 18%;
-    }
-    #hero h1 {
-        padding-left: 9%;
-        font-size: 26px !important;
-        line-height: 35px;
-        text-align: left;
-    }
+    
+    
     .no h4 {
-        padding-left: 8%;
-        font-size: 24px;
-        line-height: 30px;
+        padding-left: 6%;
+        font-size: 32px;
+        line-height: 35px;
         font-weight: 600;
     }
     .relats img{
@@ -1906,29 +1986,17 @@
 
     }
     .news {
-        position: relative;
+        
         color: white;
         padding: 8px 20px;
         border-radius: 8px;
         background-color: #3acf6e;
         font-weight: 600;
-        top: -11px;
-        left: 25%;
+        
+        
     }
 
-    .smsiu{
-        left: 0 !important;
-        margin-left: 22px !important;
-        position: relative;
-        color: white;
-        padding: 6px 12px;
-        border-radius: 5px;
-        background-color: #3acf6e;
-        font-weight: 600;
-        top: -5px;
-        left: 25%;
-        font-size: 15px;
-    }
+    
     .newss{
         background-color: #ffffff;
         color: #3acf6e;
@@ -1948,7 +2016,7 @@
     #header .logo a {
         color: #fff;
         background-color: white;
-        padding: 5% 7%;
+        padding: 0% 0%;
     }
     #header {
         transition: all 0.5s;
