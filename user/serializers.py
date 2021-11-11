@@ -129,14 +129,15 @@ class ProfesionsSerializer(serializers.ModelSerializer):
 class UpdateUserPropertiesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserProperties
-        fields = ('height','weight','nationality','ethnicGroup','relegion','martialStatus','numberofChildresn','complexion','bodyType','motherTongue','physicalStatus','fatherOccupation','motherOccupation','numberofsiblings','elderBrothers','marriedBrothers','youngerSisters','marriedSisters','financialStatus')
+        fields = '__all__'
 
 class updateUserLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserEducationLocationContact
-        fields = ('nativeCountry','nativeState','primaryNumber','secondaryNumber','highestEducation','profession')
+        fields = '__all__'
 
 class updateUserImage(serializers.ModelSerializer):
+    user=UserSerializer()
     class Meta:
         model = models.Image
-        fields = ('image','id')
+        fields = '__all__'
