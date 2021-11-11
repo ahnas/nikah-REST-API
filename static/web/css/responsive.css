@@ -1388,9 +1388,10 @@
     }
 
     .news {
+        font-size: 14px;
         position: relative;
         color: white;
-        padding: 7px 16px;
+        padding: 5px 14px;
         border-radius: 8px;
         background-color: #3acf6e;
         font-weight: 600;
@@ -1908,12 +1909,13 @@
     .news {
         position: relative;
         color: white;
-        padding: 8px 20px;
+        padding: 6px 18px;
         border-radius: 8px;
         background-color: #3acf6e;
         font-weight: 600;
         top: -11px;
         left: 25%;
+        font-size: 12px;
     }
 
     .smsiu{

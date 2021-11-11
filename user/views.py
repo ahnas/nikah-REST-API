@@ -1,4 +1,4 @@
-from django.http import response
+
 from django.db.models import Q
 from django.http.response import Http404, HttpResponse, HttpResponseNotAllowed, JsonResponse
 from django.shortcuts import redirect, render
@@ -553,7 +553,23 @@ class updateUserPropertiesDetails(APIView):
         return Response(serializer.data)
 
 
+class userdetailsFillCheck(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    serializer_class =serializers.UserSerializer
+    
+    def get(self,request,format=None):
+        userProperties = UserProperties.objects.filter(user=self.request.user)
+        user = UserEducationLocationContact.objects.filter(user=self.request.user)
+        userImage = Image.objects.filter(user=self.request.user)
+        profilecheck={
+            "userProperties":userProperties.exists(),
+            "user":user.exists(),
+            "userImage":userImage.exists(),
+        }
 
+        return Response(profilecheck)
+      
 class updateUserEducationalDetails(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
@@ -564,13 +580,13 @@ class updateUserEducationalDetails(APIView):
                 serializer.save()
                 return Response(serializer.data)
         return Response(serializer.data)
-
-    def get(self, request, format= None):
+      
+     def get(self, request, format= None):
         instance = models.UserEducationLocationContact.objects.get(user_id = self.request.user)
         serializer = serializers.updateUserLocationSerializer(instance)
         return Response(serializer.data)
-
-   
+      
+      
 class updateUserImage(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
