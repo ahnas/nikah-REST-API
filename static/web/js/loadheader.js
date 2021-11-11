@@ -22,7 +22,8 @@ $(document).ready(function () {
 
             if (response['userProperties'] == true && response['user'] == true && response['userImage'] == true) {
                 if (pageURL != "http://127.0.0.1:8000/home/" && pageURL != "http://127.0.0.1:8000/pending/") {
-                    window.location.href = "http://127.0.0.1:8000/home"
+                    // window.location.href = "http://127.0.0.1:8000/home"
+                   
                 }
             }
             else if (response['userProperties'] == false) {
