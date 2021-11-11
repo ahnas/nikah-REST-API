@@ -1,9 +1,9 @@
 $( document ).ready(function() {
-    $('#ProfileEdit').hide()
+    $('[id="ProfileEdit"]').hide()
 
    
 });
 function editprofile(){
-    $('#ProfileEdit').fadeIn();
-    $('#ProfileView').fadeOut();
+    $('[id="ProfileEdit"]').fadeIn();
+    $('[id="ProfileView"]').fadeOut();
 }
