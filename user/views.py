@@ -581,7 +581,7 @@ class updateUserEducationalDetails(APIView):
                 return Response(serializer.data)
         return Response(serializer.data)
       
-     def get(self, request, format= None):
+    def get(self, request, format= None):
         instance = models.UserEducationLocationContact.objects.get(user_id = self.request.user)
         serializer = serializers.updateUserLocationSerializer(instance)
         return Response(serializer.data)
