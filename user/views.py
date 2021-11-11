@@ -547,17 +547,11 @@ class updateUserPropertiesDetails(APIView):
                 return Response(serializer.data)
         return Response(serializer.data)
 
-
-class updateUserEducationalDetails(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-    def put(self, request, *args, **kwargs):
+    def get(self, request, format= None):
         instance = models.UserProperties.objects.get(user_id = self.request.user)
-        serializer = serializers.UpdateUserPropertiesSerializer(instance, data=request.data, **kwargs)
-        if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data)
+        serializer = serializers.UpdateUserPropertiesSerializer(instance)
         return Response(serializer.data)
+
 
 class userdetailsFillCheck(APIView):
     authentication_classes = (TokenAuthentication,)
@@ -575,3 +569,36 @@ class userdetailsFillCheck(APIView):
         }
 
         return Response(profilecheck)
+      
+class updateUserEducationalDetails(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    def put(self, request, *args, **kwargs):
+        instance = models.UserEducationLocationContact.objects.get(user_id = self.request.user)
+        serializer = serializers.updateUserLocationSerializer(instance, data=request.data, **kwargs)
+        if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+        return Response(serializer.data)
+      
+     def get(self, request, format= None):
+        instance = models.UserEducationLocationContact.objects.get(user_id = self.request.user)
+        serializer = serializers.updateUserLocationSerializer(instance)
+        return Response(serializer.data)
+      
+      
+class updateUserImage(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    def put(self, request, *args, **kwargs):
+        instance = models.Image.objects.get(user_id = self.request.user)
+        serializer = serializers.updateUserImage(instance, data=request.data, **kwargs)
+        if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+        return Response(serializer.data)
+
+    def get(self, request, format= None):
+        instance = models.Image.objects.get(user_id = self.request.user)
+        serializer = serializers.updateUserImage(instance)
+        return Response(serializer.data)
