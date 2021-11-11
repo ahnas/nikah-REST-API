@@ -150,8 +150,14 @@ def addphotos(request):
     return render(request, 'web/addphotos.html',context)
 
 def myprofile(request):
+    form = UserPreferencesForm
+    formpro=UserPropertiesForm
+    formedu = UserEducationLocationContactForm
     context = {
-        "is_myprofile" : True
+        "is_myprofile" : True,
+        "form":form,
+        "formedu":formedu,
+        "formpro":formpro,
         
     }
     return render(request, 'web/myprofile.html',context) 
