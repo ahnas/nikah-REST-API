@@ -1,12 +1,12 @@
 
 $(document).ready(function(){
-
-    
+  
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/UpdateUserProperties/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
+            $("#nationality").html(response['nationality'])
             console.log(response)
          
         },
