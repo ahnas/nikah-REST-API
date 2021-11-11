@@ -2,19 +2,47 @@ function logout(){
     localStorage.removeItem('token');
     window.location.href = "http://127.0.0.1:8000/";
 }
-
+var pageURL = $(location).attr("href");
 $(document).ready(function () {
+    if(localStorage.getItem('token')!=null){
+       
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/test_auth/",
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
-            // $('#username').html("<a href='#' class='text-white'>"+myArr[1]+"</a>");
-            $('#findsoulmate').html("<a href='home/' ><button class='btn btnr'>Find your Soulmate</button></a>");
-            $('#username').html("<a onclick='logout()' href='#' style='background-color: #3acf6e; font-weight: 600;' class='get-started-btnn'>logout</a>");
-            window.location='http://127.0.0.1:8000/home/'
-            // $('#usernamefield1').html(myArr[1]+"&nbsp&nbsp&nbsp<img style='border-radius: 50%;width:30px;height:30px;'src='"+myArr[0] +"' alt='SDGDSA'>");
-            //sessionStorage.setItem("token", response['token'])
+            $.ajax({
+                url: "http://127.0.0.1:8000/api/user/userdetailsFillCheck/",
+                type: 'GET',
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+                success: function (response) {
+                    if (response['userProperties'] == true && response['user'] == true && response['userImage'] == true) {
+                        if (pageURL != "http://127.0.0.1:8000/home/" && pageURL != "http://127.0.0.1:8000/pending/") {
+                            window.location.href = "http://127.0.0.1:8000/home"
+                        }
+                    }
+                    else if (response['userProperties'] == false) {
+                        if (pageURL != "http://127.0.0.1:8000/profiler") {
+                            window.location.href = "http://127.0.0.1:8000/profiler"
+                        }
+                    }
+                    else if (response['user'] == false) {
+        
+                        if (pageURL != "http://127.0.0.1:8000/profilerB") {
+                            window.location.href = "http://127.0.0.1:8000/profilerB"
+                        }
+                    }
+                    else if (response['userImage'] == false) {
+        
+                        if (pageURL != "http://127.0.0.1:8000/imageupload") {
+                            window.location.href = "http://127.0.0.1:8000/imageupload"
+                        }
+                    }
+                },
+                error: function (jqXHR) {
+                }
+            });
+            
         },
         error: function (jqXHR) {
             if (jqXHR.status == 400) { 
@@ -25,5 +53,6 @@ $(document).ready(function () {
             }
         }
     });
+}   
 
 });

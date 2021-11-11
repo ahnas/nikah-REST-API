@@ -129,9 +129,15 @@ class ProfesionsSerializer(serializers.ModelSerializer):
 class UpdateUserPropertiesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserProperties
-        fields = ('height','weight')
+        fields = '__all__'
 
 class updateUserLocationSerializer(serializers.ModelSerializer):
     class Meta:
-        Model = models.UserEducationLocationContact
-        fields = ('nativeCountry','nativeState','nativeCity','primaryNumber','secondaryNumber')
+        model = models.UserEducationLocationContact
+        fields = '__all__'
+
+class updateUserImage(serializers.ModelSerializer):
+    user=UserSerializer()
+    class Meta:
+        model = models.Image
+        fields = '__all__'

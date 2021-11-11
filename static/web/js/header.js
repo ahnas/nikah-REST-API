@@ -8,6 +8,7 @@ function logout(){
 }
 
 $(document).ready(function () {
+    if(localStorage.getItem('token')!=null){
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/test_auth/",
         type: 'GET',
@@ -23,6 +24,10 @@ $(document).ready(function () {
             }
         }
     }); 
+}
+else{
+    window.location.href = "http://127.0.0.1:8000/";
+}
 
 
 

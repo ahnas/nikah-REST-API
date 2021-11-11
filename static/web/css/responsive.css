@@ -1424,9 +1424,8 @@
     }
 
     .news {
-        
         color: white;
-        padding: 7px 16px;
+        padding: 5px 14px;
         border-radius: 8px;
         background-color: #3acf6e;
         font-weight: 600;
@@ -1988,12 +1987,10 @@
     .news {
         
         color: white;
-        padding: 8px 20px;
+        padding: 6px 18px;
         border-radius: 8px;
         background-color: #3acf6e;
         font-weight: 600;
-        
-        
     }
 
     

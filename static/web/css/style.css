@@ -10,6 +10,20 @@ body{
   padding: 4px 20px !important;
 }
 
+.edit-fix{
+  color: white;
+  cursor: pointer;
+  font-size: 25px;
+  position: fixed;
+  bottom: 100px;
+  z-index: 100;
+  right: 25px;
+  background-color: #36c982;
+  padding: 10px 15px;
+  border-radius: 50%;
+
+}
+
 
 a:hover{
   text-decoration: none;
