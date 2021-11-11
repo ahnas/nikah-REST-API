@@ -33,7 +33,8 @@ urlpatterns = [
     path('Profesions/', views.Profesions.as_view()),
     path('likeprofile/<int:pk>/', views.LikedProfilesDetailed.as_view()),
     path('UpdateUserProperties/',views.updateUserPropertiesDetails.as_view()),
-    path('updateUserLocationDetails/',views.updateUserEducationalDetails.as_view()),
+    path('UpdateUserLocationDetails/',views.updateUserEducationalDetails.as_view()),
+    path('UpdateUserImage/',views.updateUserImage.as_view()),
     path('',include(router.urls)),
 
 ]
