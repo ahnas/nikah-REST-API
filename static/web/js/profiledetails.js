@@ -1,7 +1,7 @@
 $(document).ready(function () {
     id=$('#profileID').val()
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/"+id,
+        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/"+id+"/",
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
