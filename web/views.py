@@ -80,33 +80,33 @@ def pending(request):
 
 def imageupload(request): 
 
-    if request.method == 'POST':
+    # if request.method == 'POST':
 
 
-        image = request.FILES.get('image')
-        email = request.POST.get('email1')
-        user =   User.objects.filter(email=email).first()
+    #     image = request.FILES.get('image')
+    #     email = request.POST.get('email1')
+    #     user =   User.objects.filter(email=email).first()
         
-        nmIDint=10000+user.id
-        nmIDString = 'NM'+str(nmIDint)
-        education= UserEducationLocationContact.objects.filter(user=user).first()
-        profile= UserProperties.objects.filter(user=user).first()
-        data = Image()
-        data.height=200
+    #     nmIDint=10000+user.id
+    #     nmIDString = 'NM'+str(nmIDint)
+    #     education= UserEducationLocationContact.objects.filter(user=user).first()
+    #     profile= UserProperties.objects.filter(user=user).first()
+    #     data = Image()
+    #     data.height=200
         
-        data.width=100
+    #     data.width=100
             
-        data.image = image
-        data.nmId=nmIDString
-        data.user = user
-        data.education=education
-        data.profile=profile
+    #     data.image = image
+    #     data.nmId=nmIDString
+    #     data.user = user
+    #     data.education=education
+    #     data.profile=profile
 
         
-        data.save()
+    #     data.save()
        
 
-        return redirect ('web:home')
+        # return redirect ('web:home')
     return render(request, 'web/imageupload.html',context={'is_imageupload':True}) 
 
 

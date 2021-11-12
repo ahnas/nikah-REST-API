@@ -2,6 +2,8 @@ from django.contrib.auth import get_user_model,authenticate
 from django.db.models import fields
 from django.db.models.base import Model
 from django.utils.translation import gettext as _
+from versatileimagefield.serializers import VersatileImageFieldSerializer
+
 
 from rest_framework import serializers
 from . import models
@@ -141,3 +143,66 @@ class updateUserImage(serializers.ModelSerializer):
     class Meta:
         model = models.Image
         fields = '__all__'
+
+
+
+
+
+class UserImageSerializer(serializers.ModelSerializer):
+    """Serialize a User Properties"""
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_two = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_three= VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    class Meta:
+        model = models.Image
+        fields = '__all__'
+        read_only_fields = ('id','nmId','user','profile','education')
+
+class UserImageForTwoImageSerializer(serializers.ModelSerializer):
+    """Serialize a User Properties"""
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_two = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    class Meta:
+        model = models.Image
+        fields = '__all__'
+        read_only_fields = ('id','nmId','user','profile','education','image_three')
+
+class UserImageForOneImageSerializer(serializers.ModelSerializer):
+    """Serialize a User Properties"""
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    class Meta:
+        model = models.Image
+        fields = '__all__'
+        read_only_fields = ('id','nmId','user','profile','education','image_three','image_two')
+
+class UserImageSkipSerializer(serializers.ModelSerializer):
+    """Serialize a User Properties"""
+    class Meta:
+        model = models.Image
+        fields = '__all__'
+        read_only_fields = ('id','nmId','user','profile','education','image_three','image_two','image')
+

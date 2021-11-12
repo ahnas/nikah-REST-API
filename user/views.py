@@ -1,13 +1,16 @@
 
 from django.db.models import Q
+from django.http import request
 from django.http.response import Http404, HttpResponse, HttpResponseNotAllowed, JsonResponse
 from django.shortcuts import redirect, render
 from collections import namedtuple
 from rest_framework import generics,viewsets, mixins
 from rest_framework.serializers import Serializer
 from user import models
+from rest_framework import status
 from user.models import User, UserProperties,UserEducationLocationContact,Image,UserPreferences,LikeProfile
-from .serializers import UserPropertiesSerializer, UserSerializer, AuthTokenSerializer
+from .serializers import UserPropertiesSerializer, UserSerializer, AuthTokenSerializer,UserImageSerializer,UserImageSkipSerializer, \
+    UserImageForTwoImageSerializer,UserImageForTwoImageSerializer,UserImageForOneImageSerializer
 from rest_framework.authtoken.views import ObtainAuthToken,APIView
 from rest_framework.settings import api_settings
 from . import serializers
@@ -602,3 +605,50 @@ class updateUserImage(APIView):
         instance = models.Image.objects.get(user_id = self.request.user)
         serializer = serializers.updateUserImage(instance)
         return Response(serializer.data)
+
+
+
+class UserImageViewSet(viewsets.GenericViewSet,
+                            mixins.ListModelMixin,
+                            mixins.CreateModelMixin,mixins.UpdateModelMixin):
+    """Base viewset for user owned recipe attributes"""
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    queryset = Image.objects.all()
+    serializer_class = UserImageSerializer
+
+
+    def get_queryset(self):
+        """Return objects for the current authenticated user only"""
+        return self.queryset.filter(user=self.request.user)
+    
+    def perform_create(self, serializer):
+        """Create a new object"""
+        checkImageExisting = Image.objects.filter(user=self.request.user)
+        if checkImageExisting.exists():
+            Image.objects.get(user=self.request.user).delete()
+
+        LogedInUser = self.request.user
+        nmIDString = 'NM'+str(self.request.user.id)
+        
+        serializer.save(nmId=nmIDString,user=self.request.user,profile=LogedInUser.userproperties,education=LogedInUser.usereducationlocationcontact)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    def get_serializer_class(self):
+        """Return appropriate serializer class"""
+        if self.request.POST:
+            try:
+                
+                image_one = self.request.FILES['image']
+            except:
+                return UserImageSkipSerializer
+            if image_one:
+                try:
+                    image_two = self.request.FILES['image_two']
+                except:
+                    return UserImageForOneImageSerializer
+            if image_two:
+                try:
+                    image_three = self.request.FILES['image_three']
+                except:
+                    return UserImageForTwoImageSerializer
+        return self.serializer_class
