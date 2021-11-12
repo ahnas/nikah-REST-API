@@ -41,16 +41,14 @@ $(document).ready(function(){
             $("#drinking").html(response['drinking'])
             $("#whenMarry").html(response['whenmarry'])   
 
-
-            $('input[name=ethnicGroup]').val(response['ethnicGroup'])
-            $('input[name=height]').val(response['height'])
-            $('input[name=weight]').val(response['weight'])
-            $('input[name=martialStatus]').val(response['martialStatus'])
+            $('input[name=nationality]').val(response['nationality'])
+            $('select[name=ethnicGroup]').val(response['ethnicGroup'])
+            $('select[name=martialStatus]').val(response['martialStatus'])
             $('input[name=numberofChildresn]').val(response['numberofChildresn'])
-            $('input[name=complexion]').val(response['complexion'])
-            $('input[name=bodyType]').val(response['bodyType'])
-            $('input[name=motherTongue]').val(response['motherTongue'])
-            $('input[name=physicalStatus]').val(response['physicalStatus'])
+            $('select[name=complexion]').val(response['complexion'])
+            $('select[name=bodyType]').val(response['bodyType'])
+            $('select[name=motherTongue]').val(response['motherTongue'])
+            $('select[name=physicalStatus]').val(response['physicalStatus'])
             $('input[name=fatherOccupation]').val(response['fatherOccupation'])
             $('input[name=motherOccupation]').val(response['motherOccupation'])
             $('input[name=numberofsiblings]').val(response['numberofsiblings'])
@@ -58,7 +56,16 @@ $(document).ready(function(){
             $('input[name=marriedBrothers]').val(response['marriedBrothers'])
             $('input[name=youngerSisters]').val(response['youngerSisters'])
             $('input[name=marriedSisters]').val(response['marriedSisters'])
-            $("#financialStatus").val(response['financialStatus'])   
+            $("select[name=financialStatus]").val(response['financialStatus'])   
+            $("select[name=smoking]").val(response['smoking'])
+            $("select[name=whenmarry]").val(response['whenmarry']) 
+            $('#datepicker').val(response['dateOfBirth']);
+            $("select[name=familyType]").val(response['familyType']) 
+            $("select[name=drinking]").val(response['drinking'])
+ 
+
+            
+
         },
        
     });
@@ -76,8 +83,6 @@ $(document).ready(function(){
             $("#presentCountry").html(response['currentCountry'])
             $("#presentState").html(response['currentState'])
             $("#presentCity").html(response['currentCity'])
-
-            // $("p.ed1Id select").val(response['highestEducation']).change();
             $("#nativeCity").html(response['nativeCity'])
             $("#nativeCountry").html(response['nativeCountry'])
             $("#nativeState").html(response['nativeState'])
@@ -86,11 +91,14 @@ $(document).ready(function(){
             $("#annualIncome").html(response['annualincome'])
             $("#performNamaz").html(response['performNamaz'])
             $("#relegiousness").html(response['religiousness'])
-            $("#readQuran").html(response['currentCity'])
+            $("#readQuran").html(response['readQuran'])
             $("#madrasaEducation").html(response['madrassaEducation'])
             $("#attendIslamicService").html(response['attendIslamicServices'])
+            $("#specialization").html(response['EduSpezialization'])  
+            $("#describe").html(response['describe'])
 
-            // $('input[name=highestEducation]').val(response['highestEducation']).change()
+
+            $('select[name=highestEducation]').val(response['highestEducation'])
             $('input[name=locality]').val(response['locality'])
             $('input[name=primaryNumber]').val(response['primaryNumber'])
             $('input[name=secondaryNumber]').val(response['secondaryNumber'])
@@ -99,6 +107,20 @@ $(document).ready(function(){
             $('input[name=currentCountry]').val(response['currentCountry'])
             $('input[name=currentState]').val(response['currentState'])
             $('input[name=currentCity]').val(response['currentCity']) 
+            $("#EduSpezialization").val(response['EduSpezialization']) 
+            $('input[name=nativeCountry]').val(response['nativeCountry'])
+            $('select[name=workingas]').val(response['workingas'])
+            $('select[name=annualincome]').val(response['annualincome'])
+            $('select[name=performNamaz]').val(response['performNamaz'])
+            $('select[name=readQuran]').val(response['readQuran'])
+            $('select[name=attendIslamicServices]').val(response['attendIslamicServices'])
+            $('input[name=nativeCity]').val(response['nativeCity'])
+            $('input[name=nativeState]').val(response['nativeState'])
+            $('select[name=workingwith]').val(response['workingwith'])
+            $('input[name=describe]').val(response['describe'])
+            $('select[name=religiousness]').val(response['religiousness'])
+            $('input[name=madrassaEducation]').val(response['madrassaEducation'])
+
         },
        
     });
@@ -112,13 +134,9 @@ $(document).ready(function(){
          $("#userNAme").html(response['nmId']) 
          $("#email").html(response.user['email'])
 
-        },
-       
+        },       
     });
-
-
 });
-
 
 $(document).ready(function () {
     $.ajax({
@@ -126,7 +144,6 @@ $(document).ready(function () {
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
-            // $('#username').html("<a href='#' class='text-white'>"+myArr[1]+"</a>");
             const obj = JSON.parse(JSON.stringify(response));
             for(let i = 0; i < obj.length && i<=200; i++){
                 var age= new Date().getFullYear()-new Date(obj[i]['profile'].dateOfBirth).getFullYear();
@@ -149,21 +166,14 @@ $(document).ready(function () {
                 <i class='icofont-ui-text-chat'></i></p><p class='sta'><i class='icofont-star'>\
                 </i></p><p class='sta'><i class='icofont-heart'></i></p></div></div></div>");
                 }
-           
-            // $('#usernamefield1').html(myArr[1]+"&nbsp&nbsp&nbsp<img style='border-radius: 50%;width:30px;height:30px;'src='"+myArr[0] +"' alt='SDGDSA'>");
-            //sessionStorage.setItem("token", response['token'])
+
         },
         error: function (jqXHR) {
             if (jqXHR.status == 404) { 
                 window.location.href = "http://127.0.0.1:8000/pending"
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
             } else {
-                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     }); 
-
-
-
-
 });
