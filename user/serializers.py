@@ -79,7 +79,7 @@ class UserEducationLocationContactFilteredSerializer(serializers.ModelSerializer
     class Meta:
         model = models.UserEducationLocationContact
         fields = (
-            'id', 'highestEducation', 'profession', 'professionType','nativeCity',
+            'id', 'highestEducation','nativeCity','workingas',
         )
         read_only_fields = ('id','highestEducation')
         

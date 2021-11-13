@@ -1,6 +1,5 @@
 $( document ).ready(function() {
     $('[id="ProfileEdit"]').hide()
-    $("#btnSubmitDiv").hide();
     $("#successMessageDiv").hide();
 
    
