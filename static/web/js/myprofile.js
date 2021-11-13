@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $("#btnSubmitDiv").hide();
+    $("#noc").prop('disabled', true)
 });
 $(document).ready(function(){
 
