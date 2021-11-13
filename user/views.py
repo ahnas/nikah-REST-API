@@ -585,7 +585,7 @@ class updateUserEducationalDetails(APIView):
         serializer = serializers.updateUserLocationSerializer(instance, data=request.data, **kwargs)
         if serializer.is_valid():
                 serializer.save()
-                return Response(serializer.data)
+                return Response(serializer.data) 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
       
     def get(self, request, format= None):

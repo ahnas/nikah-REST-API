@@ -48,6 +48,8 @@ $(document).ready(function(){
             $('input[name=nationality]').val(response['nationality'])
             $('select[name=ethnicGroup]').val(response['ethnicGroup'])
             $('select[name=martialStatus]').val(response['martialStatus'])
+            $('select[name=height]').val(response['height'])
+            $('select[name=weight]').val(response['weight'])
             $('input[name=numberofChildresn]').val(response['numberofChildresn'])
             $('select[name=complexion]').val(response['complexion'])
             $('select[name=bodyType]').val(response['bodyType'])
