@@ -4,6 +4,7 @@ from django.db.models.base import Model
 from django.utils.translation import gettext as _
 
 from rest_framework import serializers
+from rest_framework.fields import ReadOnlyField
 from . import models
 import user
 
@@ -130,11 +131,13 @@ class UpdateUserPropertiesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserProperties
         fields = '__all__'
+        read_only_fields = ('user','profileCreated','name','gender','preferredProfile','relegion')
 
 class updateUserLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserEducationLocationContact
         fields = '__all__'
+        read_only_fields = ('userProperties','user','locality')
 
 class updateUserImage(serializers.ModelSerializer):
     user=UserSerializer()

@@ -4,6 +4,7 @@ from django.http.response import Http404, HttpResponse, HttpResponseNotAllowed, 
 from django.shortcuts import redirect, render
 from collections import namedtuple
 from rest_framework import generics,viewsets, mixins
+from rest_framework.exceptions import ErrorDetail
 from rest_framework.serializers import Serializer
 from user import models
 from user.models import User, UserProperties,UserEducationLocationContact,Image,UserPreferences,LikeProfile
@@ -19,6 +20,7 @@ import user
 import datetime 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import status
 # from. import models
 
 
@@ -540,12 +542,17 @@ class updateUserPropertiesDetails(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     def put(self, request, *args, **kwargs):
+
         instance = models.UserProperties.objects.get(user_id = self.request.user)
+     
         serializer = serializers.UpdateUserPropertiesSerializer(instance, data=request.data, **kwargs)
         if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
-        return Response(serializer.data)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+            
 
     def get(self, request, format= None):
         instance = models.UserProperties.objects.get(user_id = self.request.user)
@@ -579,7 +586,7 @@ class updateUserEducationalDetails(APIView):
         if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
-        return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
       
     def get(self, request, format= None):
         instance = models.UserEducationLocationContact.objects.get(user_id = self.request.user)
