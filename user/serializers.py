@@ -2,8 +2,11 @@ from django.contrib.auth import get_user_model,authenticate
 from django.db.models import fields
 from django.db.models.base import Model
 from django.utils.translation import gettext as _
+from versatileimagefield.serializers import VersatileImageFieldSerializer
+
 
 from rest_framework import serializers
+from rest_framework.fields import ReadOnlyField
 from . import models
 import user
 
@@ -87,6 +90,21 @@ class Likeprodileserializer(serializers.ModelSerializer):
 
 class UserAllserializer(serializers.ModelSerializer):
     """Serialize a recipe"""
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_two = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_three= VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
     user =serializers.PrimaryKeyRelatedField(
         queryset=models.UserProperties.objects.all()
     )
@@ -95,7 +113,7 @@ class UserAllserializer(serializers.ModelSerializer):
     class Meta:
         model = models.Image
         fields = (
-            'id', 'image', 'profile', 'education', 'user','nmId',
+            'id', 'image','image_two','image_three', 'profile', 'education', 'user','nmId',
         )
         read_only_fields = ('id',)
 
@@ -130,14 +148,79 @@ class UpdateUserPropertiesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserProperties
         fields = '__all__'
+        read_only_fields = ('user','profileCreated','name','gender','preferredProfile','relegion')
 
 class updateUserLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserEducationLocationContact
         fields = '__all__'
+        read_only_fields = ('userProperties','user','locality')
 
 class updateUserImage(serializers.ModelSerializer):
     user=UserSerializer()
     class Meta:
         model = models.Image
         fields = '__all__'
+
+
+
+
+
+class UserImageSerializer(serializers.ModelSerializer):
+    """Serialize a User Properties"""
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_two = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_three= VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    class Meta:
+        model = models.Image
+        fields = '__all__'
+        read_only_fields = ('id','nmId','user','profile','education')
+
+class UserImageForTwoImageSerializer(serializers.ModelSerializer):
+    """Serialize a User Properties"""
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_two = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    class Meta:
+        model = models.Image
+        fields = '__all__'
+        read_only_fields = ('id','nmId','user','profile','education','image_three')
+
+class UserImageForOneImageSerializer(serializers.ModelSerializer):
+    """Serialize a User Properties"""
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    class Meta:
+        model = models.Image
+        fields = '__all__'
+        read_only_fields = ('id','nmId','user','profile','education','image_three','image_two')
+
+class UserImageSkipSerializer(serializers.ModelSerializer):
+    """Serialize a User Properties"""
+    class Meta:
+        model = models.Image
+        fields = '__all__'
+        read_only_fields = ('id','nmId','user','profile','education','image_three','image_two','image')
+

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     id = $('#profileID').val()
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
+        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/"+id+"/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
@@ -10,8 +10,8 @@ $(document).ready(function () {
             if ((new Date(obj['profile'].dateOfBirth).getMonth()) > new Date().getMonth()) {
                 age = age - 1;
             }
-            $('#profileimage').attr('src', obj['image'])
-            $('#ProfileName').html(obj['profile'].name + "<span class='float-right disp'>Like this profile? <button class='btnn ml-3'><i class='icofont-ui-love mr-2'></i>Like</button></span>")
+            $('#profileimage').attr('src',obj['image'].medium_square_crop)
+            $('#ProfileName').html(obj['profile'].name+"<span class='float-right disp'>Like this profile? <button class='btnn ml-3'><i class='icofont-ui-love mr-2'></i>Like</button></span>")
             $('#dateOfBirth').html(age);
             $("#dateOfBirthpc").html(age);
             $("#dateOfBirthpcc").html(age);
@@ -102,8 +102,8 @@ $(document).ready(function () {
              <div class='pager-coll' onclick='profileview("+ prof[i].id + ")'>\
               <div class='row'>\
                <div class='col-lg-6 col-md-6 col-sm-6 col-6 pr-0 simig'>\
-                <img src='"+ prof[i].image + "' alt='' class='homeimages'>\
-                 <div class='d-flex'> <p class=''><i class='icofont-ui-text-chat'></i></p> <p class='ml-3'><i class='icofont-star'></i></p> </div>\
+              <img src='"+prof[i].image['medium_square_crop']+"' alt='' class='homeimages'>\
+                 <div class='d-flex'> <p class='sta'><i class='icofont-ui-text-chat'></i></p> <p class='sta'><i class='icofont-star'></i></p> </div>\
                   </div> \
                   <div class='col-lg-6 col-md-6 col-sm-6 col-6 pro-detail floa pr-0'>\
                    <a class='like'><i class='icofont-ui-love'></i>Like</a> <h4>"+ prof[i]['profile'].name + "</h4> <p>Age  <span class='sp1 ml-4'>" + ages + "</span> </p>\

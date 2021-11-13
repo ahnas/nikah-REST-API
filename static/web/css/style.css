@@ -5,7 +5,10 @@ body{
   font-family: 'Poppins', sans-serif;
   font-size: 15px;  
 }
-
+form .error{
+  color: red;
+  font-weight: 600;
+}
 .skip{
   padding: 4px 20px !important;
 }
@@ -2206,4 +2209,9 @@ h3::before {
 .perss h2{
   font-weight: 600;
   border-bottom: 3px solid #00AB3B;
+}
+
+.dyimg {
+  border:4px solid red;
+  
 }
