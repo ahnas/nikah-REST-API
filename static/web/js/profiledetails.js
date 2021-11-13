@@ -10,7 +10,7 @@ $(document).ready(function () {
             if((new Date(obj['profile'].dateOfBirth).getMonth())>new Date().getMonth()){
                 age=age-1;
             }
-            $('#profileimage').attr('src',obj['image'])
+            $('#profileimage').attr('src',obj['image'].medium_square_crop)
             $('#ProfileName').html(obj['profile'].name+"<span class='float-right disp'>Like this profile? <button class='btnn ml-3'><i class='icofont-ui-love mr-2'></i>Like</button></span>")
             $('#dateOfBirth').html(age);
             $("#dateOfBirthpc").html(age);
@@ -102,7 +102,7 @@ $(document).ready(function () {
              <div class='pager-coll' onclick='profileview("+prof[i].id+")'>\
               <div class='row'>\
                <div class='col-lg-6 col-md-6 col-sm-6 col-6 pr-0 simig'>\
-                <img src='"+prof[i].image+"' alt='' class='homeimages'>\
+                <img src='"+prof[i].image['medium_square_crop']+"' alt='' class='homeimages'>\
                  <div class='d-flex'> <p class='sta'><i class='icofont-ui-text-chat'></i></p> <p class='sta'><i class='icofont-star'></i></p> </div>\
                   </div> \
                   <div class='col-lg-6 col-md-6 col-sm-6 col-6 pro-detail floa pr-0'>\

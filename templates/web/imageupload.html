@@ -29,28 +29,36 @@
                 <div class="col-lg-10 col-md-11 col-sm-12 col-11 pro-box">
                     <div class="row text-center">
                         <div class="col-12">
-                       <p><span class=""></span> Image Upload </p>
+                       <p id="greeting"><span class=""></span> Image Upload </p>
                     </div>
                     </div>
-                    <form action="" method="POST" class="ajax" enctype="multipart/form-data">
+                    <form  id="propicUpload" name="propicUpload"  method="POST"  enctype="multipart/form-data">
                         
                         {% csrf_token %}
-                             <div class="form-group row" style="place-content: center;">
-                            <div class="col-sm-6 text-center">
+                             <div id="ImageCollect" class="form-group row" style="place-content: center;">
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3" id="div-image-upload-id1">
                                 <img id="viewImageId" style="width: 220px;" class="mb-3" src="{% static 'web/image/avathar.png' %}" alt="SHow">
-                                <input type="file" class ='form-control' id="image" name="image" required>
-                                <input type="hidden" class ='form-control' id="usernamefield"  name="email1">
+                                <input type="file" class ='form-control' id="image1" name="image1">
                             </div>
-                            
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3" id="div-image-upload-id2">
+                                <img id="viewImageIdtwo" style="width: 220px;" class="mb-3" src="{% static 'web/image/avathar.png' %}" alt="SHow">
+                                <input type="file" class ='form-control' id="image_two" name="image_two" >
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3"  id="div-image-upload-id3">
+                                <img id="viewImageIdthree" style="width: 220px;" class="mb-3" src="{% static 'web/image/avathar.png' %}" alt="SHow">
+                                <input type="file" class ='form-control' id="image_three" name="image_three" >
+                            </div>
                             
                         </div>
 
                        
 
                         <div class="form-group row text-center">
-                            <div class="col">
-                            <button type="submit" class="btn btn-primary px-4 save">Save & Continue</button>
-                            <a href="#" class="btn save skip float-right d-none">Skip</a>
+                            <div class="col" id="buttons">
+                                <button id="btnNotNow" type="button" class="skip-btn btn">Not now</button>
+                        </div>
+                        <div id="next">
+
                         </div>
                         </div>
                             
@@ -91,16 +99,35 @@
 
     <script>
        
-        $("#image").change(function () {
-            if (this.files && this.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#viewImageId').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(this.files[0]);
-            }
-        });
+        // $("#image").change(function () {
+        //     if (this.files && this.files[0]) {
+        //         var reader = new FileReader();
+        //         reader.onload = function (e) {
+        //             $('#viewImageId').attr('src', e.target.result);
+        //         }
+        //         reader.readAsDataURL(this.files[0]);
+        //     }
+        // });
+        // $("#image_two").change(function () {
+        //     if (this.files && this.files[0]) {
+        //         var reader = new FileReader();
+        //         reader.onload = function (e) {
+        //             $('#viewImageIdtwo').attr('src', e.target.result);
+        //         }
+        //         reader.readAsDataURL(this.files[0]);
+        //     }
+        // });
+        // $("#image_three").change(function () {
+        //     if (this.files && this.files[0]) {
+        //         var reader = new FileReader();
+        //         reader.onload = function (e) {
+        //             $('#viewImageIdthree').attr('src', e.target.result);
+        //         }
+        //         reader.readAsDataURL(this.files[0]);
+        //     }
+        // });
     </script>
+    <script src="{% static 'web/js/addImage.js' %}"></script>
     <script src="{% static 'web/js/header.js' %}"></script>
     
     <script src="{% static 'web/js/imageuploadcheck.js' %}"></script>

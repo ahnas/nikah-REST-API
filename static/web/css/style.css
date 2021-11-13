@@ -2218,3 +2218,8 @@ h3::before {
   font-weight: 600;
   border-bottom: 3px solid #00AB3B;
 }
+
+.dyimg {
+  border:4px solid red;
+  
+}

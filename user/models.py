@@ -7,7 +7,7 @@ from django.db.models.fields import BigAutoField
 from django.db.models.fields.related import ForeignKey, OneToOneField
 from django.http.response import JsonResponse
 from django.utils import tree
-from versatileimagefield.fields import VersatileImageField
+from versatileimagefield.fields import VersatileImageField,PPOIField
 
 
 class UserManager(BaseUserManager):
@@ -183,20 +183,12 @@ class Image(models.Model):
     is_verified = models.BooleanField(default=False)
     nmId = models.CharField(max_length=10)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    image = VersatileImageField('Profile',blank=True,null=True,upload_to="Profile/",
-     width_field='width',
-        height_field='height',
-    )
-    height = models.PositiveIntegerField(
-        'Image Height',
-        blank=True,
-        null=True
-    )
-    width = models.PositiveIntegerField(
-        'Image Width',
-        blank=True,
-        null=True
-    )
+    image = VersatileImageField('Profile',blank=True,null=True,upload_to="Profile/",default='default.jpg',ppoi_field='image_ppoi')
+    image_ppoi = PPOIField()
+    image_two                  = VersatileImageField(upload_to = "Profile/",default='default.jpg',ppoi_field='image_two_ppoi')
+    image_two_ppoi = PPOIField()
+    image_three                = VersatileImageField(upload_to = "Profile/",default='default.jpg' ,ppoi_field='image_three_ppoi') 
+    image_three_ppoi = PPOIField()
     profile= models.OneToOneField(UserProperties,on_delete=models.CASCADE)
     education= models.OneToOneField(UserEducationLocationContact,on_delete=models.CASCADE)
 
