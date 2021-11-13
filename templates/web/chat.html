@@ -1,3 +1,5 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,15 +153,15 @@
 
 
     <footer>
-        <img class="fooo d-none d-lg-block" style="position:absolute; width: 100%;" src="web/image/footer.png" alt="">
+        <img class="fooo d-none d-lg-block" style="position:absolute; width: 100%;" src="{% static web/image/footer.png %}" alt="">
         
         <div style="position: relative;" class="container" id="foote">
             <div class="row justify-content-center footer-down">
                 <h3>Get started with the mobile app!</h3>
                 <p>Donec facilisis tortor ut augue lacinia, at viverra est semper. Donec facilisis tortor ut augue lacinia Sed sapien metus, scelerisque nec pharetra id, tempor a tortor.</p>
                 <div class="play">
-                    <img src="web/image/android.png" alt="">
-                    <img src="web/image/ios.png" alt="">
+                    <img src="{% static web/image/android.png %}" alt="">
+                    <img src="{% static web/image/ios.png %}" alt="">
                 </div>
             </div>
            
@@ -228,20 +230,21 @@
 
 
 
-  <script src="web/jquery/jquery.min.js"></script>
-  <script src="web/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="web/jquery.easing/jquery.easing.min.js"></script>
-  <script src="web/php-email-form/validate.js"></script>
-  <script src="web/owl.carousel/owl.carousel.min.js"></script>
-  <script src="web/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="web/venobox/venobox.min.js"></script>
-  <script src="web/waypoints/jquery.waypoints.min.js"></script>
-  <script src="web/counterup/counterup.min.js"></script>
-  <script src="web/aos/aos.js"></script>
+  <script src="{% static 'web/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'web/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'web/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'web/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'web/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'web/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'web/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'web/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'web/counterup/counterup.min.js' %}"></script>
+  <script src="{% static 'web/aos/aos.js' %}"></script>
 
   <!-- Template Main JS File -->
   <script src="web/js/main.js"></script>
 
   <script src="{% static 'web/js/header.js' %}"></script>
+  <script src="{% static 'web/js/chatstodashboard.js' %}"></script>
 </body>
 </html>

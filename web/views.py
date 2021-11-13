@@ -190,3 +190,14 @@ def basicpref(request):
 
 
 
+def chats(request):
+    form = UserPreferencesForm(request.POST or None)
+    context = {
+        "is_chats" : True
+        
+    }
+    return render(request, 'web/chat.html',context)
+
+
+
+

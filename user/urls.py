@@ -37,6 +37,8 @@ urlpatterns = [
     path('UpdateUserProperties/',views.updateUserPropertiesDetails.as_view()),
     path('UpdateUserLocationDetails/',views.updateUserEducationalDetails.as_view()),
     path('UpdateUserImage/',views.updateUserImage.as_view()),
+    path('chats/', views.UserChats.as_view()),
+    path('getmessages/', views.MessagesViewList.as_view()),
     path('',include(router.urls)),
 
 ]

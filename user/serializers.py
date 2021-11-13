@@ -221,3 +221,18 @@ class UserImageSkipSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('id','nmId','user','profile','education','image_three','image_two','image')
 
+
+
+
+class UserChatsserializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.UserChats
+        fields='__all__'
+        read_only_fields=('ChatfromUser','ChatfromUserID','chatimage','chatDisplayName')
+
+
+class Messagesserializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Messages
+        fields='__all__'
+        read_only_fields = ('chatimage','user',)

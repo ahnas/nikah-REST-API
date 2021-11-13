@@ -22,4 +22,5 @@ urlpatterns = [
     path('changepass/', views.changepass,name="changepass"), 
     path('partnerpref/', views.partnerpref,name="partnerpref"),
     path('basicpref/', views.basicpref,name="basicpref"),
+    path('chats/', views.chats,name="chats"),
 ]
