@@ -1,4 +1,21 @@
 $(document).ready(function () {
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/userImageUpload/",
+        type: 'GET',
+        beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            const obj = JSON.parse(JSON.stringify(response));
+            
+            $("#viewImageId").attr("src", obj[0].image['medium_square_crop']);
+            $("#viewImageIdtwo").attr("src", obj[0].image_two['medium_square_crop']);
+            $("#viewImageIdthree").attr("src", obj[0].image_three['medium_square_crop']);
+        },
+        error: function(){
+        },
+      });
     $("#imgup-popup").hide();
   });
   
@@ -11,7 +28,7 @@ $(document).ready(function () {
           $("#viewImageId").removeClass("dyimg");
           $("#imgup-popup").show();
           $("#btnNotNow").attr("id", "btnFormSubmit");
-          $("#btnFormSubmit").html("Submit");
+          $("#btnFormSubmit").html("Update");
         };
         reader.readAsDataURL(this.files[0]);
       }
@@ -83,12 +100,10 @@ $(document).ready(function () {
         contentType: false,
         processData: false,
         success: function () {
-          window.location="http://127.0.0.1:8000/pending/";
         },
         error: function(){
         },
       });
-      return false;
     });
   });
   

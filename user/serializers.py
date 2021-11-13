@@ -89,6 +89,21 @@ class Likeprodileserializer(serializers.ModelSerializer):
 
 class UserAllserializer(serializers.ModelSerializer):
     """Serialize a recipe"""
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_two = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_three= VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
     user =serializers.PrimaryKeyRelatedField(
         queryset=models.UserProperties.objects.all()
     )
@@ -97,7 +112,7 @@ class UserAllserializer(serializers.ModelSerializer):
     class Meta:
         model = models.Image
         fields = (
-            'id', 'image', 'profile', 'education', 'user','nmId',
+            'id', 'image','image_two','image_three', 'profile', 'education', 'user','nmId',
         )
         read_only_fields = ('id',)
 

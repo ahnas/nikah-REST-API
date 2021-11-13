@@ -625,13 +625,15 @@ class UserImageViewSet(viewsets.GenericViewSet,
     def perform_create(self, serializer):
         """Create a new object"""
         checkImageExisting = Image.objects.filter(user=self.request.user)
+        is_verified=False
         if checkImageExisting.exists():
+            is_verified=Image.objects.get(user=self.request.user).is_verified
             Image.objects.get(user=self.request.user).delete()
 
         LogedInUser = self.request.user
         nmIDString = 'NM'+str(self.request.user.id)
         
-        serializer.save(nmId=nmIDString,user=self.request.user,profile=LogedInUser.userproperties,education=LogedInUser.usereducationlocationcontact)
+        serializer.save(is_verified=is_verified,nmId=nmIDString,user=self.request.user,profile=LogedInUser.userproperties,education=LogedInUser.usereducationlocationcontact)
         return Response(status=status.HTTP_204_NO_CONTENT)
     def get_serializer_class(self):
         """Return appropriate serializer class"""
