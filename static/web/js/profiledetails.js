@@ -20,7 +20,7 @@ $(document).ready(function () {
             $("#languagespoken").html(obj['profile'].languagespoken);
             $("#martialStatus").html(obj['profile'].martialStatus);
             $("#workingwith").html(obj['profile'].workingwith);
-            $("#workingas").html(obj['profile'].workingas);
+            $("#workingas").html(obj['education'].workingas);
             $("#EduSpezialization").html(obj['education'].EduSpezialization);
 
             $("#profileCreated").html(obj['profile'].profileCreated);
