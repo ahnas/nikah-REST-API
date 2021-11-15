@@ -60,7 +60,11 @@
     </div>
 
 
-    <div class="container mt-5 perso">
+    <div class="container mt-5 perso" id="editFormDiv">
+        <form name="updateUserDetailsForm" id="updateUserDetailsForm">
+            {% csrf_token %}
+
+        
        
         <div class="row justify-content-center mb-5">
             <div class="col-lg-12">
@@ -78,8 +82,8 @@
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Ethinicity</label></div> <div class="col-7"><p> : <b id="ethinicity"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Height</label></div> <div class="col-7"><p> : <b id="Height"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Weight</label></div> <div class="col-7"><p> : <b id="Weight"></b></p></div></div></div>
-            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Martial status</label></div> <div class="col-7"><p> : <b id="martialStatus"></b></p></div></div></div>
-            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Number.of Children</label></div> <div class="col-7"><p> : <b id="noOfChildren"></b></p></div></div></div>
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Martial status</label></div> <div class="col-7"><p> : <b id="martialstatus"></b></p></div></div></div>
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Number of Children</label></div> <div class="col-7"><p> : <b id="noOfChildren"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Complexion</label></div> <div class="col-7"><p> : <b id="complexion"></b> </p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Body type</label></div> <div class="col-7"><p> : <b id="bodyType"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Mother toungue</label></div> <div class="col-7"><p> : <b id="motherTongue"></b></p></div></div></div>
@@ -90,11 +94,9 @@
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Date of birth</label></div> <div class="col-7"><p> : <b id="dob"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Language spoken</label></div> <div class="col-7"><p> : <b id="languageSpoken"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">family type</label></div> <div class="col-7"><p> : <b id="familyType"></b></p></div></div></div>
-            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Brothers</label></div> <div class="col-7"><p> : <b id="brothers"></b></p></div></div></div>
-            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Sisters</label></div> <div class="col-7"><p> : <b id="sisters"></b> </p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Smoking</label></div> <div class="col-7"><p> : <b id="smoking"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Drinking</label></div> <div class="col-7"><p> : <b id="drinking"></b></p></div></div></div>
-            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">When Marry</label></div> <div class="col-7"><p> : <b id="whenMarry"></b></p></div></div></div>
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Willing to marry</label></div> <div class="col-7"><p> : <b id="whenMarry"></b></p></div></div></div>
             
             <!-- // -->
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Father occupation</label></div> <div class="col-7"><p> : <b id="fatherOccupation"></b></p></div></div></div>
@@ -106,21 +108,62 @@
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">no. of married sisters</label></div> <div class="col-7"><p> : <b id="noOfMarriedSisters"></b> </p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Financial status</label></div> <div class="col-7"><p> : <b id="financialStatus"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Highest Education</label></div> <div class="col-7"><p> : <b id="highestEducation"></b> </p></div></div></div>
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Specialization</label></div> <div class="col-7"><p> : <b id="specialization"></b> </p></div></div></div>
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Community</label></div> <div class="col-7"><p> : <b id="community"></b> </p></div></div></div>
+
+
            
                     
         </div>
         <div class="row mb-5" id="ProfileEdit">
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Nationality</label></div> <div class="col-7"><p> <b id ="nationality">Indian  </b></p></div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Ethinicity</label></div> <div class="col-7"><p> <input type="text" name="ethnicGroup" class="form-control"> </p></div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Height</label></div> <div class="col-7"><p> <input type="text"  name="height"  class="form-control"></p></div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Weight</label></div> <div class="col-7"><p> <input  type="text" class="form-control" name="weight"></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Nationality</label></div> <div class="col-7"><p> <input type="text" name="nationality" class="form-control"> </p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Ethinicity</label></div> <div class="col-7"><p> {{formpro.ethnicGroup}} </p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Height</label></div> <div class="col-7"><p><select name="height" class="form-control"></select></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Weight</label></div> <div class="col-7"><p><select name="weight" class="form-control"></select></p></div></div></div>
 
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Martial status</label></div> <div class="col-7">{{formpro.martialStatus}}</div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Number.of Children</label></div> <div class="col-7"><p> <input type="text" name="numberofChildresn" class="form-control"></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Number.of Children</label></div> <div class="col-7"><p> <input type="text" id="noc" name="numberofChildresn" class="form-control"></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Complexion</label></div> <div class="col-7"><p> {{formpro.complexion}}</p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Body type</label></div> <div class="col-7"><p> {{formpro.bodyType}}</p></div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Mother toungue</label></div> <div class="col-7"><p id="motherTongue"></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Mother toungue</label></div> <div class="col-7"><select name="motherTongue" class="form-control">
+            <option value="Malayalam">Malayalam</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Kannada">Kannada</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Tulu">Tulu</option>
+            <option value="Beary">Beary</option>
+            <option value="Mahi">Mahi</option>
+            <option value="Konkani">Konkani</option>
+            <option value="Gujarati">Gujarati</option>
+            <option value="Marathi">Marathi</option>
+            <option value="Punjabi">Punjabi</option>
+        </select></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Physical status</label></div> <div class="col-7"><p>{{formpro.physicalStatus}}</p></div></div></div>
+            
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Mobile</label></div> <div class="col-7"><p> <b> <input type="text" name="mobile" class="form-control"></b></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Date of birth</label></div> <div class="col-7"><p>  <b id="dob"> <input type="date" id="datepicker" name="dateOfBirth" class="form-control"></b></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Language spoken</label></div> <div class="col-7"><p>  <b id="languageSpoken"> <select name="languagespoken" id="languagespoken" class="required form-control">
+                <option value="Malayalam">Malayalam</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Kannada">Kannada</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Urdu">Urdu</option>
+                <option value="Tulu">Tulu</option>
+                <option value="Beary">Beary</option>
+                <option value="Mahi">Mahi</option>
+                <option value="Konkani">Konkani</option>
+                <option value="Gujarati">Gujarati</option>
+                <option value="Marathi">Marathi</option>
+                <option value="Punjabi">Punjabi</option>
+            </select></b></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">family type</label></div> <div class="col-7"><p><b>{{formpro.familyType}}</b></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Smoking</label></div> <div class="col-7"><p><b id="smoking"> {{formpro.smoking}}</b></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Drinking</label></div> <div class="col-7"><p><b>{{formpro.drinking}}</b></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">When you are hoping to get married</label></div> <div class="col-7"><p>  <b id="whenMarry"> {{formpro.whenmarry}}</b></p></div></div></div>
+            
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Father occupation</label></div> <div class="col-7"><p> {{formpro.fatherOccupation}}</p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Mother Occupation</label></div> <div class="col-7"><p> {{formpro.motherOccupation}}</p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">No. of siblings</label></div> <div class="col-7"><p> <input  name="numberofsiblings" type="text" class="form-control"></p></div></div></div>
@@ -130,7 +173,10 @@
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">no. of married sisters</label></div> <div class="col-7"><p> <input name="marriedSisters"  type="text" class="form-control"></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Financial status</label></div> <div class="col-7"><p> {{formpro.financialStatus}}</p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Highest Education</label></div> <div class="col-7" ><p id="ed1Id"> {{formedu.highestEducation}}</p></div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Profession</label></div> <div class="col-7"><p> <select  name="profession" class="form-control" name="profession" id="profession">
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Specialization</label></div> <div class="col-7" ><p id="ed1Id">{% include 'web/partials/selectedu.html' %}</p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Community</label></div> <div class="col-7" ><p> {{formpro.community}}</p></div></div></div>
+
+            <!-- <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Working as</label></div> <div class="col-7"><p> <select  name="profession" class="form-control" name="profession" id="profession">
                 <option value="Accountant">Accountant</option>
                                     <option value="CA">CA</option>
                                     <option value="Secretary">Secretary</option>
@@ -147,7 +193,7 @@
                                     <option value="Graphics Designer">Graphics Designer</option>
                                     <option value="Administrator">Administrator</option>
                                     <option value="Business">Business</option>
-            </select></p></div></div></div>             
+            </select></p></div></div></div>              -->
         </div>
 
         <div class="row justify-content-center mb-5">
@@ -178,6 +224,8 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">Read quran</label></div> <div class="col-7"><p> : <b id="readQuran"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">Madrassa education</label></div> <div class="col-7"><p> : <b id="madrasaEducation"></b> </p></div></div></div>       
             <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">Attend islamic service</label></div> <div class="col-7"><p> : <b id="attendIslamicService"></b> </p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">House Name</label></div> <div class="col-7"><p> : <b id="houseName"></b> </p></div></div></div>
+
 <!-- //      -->
         </div>
 
@@ -185,7 +233,52 @@
         <div class="row mb-5" id="ProfileEdit">
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Present Country</label></div> <div class="col-7"><p> <input type="text"  name="currentCountry"  class="form-control"></p></div></div></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Present State</label></div> <div class="col-7"><p>  <input type="text" name="currentState"  class="form-control"> </p></div></div></div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Present City</label></div> <div class="col-7"><p> <input type="text"  name="currentCity" class="form-control"></p></div></div></div>      
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Present City</label></div> <div class="col-7"><p> <input type="text"  name="currentCity" class="form-control"></p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Native City</label></div> <div class="col-7"><p><input type="text"  name="nativeCity" class="form-control"> </p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Native Country</label></div> <div class="col-7"><p><input type="text"  name="nativeCountry" class="form-control"> </p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Native State</label></div> <div class="col-7"><p><input type="text"  name="nativeState" class="form-control"></p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Working as</label></div> <div class="col-7"><p> <select name="workingas" id="workingas" class="form-control">
+                <option value="Accountant">Accountant</option>
+                <option value="CA">CA</option>
+                <option value="Secretary">Secretary</option>
+                <option value="Doctor">Doctor</option>
+                <option value="Nurse">Nurse</option>
+                <option value="Marketing Executive">Marketing Executive</option>
+                <option value="HRM">HRM</option>
+                <option value="Pharmacist">Pharmacist</option>
+                <option value="Self Employed">Self Employed</option>
+                <option value="Part-Time">Part-Time</option>
+                <option value="Professor">Professor</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Software Developer">Software Developer</option>
+                <option value="Graphics Designer">Graphics Designer</option>
+                <option value="Administrator">Administrator</option>
+                <option value="Business">Business</option>
+            </select></p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Working with</label></div> <div class="col-7"><p><select name="workingwith" id="workingwith" class="form-control">
+                <option value="Private Sector">Private Sector</option>
+                <option value="Public Sector">Public Sector</option>
+                <option value="Civil Service">Civil Service</option>
+                <option value="Defence">Defence</option>
+                <option value="Business">Business</option>
+                <option value="Self Employed">Self Employed</option>
+                <option value="NRI">NRI</option>
+                <option value="Not Working">Not Working</option>
+            </select></p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Annual income</label></div> <div class="col-7"><p>  <select class="form-control" name="annualincome" id="">
+                <option value="1.5 lakh per/annum"> < 1.5 lakh per/annum  </option>
+                <option value="2 lakh per/annum"> < 2 lakh per/annum  </option>
+                <option value="4 lakh per/annum"> < 4 lakh per/annum  </option>
+                    <option value="5 lakh per/annum"> > 5 lakh per/annum  </option>
+            </select></p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Describe</label></div> <div class="col-7"><p> </p><input type="text"  name="describe" class="form-control"></div></div></div>       
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Perform namaz</label></div> <div class="col-7"><p>{{formedu.performNamaz}}</p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Relegiousness</label></div> <div class="col-7"><p>{{formedu.religiousness}}</p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Read quran</label></div> <div class="col-7"><p></p>{{formedu.readQuran}}</div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Madrassa education</label></div> <div class="col-7"><p><input type="text"  name="madrassaEducation" class="form-control"></p></div></div></div>       
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Attend islamic service</label></div> <div class="col-7"><p>{{formedu.attendIslamicServices}}</p></div></div></div>    
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">House Name</label></div> <div class="col-7"><p> </p><input type="text"  name="houseName" class="form-control"></div></div></div>       
+  
             
         </div>
 
@@ -196,28 +289,20 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12"><div class="row proff"><div class="col-5"><label for="">Relation</label></div> <div class="col-7"><p> : <b id="relation"></b>  </p></div></div></div>
         </div>
 
-
         <div class="row mt-4" id="ProfileEdit">
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Primary Number</label></div> <div class="col-7"><p> <input type="text" name="primaryNumber" class="form-control"> </p></div></div></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Secondary Number</label></div> <div class="col-7"><p> <input type="text" name="secondaryNumber" class="form-control">  </p></div></div></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Preffered Person</label></div> <div class="col-7"><p> <input type="text" name="preferedContact" class="form-control">  </p></div></div></div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Relation</label></div> <div class="col-7"><p> <input type="text" name="relation" class="form-control">  </p></div></div></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Relation</label></div> <div class="col-7"><p>{{formedu.relation}}</p></div></div></div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-            <div class="col-12 text-center">
-                <button class="btn mt-5">Save & Submit</button>
+        <div class="alert alert-success" id="successMessageDiv" role="alert">
+            <p id="successMessage"></p>
+          </div>
+            <div class="col-12 text-center" id="btnSubmitDiv">
+                <button type="submit" class="btn mt-5">Save & Submit</button>
                 </div>
-
+        </form>
         </div>
 
       
@@ -233,11 +318,11 @@
         
     {% endblock %}
     {% block javascript %}
-
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
     <script src="{% static 'web/js/editprofilehelper.js' %}"></script>
     <script src="{% static 'web/js/getmachedprofiles.js' %}"></script>
-    
+    <script src="{% static 'web/js/myprofile.js' %}"></script>    
     <script src="{% static 'web/js/header.js' %}"></script>
     <script src="{% static 'web/js/helper.js' %}"></script>
-
+ 
     {% endblock %}

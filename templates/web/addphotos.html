@@ -39,7 +39,7 @@
 
     <div class="container text-center shots">
         <p class="mb-5">Add your best shots <i style="color: red;" class="icofont-nerd-smile"></i></p>
-        <div class="row justify-content-center">
+        <!-- <div class="row justify-content-center">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                 <img  width="100%" src="{% static 'web/image/profile.jpg' %}" alt="dfsd">
             </div>
@@ -54,7 +54,39 @@
             <button class="btn mt-5">Save Changes</button>
             </div>
 
-        </div>
+        </div> -->
+        <form  id="propicUpload" name="propicUpload"  method="POST"  enctype="multipart/form-data">
+                        
+            {% csrf_token %}
+                 <div id="ImageCollect" class="form-group row" style="place-content: center;">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3" id="div-image-upload-id1">
+                    <img id="viewImageId" style="width: 220px;" class="mb-3" src="{% static 'web/image/avathar.png' %}" alt="SHow">
+                    <input type="file" class ='form-control' id="image1" name="image1">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3" id="div-image-upload-id2">
+                    <img id="viewImageIdtwo" style="width: 220px;" class="mb-3" src="{% static 'web/image/avathar.png' %}" alt="SHow">
+                    <input type="file" class ='form-control' id="image_two" name="image_two" >
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3"  id="div-image-upload-id3">
+                    <img id="viewImageIdthree" style="width: 220px;" class="mb-3" src="{% static 'web/image/avathar.png' %}" alt="SHow">
+                    <input type="file" class ='form-control' id="image_three" name="image_three" >
+                </div>
+                
+            </div>
+
+           
+
+            <div class="form-group row text-center">
+                <div class="col" id="buttons">
+                    <button id="btnNotNow" type="button" class="skip-btn btn">Update</button>
+            </div>
+            <div id="next">
+
+            </div>
+            </div>
+                
+
+        </form>
     </div>
         
 
@@ -84,4 +116,5 @@
     <script src="{% static 'web/js/getmachedprofiles.js' %}"></script>
 
     <script src="{% static 'web/js/header.js' %}"></script>
+    <script src="{% static 'web/js/updatephotos.js' %}"></script>
     {% endblock %}
