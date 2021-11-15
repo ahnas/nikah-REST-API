@@ -5,7 +5,10 @@ body{
   font-family: 'Poppins', sans-serif;
   font-size: 15px;  
 }
-
+form .error{
+  color: red;
+  font-weight: 600;
+}
 .skip{
   padding: 4px 20px !important;
 }
@@ -48,6 +51,10 @@ span{
   background-size: 55% 118%;
   background-position-x: center;
 }
+
+#header .logo img{
+  max-height: 50px;
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -63,7 +70,7 @@ display: none;
 #header {
   transition: all 0.5s;
   z-index: 997;
-  padding: 15px 0;
+  padding: 10px 0;
   background-color: #3acf6e;
 }
 
@@ -71,33 +78,20 @@ display: none;
   background: rgba(0, 0, 0, 0.8);
 }
 
-#header .logo {
-  font-size: 32px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
 
-#header .logo a {
-  color: #fff;
-  background-color: white;
-  padding: 11% 66%;
-}
+
+
 .deaser .logo a {
   color: #fff;
   background-color: #3acf6e !important;
-  padding: 20px 0px !important;
+  padding: 18px 0px !important;
 }
 
-#header .logo a span {
-  color: #3ACF6E;
-}
 
-#header .logo img {
+
+.logo-img {
   max-height: 50px;
+  padding-left: 100px;
 }
 
 /*--------------------------------------------------------------
@@ -373,9 +367,7 @@ header .container-fluid{
   place-items: center;
 
 }
-.ribtns{
-  margin-right: 115px;
-}
+
 
 #hero {
   width: 100%;
@@ -1692,7 +1684,7 @@ h3::before {
   font-size: 15px;
   border-radius: 50%;
   padding: 6px;
-  background-color: #039A00;
+  background-color: #1581D7;
 }
 
 .member a{
@@ -2217,4 +2209,9 @@ h3::before {
 .perss h2{
   font-weight: 600;
   border-bottom: 3px solid #00AB3B;
+}
+
+.dyimg {
+  border:4px solid red;
+  
 }
