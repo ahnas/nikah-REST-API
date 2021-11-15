@@ -19,15 +19,17 @@ $(document).ready(function () {
             $("#martialStatuspc2").html(obj['profile'].martialStatus);
             $("#languagespoken").html(obj['profile'].languagespoken);
             $("#martialStatus").html(obj['profile'].martialStatus);
-            $("#workingwith").html(obj['profile'].workingwith);
+            $("#workingwith").html(obj['education'].workingwith);
             $("#workingas").html(obj['education'].workingas);
+            $("#workingas1").html(obj['education'].workingas);
             $("#EduSpezialization").html(obj['education'].EduSpezialization);
-
+            $("#annualincome").html(obj['education'].annualincome);
             $("#profileCreated").html(obj['profile'].profileCreated);
             $("#familyType").html(obj['profile'].familyType);
             $("#nativeCityPC").html(obj['education'].nativeCity);
             $("#nativeCity").html(obj['education'].nativeCity);
             $("#height").html(obj['profile'].height);
+            $("#whenmarry").html(obj['profile'].whenmarry);
             $("#weight").html(obj['profile'].weight);
             $("#numberofChildresn").html(obj['profile'].numberofChildresn);
             $("#community").html(obj['profile'].community);
@@ -41,6 +43,7 @@ $(document).ready(function () {
             $("#ethnicGroup").html(obj['profile'].ethnicGroup);
             $("#eliteclass").html(obj['profile'].eliteclass);
             $("#smoking").html(obj['profile'].smoking);
+            $("#disability").html(obj['profile'].physicalStatus);
             $("#fatherocupation").html(obj['profile'].fatherocupation);
             $("#motherocupation").html(obj['profile'].motherocupation);
             $("#performNamaz").append(obj['education'].performNamaz);
@@ -108,7 +111,7 @@ $(document).ready(function () {
                   <div class='col-lg-6 col-md-6 col-sm-6 col-6 pro-detail floa pr-0'>\
                    <a class='like'><i class='icofont-ui-love'></i>Like</a> <h4>"+ prof[i]['profile'].name + "</h4> <p>Age  <span class='sp1 ml-4'>" + ages + "</span> </p>\
                     <p>Status  <span class='sp2'>"+ prof[i]['profile'].martialStatus + "</span></p> <p><span><i class='icofont-users-alt-3 mr-2'></span></i>" + prof[i]['profile'].relegion + "</p> \
-                    <p><span><i class='icofont-web mr-2'></span></i>"+ prof[i]['education'].highestEducation + "</p> <p><span><i class='icofont-bag mr-2'></span></i>" + prof[i]['education'].profession + "</p>\
+                    <p><span><i class='icofont-web mr-2'></span></i>"+ prof[i]['education'].highestEducation + "</p> <p><span><i class='icofont-bag mr-2'></span></i>" + prof[i]['education'].workingas + "</p>\
                      <p><span><i class='icofont-location-pin mr-2'></i></span></i>"+ prof[i]['education'].nativeCity + "</p> </div> </div> </div> </div>")
 
             }
