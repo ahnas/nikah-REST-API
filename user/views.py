@@ -661,3 +661,23 @@ class UserImageViewSet(viewsets.GenericViewSet,
                 except:
                     return UserImageForTwoImageSerializer
         return self.serializer_class
+
+
+
+
+class Getpreferenceofuser(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    """
+    Retrieve, update or delete a snippet instance.
+    """
+    def get_object(self, pk):
+        try:
+            return UserPreferences.objects.get(user_id=pk)
+        except UserPreferences.DoesNotExist:
+            raise Http404
+    
+    def get(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = serializers.UserPreferencesSerializer(snippet)
+        return Response(serializer.data)

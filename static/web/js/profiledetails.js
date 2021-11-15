@@ -1,7 +1,7 @@
 $(document).ready(function () {
     id = $('#profileID').val()
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/"+id+"/",
+        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
@@ -10,8 +10,9 @@ $(document).ready(function () {
             if ((new Date(obj['profile'].dateOfBirth).getMonth()) > new Date().getMonth()) {
                 age = age - 1;
             }
-            $('#profileimage').attr('src',obj['image'].medium_square_crop)
-            $('#ProfileName').html(obj['profile'].name+"<span class='float-right disp'>Like this profile? <button class='btnn ml-3'><i class='icofont-ui-love mr-2'></i>Like</button></span>")
+
+            $('#profileimage').attr('src', obj['image'].medium_square_crop)
+            $('#ProfileName').html(obj['profile'].name + "<span class='float-right disp'>Like this profile? <button class='btnn ml-3'><i class='icofont-ui-love mr-2'></i>Like</button></span>")
             $('#dateOfBirth').html(age);
             $("#dateOfBirthpc").html(age);
             $("#dateOfBirthpcc").html(age);
@@ -69,13 +70,34 @@ $(document).ready(function () {
             $("#youngerSisters").html(obj['profile'].youngerSisters);
             $("#marriedSisters").html(obj['profile'].marriedSisters);
             $("#financialStatus").html(obj['profile'].financialStatus);
-
-
             $("#nmId").append(obj['nmId']);
             $("#drinking").html(obj['profile'].drinking);
             var b = (parseInt(obj['profile'].brothers) > 1) ? "s" : "";
             var s = (parseInt(obj['profile'].sisters) > 1) ? "s" : "";
             $("#brothersister").html(obj['profile'].brothers + " Brother" + b + " | " + obj['profile'].sisters + " Sister" + s);
+            $.ajax({
+                url: "http://127.0.0.1:8000/api/user/getpreferenceofuser/" + obj['user'].id + "/",
+                type: 'GET',
+                beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+                success: function (response) {
+                    const obj = JSON.parse(JSON.stringify(response));
+
+                    $('#dateOfBirthpcc').html(obj['ageFrom'] + " - " + obj['ageTo']);
+                    $('#preferedstatus').html(obj['martialStatus']);
+                    $("#prefheight").html(obj['heightFrom'] + " - " + obj['heightTo']);
+                    $("#prefeducation").html(obj['education']);
+                    $("#prefcommunity").html(obj['community']);
+                    $("#prefcity").html(obj['city']);
+
+                },
+                error: function (jqXHR) {
+                    if (jqXHR.status == 404) {
+                        var responseText = jQuery.parseJSON(jqXHR.responseText);
+                    } else {
+                        // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                    }
+                }
+            });
         },
         error: function (jqXHR) {
             if (jqXHR.status == 404) {
@@ -85,6 +107,11 @@ $(document).ready(function () {
             }
         }
     });
+
+
+
+
+
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/collectproperties/",
         type: 'GET',
@@ -105,7 +132,7 @@ $(document).ready(function () {
              <div class='pager-coll' onclick='profileview("+ prof[i].id + ")'>\
               <div class='row'>\
                <div class='col-lg-6 col-md-6 col-sm-6 col-6 pr-0 simig'>\
-              <img src='"+prof[i].image['medium_square_crop']+"' alt='' class='homeimages'>\
+              <img src='"+ prof[i].image['medium_square_crop'] + "' alt='' class='homeimages'>\
                  <div class='d-flex'> <p class='sta'><i class='icofont-ui-text-chat'></i></p> <p class='sta'><i class='icofont-star'></i></p> </div>\
                   </div> \
                   <div class='col-lg-6 col-md-6 col-sm-6 col-6 pro-detail floa pr-0'>\
@@ -131,4 +158,44 @@ $(document).ready(function () {
 
 
 
+
 });
+function loadpremiumFeatures(){
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
+        type: 'GET',
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+        success: function (response) {
+            const obj = JSON.parse(JSON.stringify(response));
+            var str = obj['education'].houseName + "," + obj['education'].locality + ",<br>" + obj['education'].nativeCity + ",<br>" + obj['education'].pincode;
+            $("#premiumfeatures").html("<div class='row'>\
+                <div class='col-5'>Primary Number</div> : <div class='col-6' id='relegion'>"+obj['education'].primaryNumber+"</div>\
+            </div>\
+            <div class='row'>\
+                <div class='col-5'>Whatsapp</div> : <div class='col-6' id='nationality'>"+obj['education'].primaryNumber+"</div>\
+            </div>\
+            <div class='row'>\
+                <div class='col-5'>House Name </div> : <div class='col-6' id='martialStatuspc2'>"+ obj['education'].houseName +"</div>\
+            </div>\
+            <div class='row'>\
+                <div class='col-5'>Locality</div> : <div class='col-6' id='numberofChildresn'>"+obj['education'].locality+"</div>\
+            </div>\
+            <div class='row'>\
+                <div class='col-5'>City</div> : <div class='col-6' id='ethnicGroup'>"+obj['education'].nativeCity+"</div>\
+            </div>\
+            <div class='row'>\
+                <div class='col-5'>Email</div> : <div class='col-6' id='motherTongue'>"+obj['user'].email+"</div>\
+            </div>");
+        },
+        error: function (jqXHR) {
+            if (jqXHR.status == 404) {
+                var responseText = jQuery.parseJSON(jqXHR.responseText);
+            } else {
+                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+            }
+        }
+    });
+
+
+
+}
