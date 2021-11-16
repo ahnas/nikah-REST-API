@@ -719,9 +719,12 @@ class MessagesViewList(generics.ListCreateAPIView):
     """
     def get(self,request):
         chat = self.request.query_params.get('chatID')
+        print(chat,'*'*20)
         messages = models.Messages.objects.filter(chat__chatName=chat)
+        
         for message in messages:
-            userImage = Image.objects.get(user=message.user)
+            print(message.user)
+            userImage = Image.objects.first()
             message.chatimage=userImage.image.url
 
         
@@ -730,7 +733,7 @@ class MessagesViewList(generics.ListCreateAPIView):
         return Response(serializer.data)
     def perform_create(self, serializer):
         user = User.objects.all().first()
-        userchat = models.UserChats.objects.get(chatName='NM10010NMNM1207DS')
+        userchat = models.UserChats.objects.get(chatName='NM100NM1207DS')
         print('#'*20)
         print(self.request.POST['chat'])
         """Create a new message"""

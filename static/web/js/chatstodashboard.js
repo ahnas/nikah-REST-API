@@ -6,6 +6,8 @@ $(document).ready(function () {
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
             const obj = JSON.parse(JSON.stringify(response));
+            alert(obj[0].chatimage)
+            if(obj!=null){
             loadchats(obj[0].chatName,obj[0].chatDisplayName);
             $('#chatsList').empty()
             for(let i = 0; i < obj.length && i<=200; i++){
@@ -15,6 +17,9 @@ $(document).ready(function () {
             <div class='col-3 acti'><p>2min ago</p><div id='do' class='d-none'><span class='do' ></span> Active now</div></div>\
             </div>")
             }
+
+            }
+            
         },
         error: function (jqXHR) {
             if (jqXHR.status == 404) { 
