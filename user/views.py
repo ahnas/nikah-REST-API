@@ -339,32 +339,32 @@ class UaerpropertiesLikedandAndNonLiked(viewsets.ModelViewSet):
             gender='male'
         sort_params = {}
         set_if_not_none(sort_params, 'profile__gender', gender)
-        userpreference = UserPreferences.objects.filter(user=self.request.user).last()
-        if userpreference.ageFrom != 0 and userpreference.ageTo != 0:
-            current_time = datetime.datetime.now() 
-            year_from = current_time.year-userpreference.ageTo
-            year_To = current_time.year-userpreference.ageFrom
-            date_From = str(year_from)+'-01-01'
-            date_To= str(year_To)+'-12-30'
-            datedange=[str(date_From), str(date_To)]
-            set_if_not_none(sort_params, 'profile__dateOfBirth__range', datedange)   
-        if userpreference.heightFrom != 0 and userpreference.heightTo != 0:
-            fromHeight =userpreference.heightFrom 
-            toHeight= userpreference.heightTo
-            set_if_not_none(sort_params, 'profile__height__gte', fromHeight-1)
-            set_if_not_none(sort_params, 'profile__height__lte', toHeight+1)
-        if userpreference.weightFrom != 0 and userpreference.weightTo != 0:
-            fromWeight =userpreference.weightFrom 
-            toWeight= userpreference.weightTo
-            set_if_not_none(sort_params, 'profile__weight__gte', fromWeight-1)
-            set_if_not_none(sort_params, 'profile__weight__lte', toWeight+1)
-        set_if_not_none(sort_params, 'profile__smoking', userpreference.smoking)
-        set_if_not_none(sort_params, 'profile__drinking', userpreference.drinking)
-        set_if_not_none(sort_params, 'profile__complexion', userpreference.complexion)
-        set_if_not_none(sort_params, 'profile__bodyType', userpreference.bodyType)
-        set_if_not_none(sort_params, 'profile__martialStatus', userpreference.martialStatus)
-        set_if_not_none(sort_params, 'profile__community', userpreference.community)
-        set_if_not_none(sort_params, 'education__profession', userpreference.profession)
+        # userpreference = UserPreferences.objects.filter(user=self.request.user).last()
+        # if userpreference.ageFrom != 0 and userpreference.ageTo != 0:
+        #     current_time = datetime.datetime.now() 
+        #     year_from = current_time.year-userpreference.ageTo
+        #     year_To = current_time.year-userpreference.ageFrom
+        #     date_From = str(year_from)+'-01-01'
+        #     date_To= str(year_To)+'-12-30'
+        #     datedange=[str(date_From), str(date_To)]
+        #     set_if_not_none(sort_params, 'profile__dateOfBirth__range', datedange)   
+        # if userpreference.heightFrom != 0 and userpreference.heightTo != 0:
+        #     fromHeight =userpreference.heightFrom 
+        #     toHeight= userpreference.heightTo
+        #     set_if_not_none(sort_params, 'profile__height__gte', fromHeight-1)
+        #     set_if_not_none(sort_params, 'profile__height__lte', toHeight+1)
+        # if userpreference.weightFrom != 0 and userpreference.weightTo != 0:
+        #     fromWeight =userpreference.weightFrom 
+        #     toWeight= userpreference.weightTo
+        #     set_if_not_none(sort_params, 'profile__weight__gte', fromWeight-1)
+        #     set_if_not_none(sort_params, 'profile__weight__lte', toWeight+1)
+        # set_if_not_none(sort_params, 'profile__smoking', userpreference.smoking)
+        # set_if_not_none(sort_params, 'profile__drinking', userpreference.drinking)
+        # set_if_not_none(sort_params, 'profile__complexion', userpreference.complexion)
+        # set_if_not_none(sort_params, 'profile__bodyType', userpreference.bodyType)
+        # set_if_not_none(sort_params, 'profile__martialStatus', userpreference.martialStatus)
+        # set_if_not_none(sort_params, 'profile__community', userpreference.community)
+        # set_if_not_none(sort_params, 'education__profession', userpreference.profession)
         return self.queryset.filter(**sort_params)
     
     def perform_create(self, serializer):
@@ -638,7 +638,7 @@ class UserImageViewSet(viewsets.GenericViewSet,
             Image.objects.get(user=self.request.user).delete()
 
         LogedInUser = self.request.user
-        nmIDString = 'NM'+str(self.request.user.id)
+        nmIDString = 'NM00'+str(self.request.user.id)
         
         serializer.save(is_verified=is_verified,nmId=nmIDString,user=self.request.user,profile=LogedInUser.userproperties,education=LogedInUser.usereducationlocationcontact)
         return Response(status=status.HTTP_204_NO_CONTENT)

@@ -10,9 +10,15 @@ $(document).ready(function () {
             if ((new Date(obj['profile'].dateOfBirth).getMonth()) > new Date().getMonth()) {
                 age = age - 1;
             }
-
+            if(obj['is_liked']==true){
+                var like=""
+            }
+            else{
+                like="<span id='"+obj['user'].id+"' class='float-right disp'>Like this profile? <button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i class='icofont-ui-love mr-2'></i>Like</button></span>";
+            
+            }
             $('#profileimage').attr('src', obj['image'].medium_square_crop)
-            $('#ProfileName').html(obj['profile'].name + "<span class='float-right disp'>Like this profile? <button class='btnn ml-3'><i class='icofont-ui-love mr-2'></i>Like</button></span>")
+            $('#ProfileName').html(obj['profile'].name +like )
             $('#dateOfBirth').html(age);
             $("#dateOfBirthpc").html(age);
             $("#dateOfBirthpcc").html(age);
@@ -136,7 +142,7 @@ $(document).ready(function () {
                  <div class='d-flex'> <p class='sta'><i class='icofont-ui-text-chat'></i></p> <p class='sta'><i class='icofont-star'></i></p> </div>\
                   </div> \
                   <div class='col-lg-6 col-md-6 col-sm-6 col-6 pro-detail floa pr-0'>\
-                   <a class='like'><i class='icofont-ui-love'></i>Like</a> <h4>"+ prof[i]['profile'].name + "</h4> <p>Age  <span class='sp1 ml-4'>" + ages + "</span> </p>\
+                    <h4>"+ prof[i]['profile'].name + "</h4> <p>Age  <span class='sp1 ml-4'>" + ages + "</span> </p>\
                     <p>Status  <span class='sp2'>"+ prof[i]['profile'].martialStatus + "</span></p> <p><span><i class='icofont-users-alt-3 mr-2'></span></i>" + prof[i]['profile'].relegion + "</p> \
                     <p><span><i class='icofont-web mr-2'></span></i>"+ prof[i]['education'].highestEducation + "</p> <p><span><i class='icofont-bag mr-2'></span></i>" + prof[i]['education'].workingas + "</p>\
                      <p><span><i class='icofont-location-pin mr-2'></i></span></i>"+ prof[i]['education'].nativeCity + "</p> </div> </div> </div> </div>")

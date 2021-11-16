@@ -111,10 +111,18 @@ class UserAllserializer(serializers.ModelSerializer):
     )
     profile = UserPropertieslessfieldSerializer(read_only=True)
     education= UserEducationLocationContactFilteredSerializer(read_only=True)
+    is_liked = serializers.SerializerMethodField('is_liked_profile')
+    def is_liked_profile(self, image):
+        request = self.context.get('request', None)
+        if request:
+            liked_by_user=models.Image.objects.get(user=request.user)
+            liked_user=models.User.objects.get(id=image.user_id)
+            likedRedord =models.LikeProfile.objects.filter(liked_by_user=liked_by_user,liked_user=liked_user)
+        return likedRedord.exists()
     class Meta:
         model = models.Image
         fields = (
-            'id', 'image','image_two','image_three', 'profile', 'education', 'user','nmId',
+            'id', 'image','image_two','image_three', 'profile', 'education', 'user','nmId','is_liked',
         )
         read_only_fields = ('id',)
 
