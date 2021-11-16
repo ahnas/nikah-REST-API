@@ -13,6 +13,7 @@ $(document).ready(function () {
             const myArr = response.split(",");
             $('#usernamefield1').html(myArr[0] + "&nbsp&nbsp&nbsp<img style='border-radius: 50%;width:30px;height:30px;'src='" + myArr[1] + "' alt='Image'>");
             $('#usernameimage').html("<img style='border-radius: 50%;width:30px;height:30px;'src='" + myArr[1] + "' alt='Image'>");
+            $('#modifyUsername').html(myArr[0]);
         }
     });
     $.ajax({
