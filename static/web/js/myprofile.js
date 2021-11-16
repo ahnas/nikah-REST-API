@@ -70,7 +70,7 @@ $(document).ready(function(){
             $("select[name=familyType]").val(response['familyType']) 
             $("select[name=drinking]").val(response['drinking'])
             $("input[name=mobile]").val(response['moblie'])
-            $("select[name=languagespoken]").val(response['languagespoken'])
+            $("input[name=languagespoken]").val(response['languagespoken'])
             $("select[name=community]").val(response['community'])
 
 
@@ -86,6 +86,7 @@ $(document).ready(function(){
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
+            console.log(response)
             $("#highestEducation").html(response['highestEducation'])
             $("#location").html(response['locality'])
             $("#primaryNumber").html(response['primaryNumber'])
@@ -177,7 +178,6 @@ $("form[name='updateUserDetailsForm']").validate({
             required:true,
         },
         annualincome:{
-            required:true,
         },
         describe:{
             required:true,
@@ -213,8 +213,6 @@ $("form[name='updateUserDetailsForm']").validate({
         },
         mobile:{
             required:true,
-            digits:true,
-            min:10
         },
         dateOfBirth:{
             required:true,
