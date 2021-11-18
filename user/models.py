@@ -144,9 +144,9 @@ class UserEducationLocationContact(models.Model):
 
     primaryNumber = models.CharField(max_length=225)
     secondaryNumber = models.CharField(max_length=225)
-    preferedContact = models.CharField(max_length=225)
+    preferedContact = models.CharField(max_length=225,null=True,blank=True)
     relation = models.CharField(max_length=225,choices=relation_CHOICE,default="Self")
-    describe = models.TextField(max_length=1000)
+    describe = models.TextField(max_length=1000,null=True,blank=True)
 
     performNamaz = models.CharField(max_length=225,choices=performNamaz_CHOICES,default="Always")
     religiousness = models.CharField(max_length=225,choices=releagiosness_CHOICES ,default='Religious')
@@ -218,7 +218,8 @@ class UserPreferences(models.Model):
     heightTo = models.IntegerField(default=0,null=True,blank=True) 
     weightFrom = models.IntegerField(default=0,null=True,blank=True)
     weightTo = models.IntegerField(default=0,null=True,blank=True)
-    profession = models.CharField(max_length=225,blank=True)
+    
+    workingas = models.CharField(max_length=225,blank=True)
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default=None,null=True,blank=True)
     drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default=None,null=True,blank=True)
     complexion = models.CharField(max_length=225,choices=complexion_CHOICES,default=None,null=True,blank=True)

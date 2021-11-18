@@ -42,21 +42,21 @@
                         {% csrf_token %}
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputFirstname">Profile Created by</label>
+                                <label for="inputFirstname">Profile Created by *</label>
                                 {{form.profileCreated}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputLastname">Bride / Groom</label>
+                                <label for="inputLastname">Bride / Groom *</label>
                                 <input name="name" id="name" type="text" class="form-control" placeholder="Name">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputAddressLine1">Gender</label>
+                                <label for="inputAddressLine1">Gender *</label>
                                 {{form.gender}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputCity">Mobile Number</label>
+                                <label for="inputCity">Mobile Number *</label>
                                 <br>
                                 <input name="moblie" id="moblie" type="tel" class="form-control" placeholder="Number">
                             </div>
@@ -64,13 +64,13 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Your Religion</label>
+                                <label for="inputWebsite">Your Religion *</label>
                                 {{form.relegion}}
                             </div>
 
                             <div class="col-sm-6">
 
-                                <label for="inputAddressLine2">Community</label>
+                                <label for="inputAddressLine2">Community *</label>
                                 {{form.community}}
                             </div>
 
@@ -80,12 +80,12 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 
-                                <label for="inputWebsite">Nationality</label>
+                                <label for="inputWebsite">Nationality *</label>
                                 {{form.nationality}}
 
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Date of Birth</label>
+                                <label for="inputContactNumber">Date of Birth *</label>
                                 <input placeholder="n" type="date" id="dateOfBirth" name="dateOfBirth" class="form-control">
                                     
                             </div>
@@ -94,13 +94,13 @@
                         <div class="form-group row">
                             
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Height</label>
+                                <label for="inputWebsite">Height *</label>
                                 <select name="height" id="height" class="required form-control">
                                 </select>
 
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Weight</label>
+                                <label for="inputWebsite">Weight *</label>
                                 <select name="weight" id="weight" class="required form-control">
                                     
                                 </select>
@@ -110,11 +110,11 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Martial Status</label>
+                                <label for="inputContactNumber">Martial Status *</label>
                                 {{form.martialStatus}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Complexion</label>
+                                <label for="inputWebsite">Complexion *</label>
                                 {{form.complexion}}
                             </div>
                         </div>
@@ -132,22 +132,22 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Ethnic Group</label>
+                                <label for="inputContactNumber">Ethnic Group *</label>
                                 {{form.ethnicGroup}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Body Type</label>
+                                <label for="inputWebsite">Body Type *</label>
                                 {{form.bodyType}}
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Physical Status</label>
+                                <label for="inputContactNumber">Physical Status *</label>
                                 {{form.physicalStatus}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Mother Tongue</label>
+                                <label for="inputWebsite">Mother Tongue *</label>
                                 <select name="motherTongue" id="motherTongue" class="required form-control">
                                     <option value="Malayalam">Malayalam</option>
                                     <option value="Tamil">Tamil</option>
@@ -223,7 +223,7 @@
                                 {{form.familyType}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Father Occupation</label>
+                                <label for="inputContactNumber">Father Occupation *</label>
                                 {{form.fatherOccupation}}
                             </div>
                         </div>
@@ -231,11 +231,11 @@
                         
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Mother Occupation</label>
+                                <label for="inputWebsite">Mother Occupation *</label>
                                 {{form.motherOccupation}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">No of Siblings</label>
+                                <label for="inputWebsite">No of Siblings *</label>
                                 <input type="number" name="numberofsiblings" id="numberofsiblings" value=0 class="required form-control">
                             </div>
                             
@@ -265,21 +265,21 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Financial Status</label>
+                                <label for="inputContactNumber">Financial Status *</label>
                                 {{form.financialStatus}}
                             </div>
                             <div class="col-sm-3">
-                                <label for="inputWebsite">Smoking</label>
+                                <label for="inputWebsite">Smoking *</label>
                                 {{form.smoking}}
                             </div>
                             <div class="col-sm-3">
-                                <label for="inputWebsite">Drinking</label>
+                                <label for="inputWebsite">Drinking *</label>
                                 {{form.drinking}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="inputWebsite">When you are hoping to get married</label>
+                                <label for="inputWebsite">When you are hoping to get married *</label>
                                 {{form.whenmarry}}
                             </div>
                         </div>

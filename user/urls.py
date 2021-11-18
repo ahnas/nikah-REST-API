@@ -22,7 +22,6 @@ router.register('userImageUpload',views.UserImageViewSet)
 router.register("MatchedProfiles",views.MatchedProfiles)
 
 
-
 urlpatterns = [
     path('create/', views.CreateUserView.as_view(), name='create'),
     path('token/', views.CreateTokenView.as_view(), name='token'),
@@ -39,6 +38,7 @@ urlpatterns = [
     path('UpdateUserLocationDetails/',views.updateUserEducationalDetails.as_view()),
     path('UpdateUserImage/',views.updateUserImage.as_view()),
     path('delete/',views.DeleteAccount.as_view(), name='delete'),
+    path('GetLikesAndMatches/',views.GetLikesAndMatches.as_view(), name='delete'),
 
     path('',include(router.urls)),
 

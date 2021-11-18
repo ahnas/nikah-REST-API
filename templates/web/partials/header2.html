@@ -39,3 +39,20 @@
   </header><!-- End Header -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="{% static 'web/js/loadheader.js' %}"></script>
+  <script>
+    $(document).ready(function () {
+      loadlikecount();
+
+    });
+    function loadlikecount(){
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/GetLikesAndMatches/",
+        type: 'GET',
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+        success: function (response) { 
+            console.log(response)
+            var total_like =parseInt(response['likedyoucount'])+parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
+            $('#intr').html(total_like);
+        }
+    });}
+  </script>

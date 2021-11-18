@@ -2,7 +2,17 @@ $("#logout").click(function () {
     localStorage.removeItem('token');
     window.location.href = "http://127.0.0.1:8000/";
 });
-
+function loadlikecount(){
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/GetLikesAndMatches/",
+        type: 'GET',
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+        success: function (response) { 
+            console.log(response)
+            var total_like =parseInt(response['likedyoucount'])+parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
+            $('#intr').html(total_like);
+        }
+    });}
 var pageURL = $(location).attr("href");
 $(document).ready(function () {
     $.ajax({
