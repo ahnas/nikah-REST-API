@@ -30,6 +30,4 @@ jobs:
       run: |
         python manage.py test
         
-    - name: Run Code Cleanup check
-      run: |
-        flake8
+    
