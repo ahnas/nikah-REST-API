@@ -18,6 +18,8 @@ $(document).ready(function () {
             
             }
             $('#profileimage').attr('src', obj['image'].medium_square_crop)
+            $('#profileimage2').attr('src', obj['image_two'].medium_square_crop)
+            $('#profileimage3').attr('src', obj['image_three'].medium_square_crop)
             $('#ProfileName').html(obj['profile'].name +like )
             $('#dateOfBirth').html(age);
             $("#dateOfBirthpc").html(age);

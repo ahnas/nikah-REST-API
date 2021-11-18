@@ -38,6 +38,8 @@ urlpatterns = [
     path('UpdateUserProperties/',views.updateUserPropertiesDetails.as_view()),
     path('UpdateUserLocationDetails/',views.updateUserEducationalDetails.as_view()),
     path('UpdateUserImage/',views.updateUserImage.as_view()),
+    path('delete/',views.DeleteAccount.as_view(), name='delete'),
+
     path('',include(router.urls)),
 
 ]
