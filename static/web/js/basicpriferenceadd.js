@@ -45,6 +45,8 @@ $(document).ready(function () {
             var weightTo = $('#weightTo').val();
             var complexion = $('#complexion').val();
             var city = $('#city').val();
+            var bodyType = $('#bodyType').val();
+            var community = $('#community').val();
             var district = $('#district').val();
             data = {
                 "district": district,
@@ -58,6 +60,8 @@ $(document).ready(function () {
                 "weightTo": weightTo,
                 "complexion": complexion,
                 "country":country,
+                "bodyType":bodyType,
+                "community":community,
             }
             $.ajax({
                 url: "http://127.0.0.1:8000/api/user/BasicPreferences/",

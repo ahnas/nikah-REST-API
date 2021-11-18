@@ -122,7 +122,9 @@ class UserAllserializer(serializers.ModelSerializer):
             liked_by_user=models.Image.objects.get(user=request.user)
             liked_user=models.User.objects.get(id=image.user_id)
             likedRedord =models.LikeProfile.objects.filter(liked_by_user=liked_by_user,liked_user=liked_user)
-        return likedRedord.exists()
+            if likedRedord.exists():
+                return likedRedord.first().id
+        return 0
     class Meta:
         model = models.Image
         fields = (

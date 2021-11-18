@@ -10,7 +10,7 @@ $(document).ready(function () {
             if ((new Date(obj['profile'].dateOfBirth).getMonth()) > new Date().getMonth()) {
                 age = age - 1;
             }
-            if(obj['is_liked']==true){
+            if(obj['is_liked']!=0){
                 var like=""
             }
             else{

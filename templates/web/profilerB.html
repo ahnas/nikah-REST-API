@@ -42,6 +42,7 @@
                             <div class="col-sm-6">
                                 <label for="inputAddressLine2">Working With</label>
                                 <select name="workingwith" id="workingwith" class="form-control">
+                                    <option value="Not Working">Not Working</option>
                                     <option value="Private Sector">Private Sector</option>
                                     <option value="Public Sector">Public Sector</option>
                                     <option value="Civil Service">Civil Service</option>
@@ -49,13 +50,13 @@
                                     <option value="Business">Business</option>
                                     <option value="Self Employed">Self Employed</option>
                                     <option value="NRI">NRI</option>
-                                    <option value="Not Working">Not Working</option>
                                 </select>
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputAddressLine2">Working as</label>
                                 <!-- <input type="text" class="form-control" name="workingas" id="workingas" placeholder="Working as"> -->
                                 <select name="workingas" id="workingas" class="form-control">
+                                    <option value="Not Working">Not Working</option>
                                     <option value="Accountant">Accountant</option>
                                     <option value="CA">CA</option>
                                     <option value="Secretary">Secretary</option>
@@ -72,6 +73,7 @@
                                     <option value="Graphics Designer">Graphics Designer</option>
                                     <option value="Administrator">Administrator</option>
                                     <option value="Business">Business</option>
+
                                 </select>
                             </div>
                         </div>
@@ -81,6 +83,7 @@
                                 <label for="inputState">Annual Income</label>
                                 <!-- <input type="number" class="form-control" name="annualincome" id="annualincome" placeholder="Annual Income"> -->
                                 <select class="form-control" name="annualincome" id="annualincome">
+                                    <option value="No Income">No Income</option>
                                     <option value="1.5 lakh per/annum"> < 1.5 lakh per/annum  </option>
                                     <option value="2 lakh per/annum"> < 2 lakh per/annum  </option>
                                     <option value="4 lakh per/annum"> < 4 lakh per/annum  </option>
@@ -117,6 +120,13 @@
                                 <input type="text" class="form-control" name="houseName" id="houseName" placeholder="House Name">
                             </div>
                             
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label for="inputContactNumber">Currently staying in Native city?</label>
+                                <input type="checkbox" id="sameAddress" onchange="currentAddress();">
+
+                            </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">

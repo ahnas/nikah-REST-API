@@ -1,4 +1,18 @@
-
+function currentAddress(){
+    if ($('#sameAddress').is(':checked')) {
+        var cntry=$('#nativeCountry').val()
+        var state=$('#nativeState').val()
+        var city=$('#nativeCity').val()
+        $('#currentCountry').val(cntry);
+        $('#currentState').val(state);
+        $('#currentCity').val(city);
+    }
+    else{
+        $('#currentCountry').val('');
+        $('#currentState').val('');
+        $('#currentCity').val('');
+    }  
+}
 
 $(document).ready(function () {
     $.ajax({
@@ -42,12 +56,8 @@ $(document).ready(function () {
                 required: true,
             },
             preferedContact: {
-                required: true,
             },
             relation: {
-                required: true,
-            },
-            describe: {
                 required: true,
             },
             houseName: {
