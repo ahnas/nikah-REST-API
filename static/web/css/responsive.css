@@ -535,6 +535,12 @@
         text-align: center;      
     }
     
+    .slide a{
+        color: #3acf6e;
+        border: none;
+        padding: 0;
+        border-radius: 0px;
+      }
 
 }
 

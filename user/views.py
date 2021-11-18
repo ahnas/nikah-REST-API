@@ -33,6 +33,8 @@ class CreateUserView(generics.CreateAPIView):
     """Create a new user in the system"""
     serializer_class = UserSerializer
 
+    
+
 
 class CreateTokenView(ObtainAuthToken):
     """Create a new auth token for the user"""
@@ -681,3 +683,13 @@ class Getpreferenceofuser(APIView):
         snippet = self.get_object(pk)
         serializer = serializers.UserPreferencesSerializer(snippet)
         return Response(serializer.data)
+
+class DeleteAccount(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def delete(self, request, *args, **kwargs):
+        user=self.request.user
+        user.delete()
+
+        return Response({"result":"user delete"})

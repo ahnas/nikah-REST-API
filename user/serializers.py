@@ -9,6 +9,9 @@ from rest_framework import serializers
 from rest_framework.fields import ReadOnlyField
 from . import models
 import user
+from rest_framework.response import Response
+from rest_framework import status
+
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -23,6 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """Create a new user with encrypted password and return it"""
         return get_user_model().objects.create_user(**validated_data)
+
 
 
 class AuthTokenSerializer(serializers.Serializer):
