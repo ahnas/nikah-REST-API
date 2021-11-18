@@ -34,12 +34,6 @@ $(document).ready(function () {
             highestEducation: {
                 required: true,                
             },
-            profession: {
-                required: true,
-            },
-            professionType: {
-                required: true,
-            },
             nativeCountry: {
                 required: true,
             },
@@ -88,10 +82,8 @@ $(document).ready(function () {
            
         },
         messages:{
-            
-            profession:"This field is required.",
             highestEducation:"This field is required.",
-            professionType:"This field is required.",
+            
             nativeCountry:"This field is required.",
             nativeState:"This field is required.",
             nativeCity:"This field is required.",
@@ -115,8 +107,8 @@ $(document).ready(function () {
             event.preventDefault();
             var csrf_token1 = $('[name="csrfmiddlewaretoken"]').val();
             var highestEducation = $('#highestEducation').val();
-            var profession = $('#profession').val();
-            var professionType = $('#professionType').val();
+            var workingwith = $('#workingwith').val();
+            var workingas = $('#workingas').val();
             var nativeCountry = $('#nativeCountry').val();
             var currentCountry = $('#currentCountry').val();
             var currentState = $('#currentState').val();
@@ -143,8 +135,8 @@ $(document).ready(function () {
             
             data = {
                 "highestEducation": highestEducation,
-                "profession": profession,
-                "professionType": professionType,
+                "workingwith": workingwith,
+                "workingas": workingas,
                 "nativeCountry": nativeCountry,
                 "nativeState": nativeState,
                 "nativeCity": nativeCity,
