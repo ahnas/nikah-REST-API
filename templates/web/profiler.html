@@ -167,8 +167,24 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="inputWebsite">Language Spoken</label>
-                                <select name="languagespoken" id="languagespoken" class="required form-control">
+                            <label for="inputWebsite">Language Spoken</label>
+                             </div>
+                            <div class="col-sm-6 col-6" style="padding-left: 2.3rem;">
+
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Malayalam">
+                                <label for="languageSelect" class="form-check-label"> Malayalam</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect"  onclick='selcetedLanguage(this);' value="Tamil">
+                                <label for="languageSelect" class="form-check-label"> Tamil</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Hindi">
+                                <label for="languageSelect" class="form-check-label"> Hindi</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Kannada">
+                                <label for="languageSelect" class="form-check-label"> Kannada</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Arabic">
+                                <label for="languageSelect" class="form-check-label"> Arabic</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="English">
+                                <label for="languageSelect" class="form-check-label"> English</label><br>
+                                
+                                <!-- <select name="languagespoken" id="languagespoken" class="required form-control">
                                     <option value="Malayalam">Malayalam</option>
                                     <option value="Tamil">Tamil</option>
                                     <option value="Hindi">Hindi</option>
@@ -182,9 +198,25 @@
                                     <option value="Gujarati">Gujarati</option>
                                     <option value="Marathi">Marathi</option>
                                     <option value="Punjabi">Punjabi</option>
-                                </select>
+                                </select> -->
+                            </div>
+                            <div class="col-sm-6 col-6" style="padding-left: 2.3rem;">
+                                
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Urdu">
+                                <label for="languageSelect" class="form-check-label"> Urdu</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Tulu">
+                                <label for="languageSelect" class="form-check-label"> Tulu</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Beary">
+                                <label for="languageSelect" class="form-check-label"> Beary</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Konkani">
+                                <label for="languageSelect" class="form-check-label"> Konkani</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Marathi">
+                                <label for="languageSelect" class="form-check-label"> Marathi</label><br>
+                                <input type="checkbox" class="form-check-input" id="languageSelect" name="languageSelect" onclick='selcetedLanguage(this);' value="Punjab">
+                                <label for="languageSelect" class="form-check-label"> Punjabi</label><br>
                             </div>
                         </div>
+                        <input name="languagespoken" id="languagespoken" class="required form-control" hidden />
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputWebsite">Family Type</label>
@@ -280,6 +312,10 @@
         <script src="{% static 'web/js/header.js' %}"></script>
         <script src="{% static 'web/js/helper.js' %}"></script>
         <script src="{% static 'web/js/profilecheckA.js' %}"></script>
+        <script>
+           
+            
+        </script>
      {% endblock %}
 
     {% endblock %}

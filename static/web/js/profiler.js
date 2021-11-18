@@ -1,3 +1,15 @@
+var globalarray=[]
+function selcetedLanguage(a){
+    if($(a).prop('checked')){
+        globalarray.push($(a).val())
+        console.log(globalarray)
+    }
+    else{
+        globalarray.pop($(a).val())
+        console.log(globalarray)
+    }
+
+}
 
 
 $(document).ready(function () {
@@ -118,7 +130,7 @@ $(document).ready(function () {
             var marriedSisters = $('#marriedSisters').val();
             var brothers = $('#brothers').val();
             var sisters = $('#sisters').val();
-            var languagespoken = $('#languagespoken').val();
+            var languagespoken = globalarray.toString()
             var financialStatus = $('#financialStatus').val();
             var smoking = $('#smoking').val();
             var drinking = $('#drinking').val();

@@ -28,7 +28,7 @@ $(document).ready(function () {
                 "+obj[i]['education'].workingas+"</p><p><span><i class='icofont-location-pin mr-2'></span></i>"+ obj[i]['education'].nativeCity+"</p>\
                 </div></div><div class='d-none three justify-content-center'><p class=''>\
                 <i class='icofont-ui-text-chat'></i></p><p class='ml-3 mr-3'><i class='icofont-star'>\
-                </i></p><p class=''><i class='icofont-heart'></i></p></div></div></div>");
+                </i></p><p class=''><i class='icofont-heart' onclick='likeProfile("+obj[i]['user']+")'></i></p></div></div></div>");
                 }
            
             // $('#usernamefield1').html(myArr[1]+"&nbsp&nbsp&nbsp<img style='border-radius: 50%;width:30px;height:30px;'src='"+myArr[0] +"' alt='SDGDSA'>");

@@ -30,12 +30,12 @@ $(document).ready(function () {
     $('#numberodChildren').hide();
     for (var i = 137; i <= 213; i++) {
         $('#height').append("<option value=" + i + ">" + i + " cm  " + (i * 0.0328084).toFixed(1) + " ft</option>")
-        $('select[name=height]').append("<option value=" + i + ">" + i + " cm  " + (i * 0.0328084).toFixed(1) + " ft</option>")
+        $('#editHeight').append("<option value=" + i + ">" + i + " cm  " + (i * 0.0328084).toFixed(1) + " ft</option>")
         
     }
     for (var i = 30; i <= 140; i++) {
         $('#weight').append("<option value=" + i + ">" + i + " Kg </option>")
-        $('select[name=weight]').append("<option value=" + i + ">" + i + " cm  " + (i * 0.0328084).toFixed(1) + " ft</option>")
+        $('#editweight').append("<option value=" + i + ">" + i + " Kg </option>")
 
     }
     $('#martialStatus').change(function () {

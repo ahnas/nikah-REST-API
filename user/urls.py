@@ -34,9 +34,12 @@ urlpatterns = [
     path('likeprofile/', views.LikedProfiles.as_view()),
     path('Profesions/', views.Profesions.as_view()),
     path('likeprofile/<int:pk>/', views.LikedProfilesDetailed.as_view()),
+    path('getpreferenceofuser/<int:pk>/', views.Getpreferenceofuser.as_view()),
     path('UpdateUserProperties/',views.updateUserPropertiesDetails.as_view()),
     path('UpdateUserLocationDetails/',views.updateUserEducationalDetails.as_view()),
     path('UpdateUserImage/',views.updateUserImage.as_view()),
+    path('delete/',views.DeleteAccount.as_view(), name='delete'),
+
     path('',include(router.urls)),
 
 ]
