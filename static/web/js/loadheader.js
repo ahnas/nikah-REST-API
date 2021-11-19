@@ -1,3 +1,5 @@
+
+
 $("#logout").click(function () {
     localStorage.removeItem('token');
     window.location.href = "http://127.0.0.1:8000/";
@@ -9,8 +11,19 @@ function loadlikecount(){
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) { 
             console.log(response)
-            var total_like =parseInt(response['likedyoucount'])+parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
-            $('#intr').html(total_like);
+            
+            var total_like =parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
+            $('#intr').html(total_like); 
+            
+            var youu_like = parseInt(response['youLikecount'])-parseInt(response['matchedcount']);
+            var like_youu = parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
+            var matchcount = parseInt(response['matchedcount']);
+
+
+            $('#youlik').html(youu_like); 
+            $('#likyo').html(like_youu);
+            $('#matchh').html(matchcount);
+
         }
     });}
 var pageURL = $(location).attr("href");
