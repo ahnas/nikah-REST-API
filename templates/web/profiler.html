@@ -19,25 +19,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/css/intlTelInput.css" rel="stylesheet" media="screen">
 
 
-<header id="header" class="fixed-top headr">
-    <div class="container-fluid d-flex justify-content-between p-0">
-  
-      <h1 class="logo"><a href="{% url 'web:index' %}"><img src="{% static 'web/image/logo.png' %}"  alt=""></a></h1>
 
-      
-      
-      
-      <div class="ribtns" id="username" >
-        <a class="news ml-4" id="logout" href="#"></a>
-      </div>
-      
-      
-  
-  
-    </div>
-  
-    </div>
-  </header>
 
     
 
@@ -60,21 +42,21 @@
                         {% csrf_token %}
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputFirstname">Profile Created by</label>
+                                <label for="inputFirstname">Profile Created by *</label>
                                 {{form.profileCreated}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputLastname">Bride / Groom</label>
+                                <label for="inputLastname">Bride / Groom *</label>
                                 <input name="name" id="name" type="text" class="form-control" placeholder="Name">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputAddressLine1">Gender</label>
+                                <label for="inputAddressLine1">Gender *</label>
                                 {{form.gender}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputCity">Mobile Number</label>
+                                <label for="inputCity">Mobile Number *</label>
                                 <br>
                                 <input name="moblie" id="moblie" type="tel" class="form-control" placeholder="Number">
                             </div>
@@ -82,13 +64,13 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Your Religion</label>
+                                <label for="inputWebsite">Your Religion *</label>
                                 {{form.relegion}}
                             </div>
 
                             <div class="col-sm-6">
 
-                                <label for="inputAddressLine2">Community</label>
+                                <label for="inputAddressLine2">Community *</label>
                                 {{form.community}}
                             </div>
 
@@ -98,12 +80,12 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 
-                                <label for="inputWebsite">Nationality</label>
+                                <label for="inputWebsite">Nationality *</label>
                                 {{form.nationality}}
 
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Date of Birth</label>
+                                <label for="inputContactNumber">Date of Birth *</label>
                                 <input placeholder="n" type="date" id="dateOfBirth" name="dateOfBirth" class="form-control">
                                     
                             </div>
@@ -112,13 +94,13 @@
                         <div class="form-group row">
                             
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Height</label>
+                                <label for="inputWebsite">Height *</label>
                                 <select name="height" id="height" class="required form-control">
                                 </select>
 
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Weight</label>
+                                <label for="inputWebsite">Weight *</label>
                                 <select name="weight" id="weight" class="required form-control">
                                     
                                 </select>
@@ -128,11 +110,11 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Martial Status</label>
+                                <label for="inputContactNumber">Martial Status *</label>
                                 {{form.martialStatus}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Complexion</label>
+                                <label for="inputWebsite">Complexion *</label>
                                 {{form.complexion}}
                             </div>
                         </div>
@@ -150,22 +132,22 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Ethnic Group</label>
+                                <label for="inputContactNumber">Ethnic Group *</label>
                                 {{form.ethnicGroup}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Body Type</label>
+                                <label for="inputWebsite">Body Type *</label>
                                 {{form.bodyType}}
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Physical Status</label>
+                                <label for="inputContactNumber">Physical Status *</label>
                                 {{form.physicalStatus}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Mother Tongue</label>
+                                <label for="inputWebsite">Mother Tongue *</label>
                                 <select name="motherTongue" id="motherTongue" class="required form-control">
                                     <option value="Malayalam">Malayalam</option>
                                     <option value="Tamil">Tamil</option>
@@ -185,8 +167,24 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="inputWebsite">Language Spoken</label>
-                                <select name="languagespoken" id="languagespoken" class="required form-control">
+                            <label for="inputWebsite">Language Spoken</label>
+                             </div>
+                            <div class="col-sm-6 col-6" style="padding-left: 2.3rem;">
+
+                                <input type="checkbox" class="form-check-input" id="Malayalam" name="languageSelect" onclick='selcetedLanguage(this);' value="Malayalam">
+                                <label for="languageSelect" class="form-check-label"> Malayalam</label><br>
+                                <input type="checkbox" class="form-check-input" id="Tamil" name="languageSelect"  onclick='selcetedLanguage(this);' value="Tamil">
+                                <label for="languageSelect" class="form-check-label"> Tamil</label><br>
+                                <input type="checkbox" class="form-check-input" id="Hindi" name="languageSelect" onclick='selcetedLanguage(this);' value="Hindi">
+                                <label for="languageSelect" class="form-check-label"> Hindi</label><br>
+                                <input type="checkbox" class="form-check-input" id="Kannada" name="languageSelect" onclick='selcetedLanguage(this);' value="Kannada">
+                                <label for="languageSelect" class="form-check-label"> Kannada</label><br>
+                                <input type="checkbox" class="form-check-input" id="Arabic" name="languageSelect" onclick='selcetedLanguage(this);' value="Arabic">
+                                <label for="languageSelect" class="form-check-label"> Arabic</label><br>
+                                <input type="checkbox" class="form-check-input" id="English" name="languageSelect" onclick='selcetedLanguage(this);' value="English">
+                                <label for="languageSelect" class="form-check-label"> English</label><br>
+                                
+                                <!-- <select name="languagespoken" id="languagespoken" class="required form-control">
                                     <option value="Malayalam">Malayalam</option>
                                     <option value="Tamil">Tamil</option>
                                     <option value="Hindi">Hindi</option>
@@ -200,16 +198,32 @@
                                     <option value="Gujarati">Gujarati</option>
                                     <option value="Marathi">Marathi</option>
                                     <option value="Punjabi">Punjabi</option>
-                                </select>
+                                </select> -->
+                            </div>
+                            <div class="col-sm-6 col-6" style="padding-left: 2.3rem;">
+                                
+                                <input type="checkbox" class="form-check-input" id="Urdu" name="languageSelect" onclick='selcetedLanguage(this);' value="Urdu">
+                                <label for="languageSelect" class="form-check-label"> Urdu</label><br>
+                                <input type="checkbox" class="form-check-input" id="Tulu" name="languageSelect" onclick='selcetedLanguage(this);' value="Tulu">
+                                <label for="languageSelect" class="form-check-label"> Tulu</label><br>
+                                <input type="checkbox" class="form-check-input" id="Beary" name="languageSelect" onclick='selcetedLanguage(this);' value="Beary">
+                                <label for="languageSelect" class="form-check-label"> Beary</label><br>
+                                <input type="checkbox" class="form-check-input" id="Konkani" name="languageSelect" onclick='selcetedLanguage(this);' value="Konkani">
+                                <label for="languageSelect" class="form-check-label"> Konkani</label><br>
+                                <input type="checkbox" class="form-check-input" id="Marathi" name="languageSelect" onclick='selcetedLanguage(this);' value="Marathi">
+                                <label for="languageSelect" class="form-check-label"> Marathi</label><br>
+                                <input type="checkbox" class="form-check-input" id="Punjabi" name="languageSelect" onclick='selcetedLanguage(this);' value="Punjab">
+                                <label for="languageSelect" class="form-check-label"> Punjabi</label><br>
                             </div>
                         </div>
+                        <input name="languagespoken" id="languagespoken" class="required form-control" hidden />
                         <div class="form-group row">
                             <div class="col-sm-6">
                                 <label for="inputWebsite">Family Type</label>
                                 {{form.familyType}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Father Occupation</label>
+                                <label for="inputContactNumber">Father Occupation *</label>
                                 {{form.fatherOccupation}}
                             </div>
                         </div>
@@ -217,11 +231,11 @@
                         
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Mother Occupation</label>
+                                <label for="inputWebsite">Mother Occupation *</label>
                                 {{form.motherOccupation}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">No of Siblings</label>
+                                <label for="inputWebsite">No of Siblings *</label>
                                 <input type="number" name="numberofsiblings" id="numberofsiblings" value=0 class="required form-control">
                             </div>
                             
@@ -251,29 +265,32 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Financial Status</label>
+                                <label for="inputContactNumber">Financial Status *</label>
                                 {{form.financialStatus}}
                             </div>
                             <div class="col-sm-3">
-                                <label for="inputWebsite">Smoking</label>
+                                <label for="inputWebsite">Smoking *</label>
                                 {{form.smoking}}
                             </div>
                             <div class="col-sm-3">
-                                <label for="inputWebsite">Drinking</label>
+                                <label for="inputWebsite">Drinking *</label>
                                 {{form.drinking}}
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="inputWebsite">When you are hoping to get married</label>
+                                <label for="inputWebsite">When you are hoping to get married *</label>
                                 {{form.whenmarry}}
                             </div>
                         </div>
 
-                        <div class="form-group row text-center">
+                        <div class="form-group row">
                             <div class="col">
-                            <button type="submit" class="btn btn-primary px-4 save">Save & Continue</button>
-                        </div>
+                            <button class="btn btn-primary px-4 save" >Previous</button>
+                            </div>
+                            <div class="col text-right">
+                                <button type="submit" class="btn btn-primary px-4 save">Next</button>
+                            </div>
                         </div>
                             
 
@@ -298,6 +315,10 @@
         <script src="{% static 'web/js/header.js' %}"></script>
         <script src="{% static 'web/js/helper.js' %}"></script>
         <script src="{% static 'web/js/profilecheckA.js' %}"></script>
+        <script>
+           
+            
+        </script>
      {% endblock %}
 
     {% endblock %}

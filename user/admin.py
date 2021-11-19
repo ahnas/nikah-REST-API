@@ -37,13 +37,10 @@ class ImageInline(admin.TabularInline):
 @admin.register(models.UserProperties)
 class UserPropertiesAdmin(admin.ModelAdmin):
     list_display = ('image','name','user','gender','martialStatus','moblie')
-    inlines=[
-        ImageInline,
-    ]
 
 @admin.register(models.Image)
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('is_verified','nmId','Name','Phone_number','Gender','user','image','Highest_Education','profession','Religious_Status','nativeCity')
+    list_display = ('is_verified','nmId','Name','Phone_number','Gender','user','image','Highest_Education','Religious_Status','nativeCity')
     
   
     def Phone_number(self,obj):
@@ -67,9 +64,6 @@ class ImageAdmin(admin.ModelAdmin):
 @admin.register(models.UserEducationLocationContact)
 class UserEducationLocationContactAdmin(admin.ModelAdmin):
     list_display = ('image','user','performNamaz','religiousness','readQuran','attendIslamicServices')
-    inlines=[
-        ImageInline,
-    ]
     
 # @admin.register(models.UserProperties)
 # class UserPropertiesAdmin(admin.ModelAdmin):

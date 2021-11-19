@@ -95,13 +95,11 @@ class UserProperties(models.Model):
     marriedBrothers = models.IntegerField(null=True,blank=True)
     youngerSisters = models.IntegerField(null=True,blank=True)
     marriedSisters = models.IntegerField(null=True,blank=True)
-    brothers = models.CharField(max_length=225,null=True,blank=True)
-    sisters = models.CharField(max_length=225,null=True,blank=True)
     financialStatus = models.CharField(max_length=225,choices=financialStatus_CHOICES,default="Middle Class")
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     
-    whenmarry=models.CharField(max_length=225,blank=True,null=True,choices=whenmarry_CHOICES,default='Immediately')
+    whenmarry=models.CharField(max_length=225,choices=whenmarry_CHOICES,default='Immediately')
     
     class Meta:
         verbose_name_plural = ('UserProperties')
@@ -129,8 +127,6 @@ class UserEducationLocationContact(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,unique=True)
     highestEducation = models.CharField(max_length=225,choices=highestEducation_CHOICES,default="Masters")
     EduSpezialization = models.CharField(max_length=225,null=True,blank=True)
-    profession = models.CharField(max_length=225,null=True,blank=True)
-    professionType = models.CharField(max_length=225,null=True,blank=True)
     workingwith = models.CharField(max_length=225,null=True)
     workingas = models.CharField(max_length=225,blank=True)
     annualincome=models.CharField(max_length=225,blank=True,null=True)
@@ -148,9 +144,9 @@ class UserEducationLocationContact(models.Model):
 
     primaryNumber = models.CharField(max_length=225)
     secondaryNumber = models.CharField(max_length=225)
-    preferedContact = models.CharField(max_length=225)
+    preferedContact = models.CharField(max_length=225,null=True,blank=True)
     relation = models.CharField(max_length=225,choices=relation_CHOICE,default="Self")
-    describe = models.TextField(max_length=1000)
+    describe = models.TextField(max_length=1000,null=True,blank=True)
 
     performNamaz = models.CharField(max_length=225,choices=performNamaz_CHOICES,default="Always")
     religiousness = models.CharField(max_length=225,choices=releagiosness_CHOICES ,default='Religious')
@@ -203,7 +199,7 @@ class UserPreferences(models.Model):
 
     martialStatus_CHOICES = ((None,'No Preference'),('Never Married','Never Married'),('Widowed','Widowed'),('Divorced','Divorced'),('Awaiting Divorse','Awaiting Divorse'),('Married','Married'))
     bodyType_CHOICES = ((None,'No Preference'),('Slim','Slim'),('Average','Average'),('Athlatic','Athlatic'),('Heavy','Heavy'))
-    community_CHOICES = ((None,'No Preference'),('Shafi','Shafi'),('Malilki','Malilki'),('Hanafi','Hanafi'),('Hambali','Hambali'))
+    community_CHOICES = ((None,'No Preference'),('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jamayath Islam ','Jamayath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
     smoking_CHOICES = ((None,'No Preference'),('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'))
     financialStatus_CHOICES = ((None,'No Preference'),('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Brown','Brown'),('Dark','Dark'))
@@ -222,7 +218,8 @@ class UserPreferences(models.Model):
     heightTo = models.IntegerField(default=0,null=True,blank=True) 
     weightFrom = models.IntegerField(default=0,null=True,blank=True)
     weightTo = models.IntegerField(default=0,null=True,blank=True)
-    profession = models.CharField(max_length=225,blank=True)
+    
+    workingas = models.CharField(max_length=225,blank=True)
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default=None,null=True,blank=True)
     drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default=None,null=True,blank=True)
     complexion = models.CharField(max_length=225,choices=complexion_CHOICES,default=None,null=True,blank=True)

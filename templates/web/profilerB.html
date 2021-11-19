@@ -10,15 +10,7 @@
     }
 
 </style>
-  <header id="header" class="fixed-top headr">
-    <div class="container-fluid d-flex justify-content-between p-0">
-      <h1 class="logo"><a href="{% url 'web:index' %}"><img src="{% static 'web/image/logo.png' %}"  alt=""></a></h1>
-      <div class="ribtns" id="username" >
-        <a class="news ml-4" id="logout" href="#"></a>
-      </div>
-    </div>
-    </div>
-  </header>
+ 
       <section class="profiler">
 
         <div class="container">
@@ -36,11 +28,11 @@
                     <form action="#" name="profilerB">
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputFirstname">Highest Education</label>
+                                <label for="inputFirstname">Highest Education *</label>
                                 {{form.highestEducation}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputLastname">Specialization</label>
+                                <label for="inputLastname">Specialization *</label>
 
                                 {% include 'web/partials/selectedu.html' %}
 
@@ -50,6 +42,7 @@
                             <div class="col-sm-6">
                                 <label for="inputAddressLine2">Working With</label>
                                 <select name="workingwith" id="workingwith" class="form-control">
+                                    <option value="Not Working">Not Working</option>
                                     <option value="Private Sector">Private Sector</option>
                                     <option value="Public Sector">Public Sector</option>
                                     <option value="Civil Service">Civil Service</option>
@@ -57,13 +50,13 @@
                                     <option value="Business">Business</option>
                                     <option value="Self Employed">Self Employed</option>
                                     <option value="NRI">NRI</option>
-                                    <option value="Not Working">Not Working</option>
                                 </select>
                             </div>
                             <div class="col-sm-6">
                                 <label for="inputAddressLine2">Working as</label>
                                 <!-- <input type="text" class="form-control" name="workingas" id="workingas" placeholder="Working as"> -->
                                 <select name="workingas" id="workingas" class="form-control">
+                                    <option value="Not Working">Not Working</option>
                                     <option value="Accountant">Accountant</option>
                                     <option value="CA">CA</option>
                                     <option value="Secretary">Secretary</option>
@@ -80,6 +73,7 @@
                                     <option value="Graphics Designer">Graphics Designer</option>
                                     <option value="Administrator">Administrator</option>
                                     <option value="Business">Business</option>
+
                                 </select>
                             </div>
                         </div>
@@ -88,7 +82,8 @@
                             <div class="col-sm-12">
                                 <label for="inputState">Annual Income</label>
                                 <!-- <input type="number" class="form-control" name="annualincome" id="annualincome" placeholder="Annual Income"> -->
-                                <select class="form-control" name="" id="">
+                                <select class="form-control" name="annualincome" id="annualincome">
+                                    <option value="No Income">No Income</option>
                                     <option value="1.5 lakh per/annum"> < 1.5 lakh per/annum  </option>
                                     <option value="2 lakh per/annum"> < 2 lakh per/annum  </option>
                                     <option value="4 lakh per/annum"> < 4 lakh per/annum  </option>
@@ -106,39 +101,46 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputCity">Native Country</label>
+                                <label for="inputCity">Native Country *</label>
                                 <input type="text" class="form-control" name="nativeCountry" id="nativeCountry" placeholder="Native Country">
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputState">Native State</label>
+                                <label for="inputState">Native State *</label>
                                 <input type="text" class="form-control" name="nativeState" id="nativeState" placeholder="Native State">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Native City</label>
+                                <label for="inputContactNumber">Native City *</label>
                                 <input type="text" class="form-control" name="nativeCity" id="nativeCity" placeholder="Native City">
                             </div>
 
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">House Name</label>
+                                <label for="inputContactNumber">House Name *</label>
                                 <input type="text" class="form-control" name="houseName" id="houseName" placeholder="House Name">
                             </div>
                             
                         </div>
                         <div class="form-group row">
+                            <div class="col-sm-12">
+                                <label for="inputContactNumber">Currently staying in Native city?</label>
+                                <input type="checkbox" id="sameAddress" onchange="currentAddress();">
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputCity">Present Country</label>
+                                <label for="inputCity">Present Country *</label>
                                 <input type="text" class="form-control" name="currentCountry" id="currentCountry" placeholder="Present Country">
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputState">Present State</label>
+                                <label for="inputState">Present State *</label>
                                 <input type="text" class="form-control" name="currentState" id="currentState" placeholder="Present State">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="inputContactNumber">Present City</label>
+                                <label for="inputContactNumber">Present City *</label>
                                 <input type="text" class="form-control" name="currentCity" id="currentCity" placeholder="Present City">
                             </div>
                             
@@ -146,7 +148,7 @@
 
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="inputContactNumber">locality</label>
+                                <label for="inputContactNumber">locality *</label>
                                 <input type="text" class="form-control" name="locality" id="locality" placeholder="Locality">
                             </div>
                         </div>
@@ -159,11 +161,11 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Primary Number</label>
+                                <label for="inputContactNumber">Primary Number *</label>
                                 <input type="text" class="form-control" name="primaryNumber" id="primaryNumber" placeholder="Primary Number">
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Secondary Number</label>
+                                <label for="inputWebsite">Secondary Number *</label>
                                 <input type="text" class="form-control" name="secondaryNumber" id="secondaryNumber" placeholder="Secondary Number">
                             </div>
                             
@@ -203,11 +205,11 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Perform Namaz</label>
+                                <label for="inputContactNumber">Perform Namaz *</label>
                                 {{form.performNamaz}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Religiousness</label>
+                                <label for="inputWebsite">Religiousness *</label>
                                 {{form.religiousness}}
                             </div>
                             
@@ -216,28 +218,32 @@
 
                         <div class="form-group row">
                             <div class="col-sm-6">
-                                <label for="inputContactNumber">Read Quran</label>
+                                <label for="inputContactNumber">Read Quran *</label>
                                {{form.readQuran}}
                             </div>
                             <div class="col-sm-6">
-                                <label for="inputWebsite">Madrassa Education</label>
+                                <label for="inputWebsite">Madrassa Education *</label>
                                 <input type="text" class="form-control" name="madrassaEducation" id="madrassaEducation" placeholder="Madrassa Education">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-sm-12">
-                                <label for="inputContactNumber">Attend Islamic Services</label>
+                                <label for="inputContactNumber">Attend Islamic Services *</label>
                                 {{form.attendIslamicServices}}
 
                             </div>
                             
                         </div>
 
-                        <div class="form-group row text-center">
+                        <div class="form-group row">
                             <div class="col">
-                            <button type="submit" class="btn btn-primary px-4 save">Save & Continue</button>
-                        </div>
+                                <a href="{% url 'web:profiler' %}"><button class="btn btn-primary px-4 save" type="button" >Previous</button></a>
+                            </div>
+
+                            <div class="col text-right">
+                                <button type="submit" class="btn btn-primary px-4 save">Next</button>
+                            </div>
                         </div>
                             
 

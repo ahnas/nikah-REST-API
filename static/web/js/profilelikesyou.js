@@ -11,7 +11,7 @@ $(document).ready(function () {
                 $('#memberList').append("<div class='col-lg-4  col-md-6 col-sm-12 col-12 p-2' id='"+obj[i]['user']+"'>\
                 <div class='pager-coll gext'><div class='row justify-content-center'>\
                 <div class='col-lg-5 col-md-5 col-sm-12 pr-0'>\
-                <img src='"+obj[i].image+"' alt='' class='homeimages' onclick='profileview("+obj[i].id+")'>\
+                <img src='"+obj[i].image['medium_square_crop']+"' alt='' class='homeimages' onclick='profileview("+obj[i].id+")'>\
                 <div class='d-flex mobi'><p class='sta'>\
                 <i class='icofont-ui-text-chat'></i>\
                 </p><p class='sta'><i class='icofont-star'></i>\

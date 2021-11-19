@@ -17,6 +17,9 @@ def index(request):
     return render(request, 'web/index.html',context) 
 
 
+
+
+
 def login(request): 
     context = {
         "is_login" : True
@@ -189,6 +192,11 @@ def basicpref(request):
 
 
 
+def delete(request):
+    context = {
+        "is_delete" : True
+    }
+    return render(request, 'web/delete.html',context) 
 
 def chats(request):
     form = UserPreferencesForm(request.POST or None)

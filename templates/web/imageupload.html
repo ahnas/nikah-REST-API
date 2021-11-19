@@ -10,14 +10,7 @@
     }
 </style>
 
-<header id="header" class="fixed-top headr">
-    <div class="container-fluid d-flex justify-content-between p-0">
-      <h1 class="logo"><a href="{% url 'web:index' %}"><img src="{% static 'web/image/logo.png' %}"  alt=""></a></h1>
-        <div class="ribtns" id="username" >
-        <a class="news ml-4" id="logout" href="#"></a>
-      </div></div>
-    </div>
-  </header>
+
     
       <section class="profiler">
 
@@ -32,7 +25,7 @@
                        <p id="greeting"><span class=""></span> Image Upload </p>
                     </div>
                     </div>
-                    <form  id="propicUpload" name="propicUpload"  method="POST"  enctype="multipart/form-data">
+                    <form class="text-center" id="propicUpload" name="propicUpload"  method="POST"  enctype="multipart/form-data">
                         
                         {% csrf_token %}
                              <div id="ImageCollect" class="form-group row" style="place-content: center;">
@@ -53,13 +46,15 @@
 
                        
 
-                        <div class="form-group row text-center">
-                            <div class="col" id="buttons">
-                                <button id="btnNotNow" type="button" class="skip-btn btn">Not now</button>
-                        </div>
-                        <div id="next">
+                        <div class="form-group row">
+                            <div class="col text-left" id="butt">
+                                <a href="{% url 'web:basicpref' %}"><button id="bt" type="button" class="skip-btn btn">Previous</button></a>
+                            </div>
 
-                        </div>
+                            <div class="col text-right" id="buttons">
+                                <button id="btnNotNow" type="button" class="skip-btn btn">Not now</button>
+                            </div>
+                        
                         </div>
                             
 

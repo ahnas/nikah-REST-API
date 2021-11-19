@@ -6,8 +6,12 @@ from versatileimagefield.serializers import VersatileImageFieldSerializer
 
 
 from rest_framework import serializers
+from rest_framework.fields import ReadOnlyField
 from . import models
 import user
+from rest_framework.response import Response
+from rest_framework import status
+
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -15,12 +19,14 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ('email','password')
+        fields = ('id','email','password')
+        read_only_fields = ('id',)
         extra_kwargs = {'password': {'write_only': True, 'min_length': 5}}
 
     def create(self, validated_data):
         """Create a new user with encrypted password and return it"""
         return get_user_model().objects.create_user(**validated_data)
+
 
 
 class AuthTokenSerializer(serializers.Serializer):
@@ -78,7 +84,7 @@ class UserEducationLocationContactFilteredSerializer(serializers.ModelSerializer
     class Meta:
         model = models.UserEducationLocationContact
         fields = (
-            'id', 'highestEducation', 'profession', 'professionType','nativeCity',
+            'id', 'highestEducation','nativeCity','workingas',
         )
         read_only_fields = ('id','highestEducation')
         
@@ -109,10 +115,20 @@ class UserAllserializer(serializers.ModelSerializer):
     )
     profile = UserPropertieslessfieldSerializer(read_only=True)
     education= UserEducationLocationContactFilteredSerializer(read_only=True)
+    is_liked = serializers.SerializerMethodField('is_liked_profile')
+    def is_liked_profile(self, image):
+        request = self.context.get('request', None)
+        if request:
+            liked_by_user=models.Image.objects.get(user=request.user)
+            liked_user=models.User.objects.get(id=image.user_id)
+            likedRedord =models.LikeProfile.objects.filter(liked_by_user=liked_by_user,liked_user=liked_user)
+            if likedRedord.exists():
+                return likedRedord.first().id
+        return 0
     class Meta:
         model = models.Image
         fields = (
-            'id', 'image','image_two','image_three', 'profile', 'education', 'user','nmId',
+            'id', 'image','image_two','image_three', 'profile', 'education', 'user','nmId','is_liked',
         )
         read_only_fields = ('id',)
 
@@ -147,11 +163,13 @@ class UpdateUserPropertiesSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserProperties
         fields = '__all__'
+        read_only_fields = ('user','profileCreated','name','gender','preferredProfile','relegion')
 
 class updateUserLocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserEducationLocationContact
         fields = '__all__'
+        read_only_fields = ('userProperties','user','locality')
 
 class updateUserImage(serializers.ModelSerializer):
     user=UserSerializer()

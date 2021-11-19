@@ -20,7 +20,7 @@ $(document).ready(function () {
             $('#smoking').val(obj[0].smoking)
             $('#drinking').val(obj[0].drinking)
             $('#complexion').val(obj[0].complexion)
-            $('#profession').val(obj[0].profession)
+            $('#workingas').val(obj[0].workingas)
         },
         error: function (jqXHR) {
             if (jqXHR.status == 404) { 
@@ -79,10 +79,10 @@ $(document).ready(function () {
             var smoking = $('#smoking').val();
             var drinking = $('#drinking').val();
             var complexion = $('#complexion').val();
-            var profession = $('#profession').val();
+            var workingas = $('#workingas').val();
             data = {
                 "community": community,
-                "profession": profession,
+                "workingas": workingas,
                 "ageFrom": ageFrom,
                 "ageTo": ageTo,
                 "martialStatus": martialStatus,
