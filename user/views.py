@@ -671,8 +671,6 @@ class UserImageViewSet(viewsets.GenericViewSet,
         return self.serializer_class
 
 
-
-
 class Getpreferenceofuser(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
@@ -728,3 +726,84 @@ class GetLikesAndMatches(APIView):
         }
 
         return Response(profilecheck)
+      
+class UserChats(generics.ListCreateAPIView):
+    """Manage recipes in the database"""
+    serializer_class = serializers.UserChatsserializer
+    queryset = models.UserChats.objects.all()
+
+
+    def get(self,request):
+        chats = models.UserChats.objects.all()
+        for chat in chats:
+            chat.ChatfromUserID=chat.ChatfromUser.user_id
+            print(chat.ChatfromUser.user_id)
+            if chat.ChatfromUser.user_id != 4 :
+                chat.chatimage=chat.ChatfromUser.image.url
+                chat.chatDisplayName=chat.ChatfromUser.nmId
+            else:
+                print("ELse")
+                image =Image.objects.get(user = chat.ChatToUser)
+                chat.chatimage=image.image.url
+                chat.chatDisplayName=image.nmId
+
+        queryset = chats
+        serializer = serializers.UserChatsserializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def perform_create(self, serializer):
+        print(self.request)
+        chatName= self.request.POST['chatName']+'NM1207DS'
+        ChatToUser=User.objects.get(id=self.request.POST['ChatToUser'])
+        print(ChatToUser)
+        ChatfromUser=Image.objects.first()
+        print()
+        """Create a new recipe"""
+        serializer.save(chatName=chatName,ChatfromUser=ChatfromUser,ChatToUser=ChatToUser)
+
+
+
+class MessagesView(viewsets.ModelViewSet):
+    """Manage recipes in the database"""
+    serializer_class = serializers.Messagesserializer
+    queryset = models.Messages.objects.all()
+
+    def get_queryset(self):
+        """Retrieve the recipes for the authenticated user"""
+        return self.queryset.all()
+    def perform_create(self, serializer):
+        """Create a new recipe"""
+        serializer.save()
+
+
+    
+ 
+class MessagesViewList(generics.ListCreateAPIView):
+    queryset = models.Messages.objects.all()
+    serializer_class=serializers.Messagesserializer
+    # authentication_classes = (TokenAuthentication,)
+    # permission_classes = (IsAuthenticated,)
+    """
+    Retrieve, update or delete a snippet instance.
+    """
+    def get(self,request):
+        chat = self.request.query_params.get('chatID')
+        print(chat,'*'*20)
+        messages = models.Messages.objects.filter(chat__chatName=chat)
+        
+        for message in messages:
+            print(message.user)
+            userImage = Image.objects.first()
+            message.chatimage=userImage.image.url
+
+        
+        queryset = messages
+        serializer = serializers.Messagesserializer(queryset, many=True)
+        return Response(serializer.data)
+    def perform_create(self, serializer):
+        user = User.objects.all().first()
+        userchat = models.UserChats.objects.get(chatName='NM100NM1207DS')
+        print('#'*20)
+        print(self.request.POST['chat'])
+        """Create a new message"""
+        serializer.save(user=user,chat=userchat)
