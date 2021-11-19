@@ -51,6 +51,10 @@ span{
   background-size: 55% 118%;
   background-position-x: center;
 }
+
+#header .logo img{
+  max-height: 50px;
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -66,7 +70,7 @@ display: none;
 #header {
   transition: all 0.5s;
   z-index: 997;
-  padding: 15px 0;
+  padding: 10px 0;
   background-color: #3acf6e;
 }
 
@@ -74,33 +78,20 @@ display: none;
   background: rgba(0, 0, 0, 0.8);
 }
 
-#header .logo {
-  font-size: 32px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
 
-#header .logo a {
-  color: #fff;
-  background-color: white;
-  padding: 11% 66%;
-}
+
+
 .deaser .logo a {
   color: #fff;
   background-color: #3acf6e !important;
-  padding: 20px 0px !important;
+  padding: 18px 0px !important;
 }
 
-#header .logo a span {
-  color: #3ACF6E;
-}
 
-#header .logo img {
+
+.logo-img {
   max-height: 50px;
+  padding-left: 100px;
 }
 
 /*--------------------------------------------------------------
@@ -376,9 +367,7 @@ header .container-fluid{
   place-items: center;
 
 }
-.ribtns{
-  margin-right: 115px;
-}
+
 
 #hero {
   width: 100%;
@@ -1165,11 +1154,14 @@ section {
   margin-bottom: 8%;
 }
 .footer-down h3{
+  color: black;
   font-weight: 600;
   padding-bottom: 10px;
 }
 
 .footer-down p{
+  font-weight: 600;
+  font-size: 16px;
   padding: 0px 12%;
   text-align: center;
 }
@@ -1695,7 +1687,7 @@ h3::before {
   font-size: 15px;
   border-radius: 50%;
   padding: 6px;
-  background-color: #039A00;
+  background-color: #1581D7;
 }
 
 .member a{
@@ -2106,12 +2098,13 @@ h3::before {
   background-color:transparent !important ;
 }
 .maa{
-  font-size: 23px;
-  color:#3acf6e ;
+  font-size: 22px;
+  color: #3acf6e;
   font-weight: 600;
+  margin-bottom: 5px;
 }
 .trmatch{
-  padding: 5% 0%;
+  padding: 0% 0%;
 }
 
 .homeimages{
@@ -2225,4 +2218,132 @@ h3::before {
 .dyimg {
   border:4px solid red;
   
+}
+
+.slide a{
+  color: #3acf6e;
+  border: none;
+  padding: 0;
+  border-radius: 0px;
+}
+
+.slide li{
+  padding: 1%;
+  margin-left: 15px;
+}
+
+.swal-button--catch {
+  background-color: #cf456a;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 24px;
+  margin: 0;
+  cursor: pointer;
+}
+.swal-button--confirm{
+  background-color: #039A00;
+}
+.about-new h2{
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  
+}
+
+.bott{
+  border-top: 4px solid #039A00;
+}
+.about-new p {
+  text-align: justify;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 20px;
+  line-height: 40px;
+}
+
+.about-new a{
+  color: #039A00;
+  float: left;
+  font-size: 23px;
+  font-weight: 600;
+  margin-top: 13px;
+}
+
+.bg-green{
+  background-color: #3ACF6E;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.bg-green i {
+  color: #3ACF6E;
+  font-size: 35px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 15px;
+}
+.help p, a{
+  margin-bottom: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+.pl-20{
+  padding-left: 25px;
+}
+.why p{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 42px;
+  margin-top: 15px;
+}
+.why h2{
+  font-size: 40px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 4px solid #3acf6e;
+}
+.manual h4{
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 15px;
+  padding: 0px 25px;
+}
+
+.place-items-center{
+  place-items: center;
+}
+.align-self-center{
+  align-self: center;
+}
+
+.couple-bot p{
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 50px;
+  margin-top: 15px;
+  
+}
+
+.copy{
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.favv{
+  position: fixed;
+  top: 3px;
+  background-color: white;
+  padding: 4px 10px;
+  border-radius: 50%;
+  color: #285ec9;
+  font-weight: 600;
 }

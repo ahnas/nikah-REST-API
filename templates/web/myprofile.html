@@ -13,7 +13,7 @@
               
               
               <div class="col-12 smsm">
-                <p>Hello, Username <span><i class="icofont-hand" style="color: #cfcc1e;"></i></span></p> 
+                <p>Hello, <span id="modifyUsername"></span> <span><i class="icofont-hand" style="color: #cfcc1e;"></i></span></p> 
               </div>
             </div>
               <div class="col-6 hrr d-none  ">  
@@ -118,8 +118,8 @@
         <div class="row mb-5" id="ProfileEdit">
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Nationality</label></div> <div class="col-7"><p> <input type="text" name="nationality" class="form-control"> </p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Ethinicity</label></div> <div class="col-7"><p> {{formpro.ethnicGroup}} </p></div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Height</label></div> <div class="col-7"><p><select name="height" class="form-control"></select></p></div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Weight</label></div> <div class="col-7"><p><select name="weight" class="form-control"></select></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Height</label></div> <div class="col-7"><p><select name="height" id="editHeight" class="form-control"></select></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Weight</label></div> <div class="col-7"><p><select name="weight" id="editweight" class="form-control"></select></p></div></div></div>
 
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Martial status</label></div> <div class="col-7">{{formpro.martialStatus}}</div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Number.of Children</label></div> <div class="col-7"><p> <input type="text" id="noc" name="numberofChildresn" class="form-control"></p></div></div></div>
@@ -144,21 +144,7 @@
             
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Mobile</label></div> <div class="col-7"><p> <b> <input type="text" name="mobile" class="form-control"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Date of birth</label></div> <div class="col-7"><p>  <b id="dob"> <input type="date" id="datepicker" name="dateOfBirth" class="form-control"></b></p></div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Language spoken</label></div> <div class="col-7"><p>  <b id="languageSpoken"> <select name="languagespoken" id="languagespoken" class="required form-control">
-                <option value="Malayalam">Malayalam</option>
-                <option value="Tamil">Tamil</option>
-                <option value="Hindi">Hindi</option>
-                <option value="Kannada">Kannada</option>
-                <option value="Arabic">Arabic</option>
-                <option value="Urdu">Urdu</option>
-                <option value="Tulu">Tulu</option>
-                <option value="Beary">Beary</option>
-                <option value="Mahi">Mahi</option>
-                <option value="Konkani">Konkani</option>
-                <option value="Gujarati">Gujarati</option>
-                <option value="Marathi">Marathi</option>
-                <option value="Punjabi">Punjabi</option>
-            </select></b></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Language spoken</label></div> <div class="col-7"><p>  <b id="languageSpoken"> <input type="text" name="languagespoken" id="languagespoken" class="required form-control"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">family type</label></div> <div class="col-7"><p><b>{{formpro.familyType}}</b></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Smoking</label></div> <div class="col-7"><p><b id="smoking"> {{formpro.smoking}}</b></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Drinking</label></div> <div class="col-7"><p><b>{{formpro.drinking}}</b></p></div></div></div>

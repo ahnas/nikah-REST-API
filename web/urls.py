@@ -20,6 +20,7 @@ urlpatterns = [
     path('addphotos/', views.addphotos,name="addphotos"),
     path('myprofile/', views.myprofile,name="myprofile"), 
     path('changepass/', views.changepass,name="changepass"), 
-    path('partnerpref/', views.partnerpref,name="partnerpref"),
+    path('partnerpref/', views.partnerpref,name="partnerpref"), 
     path('basicpref/', views.basicpref,name="basicpref"),
+    path('delete/', views.delete,name="delete"),
 ]

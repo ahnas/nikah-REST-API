@@ -2,16 +2,28 @@ $("#logout").click(function () {
     localStorage.removeItem('token');
     window.location.href = "http://127.0.0.1:8000/";
 });
-
+function loadlikecount(){
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/GetLikesAndMatches/",
+        type: 'GET',
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+        success: function (response) { 
+            console.log(response)
+            var total_like =parseInt(response['likedyoucount'])+parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
+            $('#intr').html(total_like);
+        }
+    });}
 var pageURL = $(location).attr("href");
 $(document).ready(function () {
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/header_load/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
-        success: function (response) {
+        success: function (response) { 
             const myArr = response.split(",");
             $('#usernamefield1').html(myArr[0] + "&nbsp&nbsp&nbsp<img style='border-radius: 50%;width:30px;height:30px;'src='" + myArr[1] + "' alt='Image'>");
+            $('#usernameimage').html("<img style='border-radius: 50%;width:30px;height:30px;'src='" + myArr[1] + "' alt='Image'>");
+            $('#modifyUsername').html(myArr[0]);
         }
     });
     $.ajax({

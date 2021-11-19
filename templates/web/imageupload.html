@@ -10,14 +10,7 @@
     }
 </style>
 
-<header id="header" class="fixed-top headr">
-    <div class="container-fluid d-flex justify-content-between p-0">
-      <h1 class="logo"><a href="{% url 'web:index' %}"><img src="{% static 'web/image/logo.png' %}"  alt=""></a></h1>
-        <div class="ribtns" id="username" >
-        <a class="news ml-4" id="logout" href="#"></a>
-      </div></div>
-    </div>
-  </header>
+
     
       <section class="profiler">
 
@@ -32,7 +25,7 @@
                        <p id="greeting"><span class=""></span> Image Upload </p>
                     </div>
                     </div>
-                    <form  id="propicUpload" name="propicUpload"  method="POST"  enctype="multipart/form-data">
+                    <form class="text-center" id="propicUpload" name="propicUpload"  method="POST"  enctype="multipart/form-data">
                         
                         {% csrf_token %}
                              <div id="ImageCollect" class="form-group row" style="place-content: center;">
