@@ -55,6 +55,9 @@ class UserPropertiesViewSet(viewsets.ModelViewSet):
     
     def perform_create(self, serializer):
         """Create a new recipe"""
+        if self.queryset.filter(user=self.request.user).exists():
+            profile =UserProperties.objects.get(user=self.request.user)
+            profile.delete()
         serializer.save(user=self.request.user)
 
 class UserEducationLocationContactViewSet(viewsets.ModelViewSet):
@@ -71,9 +74,14 @@ class UserEducationLocationContactViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         """Create a new recipe"""
         property =UserProperties.objects.filter(user=self.request.user).first()
-        preference = UserPreferences()
-        preference.user=self.request.user
-        preference.save()
+        
+        if self.queryset.filter(user=self.request.user).exists():
+            education =UserEducationLocationContact.objects.get(user=self.request.user)
+            education.delete()
+        else:
+            preference = UserPreferences()
+            preference.user=self.request.user    
+            preference.save()
         serializer.save(user=self.request.user,userProperties=property)
 
 class TestAuthView(APIView):
@@ -257,7 +265,7 @@ class LikedProfilesDetailed(APIView):
     def get(self, request, pk, format=None):
         snippet = self.get_object(pk)
         serializer = serializers.Likeprodileserializer(snippet)
-        return Response(serializer.data)
+        return Response(serializer.data) 
 
     def put(self, request, pk, format=None):
         snippet = self.get_object(pk)

@@ -99,7 +99,7 @@ class UserProperties(models.Model):
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     
-    whenmarry=models.CharField(max_length=225,blank=True,null=True,choices=whenmarry_CHOICES,default='Immediately')
+    whenmarry=models.CharField(max_length=225,choices=whenmarry_CHOICES,default='Immediately')
     
     class Meta:
         verbose_name_plural = ('UserProperties')
