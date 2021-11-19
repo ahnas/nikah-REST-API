@@ -2,11 +2,9 @@ var globalarray = []
 function selcetedLanguage(a) {
     if ($(a).prop('checked')) {
         globalarray.push($(a).val())
-        console.log(globalarray)
     }
     else {
         globalarray.pop($(a).val())
-        console.log(globalarray)
     }
 
 }
@@ -55,7 +53,9 @@ $(document).ready(function () {
                         $('#marriedSisters').val(response[0]['marriedSisters']);
                         $('#brothers').val(response[0]['brothers']);
                         $('#sisters').val(response[0]['sisters']);
+                        
                         languagespoken = response[0]['languagespoken'];
+                        globalarray=languagespoken.split(",");
                         const myArray = languagespoken.split(",");
                         for (let i = 0; i < myArray.length; ++i) {
                             $("#" + myArray[i]).prop('checked', true);
