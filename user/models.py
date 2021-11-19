@@ -199,7 +199,7 @@ class UserPreferences(models.Model):
 
     martialStatus_CHOICES = ((None,'No Preference'),('Never Married','Never Married'),('Widowed','Widowed'),('Divorced','Divorced'),('Awaiting Divorse','Awaiting Divorse'),('Married','Married'))
     bodyType_CHOICES = ((None,'No Preference'),('Slim','Slim'),('Average','Average'),('Athlatic','Athlatic'),('Heavy','Heavy'))
-    community_CHOICES = ((None,'No Preference'),('Shafi','Shafi'),('Malilki','Malilki'),('Hanafi','Hanafi'),('Hambali','Hambali'))
+    community_CHOICES = ((None,'No Preference'),('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jamayath Islam ','Jamayath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
     smoking_CHOICES = ((None,'No Preference'),('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'))
     financialStatus_CHOICES = ((None,'No Preference'),('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Brown','Brown'),('Dark','Dark'))
