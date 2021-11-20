@@ -54,6 +54,43 @@ class AuthTokenSerializer(serializers.Serializer):
         return attrs
 
 
+class ResetPasswordSerializer(serializers.Serializer):
+    """Serializer for the user authentication object"""
+    password = serializers.CharField(
+        style={'input_type': 'password'},
+        trim_whitespace=False
+    )
+    newPassword = serializers.CharField(
+        style={'input_type': 'password'},
+        trim_whitespace=False
+    )
+    
+    
+    def validate(self, attrs):
+        
+        """Validate and authenticate the user"""
+        request = self.context.get('request', None)
+        if request:
+            email = request.user.email
+        password = attrs.get('password')
+        newPassword = attrs.get('newPassword')
+        user = authenticate(
+            request=self.context.get('request'),
+            username=email,
+            password=password
+        )
+        if not user:
+            msg = _('Unable to authenticate with provided credentials')
+            raise serializers.ValidationError(msg, code='authorization')
+ 
+        
+        user.set_password(newPassword)
+        user.save()
+        request.user.auth_token.delete()
+        attrs['user'] = user
+        return attrs
+
+
 class UserPropertiesSerializer(serializers.ModelSerializer):
     """Serialize a recipe"""
   

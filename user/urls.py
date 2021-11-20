@@ -25,6 +25,7 @@ router.register("MatchedProfiles",views.MatchedProfiles)
 urlpatterns = [
     path('create/', views.CreateUserView.as_view(), name='create'),
     path('token/', views.CreateTokenView.as_view(), name='token'),
+    path('ResetPasswordView/', views.ResetPasswordView.as_view(), name='ResetPasswordView'),
     path('test_auth/',views.TestAuthView.as_view(),name='testauth'),
     path('header_load/',views.LoadHeaderView.as_view(),name='header_load'),
     path('userdetailsFillCheck/',views.userdetailsFillCheck.as_view(),name='userProfilecheck'),

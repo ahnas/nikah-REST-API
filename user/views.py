@@ -11,7 +11,7 @@ from user import models
 from rest_framework import status
 from user.models import User, UserProperties,UserEducationLocationContact,Image,UserPreferences,LikeProfile
 from .serializers import UserPropertiesSerializer, UserSerializer, AuthTokenSerializer,UserImageSerializer,UserImageSkipSerializer, \
-    UserImageForTwoImageSerializer,UserImageForTwoImageSerializer,UserImageForOneImageSerializer
+    UserImageForTwoImageSerializer,UserImageForTwoImageSerializer,UserImageForOneImageSerializer,ResetPasswordSerializer
 from rest_framework.authtoken.views import ObtainAuthToken,APIView
 from rest_framework.settings import api_settings
 from . import serializers
@@ -41,6 +41,13 @@ class CreateTokenView(ObtainAuthToken):
     serializer_class = AuthTokenSerializer
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
+
+class ResetPasswordView(ObtainAuthToken):
+    """Create a new auth token for the user"""
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    serializer_class = ResetPasswordSerializer
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
 class UserPropertiesViewSet(viewsets.ModelViewSet):
     """Manage recipes in the database"""
