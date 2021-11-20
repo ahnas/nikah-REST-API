@@ -198,3 +198,14 @@ def delete(request):
     }
     return render(request, 'web/delete.html',context) 
 
+def chats(request):
+    form = UserPreferencesForm(request.POST or None)
+    context = {
+        "is_chats" : True
+        
+    }
+    return render(request, 'web/chat.html',context)
+
+
+
+

@@ -2347,3 +2347,14 @@ h3::before {
   color: #285ec9;
   font-weight: 600;
 }
+
+.lik-numb{
+  color: rgb(255, 255, 255);
+  background-color: #039A00;
+  padding: 3px 9px;
+  font-weight: 600;
+  border-radius: 50%;
+}
+.favvv{
+  position: static;
+}

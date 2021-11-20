@@ -39,7 +39,8 @@ urlpatterns = [
     path('UpdateUserImage/',views.updateUserImage.as_view()),
     path('delete/',views.DeleteAccount.as_view(), name='delete'),
     path('GetLikesAndMatches/',views.GetLikesAndMatches.as_view(), name='delete'),
-
+    path('chats/', views.UserChats.as_view()),
+    path('getmessages/', views.MessagesViewList.as_view()),
     path('',include(router.urls)),
 
 ]

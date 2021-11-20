@@ -7,32 +7,7 @@
 {% block content %}
 {% include "web/partials/header2.html" %}
 
-    <section class="explore pb-0">
-      <div class="container">
-          <div class="row exx inter">
-              
-              
-              <div class="col-12 smsm">
-                <p> <span><i class="icofont-ui-love-add" style="color: #00AB3B;"></i></span> Interests</p> 
-              </div>
-
-              <div class="col-6 hrr">
-
-              </div>
-
-              <div class="col-12">
-                  <ul class="d-flex">
-                    <li >  <a class="activee" href="{% url 'web:likesyou' %}">Likes You </a></li>
-                    <li>  <a href="{% url 'web:match' %}">Match </a></li>
-                    <li>  <a  href="{% url 'web:youlike' %}">You Like </a></li>
-                     
-                  </ul>
-              </div>
-              
-          </div>
-          
-      </div>
-    </section>
+    {% include "web/partials/interestheader.html" %}
 
     <div class="container pager mt-3">
         <div class="row member" id="memberList">

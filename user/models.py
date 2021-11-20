@@ -99,7 +99,7 @@ class UserProperties(models.Model):
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     
-    whenmarry=models.CharField(max_length=225,blank=True,null=True,choices=whenmarry_CHOICES,default='Immediately')
+    whenmarry=models.CharField(max_length=225,choices=whenmarry_CHOICES,default='Immediately')
     
     class Meta:
         verbose_name_plural = ('UserProperties')
@@ -241,4 +241,22 @@ class LikeProfile(models.Model):
 
 class ProfessionTable(models.Model):
     professionName=models.CharField(max_length=100)
-                                                                                          
+
+
+
+
+class UserChats(models.Model):
+    chatName = models.CharField(max_length=10 , unique=True)
+    ChatfromUser = models.ForeignKey(Image,on_delete=models.CASCADE)
+    ChatToUser = models.ForeignKey(User,on_delete=models.CASCADE)
+    ChatfromUserID = models.IntegerField(null=True,blank=True)
+    chatimage = models.CharField(max_length=225,null=True,blank=True)
+    chatDisplayName = models.CharField(max_length=225,null=True,blank=True)
+
+
+class Messages(models.Model):
+    chat = models.ForeignKey(UserChats,on_delete=models.CASCADE)
+    message = models.CharField(max_length=225)
+    time = models.TimeField(auto_now_add=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    chatimage=models.CharField(max_length=225,null=True,blank=True)                                                                                 

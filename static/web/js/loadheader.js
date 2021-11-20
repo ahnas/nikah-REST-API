@@ -1,3 +1,5 @@
+
+
 $("#logout").click(function () {
     localStorage.removeItem('token');
     window.location.href = "http://127.0.0.1:8000/";
@@ -9,8 +11,19 @@ function loadlikecount(){
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) { 
             console.log(response)
-            var total_like =parseInt(response['likedyoucount'])+parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
-            $('#intr').html(total_like);
+            
+            var total_like =parseInt(response['likedyoucount']);
+            $('[id="intr"]').html(total_like); 
+            
+            var youu_like = parseInt(response['youLikecount'])-parseInt(response['matchedcount']);
+            var like_youu = parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
+            var matchcount = parseInt(response['matchedcount']);
+
+
+            $('#youlik').html(youu_like); 
+            $('#likyo').html(like_youu);
+            $('#matchh').html(matchcount);
+
         }
     });}
 var pageURL = $(location).attr("href");
@@ -32,29 +45,28 @@ $(document).ready(function () {
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
 
-            if (response['userProperties'] == true && response['user'] == true && response['userImage'] == true) {
-                if (pageURL != "http://127.0.0.1:8000/home/" && pageURL != "http://127.0.0.1:8000/pending/") {
-                    // window.location.href = "http://127.0.0.1:8000/home"
-                   
-                }
-            }
-            else if (response['userProperties'] == false) {
-                if (pageURL != "http://127.0.0.1:8000/profiler") {
-                    window.location.href = "http://127.0.0.1:8000/profiler"
-                }
-            }
-            else if (response['user'] == false) {
+            // if (response['userProperties'] == true && response['user'] == true && response['userImage'] == true) {
+            //     if (pageURL != "http://127.0.0.1:8000/home/" && pageURL != "http://127.0.0.1:8000/pending/") {
+            //         // window.location.href = "http://127.0.0.1:8000/home"
+            //     }
+            // }
+            // else if (response['userProperties'] == false) {
+            //     if (pageURL != "http://127.0.0.1:8000/profiler") {
+            //         window.location.href = "http://127.0.0.1:8000/profiler"
+            //     }
+            // }
+            // else if (response['user'] == false) {
 
-                if (pageURL != "http://127.0.0.1:8000/profilerB") {
-                    window.location.href = "http://127.0.0.1:8000/profilerB"
-                }
-            }
-            else if (response['userImage'] == false) {
+            //     if (pageURL != "http://127.0.0.1:8000/profilerB") {
+            //         window.location.href = "http://127.0.0.1:8000/profilerB"
+            //     }
+            // }
+            // else if (response['userImage'] == false) {
 
-                if (pageURL != "http://127.0.0.1:8000/imageupload") {
-                    window.location.href = "http://127.0.0.1:8000/imageupload"
-                }
-            }
+            //     if (pageURL != "http://127.0.0.1:8000/imageupload") {
+            //         window.location.href = "http://127.0.0.1:8000/imageupload"
+            //     }
+            // }
         },
         error: function (jqXHR) {
         }
