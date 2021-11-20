@@ -23,4 +23,5 @@ urlpatterns = [
     path('partnerpref/', views.partnerpref,name="partnerpref"), 
     path('basicpref/', views.basicpref,name="basicpref"),
     path('delete/', views.delete,name="delete"),
+  path('chats/', views.chats,name="chats"),
 ]

@@ -16,7 +16,7 @@
           <li class="active"><a href="#"><i class="icofont-binoculars text-white mr-2"></i>Explore</a></li>
           <li><a href="#about"><i class="icofont-ui-text-chat mr-2"></i>Chat</a></li>
 
-          <li><a href="/youlike">  <span id="intr" class="ml-0 favv">10</span>  <i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
+          <li><a href="/youlike">  <span id="intr" class="ml-0 favv">0</span>  <i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
           
           
           <li >
@@ -44,15 +44,4 @@
       loadlikecount();
 
     });
-    function loadlikecount(){
-    $.ajax({
-        url: "http://127.0.0.1:8000/api/user/GetLikesAndMatches/",
-        type: 'GET',
-        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
-        success: function (response) { 
-            console.log(response)
-            var total_like =parseInt(response['likedyoucount'])+parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
-            $('#intr').html(total_like);
-        }
-    });}
   </script>
