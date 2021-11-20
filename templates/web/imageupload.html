@@ -46,13 +46,15 @@
 
                        
 
-                        <div class="form-group row text-center">
-                            <div class="col" id="buttons">
-                                <button id="btnNotNow" type="button" class="skip-btn btn">Not now</button>
-                        </div>
-                        <div id="next">
+                        <div class="form-group row">
+                            <div class="col text-left" id="butt">
+                                <a href="{% url 'web:basicpref' %}"><button id="bt" type="button" class="skip-btn btn">Previous</button></a>
+                            </div>
 
-                        </div>
+                            <div class="col text-right" id="buttons">
+                                <button id="btnNotNow" type="button" class="skip-btn btn">Not now</button>
+                            </div>
+                        
                         </div>
                             
 

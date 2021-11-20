@@ -1,164 +1,205 @@
-
 {% extends 'web/base.html' %}
 {% load static %}
 {% block title %}Search Profile{% endblock %}
 
 {% block content %}
 {% include "web/partials/header2.html" %}
-    <style>
-        .error{
-            color: red;
-        }
-    </style>
-    <section class="explore dinee pb-0 mobcd">
-      <div class="container">
-          <div class="row exx dine">
-              <div class="col-1">
+<style>
+    .error {
+        color: red;
+    }
+</style>
+<section class="explore dinee pb-0 mobcd">
+    <div class="container">
+        <div class="row exx dine">
+            <div class="col-1">
                 <i style="color: #3acf6e;" class="icofont-search-user"></i>
-            
-              </div>
-              <div class="col-11 ">
-                <p>Search profile</p> 
-              </div>
-          </div>
-          <div class="row">
-              
-              
 
-              
-
-              
-          </div>
-      </div>
-    </section>
-
-   
-
-    <section class="profiler">
-
-        <div class="container">
-            <div class="row profiler-head headg">
-                
-                
-
-                <div class="col-lg-10 col-md-11 col-sm-12 col-11 pro-box">
-                    
-
-                    <form action="#" name="modify">
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputFirstname">Community</label>
-                                {{form.community}}    
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">Complexion</label>
-                                {{form.complexion}}
-                            </div> 
-                            
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputAddressLine2">Age From</label>
-                                {{form.ageFrom}}   
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputAddressLine2">Age To</label>
-                                {{form.ageTo}} 
-                            </div>
-                            
-                        </div>
-
-                        
-
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputCity">Martial Status</label>
-                                {{form.martialStatus}}
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputState">Body Type</label>
-                               {{form.bodyType}}
-                            </div>
-                        </div>
-                        <div class="form-group row">
-
-                            <div class="col-sm-3">
-                                <label for="inputContactNumber">Height From</label>
-                                {{form.heightFrom}}
-                            </div>
-
-                            <div class="col-sm-3">
-                                <label for="inputContactNumber">Height To</label>
-                               {{form.heightTo}}
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="inputContactNumber">Weight From</label>
-                                {{form.weightFrom}}
-                            </div>
-
-                            <div class="col-sm-3">
-                                <label for="inputContactNumber">Weight To</label>
-                               {{form.weightTo}}
-                            </div>
-                            
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">Smoking</label>
-                             {{form.smoking}}   
-                             </div>
-
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">Drinking</label>
-                               {{form.drinking}}
-                            </div>
-                            
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for="inputContactNumber">Profession</label>
-                               {{form.profession}}
-                            </div>
-                            
-                        </div>
-                        
-
-                 
-                       
-                        <div class="form-group row text-center">
-                            <div class="col">
-                            <button type="submit" class="btn btn-primary px-4 save">Save & Continue</button>
-                        </div>
-                        </div>
-                            
-
-                    </form>
-                    
-                </div>
+            </div>
+            <div class="col-11 ">
+                <p>Search profile</p>
             </div>
         </div>
-
-      </section>
-
+        <div class="row">
 
 
 
-      
-      {% include "web/partials/mobilefooter.html" %} 
-    
-    
-    {% endblock %}
-    {% block javascript %}
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!--  validation script  -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <script src="{% static 'web/js/preferenceupdate.js' %}"></script>
 
-    <script src="{% static 'web/js/header.js' %}"></script>
 
-    {% endblock %}
+
+        </div>
+    </div>
+</section>
+
+
+
+<section class="profiler">
+
+    <div class="container">
+        <div class="row profiler-head headg">
+
+
+
+            <div class="col-lg-10 col-md-11 col-sm-12 col-11 pro-box">
+
+
+                <form action="#" name="modify">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputFirstname">Community</label>
+                            {{form.community}}
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Complexion</label>
+                            {{form.complexion}}
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputAddressLine2">Age From</label>
+                            {{form.ageFrom}}
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputAddressLine2">Age To</label>
+                            {{form.ageTo}}
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputCity">Martial Status</label>
+                            {{form.martialStatus}}
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputState">Body Type</label>
+                            {{form.bodyType}}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="col-sm-3">
+                            <label for="inputContactNumber">Height From</label>
+                            <select name="heightFrom" id="heightFrom" value=0 class="form-control">
+                            </select>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="inputContactNumber">Height To</label>
+                            <select name="heightTo" id="heightTo" value=0 class="form-control">
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="inputContactNumber">Weight From</label>
+                            <select name="weightFrom" id="weightFrom" value=0 class="form-control">
+                            </select>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label for="inputContactNumber">Weight To</label>
+                            <select name="weightTo" id="weightTo" value=0 class="form-control">
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Smoking</label>
+                            {{form.smoking}}
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Drinking</label>
+                            {{form.drinking}}
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="inputContactNumber">Working as</label>
+                            <select name="workingas" id="workingas" class="form-control">
+                                <option>No Preference</option>
+                                <option value="Not Working">Not Working</option>
+                                <option value="Accountant">Accountant</option>
+                                <option value="CA">CA</option>
+                                <option value="Secretary">Secretary</option>
+                                <option value="Doctor">Doctor</option>
+                                <option value="Nurse">Nurse</option>
+                                <option value="Marketing Executive">Marketing Executive</option>
+                                <option value="HRM">HRM</option>
+                                <option value="Pharmacist">Pharmacist</option>
+                                <option value="Self Employed">Self Employed</option>
+                                <option value="Part-Time">Part-Time</option>
+                                <option value="Professor">Professor</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Software Developer">Software Developer</option>
+                                <option value="Graphics Designer">Graphics Designer</option>
+                                <option value="Administrator">Administrator</option>
+                                <option value="Business">Business</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="form-group row text-center">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary px-4 save">Save & Continue</button>
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+{% include "web/partials/mobilefooter.html" %}
+
+
+{% endblock %}
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--  validation script  -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="application/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="{% static 'web/js/preferenceupdate.js' %}"></script>
+
+<script src="{% static 'web/js/header.js' %}"></script>
+<script>
+    $(document).ready(function () {
+        $('#heightFrom').append("<option value=0>No Preference </option>")
+        $('#heightTo').append("<option value=0>No Preference </option>")
+        for (var i = 137; i <= 213; i++) {
+            $('#heightFrom').append("<option value=" + i + ">" + i + " cm  " + (i * 0.0328084).toFixed(1) + " ft</option>")
+            $('#heightTo').append("<option value=" + i + ">" + i + " cm  " + (i * 0.0328084).toFixed(1) + " ft</option>")
+        }
+        $('#weightFrom').append("<option value=0>No Preference </option>")
+        $('#weightTo').append("<option value=0>No Preference </option>")
+        for (var i = 30; i <= 140; i++) {
+            $('#weightFrom').append("<option value=" + i + ">" + i + " Kg </option>")
+            $('#weightTo').append("<option value=" + i + ">" + i + " Kg </option>")
+        }
+
+    })
+</script>
+{% endblock %}

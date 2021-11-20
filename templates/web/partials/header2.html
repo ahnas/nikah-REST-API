@@ -15,7 +15,8 @@
         <ul class="place-items-center">
           <li class="active"><a href="#"><i class="icofont-binoculars text-white mr-2"></i>Explore</a></li>
           <li><a href="#about"><i class="icofont-ui-text-chat mr-2"></i>Chat</a></li>
-          <li><a href="/youlike"><i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
+
+          <li><a href="/youlike">  <span id="intr" class="ml-0 favv">0</span>  <i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
           
           
           <li >
@@ -38,3 +39,9 @@
   </header><!-- End Header -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="{% static 'web/js/loadheader.js' %}"></script>
+  <script>
+    $(document).ready(function () {
+      loadlikecount();
+
+    });
+  </script>

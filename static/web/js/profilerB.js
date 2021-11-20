@@ -1,6 +1,75 @@
-
-
+function currentAddress(){
+    if ($('#sameAddress').is(':checked')) {
+        var cntry=$('#nativeCountry').val()
+        var state=$('#nativeState').val()
+        var city=$('#nativeCity').val()
+        $('#currentCountry').val(cntry);
+        $('#currentState').val(state);
+        $('#currentCity').val(city);
+    }
+    else{
+        $('#currentCountry').val('');
+        $('#currentState').val('');
+        $('#currentCity').val('');
+    }   
+}
+var pageURL = $(location).attr("href");
 $(document).ready(function () {
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/userdetailsFillCheck/",
+        type: 'GET',
+        beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
+        success: function (response) {
+            if (response['user'] == true) {
+                $.ajax({
+                    url: "http://127.0.0.1:8000/api/user/Bproperties/",
+                    type: 'GET',
+                    dataType: "JSON",
+                                
+                    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
+                    success: function (response) {
+                        console.log(response[0])
+                        $('#highestEducation').val(response[0]['highestEducation']);
+                        $('#workingwith').val(response[0]['workingwith']);
+                        $('#workingas').val(response[0]['workingas']);
+                        $('#nativeCountry').val(response[0]['nativeCountry']);
+                        $('#currentCountry').val(response[0]['currentCountry']);
+                        $('#currentState').val(response[0]['currentState']);
+                        $('#currentCity').val(response[0]['currentCity']);
+                        $('#workingwith').val(response[0]['workingwith']);
+                        $('#workingas').val(response[0]['workingas']);
+                        $('#EduSpezialization').val(response[0]['EduSpezialization']);
+                        $('#nativeState').val(response[0]['nativeState']);
+                        $('#nativeCity').val(response[0]['nativeCity']);
+                        $('#primaryNumber').val(response[0]['primaryNumber']);
+                        $('#secondaryNumber').val(response[0]['secondaryNumber']);
+                        $('#preferedContact').val(response[0]['preferedContact']);
+                        $('#relation').val(response[0]['relation']);
+                        $('#describe').val(response[0]['describe']);
+                        $('#houseName').val(response[0]['houseName']);
+                        $('#locality').val(response[0]['locality']);
+                        $('#pincode').val(response[0]['pincode']);
+                        $('#madrassaEducation').val(response[0]['madrassaEducation']);
+                        $('#attendIslamicServices').val(response[0]['attendIslamicServices']);
+                        $('#performNamaz').val(response[0]['performNamaz']); 
+                        $('#readQuran').val(response[0]['readQuran']); 
+                        $('#religiousness').val(response[0]['religiousness']); 
+                        $('#annualincome').val(response[0]['annualincome']); 
+                    },
+                    error: function (jqXHR) {
+                        
+                    }
+                }); 
+            }
+            if (response['userProperties'] == false) {
+                if (pageURL != "http://127.0.0.1:8000/profiler") {
+                    window.location.href = "http://127.0.0.1:8000/profiler"
+                }
+            }
+        },
+        error: function (jqXHR) {
+        }
+    });
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/Profesions/",
         type: 'GET',
@@ -20,12 +89,6 @@ $(document).ready(function () {
             highestEducation: {
                 required: true,                
             },
-            profession: {
-                required: true,
-            },
-            professionType: {
-                required: true,
-            },
             nativeCountry: {
                 required: true,
             },
@@ -42,12 +105,8 @@ $(document).ready(function () {
                 required: true,
             },
             preferedContact: {
-                required: true,
             },
             relation: {
-                required: true,
-            },
-            describe: {
                 required: true,
             },
             houseName: {
@@ -78,10 +137,8 @@ $(document).ready(function () {
            
         },
         messages:{
-            
-            profession:"This field is required.",
             highestEducation:"This field is required.",
-            professionType:"This field is required.",
+            
             nativeCountry:"This field is required.",
             nativeState:"This field is required.",
             nativeCity:"This field is required.",
@@ -105,8 +162,8 @@ $(document).ready(function () {
             event.preventDefault();
             var csrf_token1 = $('[name="csrfmiddlewaretoken"]').val();
             var highestEducation = $('#highestEducation').val();
-            var profession = $('#profession').val();
-            var professionType = $('#professionType').val();
+            var workingwith = $('#workingwith').val();
+            var workingas = $('#workingas').val();
             var nativeCountry = $('#nativeCountry').val();
             var currentCountry = $('#currentCountry').val();
             var currentState = $('#currentState').val();
@@ -133,8 +190,8 @@ $(document).ready(function () {
             
             data = {
                 "highestEducation": highestEducation,
-                "profession": profession,
-                "professionType": professionType,
+                "workingwith": workingwith,
+                "workingas": workingas,
                 "nativeCountry": nativeCountry,
                 "nativeState": nativeState,
                 "nativeCity": nativeCity,

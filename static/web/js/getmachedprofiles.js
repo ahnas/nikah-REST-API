@@ -1,4 +1,24 @@
-
+function deletelike(id){
+    $.ajax({
+        url: "http://127.0.0.1:8000/api/user/likeprofile/"+id+"/",
+        type: 'DELETE',
+        beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
+               
+        // beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token 6660edb56e1809238b3239f9bb8e3c1961e11c6e');},
+        success: function (response) {
+            $("#"+id).fadeOut();
+            loadlikecount();
+        },
+        error: function (jqXHR) {
+            if (jqXHR.status == 400) {
+                var responseText = jQuery.parseJSON(jqXHR.responseText);
+                $('#emailwarning').html(responseText['non_field_errors']);
+            } else {
+                $('#emailwarning').html("Unnexpected Error Occured ");
+            }
+        }
+    });
+}
 
 $(document).ready(function () {
     $.ajax({
@@ -9,7 +29,7 @@ $(document).ready(function () {
             const obj = JSON.parse(JSON.stringify(response));
             for(let i = 0; i < obj.length && i<=200; i++){
                 var age= new Date().getFullYear()-new Date(obj[i]['profile'].dateOfBirth).getFullYear();
-                $('#memberList').append("<div class='col-lg-4  col-md-6 col-sm-12 col-12 p-2' id='"+obj[i]['user']+"'>\
+                $('#memberList').append("<div class='col-lg-4  col-md-6 col-sm-12 col-12 p-2' id="+obj[i].is_liked+">\
                 <div class='pager-coll gext'><div class='row justify-content-center'>\
                 <div class='col-lg-5 col-md-5 col-sm-12 pr-0'>\
                 <img src='"+obj[i].image['medium_square_crop']+"' alt='' class='homeimages'  onclick='profileview("+obj[i].id+")'>\
@@ -17,8 +37,7 @@ $(document).ready(function () {
                 <i class='icofont-ui-text-chat'></i>\
                 </p><p class='sta'><i class='icofont-star'></i>\
                 </p></div></div><div class='col-lg-7 col-md-7\ col-sm-5 col-6 pro-detail'>\
-                <a href='#' class='like mobii' onclick='likeProfile("+obj[i]['user']+")'><i class='icofont-ui-love'></i>Like</a>\
-                <h4>"+obj[i].nmId+"</h4><p>Age  <span class='sp1 ml-4'>"+age+"</span> \
+                <h4>"+obj[i].nmId+"<i class='icofont-ui-delete float-right' onclick='deletelike("+obj[i].is_liked+")'></i></h4><p>Age  <span class='sp1 ml-4'>"+age+"</span> \
                 </p> <p>Status  <span class='sp2'>"+obj[i]['profile'].martialStatus+"</span></p>\
                 <p ><span><i class='icofont-users-alt-3 mr-2'></span></i>\
                 "+obj[i]['profile'].relegion+"</p><p><span><i class='icofont-web mr-2'></span></i>\

@@ -99,7 +99,7 @@ class UserProperties(models.Model):
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
     
-    whenmarry=models.CharField(max_length=225,blank=True,null=True,choices=whenmarry_CHOICES,default='Immediately')
+    whenmarry=models.CharField(max_length=225,choices=whenmarry_CHOICES,default='Immediately')
     
     class Meta:
         verbose_name_plural = ('UserProperties')
@@ -144,9 +144,9 @@ class UserEducationLocationContact(models.Model):
 
     primaryNumber = models.CharField(max_length=225)
     secondaryNumber = models.CharField(max_length=225)
-    preferedContact = models.CharField(max_length=225)
+    preferedContact = models.CharField(max_length=225,null=True,blank=True)
     relation = models.CharField(max_length=225,choices=relation_CHOICE,default="Self")
-    describe = models.TextField(max_length=1000)
+    describe = models.TextField(max_length=1000,null=True,blank=True)
 
     performNamaz = models.CharField(max_length=225,choices=performNamaz_CHOICES,default="Always")
     religiousness = models.CharField(max_length=225,choices=releagiosness_CHOICES ,default='Religious')
@@ -199,7 +199,7 @@ class UserPreferences(models.Model):
 
     martialStatus_CHOICES = ((None,'No Preference'),('Never Married','Never Married'),('Widowed','Widowed'),('Divorced','Divorced'),('Awaiting Divorse','Awaiting Divorse'),('Married','Married'))
     bodyType_CHOICES = ((None,'No Preference'),('Slim','Slim'),('Average','Average'),('Athlatic','Athlatic'),('Heavy','Heavy'))
-    community_CHOICES = ((None,'No Preference'),('Shafi','Shafi'),('Malilki','Malilki'),('Hanafi','Hanafi'),('Hambali','Hambali'))
+    community_CHOICES = ((None,'No Preference'),('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jamayath Islam ','Jamayath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
     smoking_CHOICES = ((None,'No Preference'),('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'))
     financialStatus_CHOICES = ((None,'No Preference'),('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Brown','Brown'),('Dark','Dark'))
@@ -218,7 +218,8 @@ class UserPreferences(models.Model):
     heightTo = models.IntegerField(default=0,null=True,blank=True) 
     weightFrom = models.IntegerField(default=0,null=True,blank=True)
     weightTo = models.IntegerField(default=0,null=True,blank=True)
-    profession = models.CharField(max_length=225,blank=True)
+    
+    workingas = models.CharField(max_length=225,blank=True)
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default=None,null=True,blank=True)
     drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default=None,null=True,blank=True)
     complexion = models.CharField(max_length=225,choices=complexion_CHOICES,default=None,null=True,blank=True)
@@ -240,4 +241,22 @@ class LikeProfile(models.Model):
 
 class ProfessionTable(models.Model):
     professionName=models.CharField(max_length=100)
-                                                                                          
+
+
+
+
+class UserChats(models.Model):
+    chatName = models.CharField(max_length=10 , unique=True)
+    ChatfromUser = models.ForeignKey(Image,on_delete=models.CASCADE)
+    ChatToUser = models.ForeignKey(User,on_delete=models.CASCADE)
+    ChatfromUserID = models.IntegerField(null=True,blank=True)
+    chatimage = models.CharField(max_length=225,null=True,blank=True)
+    chatDisplayName = models.CharField(max_length=225,null=True,blank=True)
+
+
+class Messages(models.Model):
+    chat = models.ForeignKey(UserChats,on_delete=models.CASCADE)
+    message = models.CharField(max_length=225)
+    time = models.TimeField(auto_now_add=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    chatimage=models.CharField(max_length=225,null=True,blank=True)                                                                                 

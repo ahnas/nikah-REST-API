@@ -1,0 +1,28 @@
+{% load static %}
+
+
+    <section class="explore pb-0">
+      <div class="container">
+          <div class="row exx inter">
+              
+              
+              <div class="col-12 smsm">
+                <p> <span><i class="icofont-ui-love-add" style="color: #00AB3B;"></i></span> Interests</p> 
+              </div>
+
+              <div class="col-6 hrr">
+
+              </div>
+
+              <div class="col-12">
+                  <ul class="d-flex">
+                     <li >  <a class="{% if is_likesyou %}activee{% endif %}" href="{% url 'web:likesyou' %}">Likes You<span id="likyo" class="ml-0 lik-numb">10</span></a></li>
+                     <li>  <a class="{% if is_match %}activee{% endif %}" href="{% url 'web:match' %}">Match<span id="matchh" class="ml-0 lik-numb">10</span></a></li>
+                     <li>  <a class="{% if is_youlike %}activee{% endif %}" href="{% url 'web:youlike' %}">You Like<span id="youlik" class="ml-0 lik-numb">10</span></a></li>
+                     
+                  </ul>
+              </div>
+          </div>
+          
+      </div>
+    </section>
