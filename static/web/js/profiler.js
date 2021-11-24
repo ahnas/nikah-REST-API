@@ -195,6 +195,8 @@ $(document).ready(function () {
             var languagespoken = globalarray.toString()
             var financialStatus = $('#financialStatus').val();
             var smoking = $('#smoking').val();
+            var yongerBrother=$('#yongerBrother').val()
+            var elderSister=$('#elderSister').val()
             var drinking = $('#drinking').val();
             var whenmarry = $('#whenmarry').val();
             data = {
@@ -228,6 +230,8 @@ $(document).ready(function () {
                 "marriedBrothers": marriedBrothers,
                 "youngerSisters": youngerSisters,
                 "marriedSisters": marriedSisters,
+                "elderSister":elderSister,
+                "yongerBrother":yongerBrother,
                 "languagespoken": languagespoken,
                 "whenmarry": whenmarry,
             }

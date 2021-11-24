@@ -115,6 +115,7 @@ def imageupload(request):
 
 
 def home(request):
+    search=request.GET.get('search', 'false')
     profileimage = Image.objects.all()
     userproperties = UserProperties.objects.all()
     profile = Profile.objects.all()
@@ -122,7 +123,8 @@ def home(request):
         "is_home" : True,
         "profileimage":profileimage,
         "userproperties":userproperties,
-        "profile":profile
+        "profile":profile,
+        "search":search
     }
     return render(request, 'web/home.html',context)
 
@@ -193,6 +195,7 @@ def basicpref(request):
 
 
 def delete(request):
+
     context = {
         "is_delete" : True
     }
@@ -205,6 +208,9 @@ def chats(request):
         
     }
     return render(request, 'web/chat.html',context)
+
+
+
 
 
 

@@ -92,7 +92,7 @@ $(document).ready(function () {
       formData.append("image_three", $("#image_three")[0].files[0]);
       formData.append("csrfmiddlewaretoken", csrf_token1);
       $.ajax({
-        url: "http://127.0.0.1:8000/api/user/userImageUpload/",
+        url: "http://127.0.0.1:8000/api/user/UserImageUpdate/",
         type: $(this).attr("method"),
         data: formData,
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},

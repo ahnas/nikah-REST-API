@@ -28,6 +28,7 @@ import user
 #         }),
 #     )
 admin.site.register(models.User)
+admin.site.register(models.DeletedRecord)
 
 
 class ImageInline(admin.TabularInline):

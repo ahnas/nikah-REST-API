@@ -124,6 +124,7 @@ $(document).ready(function(){
             $("#EduSpezialization").val(response['EduSpezialization']) 
             $('input[name=nativeCountry]').val(response['nativeCountry'])
             $('select[name=workingas]').val(response['workingas'])
+            console.log(response['workingas'])
             $('select[name=annualincome]').val(response['annualincome'])
             $('select[name=performNamaz]').val(response['performNamaz'])
             $('select[name=readQuran]').val(response['readQuran'])
@@ -179,9 +180,6 @@ $("form[name='updateUserDetailsForm']").validate({
         },
         annualincome:{
         },
-        describe:{
-            required:true,
-        },
         madrassaEducation:{
             required:true,
         },
@@ -192,9 +190,6 @@ $("form[name='updateUserDetailsForm']").validate({
         secondaryNumber:{
             required:true,
             digits:true
-        },
-        preferedContact:{
-            required:true,
         },
         nationality:{
             required:true,
