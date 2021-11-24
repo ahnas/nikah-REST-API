@@ -184,10 +184,12 @@ def partnerpref(request):
 def basicpref(request):
     form = UserPreferencesForm
     formedu = UserEducationLocationContactForm
+    formpro=UserPropertiesForm
     context = {
         "is_basicpref" : True,
         "form":form,
         "formedu":formedu,
+        "formpro":formpro
         
     }
     return render(request, 'web/basicpref.html',context)

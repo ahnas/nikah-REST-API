@@ -86,6 +86,12 @@ class UserEducationLocationContactViewSet(viewsets.ModelViewSet):
             education =UserEducationLocationContact.objects.get(user=self.request.user)
             education.delete()
         else:
+            if UserPreferences.objects.filter(user=self.request.user).exists():
+                prefinstance=UserPreferences.objects.get(user=self.request.user)
+                prefinstance.delete()
+            if UserSearch.objects.filter(user=self.request.user).exists():
+                searchinstance=UserSearch.objects.get(user=self.request.user)
+                searchinstance.delete()
             preference = UserPreferences()
             preference.user=self.request.user    
             preference.save()
@@ -598,6 +604,8 @@ class BasicPreferences(APIView):
         updateData.district = request.POST['district']
         updateData.city = request.POST['city']
         updateData.country = request.POST['country']
+        updateData.EduSpezialization = request.POST['EduSpezialization']
+        updateData.physicalStatus = request.POST['physicalStatus']
         updateData.save()
         return JsonResponse({'message':'Success'})
 

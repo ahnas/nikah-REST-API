@@ -70,6 +70,10 @@ $(document).ready(function () {
             var bodyType = $('#bodyType').val();
             var community = $('#community').val();
             var district = $('#district').val();
+            var EduSpezialization=$('#EduSpezialization').val();
+            var physicalStatus=$('#physicalStatus').val();
+            var education=$('#education').val();
+
             data = {
                 "district": district,
                 "ageFrom": ageFrom,
@@ -84,6 +88,10 @@ $(document).ready(function () {
                 "country": country,
                 "bodyType": bodyType,
                 "community": community,
+                "EduSpezialization":EduSpezialization,
+                "physicalStatus":physicalStatus,
+                "education":education,
+
             }
             $.ajax({
                 url: "http://127.0.0.1:8000/api/user/BasicPreferences/",

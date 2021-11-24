@@ -206,6 +206,7 @@ class UserPreferences(models.Model):
     smoking_CHOICES = ((None,'No Preference'),('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'))
     financialStatus_CHOICES = ((None,'No Preference'),('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Brown','Brown'),('Dark','Dark'))
+    physicalStatus_CHOICES = (('Normal','Normal'),('Deaf','Deaf'),('Dump','Dump'),('Blind','Blind'),('Physically Challenged','Physically Challenged'),('Mentally Challenged','Mentally Challenged'),('Other Disabilities','Other Disabilities'),)
     
     highestEducation_CHOICES = ((None,'No Preference'),('Masters', 'Masters'),('Doctorate', 'Doctorate'),('Bachelors', 'Bachelors'),('Diploma', 'Diploma'),('ITI', 'ITI'),('Islamic Education', 'Islamic Education'),('Higher Secondary','Higher Secondary'),('High School', 'High School'),('Other', 'Other'))
     
@@ -228,10 +229,11 @@ class UserPreferences(models.Model):
     complexion = models.CharField(max_length=225,choices=complexion_CHOICES,default=None,null=True,blank=True)
     financialStatus = models.CharField(max_length=225,choices=financialStatus_CHOICES,default=None,null=True,blank=True)
     education = models.CharField(max_length=225,choices=highestEducation_CHOICES,default=None,null=True,blank=True)
+    EduSpezialization = models.CharField(max_length=225,default=None,null=True,blank=True)
     country = models.CharField(max_length=225,default=None,null=True,blank=True)
     district = models.CharField(max_length=225,default=None,null=True,blank=True)
     city = models.CharField(max_length=225,default=None,null=True,blank=True)
-
+    physicalStatus = models.CharField(max_length=225,choices=physicalStatus_CHOICES,default="Normal")
 
 class UserSearch(models.Model):
 
@@ -309,7 +311,6 @@ class DeletedRecord(models.Model):
     got_married_out = models.BooleanField(default=False)
     no_pro_match = models.BooleanField(default=False)
     other_reason = models.BooleanField(default=False)
-    
     not_satisfied = models.BooleanField(default=False)
     not_satisfied_reason = models.TextField()
     
