@@ -93,7 +93,7 @@
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Mobile</label></div> <div class="col-7"><p> : <b id="mobile"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Date of birth</label></div> <div class="col-7"><p> : <b id="dob"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Language spoken</label></div> <div class="col-7"><p> : <b id="languageSpoken"></b></p></div></div></div>
-            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">family type</label></div> <div class="col-7"><p> : <b id="familyType"></b></p></div></div></div>
+            <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Family type</label></div> <div class="col-7"><p> : <b id="familyType"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Smoking</label></div> <div class="col-7"><p> : <b id="smoking"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Drinking</label></div> <div class="col-7"><p> : <b id="drinking"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6"><div class="row proff"><div class="col-5"><label for="">Willing to marry</label></div> <div class="col-7"><p> : <b id="whenMarry"></b></p></div></div></div>
@@ -145,7 +145,7 @@
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Mobile</label></div> <div class="col-7"><p> <b> <input type="text" name="mobile" class="form-control"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Date of birth</label></div> <div class="col-7"><p>  <b id="dob"> <input type="date" id="datepicker" name="dateOfBirth" class="form-control"></b></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Language spoken</label></div> <div class="col-7"><p>  <b id="languageSpoken"> <input type="text" name="languagespoken" id="languagespoken" class="required form-control"></b></p></div></div></div>
-            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">family type</label></div> <div class="col-7"><p><b>{{formpro.familyType}}</b></p></div></div></div>
+            <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Family type</label></div> <div class="col-7"><p><b>{{formpro.familyType}}</b></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Smoking</label></div> <div class="col-7"><p><b id="smoking"> {{formpro.smoking}}</b></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">Drinking</label></div> <div class="col-7"><p><b>{{formpro.drinking}}</b></p></div></div></div>
             <div class="col-lg-6 col-md-6 mb-3"><div class="row proff"><div class="col-5"><label for="">When you are hoping to get married</label></div> <div class="col-7"><p>  <b id="whenMarry"> {{formpro.whenmarry}}</b></p></div></div></div>
@@ -224,10 +224,25 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Native Country</label></div> <div class="col-7"><p><input type="text"  name="nativeCountry" class="form-control"> </p></div></div></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Native State</label></div> <div class="col-7"><p><input type="text"  name="nativeState" class="form-control"></p></div></div></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Working as</label></div> <div class="col-7"><p> <select name="workingas" id="workingas" class="form-control">
+                <option value="Not Working">Not Working</option>
                 <option value="Accountant">Accountant</option>
                 <option value="CA">CA</option>
                 <option value="Secretary">Secretary</option>
                 <option value="Doctor">Doctor</option>
+                <option value="Manager">Manager</option>
+                <option value="Asst. Manager">Asst. Manager</option>
+                <option value="Engineer">Engineer</option>
+                <option value="Bank employee">Bank employee</option>
+                <option value="PRO">PRO</option>
+                <option value="Sales">Sales</option>
+                <option value="Electrician">Electrician</option>
+                <option value="Mechanic">Mechanic</option>
+                <option value="Plumber">Plumber</option>
+                <option value="Coolie">Coolie</option>
+                <option value="Cashier">Cashier</option>
+                <option value="Driver">Driver</option>
+                <option value="Consultants">Consultants</option>
+
                 <option value="Nurse">Nurse</option>
                 <option value="Marketing Executive">Marketing Executive</option>
                 <option value="HRM">HRM</option>
@@ -240,6 +255,7 @@
                 <option value="Graphics Designer">Graphics Designer</option>
                 <option value="Administrator">Administrator</option>
                 <option value="Business">Business</option>
+
             </select></p></div></div></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3"><div class="row proff"><div class="col-5"><label for="">Working with</label></div> <div class="col-7"><p><select name="workingwith" id="workingwith" class="form-control">
                 <option value="Private Sector">Private Sector</option>

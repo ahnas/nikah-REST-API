@@ -1,8 +1,15 @@
 
-
 $(document).ready(function () {
+    var url="";
+    if($('#search').val()=='true'){
+        url="http://127.0.0.1:8000/api/user/collectproperties/?search=true/";
+    }
+    else{
+        url="http://127.0.0.1:8000/api/user/collectproperties/";
+    }
+
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/collectproperties/",
+        url: url,
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {

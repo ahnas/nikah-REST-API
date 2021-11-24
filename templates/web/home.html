@@ -51,6 +51,7 @@
                     <div class="col-9">
                         <p>Advanced Search</p>
                     </div>
+                    <input type="hidden" name="search" id="search" value="{{search}}">
                 </div>
               </div>
 
@@ -169,6 +170,7 @@
     <script src="{% static 'web/aos/aos.js' %}"></script>
     <script src="{% static 'web/js/header.js' %}"></script>
     <script src="{% static 'web/js/loadheader.js' %}"></script>
+    <script src="{% static 'web/js/preferenceupdate.js' %}"></script>
     <script src="{% static 'web/js/getprofiles.js' %}"></script>
     <script src="{% static 'web/js/profileselect.js' %}"></script>
     
@@ -181,8 +183,10 @@
   <script src="{% static 'web/js/main.js' %}"></script>
 
   <script src="{% static 'web/js/header.js' %}"></script>
+  <script src="{% static 'web/js/header.js' %}"></script>
 
   {% block javascript %}
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
   
   {% endblock %}
 </body>

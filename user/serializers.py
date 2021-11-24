@@ -291,3 +291,10 @@ class Messagesserializer(serializers.ModelSerializer):
         model = models.Messages
         fields='__all__'
         read_only_fields = ('chatimage','user',)
+
+
+class DeletedRecordserializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.DeletedRecord
+        fields='__all__'
+        read_only_fields = ('name','phoneNumber','email','gender')

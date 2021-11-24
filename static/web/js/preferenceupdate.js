@@ -1,9 +1,7 @@
 
-
-
 $(document).ready(function () {
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/GetUserPreferences/",
+        url: "http://127.0.0.1:8000/api/user/GetUserSearch/",
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
@@ -96,14 +94,14 @@ $(document).ready(function () {
                 "complexion": complexion,
             }
             $.ajax({
-                url: "http://127.0.0.1:8000/api/user/UpadteUserPreferences/",
+                url: "http://127.0.0.1:8000/api/user/UserSearchUpdate/",
                 type: 'POST',
                 dataType: "JSON",
                 data: data,
                             
                 beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
                 success: function (response) {
-                    window.location.href = "http://127.0.0.1:8000/home/"
+                    window.location.href = "http://127.0.0.1:8000/home/?search="+true;
                 },
                 error: function (jqXHR) {
                     if (jqXHR.status == 400) { 
@@ -120,6 +118,8 @@ $(document).ready(function () {
 });
 
 
-
+function reset(){
+    $('#form_id').trigger("reset");
+}
 
 

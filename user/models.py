@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 from django.db.models.deletion import CASCADE
 from django.db.models.fields import BigAutoField
 from django.db.models.fields.related import ForeignKey, OneToOneField
+from django.forms.widgets import Textarea
 from django.http.response import JsonResponse
 from django.utils import tree
 from versatileimagefield.fields import VersatileImageField,PPOIField
@@ -59,11 +60,11 @@ class UserProperties(models.Model):
     financialStatus_CHOICES = (('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = (('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Olive skin','Olive skin'),('Brown','Brown'),('Dark','Dark'))
     relegion_CHOICES = (('Islam','Islam'),('Hindu','Hindu'),('Cristian','Cristian'),('Jainism','Jainism'),('Buddhist','Buddhist'),('Parsi','Parsi'),('Sikhism ','Sikhism '),('Others ','Others '),('Preferred not to say','Preferred not to say'))
-    fatherOccupation_CHOICES = (('Private','Private'),('Self Employee','Self Employee'),('Doctor','Doctor'),('Engineer','Engineer'),('Manager','Manager'),('Pharmacist','Pharmacist'),('Accountant','Accountant'),('Teacher','Teacher'),('Deceased','Deceased'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
-    motherOccupation_CHOICES = (('House Wife','House Wife'),('Doctor','Doctor'),('Engineer','Engineer'),('Manager','Manager'),('Pharmacist','Pharmacist'),('Accountant','Accountant'),('Teacher','Teacher'),('Deceased','Deceased'),('Private','Private'),('Self Employee','Self Employee'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
+    fatherOccupation_CHOICES = (('Private','Private'),('Self Employee','Self Employee'),('Doctor','Doctor'),('Engineer','Engineer'),('Manager','Manager'),('Pharmacist','Pharmacist'),('Accountant','Accountant'),('Teacher','Teacher'),('Late','Late'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
+    motherOccupation_CHOICES = (('House Wife','House Wife'),('Doctor','Doctor'),('Engineer','Engineer'),('Manager','Manager'),('Pharmacist','Pharmacist'),('Accountant','Accountant'),('Teacher','Teacher'),('Late','Late'),('Private','Private'),('Self Employee','Self Employee'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
     ethnicGroup_CHOICES = (('Indian','Indian'),('Malayali','Malayali'),('Urdu Muslim','Urdu Muslim'),('Tamil','Tamil'),('Mixed-Race','Mixed-Race'),('Others','Others'),)
     physicalStatus_CHOICES = (('Normal','Normal'),('Deaf','Deaf'),('Dump','Dump'),('Blind','Blind'),('Physically Challenged','Physically Challenged'),('Mentally Challenged','Mentally Challenged'),('Other Disabilities','Other Disabilities'),)
-    familyType_CHOICES = (('Nuclear Family','Nuclear Family'),('Joint Family','Joint Family'),('Extended Family','Extended Family'),('Other','Other'))
+    familyType_CHOICES = ((None,None),('Nuclear Family','Nuclear Family'),('Joint Family','Joint Family'),('Extended Family','Extended Family'),('Other','Other'))
     whenmarry_CHOICES = (('Immediately','Immediately'),('Within 2 month','Within 2 month'),('Whithin 6 month','Whithin 6 month'),('Within 1 year','Within 1 year'),('Within 2 year','Within 2 year'),('More than 2 year','More than 2 year'),('Any time','Any time'))
 
     """User Properties"""
@@ -94,6 +95,8 @@ class UserProperties(models.Model):
     elderBrothers = models.IntegerField(null=True,blank=True)
     marriedBrothers = models.IntegerField(null=True,blank=True)
     youngerSisters = models.IntegerField(null=True,blank=True)
+    elderSister=models.IntegerField(null=True,blank=True)
+    yongerBrother=models.IntegerField(null=True,blank=True)
     marriedSisters = models.IntegerField(null=True,blank=True)
     financialStatus = models.CharField(max_length=225,choices=financialStatus_CHOICES,default="Middle Class")
     smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default="No")
@@ -118,7 +121,7 @@ class UserEducationLocationContact(models.Model):
     performNamaz_CHOICES = (('Always', 'Always'),('Sometimes', 'Sometimes'),('Never', 'Never'),('Prefer not to say', 'Prefer not to say'))
     releagiosness_CHOICES = (('Very religious', 'Very religious'),('Religious', 'Religious'),('Not Religious', 'Not Religious'),('Prefer not to say', 'Prefer not to say'),('Any', 'Any'))
     attendIslamicServices_CHOICES = (('Yes', 'Yes'),('No', 'No'))
-    highestEducation_CHOICES = (('Masters', 'Masters'),('Doctorate', 'Doctorate'),('Bachelors', 'Bachelors'),('Diploma', 'Diploma'),('ITI', 'ITI'),('Islamic Education', 'Islamic Education'),('High School', 'High School'),('Other', 'Other'))
+    highestEducation_CHOICES = (('Masters', 'Masters'),('Doctorate', 'Doctorate'),('Bachelors', 'Bachelors'),('Diploma', 'Diploma'),('ITI', 'ITI'),('Islamic Education', 'Islamic Education'),('Higher Secondary','Higher Secondary'),('High School', 'High School'),('Other', 'Other'))
     relation_CHOICE = (('Self', 'Self'),('Parent', 'Parent'),('Sibling', 'Sibling'),('Relative', 'Relatives'),('Friend', 'Friend'),('Uncle', 'Uncle'),('Other', 'Other'))
     readquran_CHOICES = (('Always', 'Always'),('Sometimes', 'Sometimes'),('Only Friday', 'Only Friday'),('During Ramadan', 'During Ramadan'),('Never', 'Never'),('Prefer not to say', 'Prefer not to say'))
 
@@ -204,7 +207,7 @@ class UserPreferences(models.Model):
     financialStatus_CHOICES = ((None,'No Preference'),('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Brown','Brown'),('Dark','Dark'))
     
-    highestEducation_CHOICES = ((None,'No Preference'),('Masters', 'Masters'),('Doctorate', 'Doctorate'),('Bachelors', 'Bachelors'),('Diploma', 'Diploma'),('ITI', 'ITI'),('Islamic Education', 'Islamic Education'),('High School', 'High School'),('Other', 'Other'))
+    highestEducation_CHOICES = ((None,'No Preference'),('Masters', 'Masters'),('Doctorate', 'Doctorate'),('Bachelors', 'Bachelors'),('Diploma', 'Diploma'),('ITI', 'ITI'),('Islamic Education', 'Islamic Education'),('Higher Secondary','Higher Secondary'),('High School', 'High School'),('Other', 'Other'))
     
 
     """User Properties"""
@@ -228,7 +231,41 @@ class UserPreferences(models.Model):
     country = models.CharField(max_length=225,default=None,null=True,blank=True)
     district = models.CharField(max_length=225,default=None,null=True,blank=True)
     city = models.CharField(max_length=225,default=None,null=True,blank=True)
+
+
+class UserSearch(models.Model):
+
+    martialStatus_CHOICES = ((None,'No Preference'),('Never Married','Never Married'),('Widowed','Widowed'),('Divorced','Divorced'),('Awaiting Divorse','Awaiting Divorse'),('Married','Married'))
+    bodyType_CHOICES = ((None,'No Preference'),('Slim','Slim'),('Average','Average'),('Athlatic','Athlatic'),('Heavy','Heavy'))
+    community_CHOICES = ((None,'No Preference'),('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jamayath Islam ','Jamayath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
+    smoking_CHOICES = ((None,'No Preference'),('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'))
+    financialStatus_CHOICES = ((None,'No Preference'),('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
+    complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Brown','Brown'),('Dark','Dark'))
     
+    highestEducation_CHOICES = ((None,'No Preference'),('Masters', 'Masters'),('Doctorate', 'Doctorate'),('Bachelors', 'Bachelors'),('Diploma', 'Diploma'),('ITI', 'ITI'),('Islamic Education', 'Islamic Education'),('Higher Secondary','Higher Secondary'),('High School', 'High School'),('Other', 'Other'))
+    
+
+    """User Properties"""
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    community = models.CharField(max_length=225,choices=community_CHOICES,null=True,default=None,blank=True)
+    ageFrom = models.IntegerField(default=0,null=True,blank=True)
+    ageTo = models.IntegerField(default=0,null=True,blank=True)
+    martialStatus = models.CharField(max_length=225,choices=martialStatus_CHOICES,default=None,null=True,blank=True,) 
+    bodyType = models.CharField(max_length=225,choices=bodyType_CHOICES,default=None,null=True,blank=True)
+    heightFrom = models.IntegerField(default=0,null=True,blank=True) 
+    heightTo = models.IntegerField(default=0,null=True,blank=True) 
+    weightFrom = models.IntegerField(default=0,null=True,blank=True)
+    weightTo = models.IntegerField(default=0,null=True,blank=True)
+    
+    workingas = models.CharField(max_length=225,blank=True)
+    smoking = models.CharField(max_length=225,choices=smoking_CHOICES,default=None,null=True,blank=True)
+    drinking = models.CharField(max_length=225,choices=smoking_CHOICES,default=None,null=True,blank=True)
+    complexion = models.CharField(max_length=225,choices=complexion_CHOICES,default=None,null=True,blank=True)
+    financialStatus = models.CharField(max_length=225,choices=financialStatus_CHOICES,default=None,null=True,blank=True)
+    education = models.CharField(max_length=225,choices=highestEducation_CHOICES,default=None,null=True,blank=True)
+    country = models.CharField(max_length=225,default=None,null=True,blank=True)
+    district = models.CharField(max_length=225,default=None,null=True,blank=True)
+    city = models.CharField(max_length=225,default=None,null=True,blank=True)
 
 
 
@@ -259,4 +296,20 @@ class Messages(models.Model):
     message = models.CharField(max_length=225)
     time = models.TimeField(auto_now_add=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    chatimage=models.CharField(max_length=225,null=True,blank=True)                                                                                 
+    chatimage=models.CharField(max_length=225,null=True,blank=True)
+
+
+class DeletedRecord(models.Model):
+    name=models.CharField(max_length=225)
+    phoneNumber = models.CharField(max_length=20)
+    email = models.EmailField(max_length=100)
+    gender = models.CharField(max_length=100)
+    
+    got_married_with_serv = models.BooleanField(default=False)
+    got_married_out = models.BooleanField(default=False)
+    no_pro_match = models.BooleanField(default=False)
+    other_reason = models.BooleanField(default=False)
+    
+    not_satisfied = models.BooleanField(default=False)
+    not_satisfied_reason = models.TextField()
+    

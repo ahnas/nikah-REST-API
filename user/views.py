@@ -9,7 +9,7 @@ from rest_framework.exceptions import ErrorDetail
 from rest_framework.serializers import Serializer
 from user import models
 from rest_framework import status
-from user.models import User, UserProperties,UserEducationLocationContact,Image,UserPreferences,LikeProfile
+from user.models import User, UserProperties,UserEducationLocationContact,Image,UserPreferences,LikeProfile,UserSearch
 from .serializers import UserPropertiesSerializer, UserSerializer, AuthTokenSerializer,UserImageSerializer,UserImageSkipSerializer, \
     UserImageForTwoImageSerializer,UserImageForTwoImageSerializer,UserImageForOneImageSerializer,ResetPasswordSerializer
 from rest_framework.authtoken.views import ObtainAuthToken,APIView
@@ -89,6 +89,9 @@ class UserEducationLocationContactViewSet(viewsets.ModelViewSet):
             preference = UserPreferences()
             preference.user=self.request.user    
             preference.save()
+            search = UserSearch()
+            search.user=self.request.user    
+            search.save()
         serializer.save(user=self.request.user,userProperties=property)
 
 class TestAuthView(APIView):
@@ -144,38 +147,39 @@ class UserPropertiesAll(viewsets.ModelViewSet):
         userVerification = Image.objects.get(user=self.request.user)
         if userVerification.is_verified==False:
             raise Http404
-
         user = models.UserProperties.objects.get(user=self.request.user)
         gender ='female'
         if user.gender=='female':
             gender='male'
         sort_params = {}
         set_if_not_none(sort_params, 'profile__gender', gender)
-        # userpreference = UserPreferences.objects.filter(user=self.request.user).last()
-        # if userpreference.ageFrom != 0 and userpreference.ageTo != 0:
-        #     current_time = datetime.datetime.now() 
-        #     year_from = current_time.year-userpreference.ageTo
-        #     year_To = current_time.year-userpreference.ageFrom
-        #     date_From = str(year_from)+'-01-01'
-        #     date_To= str(year_To)+'-12-30'
-        #     datedange=[str(date_From), str(date_To)]
-        #     set_if_not_none(sort_params, 'profile__dateOfBirth__range', datedange)   
-        # if userpreference.heightFrom != 0 and userpreference.heightTo != 0:
-        #     fromHeight =userpreference.heightFrom 
-        #     toHeight= userpreference.heightTo
-        #     set_if_not_none(sort_params, 'profile__height__gte', fromHeight-1)
-        #     set_if_not_none(sort_params, 'profile__height__lte', toHeight+1)
-        # if userpreference.weightFrom != 0 and userpreference.weightTo != 0:
-        #     fromWeight =userpreference.weightFrom 
-        #     toWeight= userpreference.weightTo
-        #     set_if_not_none(sort_params, 'profile__weight__gte', fromWeight-1)
-        #     set_if_not_none(sort_params, 'profile__weight__lte', toWeight+1)
-        # set_if_not_none(sort_params, 'profile__smoking', userpreference.smoking)
-        # set_if_not_none(sort_params, 'profile__drinking', userpreference.drinking)
-        # set_if_not_none(sort_params, 'profile__complexion', userpreference.complexion)
-        # set_if_not_none(sort_params, 'profile__bodyType', userpreference.bodyType)
-        # set_if_not_none(sort_params, 'profile__martialStatus', userpreference.martialStatus)
-        # set_if_not_none(sort_params, 'profile__community', userpreference.community)
+        if self.request.query_params.get('search')=='true/':
+            userpreference = UserSearch.objects.filter(user=self.request.user).last()
+            if userpreference.ageFrom != 0 and userpreference.ageTo != 0:
+                current_time = datetime.datetime.now() 
+                year_from = current_time.year-userpreference.ageTo
+                year_To = current_time.year-userpreference.ageFrom
+                date_From = str(year_from)+'-01-01'
+                date_To= str(year_To)+'-12-30'
+                datedange=[str(date_From), str(date_To)]
+                set_if_not_none(sort_params, 'profile__dateOfBirth__range', datedange)   
+            if userpreference.heightFrom != 0 and userpreference.heightTo != 0:
+                fromHeight =userpreference.heightFrom 
+                toHeight= userpreference.heightTo
+                set_if_not_none(sort_params, 'profile__height__gte', fromHeight-1)
+                set_if_not_none(sort_params, 'profile__height__lte', toHeight+1)
+            if userpreference.weightFrom != 0 and userpreference.weightTo != 0:
+                fromWeight =userpreference.weightFrom 
+                toWeight= userpreference.weightTo
+                set_if_not_none(sort_params, 'profile__weight__gte', fromWeight-1)
+                set_if_not_none(sort_params, 'profile__weight__lte', toWeight+1)
+            set_if_not_none(sort_params, 'profile__smoking', userpreference.smoking)
+            set_if_not_none(sort_params, 'profile__drinking', userpreference.drinking)
+            set_if_not_none(sort_params, 'profile__complexion', userpreference.complexion)
+            set_if_not_none(sort_params, 'profile__bodyType', userpreference.bodyType)
+            set_if_not_none(sort_params, 'profile__martialStatus', userpreference.martialStatus)
+            set_if_not_none(sort_params, 'profile__community', userpreference.community)
+
         likedprofile = LikeProfile.objects.filter(liked_by_user=userVerification)
         likeduserlist=[]
         for i in likedprofile:
@@ -230,6 +234,48 @@ class GetUserPreferencesViewset(viewsets.ModelViewSet):
         """Retrieve the recipes for the authenticated user"""
         return self.queryset.filter(user=self.request.user)
 
+
+
+class GetUserSearchViewset(viewsets.ModelViewSet):
+    """Manage recipes in the database"""
+    serializer_class = serializers.UserPreferencesSerializer
+    queryset = UserSearch.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        """Retrieve the recipes for the authenticated user"""
+        if not self.queryset.filter(user=self.request.user).exists():
+            newSearch =UserSearch()
+            newSearch.user=self.request.user
+            newSearch.save()
+        return self.queryset.filter(user=self.request.user)
+
+
+
+class UserSearchUpdate(APIView):
+    queryset = models.UserSearch.objects.all()
+    serializer_class = serializers.UserPreferencesSerializer
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    def post(self, request, *args, **kwargs):
+        updateData = models.UserSearch.objects.get(user=self.request.user)
+        updateData.martialStatus = request.POST['martialStatus']
+        updateData.community = request.POST['community']
+        updateData.ageFrom = request.POST['ageFrom']
+        updateData.ageTo = request.POST['ageTo']
+        updateData.bodyType = request.POST['bodyType']
+        updateData.heightFrom = request.POST['heightFrom']
+        updateData.heightTo = request.POST['heightTo']
+        updateData.martialStatus = request.POST['martialStatus']
+        updateData.weightFrom = request.POST['weightFrom']
+        updateData.weightTo = request.POST['weightTo']
+        updateData.smoking = request.POST['smoking']
+        updateData.drinking = request.POST['drinking']
+        updateData.complexion = request.POST['complexion']
+        updateData.workingas = request.POST['workingas']
+        updateData.save()
+        return JsonResponse({'message':'Success'})
 
 class LikedProfiles(APIView):
     authentication_classes = (TokenAuthentication,)
@@ -678,6 +724,51 @@ class UserImageViewSet(viewsets.GenericViewSet,
         return self.serializer_class
 
 
+class UserImageUpdateViewSet(viewsets.GenericViewSet,
+                            mixins.ListModelMixin,
+                            mixins.CreateModelMixin,mixins.UpdateModelMixin):
+    """Base viewset for user owned recipe attributes"""
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    queryset = Image.objects.all()
+    serializer_class = UserImageSerializer
+
+
+    def get_queryset(self):
+        """Return objects for the current authenticated user only"""
+        return self.queryset.filter(user=self.request.user)
+    
+    def perform_create(self, serializer):
+        """Create a new object"""
+        checkImageExisting = Image.objects.filter(user=self.request.user)
+        is_verified=False
+        if checkImageExisting.exists():
+            is_verified=Image.objects.get(user=self.request.user).is_verified
+            Image.objects.get(user=self.request.user).delete()
+
+        LogedInUser = self.request.user
+        nmIDString = 'NM'+str(10000+self.request.user.id)
+        
+        serializer.save(is_verified=is_verified,nmId=nmIDString,user=self.request.user,profile=LogedInUser.userproperties,education=LogedInUser.usereducationlocationcontact)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    def get_serializer_class(self):
+        """Return appropriate serializer class"""
+        if self.request.POST:
+            try:
+                image_one = self.request.FILES['image']
+            except:
+                return UserImageSkipSerializer
+            if image_one:
+                try:
+                    image_two = self.request.FILES['image_two']
+                except:
+                    return UserImageForOneImageSerializer
+            if image_two:
+                try:
+                    image_three = self.request.FILES['image_three']
+                except:
+                    return UserImageForTwoImageSerializer
+        return self.serializer_class
 class Getpreferenceofuser(APIView):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
@@ -810,7 +901,29 @@ class MessagesViewList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         user = User.objects.all().first()
         userchat = models.UserChats.objects.get(chatName='NM100NM1207DS')
-        print('#'*20)
         print(self.request.POST['chat'])
         """Create a new message"""
         serializer.save(user=user,chat=userchat)
+
+
+
+class DeletedRecordView(generics.ListCreateAPIView):
+    """Manage recipes in the database"""
+    serializer_class = serializers.DeletedRecordserializer
+    queryset = models.DeletedRecord.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    
+
+    def get(self,request):
+        queryset = models.DeletedRecord.objects.all()
+        serializer = serializers.DeletedRecordserializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def perform_create(self, serializer):
+        user=self.request.user
+        name=user.userproperties.name
+        phonenumber=user.userproperties.moblie
+        gender=user.userproperties.gender
+        email=user.email
+        serializer.save(name=name,phoneNumber=phonenumber,gender=gender,email=email)
