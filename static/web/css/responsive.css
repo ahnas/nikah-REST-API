@@ -263,11 +263,12 @@
         margin-top: 0px;
     }
     .about-new p {
-        text-align: justify;
-        font-size: 15px;
-        font-weight: 600;
-        margin-top: 4px;
-        line-height: 26px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: normal;
+        margin-top: 2px;
+        line-height: 24px;
+        margin-bottom: 0px;
     }
     .about-new h2 {
         font-size: 30px;
@@ -607,6 +608,11 @@
 
 
 @media only screen and (max-width: 576px) {
+    .about-new{
+        margin-top: 55px;
+        text-align-last: center;
+        text-align: -webkit-center;
+    }
     .pad-md {
         padding-top: 10px;
     }
@@ -649,7 +655,7 @@
     .why p {
         text-align: center;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: normal;
         line-height: 24px;
         margin-top: 0px;
         padding: 0px 16px;
@@ -689,9 +695,9 @@
         margin-top: 0px;
     }
     .about-new p {
-        text-align: justify;
+        text-align: center;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: normal;
         margin-top: 2px;
         line-height: 24px;
         margin-bottom: 0px;
@@ -801,7 +807,7 @@
         font-weight: 600;
     }
     .newss {
-        
+        padding: 5px 45px;
         background-color: #ffffff;
         color: #3acf6e;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
@@ -2626,6 +2632,7 @@
         
     }
     .newss {
+        padding: 5px 43px;
         background-color: #ffffff;
         color: #3acf6e;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
@@ -3018,6 +3025,7 @@
         font-weight: 600;
     }
     .newss {
+        padding: 5px 41px;
         background-color: #ffffff;
         color: #3acf6e;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
@@ -3167,6 +3175,7 @@
 
     
     .newss{
+        padding: 5px 48px;
         background-color: #ffffff;
         color: #3acf6e;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
