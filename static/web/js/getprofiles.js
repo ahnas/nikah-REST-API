@@ -1,5 +1,10 @@
 
 $(document).ready(function () {
+    getdatas('');
+
+});
+function getdatas(nmid){
+    $('#membersList').html('')
     var url="";
     if($('#search').val()=='true'){
         url="http://127.0.0.1:8000/api/user/collectproperties/?search=true/";
@@ -7,14 +12,15 @@ $(document).ready(function () {
     else{
         url="http://127.0.0.1:8000/api/user/collectproperties/";
     }
+    if(nmid!=''){
+        url="http://127.0.0.1:8000/api/user/collectproperties/?NMID="+nmid;
+    }
 
     $.ajax({
         url: url,
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
-            
-            // $('#username').html("<a href='#' class='text-white'>"+myArr[1]+"</a>");
             const obj = JSON.parse(JSON.stringify(response));
             for(let i = 0; i < obj.length && i<=200; i++){
                 var age= new Date().getFullYear()-new Date(obj[i]['profile'].dateOfBirth).getFullYear();
@@ -37,9 +43,6 @@ $(document).ready(function () {
                 <i class='icofont-ui-text-chat'></i></p><p class='ml-3 mr-3'><i class='icofont-star'>\
                 </i></p><p class=''><i class='icofont-heart' onclick='likeProfile("+obj[i]['user']+")'></i></p></div></div></div>");
                 }
-           
-            // $('#usernamefield1').html(myArr[1]+"&nbsp&nbsp&nbsp<img style='border-radius: 50%;width:30px;height:30px;'src='"+myArr[0] +"' alt='SDGDSA'>");
-            //sessionStorage.setItem("token", response['token'])
         },
         error: function (jqXHR) {
             if (jqXHR.status == 404) { 
@@ -50,8 +53,6 @@ $(document).ready(function () {
             }
         }
     }); 
+}
 
 
-
-
-});

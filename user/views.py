@@ -158,7 +158,18 @@ class UserPropertiesAll(viewsets.ModelViewSet):
         if user.gender=='female':
             gender='male'
         sort_params = {}
+        likedprofile = LikeProfile.objects.filter(liked_by_user=userVerification)
+        likeduserlist=[]
+        for i in likedprofile:
+                likeduserlist.append(i.liked_user)
         set_if_not_none(sort_params, 'profile__gender', gender)
+        
+        if self.request.query_params.get('NMID'):
+            print("Searching")
+            nmID=self.request.query_params.get('NMID')
+            print(nmID)
+            return self.queryset.filter(**sort_params,nmId__startswith=nmID)
+
         if self.request.query_params.get('search')=='true/':
             userpreference = UserSearch.objects.filter(user=self.request.user).last()
             if userpreference.ageFrom != 0 and userpreference.ageTo != 0:
@@ -185,11 +196,6 @@ class UserPropertiesAll(viewsets.ModelViewSet):
             set_if_not_none(sort_params, 'profile__bodyType', userpreference.bodyType)
             set_if_not_none(sort_params, 'profile__martialStatus', userpreference.martialStatus)
             set_if_not_none(sort_params, 'profile__community', userpreference.community)
-
-        likedprofile = LikeProfile.objects.filter(liked_by_user=userVerification)
-        likeduserlist=[]
-        for i in likedprofile:
-                likeduserlist.append(i.liked_user)
         return self.queryset.filter(**sort_params).exclude(user__email__in=likeduserlist)
     
     def perform_create(self, serializer):
