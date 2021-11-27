@@ -4,11 +4,12 @@ from django.http import HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 import json
+import os
 from user import forms
 from user.models import Image, UserEducationLocationContact,UserProperties,User,UserPreferences
 from user.forms import UserPreferencesForm, UserPropertiesForm,UserEducationLocationContactForm
 from web.models import Profile
-
+from web.forms import ImageForm
 
 def index(request):
     context = {
@@ -147,14 +148,50 @@ def likesyou(request):
     return render(request, 'web/likesyou.html',context) 
 
 def addphotos(request):
-    form = UserPreferencesForm(request.POST or None) 
+    imageForm = ImageForm(request.POST or None) 
+    pk=106
+    if request.method == 'POST':
+        pk=request.POST.get('imageId')
+        item =  get_object_or_404(Image,pk=pk)
+        if len(request.FILES) != 0:
+            try:
+                temp= request.FILES['image']
+                if len(item.image) > 0:
+                   if item.image.url !='/media/default.jpg':
+                        os.remove(item.image.path)
+                item.image=temp
+            except:
+                pass
+            try:
+                temp= request.FILES['image_two']
+                if len(item.image_two) > 0:
+                    if item.image_two.url !='/media/default.jpg':
+                        os.remove(item.image_two.path)
+                item.image_two=temp                   
+            except:
+                pass
+            try:
+                temp=request.FILES['image_three']
+                if len(item.image_three) > 0:
+                    if item.image_three.url !='/media/default.jpg':
+                        os.remove(item.image_three.path)
+                item.image_three=temp
+            except:
+                pass
+        form = ImageForm(request.POST,instance=item)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.save()
+        return redirect('web:myprofile')
+
     context = {
-        "is_addphotos" : True
-        
+        "is_addphotos" : True,
+        "form":imageForm
     }
     return render(request, 'web/addphotos.html',context)
 
 def myprofile(request):
+    
     form = UserPreferencesForm
     formpro=UserPropertiesForm
     formedu = UserEducationLocationContactForm
@@ -175,8 +212,14 @@ def changepass(request):
     return render(request, 'web/changepass.html',context)
 
 def partnerpref(request):
+    form = UserPreferencesForm
+    formpro=UserPropertiesForm
+    formedu = UserEducationLocationContactForm
     context = {
-        "is_partnerpref" : True
+        "is_partnerpref" : True,
+        "form":form,
+        "formedu":formedu,
+        "formpro":formpro,
         
     }
     return render(request, 'web/partnerpref.html',context)

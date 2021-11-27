@@ -30,8 +30,6 @@
                   </ul>
               </div>
             </div>
-          
-          
       </div>
     </section>
     
@@ -61,24 +59,24 @@
                  <div id="ImageCollect" class="form-group row" style="place-content: center;">
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3" id="div-image-upload-id1">
                     <img id="viewImageId" style="width: 220px;" class="mb-3" src="{% static 'web/image/avathar.png' %}" alt="SHow">
-                    <input type="file" class ='form-control' id="image1" name="image1">
+                    {{form.image}}
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3" id="div-image-upload-id2">
                     <img id="viewImageIdtwo" style="width: 220px;" class="mb-3" src="{% static 'web/image/avathar.png' %}" alt="SHow">
-                    <input type="file" class ='form-control' id="image_two" name="image_two" >
+                    {{form.image_two}}
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12 mb-3"  id="div-image-upload-id3">
                     <img id="viewImageIdthree" style="width: 220px;" class="mb-3" src="{% static 'web/image/avathar.png' %}" alt="SHow">
-                    <input type="file" class ='form-control' id="image_three" name="image_three" >
+                    {{form.image_three}}
                 </div>
                 
             </div>
 
-           
+           <input type="hidden" name="imageId" id="imageId">
 
             <div class="form-group row text-center">
                 <div class="col" id="buttons">
-                    <button id="btnNotNow" type="button" class="skip-btn btn">Update</button>
+                    <button id="btnNotNow" type="submit" class="skip-btn btn">Update</button>
             </div>
             <div id="next">
 
@@ -88,6 +86,7 @@
 
         </form>
     </div>
+    
         
 
     <!-- <div class="container pager mt-3">

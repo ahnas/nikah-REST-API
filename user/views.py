@@ -213,18 +213,22 @@ class UpadteUserPreferences(APIView):
         updateData = models.UserPreferences.objects.get(user=self.request.user)
         updateData.martialStatus = request.POST['martialStatus']
         updateData.community = request.POST['community']
+        print(updateData.community)
         updateData.ageFrom = request.POST['ageFrom']
         updateData.ageTo = request.POST['ageTo']
-        updateData.bodyType = request.POST['bodyType']
         updateData.heightFrom = request.POST['heightFrom']
         updateData.heightTo = request.POST['heightTo']
+        updateData.workingas=request.POST['workingas']
+        updateData.workingwith=request.POST['workingwith']
         updateData.martialStatus = request.POST['martialStatus']
         updateData.weightFrom = request.POST['weightFrom']
         updateData.weightTo = request.POST['weightTo']
-        updateData.smoking = request.POST['smoking']
-        updateData.drinking = request.POST['drinking']
         updateData.complexion = request.POST['complexion']
         updateData.workingas = request.POST['workingas']
+        updateData.education=request.POST['education']
+        updateData.district=request.POST['district']
+        updateData.country=request.POST['country']
+        updateData.city=request.POST['city']
         updateData.save()
         return JsonResponse({'message':'Success'})
 
@@ -595,7 +599,8 @@ class BasicPreferences(APIView):
         updateData = models.UserPreferences.objects.get(user=self.request.user)
         updateData.martialStatus = request.POST['martialStatus']
         updateData.ageFrom = request.POST['ageFrom']
-        updateData.ageTo = request.POST['ageTo']
+        updateData.ageTo = request.POST['ageTo']    
+        updateData.community = request.POST['community']
         updateData.heightFrom = request.POST['heightFrom']
         updateData.heightTo = request.POST['heightTo']
         updateData.weightFrom = request.POST['weightFrom']

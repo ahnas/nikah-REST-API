@@ -19,7 +19,7 @@ router.register("GetUserPreferences",views.GetUserPreferencesViewset)
 router.register("UserLikedProfiles",views.UserLikedProfiles)
 router.register("LikedYouProfile",views.LikedYouProfile)
 router.register('userImageUpload',views.UserImageViewSet)
-router.register('UserImageUpdate',views.UserImageViewSet)
+router.register('UserImageUpdate',views.UserImageUpdateViewSet)
 router.register("MatchedProfiles",views.MatchedProfiles)
 
 
