@@ -16,7 +16,6 @@ function collectdata() {
                 'not_satisfied_reason': not_satisfied_reason,
                 csrfmiddlewaretoken: csrf_token1,
             }
-            alert(data)
 
             $.ajax({
                 url: "http://127.0.0.1:8000/api/user/deletedrecord/",
