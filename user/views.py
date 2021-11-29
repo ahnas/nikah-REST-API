@@ -167,8 +167,8 @@ class UserPropertiesAll(viewsets.ModelViewSet):
         if self.request.query_params.get('NMID'):
             print("Searching")
             nmID=self.request.query_params.get('NMID')
-            print(nmID)
-            return self.queryset.filter(**sort_params,nmId__startswith=nmID)
+            
+            return self.queryset.filter(**sort_params,nmId__startswith=nmID.upper())
 
         if self.request.query_params.get('search')=='true/':
             userpreference = UserSearch.objects.filter(user=self.request.user).last()
