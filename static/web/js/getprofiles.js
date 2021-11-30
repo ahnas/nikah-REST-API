@@ -1,7 +1,9 @@
 
+var pageURL = $(location).attr("href");
 $(document).ready(function () {
+    if (pageURL != "http://127.0.0.1:8000/pending/" && pageURL != "http://127.0.0.1:8000/delete/") {
     getdatas('');
-
+    }
 });
 function getdatas(nmid){
     $('#membersList').html('')

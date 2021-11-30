@@ -255,6 +255,13 @@ def chats(request):
     return render(request, 'web/chat.html',context)
 
 
+def resetpass(request):
+
+    context = {
+        "is_resetpass" : True
+    }
+    return render(request, 'web/resetpass.html',context) 
+
 
 
 

@@ -28,7 +28,7 @@
                         <p id="emailwarning" class="warning"></p>
                         <p>Password * </p>
                         <input id="password1" name="password1" class="form-control" type="password" placeholder="Password">
-                        <a href=""><p class="forgot">Forgot Username/Password ?</p></a>
+                        <a href="{% url 'web:resetpass' %}"><p class="forgot">Forgot Username/Password ?</p></a>
                         <button id="signin_btn" class="btn btn-primary mb-2">Login Here</button>
                         <hr>
                         <a href="#" class="text-center google"> <img width="30px" src="{% static 'web/image/google.png' %}" alt=""> Signin With Google</a>

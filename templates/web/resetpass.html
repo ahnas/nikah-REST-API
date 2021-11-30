@@ -1,0 +1,48 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title %}Reset{% endblock %}
+
+{% block content %}
+
+<style>
+    form .error{
+        color: red;
+        font-weight: 600;
+    }
+</style>
+    
+   
+    
+      <section class="login login-coo">
+        <div class="container ">
+            <div class="row">
+                <div class="col-lg-10 col-md-7 col-sm-7 col-10 login-co">
+                    <h1>Forgotten your password?</h1>
+                    <p>Enter your e-mail address to obtain a new password.</p>
+                    
+                    <form action="." method="post">{{ form.as_p }}<p><input type="submit" value="Send e-mail"></p>{% csrf_token %}</form> 
+
+                </div>
+            </div>
+        </div>
+      </section>
+
+
+
+
+      {% block javascript %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <!--  validation script  -->
+
+<script src="{% static 'web/js/login.js' %}"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+{% endblock %}
+
+
+ 
+    {% endblock %}
+

@@ -13,13 +13,13 @@ function selcetedLanguage(a) {
 
 $(document).ready(function () {
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/userdetailsFillCheck/",
+        url: "https://nikahmalabar.com/api/user/userdetailsFillCheck/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
             if (response['userProperties'] == true) {
                 $.ajax({
-                    url: "http://127.0.0.1:8000/api/user/properties/",
+                    url: "https://nikahmalabar.com/api/user/properties/",
                     type: 'GET',
                     dataType: "JSON",
 
@@ -235,20 +235,20 @@ $(document).ready(function () {
                 "languagespoken": languagespoken,
                 "whenmarry": whenmarry,
             }
-            var total_siblings = parseInt(elderBrothers) + parseInt(marriedBrothers) + parseInt(youngerSisters) + parseInt(marriedSisters)
+            var total_siblings = parseInt(elderBrothers) + parseInt(marriedBrothers) + parseInt(youngerSisters) + parseInt(marriedSisters)+parseInt(elderSister)+parseInt(yongerBrother)
             if (parseInt(numberofsiblings) != 0 && parseInt(total_siblings) == 0) {
                 return siblingError();
             }
 
             $.ajax({
-                url: "http://127.0.0.1:8000/api/user/properties/",
+                url: "https://nikahmalabar.com/api/user/properties/",
                 type: 'POST',
                 dataType: "JSON",
                 data: data,
 
                 beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                 success: function (response) {
-                    window.location.href = "http://127.0.0.1:8000/profilerB/"
+                    window.location.href = "https://nikahmalabar.com/profilerB/"
                 },
                 error: function (jqXHR) {
                     if (jqXHR.status == 400) {
