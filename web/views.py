@@ -10,6 +10,8 @@ from user.models import Image, UserEducationLocationContact,UserProperties,User,
 from user.forms import UserPreferencesForm, UserPropertiesForm,UserEducationLocationContactForm
 from web.models import Profile
 from web.forms import ImageForm
+from django.core.mail import send_mail
+
 
 def index(request):
     context = {
@@ -256,7 +258,14 @@ def chats(request):
 
 
 def resetpass(request):
-
+    if request.POST:
+        send_mail(
+        'Subject here',
+        'Here is the message.',
+        'mbshrcvr@gmail.com',
+        ['mbshrcvr@gmail.com'],
+        fail_silently=False,
+    )
     context = {
         "is_resetpass" : True
     }

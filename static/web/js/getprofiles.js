@@ -6,7 +6,6 @@ $(document).ready(function () {
     }
 });
 function getdatas(nmid){
-    $('#membersList').html('')
     var url="";
     if($('#search').val()=='true'){
         url="http://127.0.0.1:8000/api/user/collectproperties/?search=true/";
@@ -17,12 +16,17 @@ function getdatas(nmid){
     if(nmid!=''){
         url="http://127.0.0.1:8000/api/user/collectproperties/?NMID="+nmid;
     }
+    
+    
 
     $.ajax({
         url: url,
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
+            
+            console.log(response)
+            $('#membersList').empty();
             const obj = JSON.parse(JSON.stringify(response));
             for(let i = 0; i < obj.length && i<=200; i++){
                 var age= new Date().getFullYear()-new Date(obj[i]['profile'].dateOfBirth).getFullYear();

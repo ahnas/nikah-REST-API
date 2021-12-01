@@ -18,9 +18,14 @@
             <div class="row">
                 <div class="col-lg-10 col-md-7 col-sm-7 col-10 login-co">
                     <h1>Forgotten your password?</h1>
-                    <p>Enter your e-mail address to obtain a new password.</p>
+                    <p>Enter your registered e-mail address to Reset Password.</p>
                     
-                    <form action="." method="post">{{ form.as_p }}<p><input type="submit" value="Send e-mail"></p>{% csrf_token %}</form> 
+                    <form action="." method="post">
+                        <input type="email" class="form-control">
+                        <p>
+                        <input type="submit" class="form-control btn-success" value="Reset password"></p>
+                        {% csrf_token %}
+                    </form> 
 
                 </div>
             </div>
