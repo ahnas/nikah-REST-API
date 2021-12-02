@@ -19,7 +19,7 @@ $(document).ready(function(){
             $("#noOfChildren").html(response['numberofChildresn'])
             $("#complexion").html(response['complexion'])
             $("#bodyType").html(response['bodyType'])
-            $('[id="motherTongue"]').html(response['motherTongue'])
+            $('[id="motherTongue"]').html(response['motherTongue']) 
             $("#physicalStatus").html(response['physicalStatus'])
             $("#fatherOccupation").html(response['fatherOccupation'])
             $("#motherOccupation").html(response['motherOccupation'])

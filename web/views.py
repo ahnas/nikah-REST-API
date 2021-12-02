@@ -5,13 +5,16 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 import json
 import os
+from random import randint, randrange
 from user import forms
-from user.models import Image, UserEducationLocationContact,UserProperties,User,UserPreferences
+from user.models import Image, UserEducationLocationContact,UserProperties,User,UserPreferences,PassWordReset,UserProperties
 from user.forms import UserPreferencesForm, UserPropertiesForm,UserEducationLocationContactForm
 from web.models import Profile
 from web.forms import ImageForm
-from django.core.mail import send_mail
-
+from django.contrib.auth import get_user_model
+from django.conf import settings
+from django.core.mail import send_mail,EmailMultiAlternatives
+from django.contrib.auth import authenticate
 
 def index(request):
     context = {
@@ -258,17 +261,50 @@ def chats(request):
 
 
 def resetpass(request):
-    if request.POST:
-        send_mail(
-        'Subject here',
-        'Here is the message.',
-        'mbshrcvr@gmail.com',
-        ['mbshrcvr@gmail.com'],
-        fail_silently=False,
-    )
     context = {
         "is_resetpass" : True
     }
+    if request.POST:
+        email=request.POST.get('email')
+        if User.objects.filter(email=email).exists():
+            username=User.objects.get(email=email)
+            user = get_user_model().objects.get(email=email)
+
+            password = User.objects.make_random_password()
+            name= user.email
+            if UserProperties.objects.filter(user=username).exists():
+                name=UserProperties.objects.get(user=username).name
+            user.set_password(password)
+            user.save()
+            if PassWordReset.objects.filter(user=user).exists():
+                resetInstance = PassWordReset.objects.get(user=user.email)
+                resetInstance.password=password
+                resetInstance.save()
+            else:
+                resetObject=PassWordReset()
+                resetObject.user=user.email
+                resetObject.password=password
+                resetObject.save()
+        else:
+            context['error']='Email not found in our record'
+            return render(request, 'web/resetpass.html',context) 
+        print(email)
+        subject = 'Password Reset Nikahmalabar.com'
+        message = f'Hi , Welcome to nikah Malabar'
+        html_content = "<h4>Hi, "+name+" ,</h4><br><p>There’s no need to worry we will assign you a temporary password <span style='color:green;font-weight:600;font-size:25px;'>"+password+"</span>  to log in and make sure not to share with anyone. You can change the password to something memorable later from your account. Thank you for staying with ‘ NIkahMalabar’</p>"
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = [email]
+        msg = EmailMultiAlternatives(subject, message, email_from, recipient_list)
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+        response_data = {
+                "status" : "true",
+                "title" : "Success",
+                "message" : "Password Send to Email"
+            }
+        return HttpResponse(json.dumps(response_data), content_type='application/javascript')
+
+        
     return render(request, 'web/resetpass.html',context) 
 
 
