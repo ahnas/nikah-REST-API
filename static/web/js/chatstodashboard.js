@@ -6,7 +6,6 @@ $(document).ready(function () {
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
             const obj = JSON.parse(JSON.stringify(response));
-            alert(obj[0].chatimage)
             if(obj!=null){
             loadchats(obj[0].chatName,obj[0].chatDisplayName);
             $('#chatsList').empty()

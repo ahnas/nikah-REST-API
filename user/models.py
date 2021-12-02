@@ -293,10 +293,11 @@ class UserChats(models.Model):
     ChatfromUserID = models.IntegerField(null=True,blank=True)
     chatimage = models.CharField(max_length=225,null=True,blank=True)
     chatDisplayName = models.CharField(max_length=225,null=True,blank=True)
+    lastUpdate=models.TimeField(auto_now=True,blank=True)
 
 
 class Messages(models.Model):
-    chat = models.ForeignKey(UserChats,on_delete=models.CASCADE)
+    chat = models.ForeignKey(UserChats,on_delete=models.CASCADE,blank=True)
     message = models.CharField(max_length=225)
     time = models.TimeField(auto_now_add=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)

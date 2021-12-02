@@ -28,6 +28,7 @@ import user
 #         }),
 #     )
 admin.site.register(models.User)
+admin.site.register(models.UserChats)
 admin.site.register(models.DeletedRecord)
 
 

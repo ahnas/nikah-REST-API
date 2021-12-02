@@ -848,14 +848,17 @@ class UserChats(generics.ListCreateAPIView):
     """Manage recipes in the database"""
     serializer_class = serializers.UserChatsserializer
     queryset = models.UserChats.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
 
     def get(self,request):
-        chats = models.UserChats.objects.all()
+        chats = models.UserChats.objects.all().order_by('-lastUpdate')
         for chat in chats:
             chat.ChatfromUserID=chat.ChatfromUser.user_id
             print(chat.ChatfromUser.user_id)
-            if chat.ChatfromUser.user_id != 4 :
+            ##must change
+            if chat.ChatfromUser.user_id != self.request.user.id :
                 chat.chatimage=chat.ChatfromUser.image.url
                 chat.chatDisplayName=chat.ChatfromUser.nmId
             else:
@@ -870,12 +873,19 @@ class UserChats(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         print(self.request)
-        chatName= self.request.POST['chatName']+'NM1207DS'
-        ChatToUser=User.objects.get(id=self.request.POST['ChatToUser'])
-        print(ChatToUser)
-        ChatfromUser=Image.objects.first()
-        print()
-        """Create a new recipe"""
+        ##must change
+        
+        ChatToUserID= self.request.POST['ChatToUser']
+        
+        ChatToUser=User.objects.get(id=ChatToUserID)
+        ##must change
+        ChatfromUser=Image.objects.get(user=self.request.user)
+        chatName=Image.objects.get(user=ChatToUser).nmId
+        chatName+=ChatfromUser.nmId
+        if models.UserChats.objects.filter(chatName=chatName).exists():
+            instance = models.UserChats.objects.get(chatName=chatName)
+            instance.lastUpdate=datetime.datetime.now()
+            instance.save()
         serializer.save(chatName=chatName,ChatfromUser=ChatfromUser,ChatToUser=ChatToUser)
 
 
@@ -898,8 +908,8 @@ class MessagesView(viewsets.ModelViewSet):
 class MessagesViewList(generics.ListCreateAPIView):
     queryset = models.Messages.objects.all()
     serializer_class=serializers.Messagesserializer
-    # authentication_classes = (TokenAuthentication,)
-    # permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
     """
     Retrieve, update or delete a snippet instance.
     """
@@ -909,8 +919,7 @@ class MessagesViewList(generics.ListCreateAPIView):
         messages = models.Messages.objects.filter(chat__chatName=chat)
         
         for message in messages:
-            print(message.user)
-            userImage = Image.objects.first()
+            userImage = Image.objects.get(user=message.user)
             message.chatimage=userImage.image.url
 
         
@@ -918,9 +927,9 @@ class MessagesViewList(generics.ListCreateAPIView):
         serializer = serializers.Messagesserializer(queryset, many=True)
         return Response(serializer.data)
     def perform_create(self, serializer):
-        user = User.objects.all().first()
-        userchat = models.UserChats.objects.get(chatName='NM100NM1207DS')
-        print(self.request.POST['chat'])
+        user =self.request.user
+        chat = self.request.query_params.get('chatID')
+        userchat = models.UserChats.objects.get(chatName=chat)
         """Create a new message"""
         serializer.save(user=user,chat=userchat)
 

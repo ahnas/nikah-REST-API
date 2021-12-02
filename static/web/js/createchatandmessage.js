@@ -1,28 +1,27 @@
 function createOrdisplayChat(id){
-    alert('worked user ID :'+id)
+    var csrf_token1 = $('[name="csrfmiddlewaretoken"]').val();
+    data = {
+        "chatName": 1,
+        "ChatToUser": id,
+        csrfmiddlewaretoken:csrf_token1,
+    }
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/chats/",
-        type: 'GET',
+        type: 'POST',
+        dataType: "JSON",
+        data: data,       
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
-            const obj = JSON.parse(JSON.stringify(response));
-            alert(obj[0].chatimage)
-            if(obj!=null){
-            loadchats(obj[0].chatName,obj[0].chatDisplayName);
-            $('#chatsList').empty()
-            for(let i = 0; i < obj.length && i<=200; i++){
-            $('#chatsList').append("<div id="+obj[i].chatName+" class='row chattt' onclick=(loadchats('"+obj[i].chatName+"','"+obj[i].chatDisplayName+"')) }'>\
-            <div class='col-3 imgct'><img class='chatimg' src="+obj[i].chatimage+" alt='HI'></div>\
-            <div class='col-6 sacti'><h4 class='mb-1'>"+obj[i].chatDisplayName+"</h4> <p>You : ............</p></div>\
-            <div class='col-3 acti'><p>2min ago</p><div id='do' class='d-none'><span class='do' ></span> Active now</div></div>\
-            </div>")
-            }
-            }
+            window.location.href ="http://127.0.0.1:8000/chats/";
         },
         error: function (jqXHR) {
-            if (jqXHR.status == 404) { 
+            window.location.href ="http://127.0.0.1:8000/chats/";
+            console.log(jqXHR.responseText)
+            if (jqXHR.status == 400) { 
+                var responseText = jQuery.parseJSON(jqXHR.responseText);
+                $('#emailwarning').html(responseText['non_field_errors']);
             } else {
-              
+                $('#emailwarning').html("Unnexpected Error Occured ");
             }
         }
     }); 

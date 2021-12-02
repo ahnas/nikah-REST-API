@@ -283,14 +283,14 @@ class UserChatsserializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserChats
         fields='__all__'
-        read_only_fields=('ChatfromUser','ChatfromUserID','chatimage','chatDisplayName')
+        read_only_fields=('ChatfromUser','ChatfromUserID','chatimage','chatDisplayName','lastUpdate')
 
 
 class Messagesserializer(serializers.ModelSerializer):
     class Meta:
         model = models.Messages
         fields='__all__'
-        read_only_fields = ('chatimage','user',)
+        read_only_fields = ('chatimage','user','chat')
 
 
 class DeletedRecordserializer(serializers.ModelSerializer):
