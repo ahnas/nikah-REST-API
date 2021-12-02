@@ -22,7 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'corsheaders',
     'web',
     'user',
     'rest_framework',
@@ -30,6 +30,12 @@ INSTALLED_APPS = [
     'versatileimagefield',
     
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.zoho.in'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'info@nikahmalabar.com'
+EMAIL_HOST_PASSWORD = 'Nikah@97785'
 
 VERSATILEIMAGEFIELD_SETTINGS = {
     # The amount of time, in seconds, that references to created images
@@ -106,6 +112,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -128,6 +135,7 @@ TEMPLATES = [
         },
     },
 ]
+CORS_ORIGIN_ALLOW_ALL = True
 
 WSGI_APPLICATION = 'nikahmalabar.wsgi.application'
 
@@ -148,12 +156,12 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation

@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+from django.contrib.auth import views as auth_views
+
 app_name = 'web' 
 
 urlpatterns = [
@@ -23,5 +25,6 @@ urlpatterns = [
     path('partnerpref/', views.partnerpref,name="partnerpref"), 
     path('basicpref/', views.basicpref,name="basicpref"),
     path('delete/', views.delete,name="delete"),
-  path('chats/', views.chats,name="chats"),
+    path('chats/', views.chats,name="chats"),
+    path('resetpass/', views.resetpass,name="resetpass"),
 ]

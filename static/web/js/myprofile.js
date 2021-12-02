@@ -19,7 +19,7 @@ $(document).ready(function(){
             $("#noOfChildren").html(response['numberofChildresn'])
             $("#complexion").html(response['complexion'])
             $("#bodyType").html(response['bodyType'])
-            $('[id="motherTongue"]').html(response['motherTongue'])
+            $('[id="motherTongue"]').html(response['motherTongue']) 
             $("#physicalStatus").html(response['physicalStatus'])
             $("#fatherOccupation").html(response['fatherOccupation'])
             $("#motherOccupation").html(response['motherOccupation'])
@@ -28,6 +28,8 @@ $(document).ready(function(){
             $("#noOfMarriedBrothers").html(response['marriedBrothers'])
             $("#noOfYoungerSister").html(response['youngerSisters'])
             $("#noOfMarriedSisters").html(response['marriedSisters'])
+            $("#elderSister").html(response['elderSister'])
+            $("#yongerBrother").html(response['yongerBrother'])
             $("#financialStatus").html(response['financialStatus'])   
             var age= new Date().getFullYear()-new Date(response['dateOfBirth']).getFullYear();
             $("#age").html(age)
@@ -70,6 +72,8 @@ $(document).ready(function(){
             $("select[name=familyType]").val(response['familyType']) 
             $("select[name=drinking]").val(response['drinking'])
             $("input[name=mobile]").val(response['moblie'])
+            $("input[name=yongerBrother]").val(response['yongerBrother'])
+            $("input[name=elderSister]").val(response['elderSister'])
             $("input[name=languagespoken]").val(response['languagespoken'])
             $("select[name=community]").val(response['community'])
 
@@ -124,6 +128,7 @@ $(document).ready(function(){
             $("#EduSpezialization").val(response['EduSpezialization']) 
             $('input[name=nativeCountry]').val(response['nativeCountry'])
             $('select[name=workingas]').val(response['workingas'])
+            console.log(response['workingas'])
             $('select[name=annualincome]').val(response['annualincome'])
             $('select[name=performNamaz]').val(response['performNamaz'])
             $('select[name=readQuran]').val(response['readQuran'])
@@ -179,9 +184,6 @@ $("form[name='updateUserDetailsForm']").validate({
         },
         annualincome:{
         },
-        describe:{
-            required:true,
-        },
         madrassaEducation:{
             required:true,
         },
@@ -192,9 +194,6 @@ $("form[name='updateUserDetailsForm']").validate({
         secondaryNumber:{
             required:true,
             digits:true
-        },
-        preferedContact:{
-            required:true,
         },
         nationality:{
             required:true,
@@ -388,6 +387,8 @@ $("form[name='updateUserDetailsForm']").validate({
         var madrassaEducation = $('input[name=madrassaEducation]').val()
         var attendIslamicServices = $('select[name=attendIslamicServices]').val()
         var houseName =  $('input[name=houseName]').val()
+        var elderSister =  $('input[name=elderSister]').val()
+        var yongerBrother =  $('input[name=yongerBrother]').val()
 
         data={
             'moblie':mobile,
@@ -416,6 +417,8 @@ $("form[name='updateUserDetailsForm']").validate({
             'marriedBrothers':marriedBrothers,
             'marriedSisters':marriedSisters,
             'community':community,
+            'elderSister':elderSister,
+            'yongerBrother':yongerBrother,
             csrfmiddlewaretoken:csrf_token
         }
         educationDetailsData = {

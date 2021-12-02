@@ -28,6 +28,7 @@ import user
 #         }),
 #     )
 admin.site.register(models.User)
+admin.site.register(models.DeletedRecord)
 
 
 class ImageInline(admin.TabularInline):
@@ -71,6 +72,8 @@ class UserEducationLocationContactAdmin(admin.ModelAdmin):
 admin.site.register(models.LikeProfile)
 admin.site.register(models.UserPreferences)
 admin.site.register(models.ProfessionTable)
+admin.site.register(models.PassWordReset)
+
 
   
 

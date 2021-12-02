@@ -2,11 +2,9 @@ var globalarray = []
 function selcetedLanguage(a) {
     if ($(a).prop('checked')) {
         globalarray.push($(a).val())
-        console.log(globalarray)
     }
     else {
         globalarray.pop($(a).val())
-        console.log(globalarray)
     }
 
 }
@@ -55,7 +53,9 @@ $(document).ready(function () {
                         $('#marriedSisters').val(response[0]['marriedSisters']);
                         $('#brothers').val(response[0]['brothers']);
                         $('#sisters').val(response[0]['sisters']);
+                        
                         languagespoken = response[0]['languagespoken'];
+                        globalarray=languagespoken.split(",");
                         const myArray = languagespoken.split(",");
                         for (let i = 0; i < myArray.length; ++i) {
                             $("#" + myArray[i]).prop('checked', true);
@@ -195,6 +195,8 @@ $(document).ready(function () {
             var languagespoken = globalarray.toString()
             var financialStatus = $('#financialStatus').val();
             var smoking = $('#smoking').val();
+            var yongerBrother=$('#yongerBrother').val()
+            var elderSister=$('#elderSister').val()
             var drinking = $('#drinking').val();
             var whenmarry = $('#whenmarry').val();
             data = {
@@ -228,10 +230,12 @@ $(document).ready(function () {
                 "marriedBrothers": marriedBrothers,
                 "youngerSisters": youngerSisters,
                 "marriedSisters": marriedSisters,
+                "elderSister":elderSister,
+                "yongerBrother":yongerBrother,
                 "languagespoken": languagespoken,
                 "whenmarry": whenmarry,
             }
-            var total_siblings = parseInt(elderBrothers) + parseInt(marriedBrothers) + parseInt(youngerSisters) + parseInt(marriedSisters)
+            var total_siblings = parseInt(elderBrothers) + parseInt(marriedBrothers) + parseInt(youngerSisters) + parseInt(marriedSisters)+parseInt(elderSister)+parseInt(yongerBrother)
             if (parseInt(numberofsiblings) != 0 && parseInt(total_siblings) == 0) {
                 return siblingError();
             }

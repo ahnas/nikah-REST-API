@@ -1,183 +1,406 @@
-
 {% extends 'web/base.html' %}
 {% load static %}
 {% block title %}Partner Preference{% endblock %}
 
 {% block content %}
 {% include "web/partials/header2.html" %}
-    
-    <section class="explore pb-0">
-      <div class="container">
-          <div class="row exx inter">
-              
-              
-              <div class="col-12 smsm">
-                <p>Hello, Username <span><i class="icofont-hand" style="color: #cfcc1e;"></i></span></p> 
-              </div>
-            </div>
-              <div class="col-6 hrr d-none  ">  
 
-              </div>
-              <div class="row inter kert justify-content-center">
-              <div class="col-lg-8 col-md-10 col-sm-10 col-11 exxd">
-                  <ul class="d-flex justify-content-center p-0">
-                    <li>  <a href="{% url 'web:myprofile' %}">My Profile </a></li>
-                    <li>  <a class="activee" href="{% url 'web:partnerpref' %}">Partner Preferences </a></li>
-                    <li>  <a  href="{% url 'web:addphotos' %}">Add Photos</a></li>
-                    <li>  <a  href="{% url 'web:changepass' %}">Change Password</a></li>
-                     
-                  </ul>
-              </div>
-            </div>
-          
-          
+<section class="explore pb-0">
+  <div class="container">
+    <div class="row exx inter">
+
+
+      <div class="col-12 smsm">
+        <p>Hello, Username <span><i class="icofont-hand" style="color: #cfcc1e;"></i></span></p>
       </div>
-    </section>
-    
+    </div>
+    <div class="col-6 hrr d-none  ">
+
+    </div>
+    <div class="row inter kert justify-content-center">
+      <div class="col-lg-8 col-md-10 col-sm-10 col-11 exxd">
+        <ul class="d-flex justify-content-center p-0">
+          <li> <a href="{% url 'web:myprofile' %}">My Profile </a></li>
+          <li> <a class="activee" href="{% url 'web:partnerpref' %}">Partner Preferences </a></li>
+          <li> <a href="{% url 'web:addphotos' %}">Add Photos</a></li>
+          <li> <a href="{% url 'web:changepass' %}">Change Password</a></li>
+
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+</section>
 
 
 
 
-    <div class="container mt-5">
-        <div class="row justify-content-right">
-            
-            <div class="col-lg-10">
 
-                
+<div class="container mt-5"  id="editFormDiv">
+  <div class="row justify-content-right">
 
+    <div class="col-lg-12">
+      <div id="preferenceEdit">
+        <form action="" name="modify">
+          {% csrf_token %}
+          <h4 class="preff text-center py-3">Tell Us What you Are Looking for in a Life Partner</h4>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5">
+                  <label for="">Age From</label>
+                </div>
+                <div class="col-6">
+                  <p> <input type="number" value=0 id="ageFrom" name="ageFrom" class="form-control"> </p>
+                </div>
+              </div>
+            </div>
   
-
-                <form action="">
-                    <h4 class="preff ">Tell Us What you Are Looking for in a Life Partner</h4>
-
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Age : </label>
-                        <div class="col-sm-6">
-                           <input type="range" value="30" max="100" class="form-control" id="inputPassword">
-                        </div>
-                      </div>
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Height : </label>
-                        <div class="col-sm-6">
-                           <input type="range" class="form-control " id="inputPassword">
-                        </div>
-                      </div>
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Martial Status : </label>
-                        <div class="col-sm-6">
-                           <select class="form-control" name="" id="">
-                               <option value="">Self</option>
-                               <option value="">Double</option>
-                               <option value="">ljyv</option>
-                           </select>
-                        </div>
-                      </div>
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Complexion : </label>
-                        <div class="col-sm-6">
-                            <select class="form-control" name="" id="">
-                                <option value="">Very Fair</option>
-                                <option value="">Double</option>
-                                <option value="">ljyv</option>
-                            </select>
-                        </div>
-                      </div>
-
-                      <h4 class="preff ">Educational & Professional Details</h4>
-
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Education : </label>
-                        <div class="col-sm-6">
-                            <select class="form-control" name="" id="">
-                                <option value="">Under Graduate</option>
-                                <option value="">Double</option>
-                                <option value="">ljyv</option>
-                            </select>
-                        </div>
-                      </div>
-
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Working with : </label>
-                        <div class="col-sm-6">
-                            <select class="form-control" name="" id="">
-                                <option value="">IT Company</option>
-                                <option value="">Double</option>
-                                <option value="">ljyv</option>
-                            </select>
-                        </div>
-                      </div>
-                      
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Profession Area : </label>
-                        <div class="col-sm-6">
-                            <select class="form-control" name="" id="">
-                                <option value="">Design and Development</option>
-                                <option value="">Double</option>
-                                <option value="">ljyv</option>
-                            </select>
-                        </div>
-                      </div>
-
-                      <h4 class="preff ">Location details</h4>
-
-                      
-                     
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Present Country : </label>
-                        <div class="col-sm-6">
-                           <select class="form-control" name="" id="">
-                               <option value="">India</option>
-                               <option value="">Double</option>
-                               <option value="">ljyv</option>
-                           </select>
-                        </div>
-                      </div>
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Present State : </label>
-                        <div class="col-sm-6">
-                            <select class="form-control" name="" id="">
-                                <option value="">Kearal</option>
-                                <option value="">Double</option>
-                                <option value="">ljyv</option>
-                            </select>
-                        </div>
-                      </div>
-
-                      <div class="mb-3 row chanpas">
-                        <label for="inputPassword" class="col-lg-4 col-md-5 col-sm-6 col-form-label">Present District : </label>
-                        <div class="col-sm-6">
-                            <select class="form-control" name="" id="">
-                                <option value="">Doesn't Matter</option>
-                                <option value="">Double</option>
-                                <option value="">ljyv</option>
-                            </select>
-                        </div>
-                      </div>
-
-
-
-
-
-
-                      <div class="col-12 text-center">
-                        <button class="btn mt-4">Save & Submit</button>
-                        </div>
-                </form>
-
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Age To</label></div>
+                <div class="col-7">
+                  <p> <input type="number" value=0 id="ageTo" name="ageTo" class="form-control"> </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Height From</label></div>
+                <div class="col-7">
+                  <p> <input type="number" value=0 id="heightFrom" name="heightFrom" class="form-control"> </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Height To: </label></div>
+                <div class="col-7">
+                  <p> <input type="number" value=0 id="heightTo" name="heightTo" class="form-control"> </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Weight From: </label></div>
+                <div class="col-7">
+                  <p> <input type="number" value=0 id="weightFrom" name="weightFrom" class="form-control"> </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Weight To: </label></div>
+                <div class="col-7">
+                  <p> <input type="number" value=0 id="weightTo" name="weightTo" class="form-control"> </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Martial Status : </label></div>
+                <div class="col-7">
+                  <p> {{form.martialStatus}} </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Complexion : </label></div>
+                <div class="col-7">
+                  <p> {{form.complexion}} </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Physical Status : </label></div>
+                <div class="col-7">
+                  <p> {{formpro.physicalStatus}} </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Community : </label></div>
+                <div class="col-7">
+                  <p> {{form.community}} </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 py-3">
+            <h4 class="preff text-center">Educational & Professional Details</h4>
 
             </div>
-        
+
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Education : </label></div>
+                <div class="col-7">
+                  <p> {{form.education}} </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Education Specialization: </label></div>
+                <div class="col-7">
+                  <p> {{form.EduSpezialization}} </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Working with : </label></div>
+                <div class="col-7">
+                  <p> {{form.workingwith}} </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Profession Area : </label></div>
+                <div class="col-7">
+                  <p> {{form.workingas}} </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 py-3">
+            <h4 class="preff text-center ">Location details</h4>
+
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Present Country : </label></div>
+                <div class="col-7">
+                  <p> {{form.country}} </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Present District : </label></div>
+                <div class="col-7">
+                  <p> {{form.district}} </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 mb-3">
+              <div class="row proff">
+                <div class="col-5"><label for="">Present City </label></div>
+                <div class="col-7">
+                  <p> {{form.city}} </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-12 text-center">
+              <button class="btn mt-4">Save & Submit</button>
+            </div>
+          </form>
         </div>
+
     </div>
+
+    <div class="col-lg-12">
+      <div class="row mb-5" id="ProfileView">
+        <div class="col-lg-12 py-4">
+          <h4 class="preff text-center">Your Partner Preference</h4>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Age From</label></div>
+            <div class="col-7">
+              <p> : <b id="ageFromView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Age To</label></div>
+            <div class="col-7">
+              <p> : <b id="ageToView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Height From</label></div>
+            <div class="col-7">
+              <p> : <b id="heightFromView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Height To </label></div>
+            <div class="col-7">
+              <p> : <b id="heightToView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Weight From </label></div>
+            <div class="col-7">
+              <p> : <b id="weightFromView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Weight To </label></div>
+            <div class="col-7">
+              <p> : <b id="weightToView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Martial Status </label></div>
+            <div class="col-7">
+              <p> : <b id="martialStatusView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Complexion </label></div>
+            <div class="col-7">
+              <p> : <b id="complexionView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Physical Status </label></div>
+            <div class="col-7">
+              <p> : <b id="physicalStatusView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6">
+          <div class="row proff">
+            <div class="col-5"><label for="">Community </label></div>
+            <div class="col-7">
+              <p> : <b id="communityView"></b></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+
+          <h4 class="preff pt-4 text-center">Educational & Professional Details</h4>
+        </div>
+
+      <div class="col-lg-6 col-md-6">
+        <div class="row proff">
+          <div class="col-5"><label for="">Education </label></div>
+          <div class="col-7">
+            <p> : <b id="educationView"></b></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="row proff">
+          <div class="col-5"><label for="">Education Specialization</label></div>
+          <div class="col-7">
+            <p> : <b id="EduSpezializationView"></b></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="row proff">
+          <div class="col-5"><label for="">Working with </label></div>
+          <div class="col-7">
+            <p> : <b id="workingwithView"></b></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6">
+        <div class="row proff">
+          <div class="col-5"><label for="">Profession Area : </label></div>
+          <div class="col-7">
+            <p> : <b id="workingasView"></b></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 col-12">
+
+        <h4 class="preff text-center pt-4 ">Location details</h4>
+      </div>
     
+    <div class="col-lg-6 col-md-6">
+      <div class="row proff">
+        <div class="col-5"><label for="">Present Country </label></div>
+        <div class="col-7"><p> : <b id="countryView"></b></p></div>
+      </div>
+    </div>
 
-      
-    {% include "web/partials/mobilefooter.html" %}
+    <div class="col-lg-6 col-md-6">
+      <div class="row proff">
+        <div class="col-5"><label for="">Present District</label></div>
+        <div class="col-7">
+          <p> : <b id="districtView"></b></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+      <div class="row proff">
+        <div class="col-5"><label for="">Present City</label></div>
+        <div class="col-7">
+          <p> : <b id="cityView"></b></p>
+        </div>
+      </div>
+    </div>
+    <div class="edit-fix" onclick="editprofile()"><i class="icofont-edit-alt"></i></div>
+  </div>
+  </div>
+  </div>
 
 
-        
-    {% endblock %}
-    {% block javascript %}
-    <script src="{% static 'web/js/getmachedprofiles.js' %}"></script>
-    
-    {% endblock %}
+</div>
+
+</div>
+</div>
+
+
+
+{% include "web/partials/mobilefooter.html" %}
+
+
+
+{% endblock %}
+{% block javascript %}
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+<script src="{% static 'web/js/update-preference.js' %}"></script>
+
+{% endblock %}

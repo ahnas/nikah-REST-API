@@ -12,8 +12,8 @@ function loadlikecount(){
         success: function (response) { 
             console.log(response)
             
-            var total_like =parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);
-            $('#intr').html(total_like); 
+            var total_like =parseInt(response['likedyoucount']);
+            $('[id="intr"]').html(total_like); 
             
             var youu_like = parseInt(response['youLikecount'])-parseInt(response['matchedcount']);
             var like_youu = parseInt(response['likedyoucount'])-parseInt(response['matchedcount']);

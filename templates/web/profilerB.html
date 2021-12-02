@@ -5,279 +5,277 @@
 {% block content %}
 
 <style>
-    .error{
+    .error {
         color: red;
     }
-
 </style>
- 
-      <section class="profiler">
 
-        <div class="container">
-            <div class="row profiler-head">
-                
-                
+<section class="profiler">
 
-                <div class="col-lg-10 col-md-11 col-sm-12 col-11 pro-box">
+    <div class="container">
+        <div class="row profiler-head">
+
+
+
+            <div class="col-lg-10 col-md-11 col-sm-12 col-11 pro-box">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <p><span class=""></span> Education and Profession </p>
+                    </div>
+
+                </div>
+                <form action="#" name="profilerB">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputFirstname">Highest Education *</label>
+                            {{form.highestEducation}}
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputLastname">Specialization *</label>
+
+                            {{form.EduSpezialization}}
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputAddressLine2">Working With</label>
+                            {{form.workingwith}}
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputAddressLine2">Working as</label>
+                            <!-- <input type="text" class="form-control" name="workingas" id="workingas" placeholder="Working as"> -->
+                            {{form.workingas}}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="col-sm-12">
+                            <label for="inputState">Annual Income</label>
+                            <!-- <input type="number" class="form-control" name="annualincome" id="annualincome" placeholder="Annual Income"> -->
+                            <select class="form-control" name="annualincome" id="annualincome">
+                                <option value="No Income">No Income</option>
+                                <option value="1.5 lakh per/annum">
+                                    < 1.5 lakh per/annum </option>
+                                <option value="2 lakh per/annum">
+                                    < 2 lakh per/annum </option>
+                                <option value="4 lakh per/annum">
+                                    < 4 lakh per/annum </option>
+                                <option value="5 lakh per/annum">
+                                    < 5 lakh per/annum </option>
+                                <option value="10 lakh per/annum">
+                                    < 10 lakh per/annum </option>
+                                <option value="15 lakh per/annum">
+                                    < 15 lakh per/annum </option>
+                                <option value="20 lakh per/annum">
+                                    < 20lakh per/annum </option>
+                                <option value="20 lakh and above per/annum"> > 20lakh per/annum </option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="row text-center">
                         <div class="col-12">
-                       <p><span class=""></span> Education and Profession </p>
+                            <p><span class=""></span> Location Details </p>
+                        </div>
+
                     </div>
-    
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputCity">Native Country *</label>
+                            <input type="text" class="form-control" name="nativeCountry" id="nativeCountry"
+                                placeholder="Native Country">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputState">Native State *</label>
+                            <input type="text" class="form-control" name="nativeState" id="nativeState"
+                                placeholder="Native State">
+                        </div>
                     </div>
-                    <form action="#" name="profilerB">
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputFirstname">Highest Education *</label>
-                                {{form.highestEducation}}
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputLastname">Specialization *</label>
-
-                                {% include 'web/partials/selectedu.html' %}
-
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputAddressLine2">Working With</label>
-                                <select name="workingwith" id="workingwith" class="form-control">
-                                    <option value="Not Working">Not Working</option>
-                                    <option value="Private Sector">Private Sector</option>
-                                    <option value="Public Sector">Public Sector</option>
-                                    <option value="Civil Service">Civil Service</option>
-                                    <option value="Defence">Defence</option>
-                                    <option value="Business">Business</option>
-                                    <option value="Self Employed">Self Employed</option>
-                                    <option value="NRI">NRI</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputAddressLine2">Working as</label>
-                                <!-- <input type="text" class="form-control" name="workingas" id="workingas" placeholder="Working as"> -->
-                                <select name="workingas" id="workingas" class="form-control">
-                                    <option value="Not Working">Not Working</option>
-                                    <option value="Accountant">Accountant</option>
-                                    <option value="CA">CA</option>
-                                    <option value="Secretary">Secretary</option>
-                                    <option value="Doctor">Doctor</option>
-                                    <option value="Nurse">Nurse</option>
-                                    <option value="Marketing Executive">Marketing Executive</option>
-                                    <option value="HRM">HRM</option>
-                                    <option value="Pharmacist">Pharmacist</option>
-                                    <option value="Self Employed">Self Employed</option>
-                                    <option value="Part-Time">Part-Time</option>
-                                    <option value="Professor">Professor</option>
-                                    <option value="Teacher">Teacher</option>
-                                    <option value="Software Developer">Software Developer</option>
-                                    <option value="Graphics Designer">Graphics Designer</option>
-                                    <option value="Administrator">Administrator</option>
-                                    <option value="Business">Business</option>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                
-                            <div class="col-sm-12">
-                                <label for="inputState">Annual Income</label>
-                                <!-- <input type="number" class="form-control" name="annualincome" id="annualincome" placeholder="Annual Income"> -->
-                                <select class="form-control" name="annualincome" id="annualincome">
-                                    <option value="No Income">No Income</option>
-                                    <option value="1.5 lakh per/annum"> < 1.5 lakh per/annum  </option>
-                                    <option value="2 lakh per/annum"> < 2 lakh per/annum  </option>
-                                    <option value="4 lakh per/annum"> < 4 lakh per/annum  </option>
-                                        <option value="5 lakh per/annum"> > 5 lakh per/annum  </option>
-                                </select>
-                            </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Native City *</label>
+                            <input type="text" class="form-control" name="nativeCity" id="nativeCity"
+                                placeholder="Native City">
                         </div>
 
-                        <div class="row text-center">
-                            <div class="col-12">
-                           <p><span class=""></span> Location Details </p>
-                        </div>
-        
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputCity">Native Country *</label>
-                                <input type="text" class="form-control" name="nativeCountry" id="nativeCountry" placeholder="Native Country">
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputState">Native State *</label>
-                                <input type="text" class="form-control" name="nativeState" id="nativeState" placeholder="Native State">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">Native City *</label>
-                                <input type="text" class="form-control" name="nativeCity" id="nativeCity" placeholder="Native City">
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">House Name *</label>
-                                <input type="text" class="form-control" name="houseName" id="houseName" placeholder="House Name">
-                            </div>
-                            
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for="inputContactNumber">Currently staying in Native city?</label>
-                                <input type="checkbox" id="sameAddress" onchange="currentAddress();">
-
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputCity">Present Country *</label>
-                                <input type="text" class="form-control" name="currentCountry" id="currentCountry" placeholder="Present Country">
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputState">Present State *</label>
-                                <input type="text" class="form-control" name="currentState" id="currentState" placeholder="Present State">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for="inputContactNumber">Present City *</label>
-                                <input type="text" class="form-control" name="currentCity" id="currentCity" placeholder="Present City">
-                            </div>
-                            
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">House Name *</label>
+                            <input type="text" class="form-control" name="houseName" id="houseName"
+                                placeholder="House Name">
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for="inputContactNumber">locality *</label>
-                                <input type="text" class="form-control" name="locality" id="locality" placeholder="Locality">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="inputContactNumber">Currently staying in Native city?</label>
+                            <input type="checkbox" id="sameAddress" onchange="currentAddress();">
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputCity">Present Country *</label>
+                            <input type="text" class="form-control" name="currentCountry" id="currentCountry"
+                                placeholder="Present Country">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputState">Present State *</label>
+                            <input type="text" class="form-control" name="currentState" id="currentState"
+                                placeholder="Present State">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="inputContactNumber">Present City *</label>
+                            <input type="text" class="form-control" name="currentCity" id="currentCity"
+                                placeholder="Present City">
                         </div>
 
-                        <div class="row text-center">
-                            <div class="col-12">
-                           <p><span class=""></span> Contact Details </p>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="inputContactNumber">locality *</label>
+                            <input type="text" class="form-control" name="locality" id="locality"
+                                placeholder="Locality">
                         </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <p><span class=""></span> Contact Details </p>
                         </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">Primary Number *</label>
-                                <input type="text" class="form-control" name="primaryNumber" id="primaryNumber" placeholder="Primary Number">
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputWebsite">Secondary Number *</label>
-                                <input type="text" class="form-control" name="secondaryNumber" id="secondaryNumber" placeholder="Secondary Number">
-                            </div>
-                            
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Primary Number *</label>
+                            <input type="text" class="form-control" name="primaryNumber" id="primaryNumber"
+                                placeholder="Primary Number">
                         </div>
-
-
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">Preferered Person of Contact</label>
-                                <input type="text" class="form-control" name="preferedContact" id="preferedContact" placeholder="Prefered Contact">
-
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputWebsite">Relation</label>
-                                {{form.relation}}
-                            </div>
+                        <div class="col-sm-6">
+                            <label for="inputWebsite">Secondary Number *</label>
+                            <input type="text" class="form-control" name="secondaryNumber" id="secondaryNumber"
+                                placeholder="Secondary Number">
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for="inputContactNumber">Describe Yourself</label>
-                                <textarea type="text" class="form-control" name="describe" id="describe" placeholder="Describe Yourself" rows="5"></textarea>
-                            </div>
-                            
+                    </div>
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Preferered Person of Contact</label>
+                            <input type="text" class="form-control" name="preferedContact" id="preferedContact"
+                                placeholder="Prefered Contact">
+
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputWebsite">Relation</label>
+                            {{form.relation}}
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="inputContactNumber">Describe Yourself</label>
+                            <textarea type="text" class="form-control" name="describe" id="describe"
+                                placeholder="Describe Yourself" rows="5"></textarea>
                         </div>
 
-                       
+                    </div>
 
 
 
-                        
-                        <div class="row text-center">
-                            <div class="col-12">
-                           <p><span class=""></span> Religious Details</p>
+
+
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <p><span class=""></span> Religious Details</p>
                         </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Perform Namaz *</label>
+                            {{form.performNamaz}}
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">Perform Namaz *</label>
-                                {{form.performNamaz}}
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputWebsite">Religiousness *</label>
-                                {{form.religiousness}}
-                            </div>
-                            
-                        </div>
-
-
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label for="inputContactNumber">Read Quran *</label>
-                               {{form.readQuran}}
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="inputWebsite">Madrassa Education *</label>
-                                <input type="text" class="form-control" name="madrassaEducation" id="madrassaEducation" placeholder="Madrassa Education">
-                            </div>
+                        <div class="col-sm-6">
+                            <label for="inputWebsite">Religiousness *</label>
+                            {{form.religiousness}}
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <label for="inputContactNumber">Attend Islamic Services *</label>
-                                {{form.attendIslamicServices}}
+                    </div>
 
-                            </div>
-                            
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="inputContactNumber">Read Quran *</label>
+                            {{form.readQuran}}
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="inputWebsite">Madrassa Education *</label>
+                            <input type="text" class="form-control" name="madrassaEducation" id="madrassaEducation"
+                                placeholder="Madrassa Education">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="inputContactNumber">Attend Islamic Services *</label>
+                            {{form.attendIslamicServices}}
+
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col">
-                                <a href="{% url 'web:profiler' %}"><button class="btn btn-primary px-4 save" type="button" >Previous</button></a>
-                            </div>
+                    </div>
 
-                            <div class="col text-right">
-                                <button type="submit" class="btn btn-primary px-4 save">Next</button>
-                            </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            <a href="{% url 'web:profiler' %}"><button class="btn btn-primary px-4 save"
+                                    type="button">Previous</button></a>
                         </div>
-                            
 
-                    </form>
-                </div>
+                        <div class="col text-right">
+                            <button type="submit" class="btn btn-primary px-4 save">Next</button>
+                        </div>
+                    </div>
+
+
+                </form>
             </div>
         </div>
+    </div>
 
-      </section>
-      
-      {% block javascript %}
+</section>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+{% block javascript %}
 
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
-        <script src="{% static 'web/js/profilerB.js' %}"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-        <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-        <script src="{% static 'web/js/header.js' %}"></script>
-        <script src="{% static 'web/js/profileCheckB.js' %}"></script>
-        <script src="{% static 'web/js/helper.js' %}"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $(".livesearch").chosen();
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
-            })
-            
-        </script>
-        <script>
-        </script>
-     {% endblock %}
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+<script src="{% static 'web/js/profilerB.js' %}"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="application/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="{% static 'web/js/header.js' %}"></script>
+<script src="{% static 'web/js/profileCheckB.js' %}"></script>
+<script src="{% static 'web/js/helper.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".livesearch").chosen();
 
-     
+    })
 
-    {% endblock %}
+</script>
+<script>
+</script>
+{% endblock %}
+
+
+
+{% endblock %}

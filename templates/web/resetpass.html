@@ -1,0 +1,135 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block title %}Reset{% endblock %}
+
+{% block content %}
+
+<style>
+    form .error{
+        color: red;
+        font-weight: 600;
+    }
+</style>
+    
+   
+    
+      <section class="login login-coo">
+        <div class="container ">
+            <div class="row">
+                <div class="col-lg-10 col-md-7 col-sm-7 col-10 login-co">
+                    <h1>Forgotten your password?</h1>
+                    <p>Enter your registered e-mail address to Reset Password.</p>
+                    
+                    <form action="." method="post" class="ajax">
+                        <input type="email" class="form-control mb-4" name='email'>
+                        
+
+                        <input  style="width: 30%;" type="submit" class="form-control btn float-left" value="Reset">
+                        <a href="{% url 'web:login' %}" style="width: 30%;" class="form-control btn float-right">Login</a>
+                        {% csrf_token %}
+                    </form>
+                    <div class="d-none"><p class="text-danger">{{error}}</p></div> 
+
+                </div>
+            </div>
+        </div>
+      </section>
+
+
+
+
+      {% block javascript %}
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <!--  validation script  -->
+
+<script src="{% static 'web/js/login.js' %}"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.15.3/dist/sweetalert2.all.min.js"></script>
+<script>
+    $(document).on('submit', 'form.ajax', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var data = new FormData(this);
+        var action_url = $this.attr('action');
+        var reset = $this.hasClass('reset');
+        var reload = $this.hasClass('reload');
+        var redirect = $this.hasClass('redirect');
+        var redirect_url = $this.attr('data-redirect');
+
+        $.ajax({
+            url: action_url,
+            type: 'POST',
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+
+            success: function(data) {
+
+                var status = data.status;
+                var title = data.title;
+                var message = data.message;
+                var pk = data.pk;
+
+                if (status == "true") {
+                    if (title) {
+                        title = title;
+                    } else {
+                        title = "Success";
+                    }
+
+                    Swal.fire({
+                        title: title,
+                        html: message,
+                        icon: 'success',
+                    }).then(function() {
+                        if (redirect) {
+                            window.location.href = redirect_url;
+                        }
+                        if (reload) {
+                            window.location.reload();
+                        }
+                        if (reset) {
+                            window.location.reset();
+                        }
+                    });
+
+                } else {
+                    if (title) {
+                        title = title;
+                    } else {
+                        title = "An Error Occurred";
+                    }
+                    Swal.fire({
+                        title: title,
+                        html: message,
+                        icon: "error"
+                    });
+
+                }
+            },
+            error: function(data) {
+                var title = "Couldn't Find Record";
+                var message = "User with email not found";
+                Swal.fire({
+                    title: title,
+                    html: message,
+                    icon: "error"
+                });
+            }
+        });
+    });
+</script>
+
+
+{% endblock %}
+
+
+ 
+    {% endblock %}
+
