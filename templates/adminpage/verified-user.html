@@ -1,0 +1,40 @@
+{% extends 'adminpage/base.html' %} {% load static %} {% block content %}
+
+<div class="container-scroller">
+	<!-- partial:../../partials/_navbar.html -->
+
+	<!-- partial -->
+	<div class="container-fluid page-body-wrapper">
+		<!-- partial:../../partials/_settings-panel.html -->
+
+		<!-- partial -->
+
+		<!-- partial:../../partials/_sidebar.html -->
+		{% include 'adminpage/partials/sidebar.html' %}
+		<!-- partial -->
+		<div class="main-panel">
+			<div class="content-wrapper">
+				<div class="row" id="verifiedUsers">
+
+
+
+					
+
+				</div>
+				
+				
+			</div>
+			<!-- content-wrapper ends -->
+			<!-- partial:../../partials/_footer.html -->
+			{% include 'adminpage/partials/footer.html' %}
+			<!-- partial -->
+		</div>
+		<!-- main-panel ends -->
+	</div>
+	<!-- page-body-wrapper ends -->
+</div>
+
+{% endblock %}
+{% block javascript %}
+<script src="{% static 'adminpage\js\bismillah\verified_users.js' %}"></script>
+{% endblock %}
