@@ -37,10 +37,12 @@ function loadchats(chatName,chatDisplayName) {
 }
 
 $("#typedMessage").keypress(function(e) {
+    
     if(e.which == 13) {
         var txt =$("#typedMessage").val()
-        sendMessage(txt);   
+        sendMessage(txt);
     }
+    
 });
 
 function sendMessage(txt){
@@ -59,6 +61,8 @@ function sendMessage(txt){
         data: data,       
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
+            
+    return false;
         },
         error: function (jqXHR) {
             

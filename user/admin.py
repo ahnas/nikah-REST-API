@@ -74,6 +74,7 @@ admin.site.register(models.LikeProfile)
 admin.site.register(models.UserPreferences)
 admin.site.register(models.ProfessionTable)
 admin.site.register(models.PassWordReset)
+admin.site.register(models.Messages)
 
 
   

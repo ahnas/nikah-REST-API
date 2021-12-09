@@ -853,7 +853,8 @@ class UserChats(generics.ListCreateAPIView):
 
 
     def get(self,request):
-        chats = models.UserChats.objects.all().order_by('-lastUpdate')
+        chatfrom= Image.objects.get(user=self.request.user)
+        chats = models.UserChats.objects.filter(Q(ChatToUser=self.request.user) | Q(ChatfromUser=chatfrom)).order_by('-lastUpdate')
         for chat in chats:
             chat.ChatfromUserID=chat.ChatfromUser.user_id
             print(chat.ChatfromUser.user_id)
@@ -862,7 +863,6 @@ class UserChats(generics.ListCreateAPIView):
                 chat.chatimage=chat.ChatfromUser.image.url
                 chat.chatDisplayName=chat.ChatfromUser.nmId
             else:
-                print("ELse")
                 image =Image.objects.get(user = chat.ChatToUser)
                 chat.chatimage=image.image.url
                 chat.chatDisplayName=image.nmId
@@ -916,7 +916,7 @@ class MessagesViewList(generics.ListCreateAPIView):
     def get(self,request):
         chat = self.request.query_params.get('chatID')
         print(chat,'*'*20)
-        messages = models.Messages.objects.filter(chat__chatName=chat)
+        messages = models.Messages.objects.filter(chat__chatName=chat).order_by('-time')
         
         for message in messages:
             userImage = Image.objects.get(user=message.user)
@@ -930,6 +930,8 @@ class MessagesViewList(generics.ListCreateAPIView):
         user =self.request.user
         chat = self.request.query_params.get('chatID')
         userchat = models.UserChats.objects.get(chatName=chat)
+        userchat.lastUpdate=datetime.datetime.now()
+        userchat.save()
         """Create a new message"""
         serializer.save(user=user,chat=userchat)
 

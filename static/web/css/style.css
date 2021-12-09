@@ -2019,6 +2019,7 @@ h3::before {
 
 .reciever{
   text-align: right;
+  flex: none !important;
 }
 
 .reciever span{
@@ -2360,4 +2361,11 @@ h3::before {
 }
 .favvv{
   position: static;
+}
+
+#Chats{
+  height: 600px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column-reverse;
 }

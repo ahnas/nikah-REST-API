@@ -1,5 +1,7 @@
 $(document).ready(function () {
+
     $('#Chats').empty();
+    
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/chats/",
         type: 'GET',
@@ -8,6 +10,7 @@ $(document).ready(function () {
             const obj = JSON.parse(JSON.stringify(response));
             if(obj!=null){
             loadchats(obj[0].chatName,obj[0].chatDisplayName);
+            console.log(obj[0].chatName)
             $('#chatsList').empty()
             for(let i = 0; i < obj.length && i<=200; i++){
             $('#chatsList').append("<div id="+obj[i].chatName+" class='row chattt' onclick=(loadchats('"+obj[i].chatName+"','"+obj[i].chatDisplayName+"')) }'>\
