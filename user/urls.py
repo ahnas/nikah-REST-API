@@ -13,6 +13,8 @@ router = DefaultRouter()
 router.register("properties",views.UserPropertiesViewSet)
 router.register("Bproperties",views.UserEducationLocationContactViewSet)
 router.register("collectproperties",views.UserPropertiesAll)
+router.register("adminsdashboard",views.ProfilesToAdminDashboardVIew)
+router.register("pendingverification",views.PendingverificationAdminView)
 router.register("UaerpropertiesLikedandAndNonLiked",views.UaerpropertiesLikedandAndNonLiked)
 router.register("GetUserSearch",views.GetUserSearchViewset)
 router.register("GetUserPreferences",views.GetUserPreferencesViewset)
@@ -36,6 +38,8 @@ urlpatterns = [
     path('likeprofile/', views.LikedProfiles.as_view()),
     path('Profesions/', views.Profesions.as_view()),
     path('likeprofile/<int:pk>/', views.LikedProfilesDetailed.as_view()),
+    path('removeVerification/<int:pk>/', views.RemoveVerificationView.as_view()),
+    path('verifyview/<int:pk>/', views.AdminVerification.as_view()),
     path('getpreferenceofuser/<int:pk>/', views.Getpreferenceofuser.as_view()),
     path('UpdateUserProperties/',views.updateUserPropertiesDetails.as_view()),
     path('UpdateUserLocationDetails/',views.updateUserEducationalDetails.as_view()),

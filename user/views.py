@@ -15,7 +15,7 @@ from .serializers import UserPropertiesSerializer, UserSerializer, AuthTokenSeri
 from rest_framework.authtoken.views import ObtainAuthToken,APIView
 from rest_framework.settings import api_settings
 from . import serializers
-from rest_framework.permissions import IsAuthenticated, SingleOperandHolder
+from rest_framework.permissions import IsAuthenticated, SingleOperandHolder,IsAdminUser
 from rest_framework.authentication import TokenAuthentication
 from django.db.models import Q
 from . import helper as helper
@@ -946,3 +946,101 @@ class DeletedRecordView(generics.ListCreateAPIView):
         gender=user.userproperties.gender
         email=user.email
         serializer.save(name=name,phoneNumber=phonenumber,gender=gender,email=email)
+
+
+
+
+
+
+
+class ProfilesToAdminDashboardVIew(viewsets.ModelViewSet):
+    """Manage recipes in the database"""
+    serializer_class = serializers.AdminProfilesSerializer
+    queryset = models.Image.objects.filter(is_verified=True)
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,IsAdminUser)
+
+    def get_queryset(self):
+        if self.request.query_params.get('gender')=='male':
+             return self.queryset.filter(profile__gender='male')
+        elif self.request.query_params.get('gender')=='female':
+             return self.queryset.filter(profile__gender='female')
+        return self.queryset.all()
+    
+    def perform_create(self, serializer):
+        """Create a new recipe"""
+        serializer.save()
+    
+    def get_serializer_class(self):
+        """Return appropriate serializer class"""
+        if self.action == 'retrieve':
+            # raise Http404 if user has no subscription
+            return serializers.UserAllserializerDetailled
+
+        return self.serializer_class
+
+
+class PendingverificationAdminView(viewsets.ModelViewSet):
+    """Manage recipes in the database"""
+    serializer_class = serializers.AdminProfilesSerializer
+    queryset = models.Image.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,IsAdminUser,)
+
+    def get_queryset(self):
+        # print(self.request.query_params.get('status')*20)
+        if self.request.query_params.get('status')=='False':
+            return self.queryset.filter(is_verified=False)
+        elif self.request.query_params.get('status')=='True':
+             return self.queryset.filter(is_verified=True)
+        return self.queryset.all()
+    
+    def perform_create(self, serializer):
+        """Create a new recipe"""
+        serializer.save()
+    
+    def get_serializer_class(self):
+        """Return appropriate serializer class"""
+        if self.action == 'retrieve':
+            # raise Http404 if user has no subscription
+            return serializers.UserAllserializerDetailled
+
+        return self.serializer_class
+
+
+
+class AdminVerification(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,IsAdminUser)
+
+    def get_object(self, pk):
+        try:
+            return Image.objects.get(pk=pk)
+        except Image.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        image = self.get_object(pk)
+        image.is_verified=True
+        image.save()
+        serializer = serializers.UserImageSerializer(image)
+        return Response(serializer.data) 
+
+
+
+class RemoveVerificationView(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,IsAdminUser)
+
+    def get_object(self, pk):
+        try:
+            return Image.objects.get(pk=pk)
+        except Image.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        image = self.get_object(pk)
+        image.is_verified=False
+        image.save()
+        serializer = serializers.UserImageSerializer(image)
+        return Response(serializer.data) 
