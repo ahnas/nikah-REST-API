@@ -4,7 +4,7 @@ $(document).ready(function(){
   }
   else{
     $.ajax({
-      url: "http://127.0.0.1:8000/official/api/check_login_user/",
+      url: "http://127.0.0.1:8000/api/user/test_auth/",
       type: "GET",
       beforeSend: function (xhr) {
         xhr.setRequestHeader(
@@ -27,6 +27,32 @@ $(document).ready(function(){
           console.log(textStatus, errorThrown);
         },
   });
+
+
+  $.ajax({
+    url: "http://127.0.0.1:8000/api/user/getprofilescounts/",
+    type: "GET",
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader(
+        "Authorization",
+        "Token " + localStorage.getItem("admin_token")
+      );
+    },
+    success: function (response) {
+      var data = [];
+      data = response
+      $('#todaysCount').html(response.todaysRegister)
+      $('#matchedCount').html(response.matched)
+      $('#maleProfiles').html(response.males)
+      $('#femaleProfiles').html(response.females)
+      $('#pveridicationc').html(response.notverified)
+      $('#Verifiedc').html(response.verified)
+      console.log(response)},
+    error: function(jqXHR, textStatus, responseText) {
+        alert(jqXHR,responseText)
+        console.log(textStatus, errorThrown);
+      },
+});
   }
 });
 

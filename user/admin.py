@@ -41,7 +41,7 @@ class UserPropertiesAdmin(admin.ModelAdmin):
 
 @admin.register(models.Image)
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('is_verified','nmId','Name','Phone_number','Gender','user','image','Highest_Education','Religious_Status','nativeCity')
+    list_display = ('is_verified','nmId','profileCreatedAt','Name','Phone_number','Gender','user','image','Highest_Education','Religious_Status','nativeCity')
     
   
     def Phone_number(self,obj):

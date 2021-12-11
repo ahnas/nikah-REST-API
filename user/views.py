@@ -1,6 +1,7 @@
 
 from django.db.models import Q
 from django.http import request
+from datetime import datetime
 from django.http.response import Http404, HttpResponse, HttpResponseNotAllowed, JsonResponse
 from django.shortcuts import redirect, render
 from collections import namedtuple
@@ -1044,3 +1045,47 @@ class RemoveVerificationView(APIView):
         image.save()
         serializer = serializers.UserImageSerializer(image)
         return Response(serializer.data) 
+
+
+
+
+class GetProfileCounts(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,IsAdminUser)
+
+    def get(self, request,format=None):
+
+        males=models.UserProperties.objects.filter(gender='male')
+        females=models.UserProperties.objects.filter(gender='female')
+
+        if models.LikeProfile.objects.filter().exists():
+            likedProfiles = models.LikeProfile.objects.all()
+            count=0
+            for like in likedProfiles:
+                likedByUser=models.Image.objects.get(user=like.liked_user).id
+                if models.LikeProfile.objects.filter(liked_user=like.liked_by_user.user,liked_by_user=likedByUser).exists():
+                    count+=1
+            
+            count/=2
+        todaysRegisterc=0
+        notverifiedc=0
+        verifiedc=0
+        todaysRegister = models.Image.objects.filter(profileCreatedAt=datetime.date.today())
+        if todaysRegister.exists():
+           todaysRegisterc=todaysRegister.count()
+        notVerified =models.Image.objects.filter(is_verified=False)
+        if notVerified.exists():
+            notverifiedc=notVerified.count()
+        verified =models.Image.objects.filter(is_verified=True)
+        if verified.exists():
+            verifiedc=verified.count()
+        profilecounts={
+            'males':males.count(),
+            'females':females.count(),
+            "matched":int(count),
+            'todaysRegister':todaysRegisterc,
+            "notverified":notverifiedc,
+            "verified":verifiedc
+        }
+        return Response(profilecounts) 
+

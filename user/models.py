@@ -192,7 +192,8 @@ class Image(models.Model):
     image_three_ppoi = PPOIField()
     profile= models.OneToOneField(UserProperties,on_delete=models.CASCADE)
     education= models.OneToOneField(UserEducationLocationContact,on_delete=models.CASCADE)
-
+    profileCreatedAt = models.DateField(auto_now=True)
+    
     def __str__(self):
         return str(self.nmId)
     class Meta:

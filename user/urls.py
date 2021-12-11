@@ -47,6 +47,7 @@ urlpatterns = [
     path('delete/',views.DeleteAccount.as_view(), name='delete'),
     path('GetLikesAndMatches/',views.GetLikesAndMatches.as_view(), name='delete'),
     path('chats/', views.UserChats.as_view()),
+    path('getprofilescounts/', views.GetProfileCounts.as_view()),
     path('getmessages/', views.MessagesViewList.as_view()),
     path('deletedrecord/', views.DeletedRecordView.as_view()),
     path('',include(router.urls)),
