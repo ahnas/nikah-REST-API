@@ -77,6 +77,8 @@ $(document).ready(function () {
             $("#marriedBrothers").html(obj['profile'].marriedBrothers);
             $("#youngerSisters").html(obj['profile'].youngerSisters);
             $("#marriedSisters").html(obj['profile'].marriedSisters);
+            $("#youngerBrother").html(obj['profile'].youngerBrother);
+            $("#elderSister").html(obj['profile'].elderSister);
             $("#financialStatus").html(obj['profile'].financialStatus);
             $("#nmId").append(obj['nmId']);
             $("#drinking").html(obj['profile'].drinking);

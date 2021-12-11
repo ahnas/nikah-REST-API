@@ -11,7 +11,6 @@ $(document).ready(function () {
         success: function (response) {
             var data = [];
             data = response
-            console.log(response)
             $.each(data, function (i) {
                 divId = $("#pendingVerificationDetailsDiv")
                 html = ''
