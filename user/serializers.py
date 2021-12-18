@@ -330,3 +330,5 @@ class DeletedRecordserializer(serializers.ModelSerializer):
         model = models.DeletedRecord
         fields='__all__'
         read_only_fields = ('name','phoneNumber','email','gender')
+
+

@@ -50,6 +50,7 @@ urlpatterns = [
     path('getprofilescounts/', views.GetProfileCounts.as_view()),
     path('getmessages/', views.MessagesViewList.as_view()),
     path('deletedrecord/', views.DeletedRecordView.as_view()),
+    path('deletedrecordviewadmin/', views.DeletedRecordViewAdmin.as_view()),
     path('',include(router.urls)),
 
 ]
