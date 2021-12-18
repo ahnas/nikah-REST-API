@@ -13,6 +13,7 @@ urlpatterns = [
 
     path('males/', views.males,name = 'males'),
     path('females/',views.females,name = 'females'),
+    path('deletedprofiles/',views.deletedprofiles,name = 'deletedprofiles'),
     path('succes-stories/',views.stories,name = 'stories'),
     path('testimonial/',views.testimonial,name = 'testimonial'),
 

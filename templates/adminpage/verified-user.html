@@ -1,4 +1,21 @@
 {% extends 'adminpage/base.html' %} {% load static %} {% block content %}
+<style>
+	.has-search .form-control-feedback {
+		right: initial;
+		left: 0;
+		color: #ccc;
+	}
+	.has-search{
+		width:350px;
+	}
+	.selectbox{
+		width:350px;
+	}
+	.has-search .form-control {
+		padding-right: 12px;
+		padding-left: 34px;
+	}
+</style>
 
 <div class="container-scroller">
 	<!-- partial:../../partials/_navbar.html -->
@@ -14,11 +31,22 @@
 		<!-- partial -->
 		<div class="main-panel">
 			<div class="content-wrapper">
+				<div class="row">
+				<div class="form-group has-feedback has-search" class="col-lg-4">
+					<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					<input type="text" id="searchbox" class="form-control" placeholder="Search">
+				  </div>
+				  <div class="form-group pl-5" class="col-lg-4">
+					<select class="form-control"  id="selectbox">
+						<option value="Never Married">Never Married<option>
+						<option value="Widowed">Widowed<option>
+						<option value="Divorced">Divorced<option>
+						<option value="Awaiting Divorse">Awaiting Divorse<option>
+						<option value="Married">Married<option>
+					</select>
+				  </div>
+				</div>	
 				<div class="row" id="verifiedUsers">
-
-
-
-					
 
 				</div>
 				
@@ -34,7 +62,21 @@
 	<!-- page-body-wrapper ends -->
 </div>
 
+
 {% endblock %}
 {% block javascript %}
 <script src="{% static 'adminpage\js\bismillah\verified_users.js' %}"></script>
+<script>
+	$(document).ready(function () {
+	  $('#searchbox').keyup(function (e) {
+		getdatas($('#searchbox').val());
+	  });
+  
+	});
+	$('#selectbox').on('change', function (e) {
+		var optionSelected = $("option:selected", this);
+		var valueSelected = this.value;
+		getdatas(valueSelected)
+	});
+  </script>
 {% endblock %}

@@ -951,6 +951,20 @@ class DeletedRecordView(generics.ListCreateAPIView):
 
 
 
+class DeletedRecordViewAdmin(generics.ListCreateAPIView):
+    """Manage recipes in the database"""
+    serializer_class = serializers.DeletedRecordserializer
+    queryset = models.DeletedRecord.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,IsAdminUser)
+    
+
+    def get(self,request):
+        queryset = models.DeletedRecord.objects.all()
+        serializer = serializers.DeletedRecordserializer(queryset, many=True)
+        return Response(serializer.data)
+
+
 
 
 
@@ -990,6 +1004,10 @@ class PendingverificationAdminView(viewsets.ModelViewSet):
 
     def get_queryset(self):
         # print(self.request.query_params.get('status')*20)
+        if self.request.query_params.get('search'):
+             value=self.request.query_params.get('search')
+             return self.queryset.filter(Q(nmId__startswith=value)|Q(profile__name__startswith=value)|Q(profile__moblie__startswith=value)|Q(profile__martialStatus__startswith=value))
+
         if self.request.query_params.get('status')=='False':
             return self.queryset.filter(is_verified=False)
         elif self.request.query_params.get('status')=='True':
@@ -1027,6 +1045,22 @@ class AdminVerification(APIView):
         serializer = serializers.UserImageSerializer(image)
         return Response(serializer.data) 
 
+class SerachProfilebyAdmin(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,IsAdminUser)
+
+    def get_object(self, pk):
+        try:
+            return Image.objects.get(pk=pk)
+        except Image.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        image = self.get_object(pk)
+        image.is_verified=True
+        image.save()
+        serializer = serializers.UserImageSerializer(image)
+        return Response(serializer.data) 
 
 
 class RemoveVerificationView(APIView):

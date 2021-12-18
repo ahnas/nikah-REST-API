@@ -54,3 +54,12 @@ def females(request):
     }
     return render(request,'adminpage/females.html',context)
 
+
+
+
+def deletedprofiles(request):
+    context = {
+        'is_DeletedProfiles' : True,
+    }
+    return render(request,'adminpage/DeletedProfiles.html',context)
+
