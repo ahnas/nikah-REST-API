@@ -1057,10 +1057,9 @@ class GetProfileCounts(APIView):
 
         males=models.UserProperties.objects.filter(gender='male')
         females=models.UserProperties.objects.filter(gender='female')
-
+        count=0
         if models.LikeProfile.objects.filter().exists():
             likedProfiles = models.LikeProfile.objects.all()
-            count=0
             for like in likedProfiles:
                 likedByUser=models.Image.objects.get(user=like.liked_user).id
                 if models.LikeProfile.objects.filter(liked_user=like.liked_by_user.user,liked_by_user=likedByUser).exists():
