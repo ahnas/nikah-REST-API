@@ -165,9 +165,10 @@ class UserAllserializer(serializers.ModelSerializer):
     class Meta:
         model = models.Image
         fields = (
-            'id', 'image','image_two','image_three', 'profile', 'education', 'user','nmId','is_liked',
+            'id', 'image','image_two','image_three', 'profile', 'education', 'user','nmId','is_liked','is_verified',
         )
         read_only_fields = ('id',)
+
 
 
 class UserAllserializerDetailled(UserAllserializer):
@@ -175,6 +176,37 @@ class UserAllserializerDetailled(UserAllserializer):
     user = UserSerializer(read_only=True)
     profile=UserPropertiesSerializer(read_only=True)
     education=UserEducationLocationContactSerializer(read_only=True)
+
+
+
+
+class AdminProfilesSerializer(serializers.ModelSerializer):
+    """Serialize a recipe"""
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_two = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    image_three= VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+    )
+    user = UserSerializer(read_only=True)
+    profile=UserPropertiesSerializer(read_only=True)
+    education=UserEducationLocationContactSerializer(read_only=True)
+    class Meta:
+        model = models.Image
+        fields = (
+            'id', 'image','image_two','image_three', 'profile', 'education', 'user','nmId','is_verified',
+        )
+        read_only_fields = ('id',)
+
 
 
 
