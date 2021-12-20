@@ -131,9 +131,9 @@ class UserEducationLocationContact(models.Model):
     userProperties=OneToOneField(UserProperties,on_delete=models.CASCADE,unique=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,unique=True)
     highestEducation = models.CharField(max_length=225,choices=highestEducation_CHOICES,default="Masters")
-    EduSpezialization = models.CharField(max_length=225,null=True,blank=True,choices=EducationSp_CHOICES,default='Other')
+    EduSpezialization = models.CharField(max_length=225,null=True,blank=True,default="NA")
     workingwith = models.CharField(max_length=225,null=True,blank=True,choices=workingwith_CHOICES,default='Not Working')
-    workingas = models.CharField(max_length=225,blank=True,null=True,choices=workingas_CHOICES,default='Not Working')
+    workingas = models.CharField(max_length=225,blank=True,null=True,default='Other')
     annualincome=models.CharField(max_length=225,blank=True,null=True)
     
     nativeCountry = models.CharField(max_length=225)

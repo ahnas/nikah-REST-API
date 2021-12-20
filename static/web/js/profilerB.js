@@ -246,6 +246,26 @@ $(document).ready(function () {
 
 });
 
+$('#workingas').on('change', function (e) {
+    var valueSelected = this.value;
+    if(valueSelected=='Other'){
+        var html=''
+        html+='<label for="inputAddressLine2">Working as</label>'
+        html+='<input type="Text" placeholder="Specify Your Work" id="workingas" name="workingas" class="form-control">'
+        $('#workingasoptions').html(html)
+    }
+});
+
+$('#EduSpezialization').on('change', function (e) {
+    var valueSelected = this.value;
+    if(valueSelected=='Other'){
+        var html=''
+        html+='<label for="inputContactNumber">Specialization</label>'
+        html+='<input type="Text" placeholder="Specify Education" id="EduSpezialization" name="EduSpezialization" class="form-control">'
+        $('#EduSpezializationOption').html(html)
+        console.log("Other")
+    }
+});
 
 
 
