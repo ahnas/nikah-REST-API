@@ -24,7 +24,7 @@ class UserPropertiesForm(forms.ModelForm):
             'fatherOccupation': Select(attrs={'id':'fatherOccupation','name':'fatherOccupation','class': 'required form-control','placeholder':'Father Occupation'}),
             'familyType': Select(attrs={'id':'familyType','name':'familyType','class': 'required form-control','value':'Nuclear Family'}),
             'motherOccupation': Select(attrs={'id':'motherOccupation','name':'motherOccupation','class': 'required form-control','placeholder':'Mother Occupation'}),
-            'financialStatus': Select(attrs={'id':'motherOccupation','name':'motherOccupation','class': 'required form-control','placeholder':'financialStatus'}),
+            'financialStatus': Select(attrs={'id':'financialStatus','name':'financialStatus','class': 'required form-control','placeholder':'financialStatus'}),
             'brothers': NumberInput(attrs={'id':'brothers','name':'brothers','class': 'required form-control','value':'0'}),
             'sisters': NumberInput(attrs={'id':'sisters','name':'sisters','class': 'required form-control','value':'0'}),
             'smoking': Select(attrs={'id':'smoking','name':'smoking','class': 'required form-control'}),

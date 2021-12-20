@@ -8,6 +8,27 @@ function selcetedLanguage(a) {
     }
 
 }
+$('#motherOccupation').on('change', function (e) {
+    var valueSelected = this.value;
+    if(valueSelected=='Other'){
+        var html=''
+        html+='<label for="inputContactNumber">Mother Occupation *</label>'
+        html+='<input type="Text" placeholder="Specify Occupation" id="motherOccupation" name="motherOccupation" class="form-control">'
+        $('#ocupationMother').html(html)
+        console.log("Other")
+    }
+});
+
+$('#fatherOccupation').on('change', function (e) {
+    var valueSelected = this.value;
+    if(valueSelected=='Other'){
+        var html=''
+        html+='<label for="inputContactNumber">Father Occupation *</label>'
+        html+='<input type="Text" placeholder="Specify Occupation" id="fatherOccupation" name="fatherOccupation" class="form-control">'
+        $('#ocupationFather').html(html)
+        console.log("Other")
+    }
+});
 
 
 
