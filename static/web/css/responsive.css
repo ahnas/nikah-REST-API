@@ -652,7 +652,7 @@
         color: red;
     }
     .mob-hedr{
-        display: block;
+        display: none;
       }
 
     .mob-hedr ul{

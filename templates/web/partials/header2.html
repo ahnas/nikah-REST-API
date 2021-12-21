@@ -9,7 +9,7 @@
       <input type="text" class="form-control" placeholder="Search" id="searchbox">
     </div> -->
     <div class="d-none d-sm-blockk" id="imagecli">
-      <span class="icofont-search form-control-feedback"></span>
+      <span class="icofont-navigation-menu form-control-feedback"></span>
     </div>
     <a id="usernameimage" class="d-lg-none" href="{% url 'web:myprofile' %}"></a>
 
@@ -76,12 +76,12 @@
 
 <script>
   $("#imagecli").click(function(){
-  $("#mob-hedrr").show();
+  $("#mob-hedrr").fadeIn();
 });
 
 
 $('#closed').on('click', function(){
-  $("#mob-hedrr").hide();
+  $("#mob-hedrr").fadeOut();
 })
 // $("#show").click(function(){
 //   $("p").show();
