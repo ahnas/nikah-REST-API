@@ -243,7 +243,7 @@
                 <div class="row proff">
                     <div class="col-5"><label for="">Father occupation</label></div>
                     <div class="col-7">
-                        <p> : <b id="fatherOccupation"></b></p>
+                        <p> : <b id="fatherOccupationview"></b></p>
                     </div>
                 </div>
             </div>
@@ -251,7 +251,7 @@
                 <div class="row proff">
                     <div class="col-5"><label for="">Mother Occupation</label></div>
                     <div class="col-7">
-                        <p> : <b id="motherOccupation"></b></p>
+                        <p> : <b id="motherOccupationview"></b></p>
                     </div>
                 </div>
             </div>
@@ -503,16 +503,16 @@
             <div class="col-lg-6 col-md-6 mb-3">
                 <div class="row proff">
                     <div class="col-5"><label for="">Father occupation</label></div>
-                    <div class="col-7">
-                        <p> {{formpro.fatherOccupation}}</p>
+                    <div class="col-7" id="ocupationFather">
+                        {% include 'web/partials/fatheroccupation.html' %}
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 mb-3">
                 <div class="row proff">
                     <div class="col-5"><label for="">Mother Occupation</label></div>
-                    <div class="col-7">
-                        <p> {{formpro.motherOccupation}}</p>
+                    <div class="col-7" id="ocupationMother">
+                        {% include 'web/partials/motherocupation.html' %}
                     </div>
                 </div>
             </div>
@@ -591,8 +591,8 @@
             <div class="col-lg-6 col-md-6 mb-3">
                 <div class="row proff">
                     <div class="col-5"><label for="">Specialization</label></div>
-                    <div class="col-7">
-                        <p id="ed1Id">{{formedu.EduSpezialization}}</p>
+                    <div class="col-7" id="EduSpezializationOption">
+                        {% include 'web/partials/selectedu.html' %}
                     </div>
                 </div>
             </div>
@@ -690,7 +690,7 @@
                 <div class="row proff">
                     <div class="col-5"><label for="">Working as</label></div>
                     <div class="col-7">
-                        <p> : <b id="workingAs"></b></p>
+                        <p> : <b id="workingAsview"></b></p>
                     </div>
                 </div>
             </div>
@@ -821,12 +821,11 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-3">
-                <div class="row proff">
+                <div class="row proff ">
                     <div class="col-5"><label for="">Working as</label></div>
-                    <div class="col-7">
-                        <p>
-                            {{formedu.workingas}}
-                        </p>
+                    <div class="col-7" id="workingasoptions">
+                        {% include 'web/partials/workingas.html' %}
+
                     </div>
                 </div>
             </div>

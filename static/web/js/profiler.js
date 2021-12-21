@@ -8,31 +8,16 @@ function selcetedLanguage(a) {
     }
 
 }
-$('#motherOccupation').on('change', function (e) {
-    var valueSelected = this.value;
-    if(valueSelected=='Other'){
-        var html=''
-        html+='<label for="inputContactNumber">Mother Occupation *</label>'
-        html+='<input type="Text" placeholder="Specify Occupation" id="motherOccupation" name="motherOccupation" class="form-control">'
-        $('#ocupationMother').html(html)
-        console.log("Other")
-    }
-});
 
-$('#fatherOccupation').on('change', function (e) {
-    var valueSelected = this.value;
-    if(valueSelected=='Other'){
-        var html=''
-        html+='<label for="inputContactNumber">Father Occupation *</label>'
-        html+='<input type="Text" placeholder="Specify Occupation" id="fatherOccupation" name="fatherOccupation" class="form-control">'
-        $('#ocupationFather').html(html)
-        console.log("Other")
-    }
-});
 
 
 
 $(document).ready(function () {
+    
+    $("#ocupationFather").html('<input id="fatherOccupation" name="fatherOccupation" placeholder="Father Occupation" type="text" class="form-control" onfocus="fatherInputToselect()">')
+    $("#ocupationMother").html('<input id="motherOccupation" name="motherOccupation" placeholder="Mother Occupation" type="text" class="form-control" onfocus="motherInputToselect()">')
+
+
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/userdetailsFillCheck/",
         type: 'GET',
@@ -289,3 +274,63 @@ $(document).ready(function () {
 
 
 
+function fatherInputToselect(){
+    var html=`<select id='fatherOccupation' onchange="fatherocupation();" name='fatherOccupation' class="form-control fm">
+    <option value="Private">Private</option>
+    <option value="Self Employee">Self Employee</option>
+    <option value="Doctor">Doctor</option>
+    <option value="Engineer">Engineer</option>
+    <option value="Manager">Manager</option>
+    <option value="Pharmacist">Pharmacist</option>
+    <option value="Accountant">Accountant</option>
+    <option value="Teacher">Teacher</option>
+    <option value="Late">Late</option>
+    <option value="NRI">NRI</option>
+    <option value="Home Maker">Home Maker</option>
+    <option value="Govt Employee">Govt Employee</option>
+    <option value="Retired">Retired</option>
+    <option value="Buisness">Buisness</option>
+    <option value="Coolie">Coolie</option>
+    <option value="Farmer">Farmer</option>
+    <option value="Other">Other</option>
+    </select>`;
+    $("#ocupationFather").html(html)
+}
+function fatherocupation(){
+    if($('#fatherOccupation').val()=='Other'){
+        var html=''
+        html+='<input type="Text" placeholder="Specify Occupation" id="fatherOccupation" name="fatherOccupation" class="form-control">'
+        $('#ocupationFather').html(html)
+    }
+}
+
+function motherInputToselect(){
+    var html=`<select id='motherOccupation'  onchange="motherocupation();" name='motherOccupation' class="form-control">
+    <option value="Private">House Wife</option>
+    <option value="Self Employee">Self Employee</option>
+    <option value="Doctor">Doctor</option>
+    <option value="Engineer">Engineer</option>
+    <option value="Manager">Manager</option>
+    <option value="Pharmacist">Pharmacist</option>
+    <option value="Accountant">Accountant</option>
+    <option value="Teacher">Teacher</option>
+    <option value="Late">Late</option>
+    <option value="Private">Private</option>
+    <option value="NRI">NRI</option>
+    <option value="Home Maker">Home Maker</option>
+    <option value="Govt Employee">Govt Employee</option>
+    <option value="Retired">Retired</option>
+    <option value="Buisness">Buisness</option>
+    <option value="Coolie">Coolie</option>
+    <option value="Farmer">Farmer</option>
+    <option value="Other">Other</option>
+</select>`;
+    $("#ocupationMother").html(html)
+}
+function motherocupation(){
+    if($('#motherOccupation').val()=='Other'){
+        var html=''
+        html+='<input type="Text" placeholder="Specify Occupation" id="motherOccupation" name="motherOccupation" class="form-control">'
+        $('#ocupationMother').html(html)
+    }
+}
