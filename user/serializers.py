@@ -408,3 +408,7 @@ class DeletedRecordserializer(serializers.ModelSerializer):
         read_only_fields = ('name','phoneNumber','email','gender')
 
 
+class GetUserPasswordSerilizer(serializers.ModelSerializer):
+    class Meta:
+        model = models.PassWordReset
+        fields= '__all__'

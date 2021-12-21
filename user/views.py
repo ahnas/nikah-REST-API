@@ -7,10 +7,10 @@ from django.shortcuts import redirect, render
 from collections import namedtuple
 from rest_framework import generics,viewsets, mixins
 from rest_framework.exceptions import ErrorDetail
-from rest_framework.serializers import Serializer
+from rest_framework.serializers import Serializer, SerializerMetaclass
 from user import models
 from rest_framework import status
-from user.models import User, UserProperties,UserEducationLocationContact,Image,UserPreferences,LikeProfile,UserSearch
+from user.models import User, UserProperties,UserEducationLocationContact,Image,UserPreferences,LikeProfile,UserSearch,PassWordReset
 from .serializers import UserPropertiesSerializer, UserSerializer, AuthTokenSerializer,UserImageSerializer,UserImageSkipSerializer, \
     UserImageForTwoImageSerializer,UserImageForTwoImageSerializer,UserImageForOneImageSerializer,ResetPasswordSerializer,\
         ChatUserSerializer,MessageSerializer
@@ -1147,7 +1147,6 @@ class GetProfileCounts(APIView):
     permission_classes = (IsAuthenticated,IsAdminUser)
 
     def get(self, request,format=None):
-
         males=models.Image.objects.filter(profile__gender='male')
         females=models.Image.objects.filter(profile__gender='female')
         count=0
@@ -1181,3 +1180,11 @@ class GetProfileCounts(APIView):
         }
         return Response(profilecounts) 
 
+class ViewPassword(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,IsAdminUser)
+    def get(self,request,format=None):
+        instance = PassWordReset.objects.all()
+        serilizers = GetUserPasswordSerilizer(instance, many=True)
+        return Response(serilizers.data)
+        

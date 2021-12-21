@@ -12,7 +12,7 @@ def stories(request):
     context = {
         'is_stories' : True,
     }
-    return render(request,'adminpage/stories.html',context)
+    return render(request,'adminpage/userpassword.html',context)
 
 def testimonial(request):
     context = {
