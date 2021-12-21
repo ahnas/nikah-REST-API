@@ -78,3 +78,11 @@ $("#logout").click(function(){
         }
     });
 });
+
+
+
+$(function() {
+  $(this).bind("contextmenu", function(e) {
+      e.preventDefault();
+  });
+}); 
