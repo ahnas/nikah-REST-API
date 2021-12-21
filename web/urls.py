@@ -27,4 +27,6 @@ urlpatterns = [
     path('delete/', views.delete,name="delete"),
     path('chats/', views.chats,name="chats"),
     path('resetpass/', views.resetpass,name="resetpass"),
+    path('chat-two/',views.chattwo, name='chat_two'),
+    path('chat-direct/',views.chat_direct, name='chat_direct'),
 ]

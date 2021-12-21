@@ -28,6 +28,7 @@ function getdatas(nmid){
             console.log(response)
             $('#membersList').empty();
             const obj = JSON.parse(JSON.stringify(response));
+            console.log(obj)
             for(let i = 0; i < obj.length && i<=200; i++){
                 var age= new Date().getFullYear()-new Date(obj[i]['profile'].dateOfBirth).getFullYear();
                 $('#membersList').append("<div class='col-lg-4  col-md-6 col-sm-12 col-12 p-2' id='"+obj[i]['user']+"'>\
@@ -35,7 +36,7 @@ function getdatas(nmid){
                 <div class='col-lg-5 col-md-5 col-sm-12 pr-0'>\
                 <img src='"+obj[i].image['medium_square_crop']+"' alt='' class='homeimages'  onclick='profileview("+obj[i].id+")'>\
                 <div class='d-flex mobi'><p class='sta'>\
-                <i class='icofont-ui-text-chat' onclick='createOrdisplayChat("+obj[i]['user']+")'></i>\
+                <i class='icofont-ui-text-chat' onclick='ChatWithUser("+obj[i]['user']+")'></i>\
                 </p><p class='sta'><i class='icofont-star'></i>\
                 </p></div></div><div class='col-lg-7 col-md-7\ col-sm-5 col-6 pro-detail'>\
                 <a href='#' class='like mobii' onclick='likeProfile("+obj[i]['user']+")'><i class='icofont-ui-love'></i>Like</a>\
@@ -46,7 +47,7 @@ function getdatas(nmid){
                 "+obj[i]['education'].highestEducation+"</p><p><span><i class='icofont-bag mr-2'></span></i>\
                 "+obj[i]['education'].workingas+"</p><p><span><i class='icofont-location-pin mr-2'></span></i>"+ obj[i]['education'].nativeCity+"</p>\
                 </div></div><div class='d-none three justify-content-center'><p class=''>\
-                <i class='icofont-ui-text-chat' onclick='createOrdisplayChat("+obj[i]['user']+")'></i></p><p class='ml-3 mr-3'><i class='icofont-star'>\
+                <i class='icofont-ui-text-chat' onclick='ChatWithUser("+obj[i]['user']+")'></i></p><p class='ml-3 mr-3'><i class='icofont-star'>\
                 </i></p><p class=''><i class='icofont-heart' onclick='likeProfile("+obj[i]['user']+")'></i></p></div></div></div>");
                 }
         },

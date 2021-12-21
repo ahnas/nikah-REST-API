@@ -3,7 +3,7 @@ from django.db.models import fields
 from django.db.models.base import Model
 from django.utils.translation import gettext as _
 from versatileimagefield.serializers import VersatileImageFieldSerializer
-
+from .chatHelper import *
 
 from rest_framework import serializers
 from rest_framework.fields import ReadOnlyField
@@ -309,20 +309,96 @@ class UserImageSkipSerializer(serializers.ModelSerializer):
         read_only_fields = ('id','nmId','user','profile','education','image_three','image_two','image')
 
 
-
-
-class UserChatsserializer(serializers.ModelSerializer):
+class GetUserImageOne(serializers.ModelSerializer):
+    image = VersatileImageFieldSerializer(
+        sizes=[
+            ('medium_square_crop', 'crop__400x400'),
+        ]
+        )
     class Meta:
-        model = models.UserChats
-        fields='__all__'
-        read_only_fields=('ChatfromUser','ChatfromUserID','chatimage','chatDisplayName')
+        model = models.Image
+        fields = ('image',) 
 
 
-class Messagesserializer(serializers.ModelSerializer):
+class ChatUserSerializer(serializers.ModelSerializer):
+    chatImage = serializers.SerializerMethodField()
+    chatTime = serializers.SerializerMethodField()
+    chatName = serializers.SerializerMethodField()
+    chat_To_user = serializers.SerializerMethodField()
+    lastMessage = serializers.SerializerMethodField()
+
     class Meta:
-        model = models.Messages
-        fields='__all__'
-        read_only_fields = ('chatimage','user',)
+        model = models.Chat
+        fields = ('id','roome_name','chat_user_one','chat_user_two','chatName','chatImage','chatTime','lastMessage','chat_To_user')
+        read_only_fields =('id','chat_user_one','roome_name')
+    def get_chatImage(self, obj):
+        request = self.context.get('request', None)
+        if request:
+            image=getchatImage(request.user,obj.chat_user_one,obj.chat_user_two)
+            serializer = GetUserImageOne(image)
+            return serializer.data
+    def get_chatTime(self, obj):
+            return obj.lastUpdated.strftime('%H:%M %p')
+    def get_chat_To_user(self, obj):
+        request = self.context.get('request', None)
+        if request:
+            return getchatToUserID(request.user,obj.chat_user_one,obj.chat_user_two)
+    def get_chatName(self, obj):
+        request = self.context.get('request', None)
+        if request:
+            return str(getUserNameofChat(request.user,obj.chat_user_one,obj.chat_user_two)).capitalize()
+    def get_lastMessage(self, obj):
+        request = self.context.get('request', None)
+        messager=''
+        lastmessage=Message.objects.filter(chat=obj)
+        if not lastmessage.exists():
+            return ''
+        lastmessage=lastmessage.first()
+        if request:
+            if lastmessage.user==request.user:
+                messager='You'
+                return messager+' : '+lastmessage.message
+            else:
+                return lastmessage.message
+
+        
+
+class MessageSerializer(serializers.ModelSerializer):
+    is_owner = serializers.SerializerMethodField()
+    chatImage = serializers.SerializerMethodField()
+    time_formated = serializers.SerializerMethodField()
+
+    class Meta:
+        model = models.Message
+        fields = ('chat','user','message','time_formated','is_owner','chatImage')
+        read_only_fields =('user',)
+    def get_time_formated(self, obj):
+        return obj.time.strftime('%H:%M %p')
+    def get_is_owner(self, obj):
+        request = self.context.get('request', None)
+        if request:
+            return request.user==obj.user
+            
+    def get_chatImage(self, obj):
+        request = self.context.get('request', None)
+        if request:
+            image=models.Image.objects.get(user=obj.user)
+            serializer = GetUserImageOne(image)
+            return serializer.data
+
+
+# class UserChatsserializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = models.UserChats
+#         fields='__all__'
+#         read_only_fields=('ChatfromUser','ChatfromUserID','chatimage','chatDisplayName')
+
+
+# class Messagesserializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = models.Messages
+#         fields='__all__'
+#         read_only_fields = ('chatimage','user',)
 
 
 class DeletedRecordserializer(serializers.ModelSerializer):
