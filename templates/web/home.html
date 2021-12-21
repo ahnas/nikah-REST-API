@@ -29,45 +29,192 @@
     
     {% include "web/partials/header2.html" %}
 
-    <section class="explore dinee pb-0 mobcd">
+    <section class="exploore">
+      
       <div class="container">
-          <div class="row exx dine">
-              <div class="col-1">
-                <i style="color: #3acf6e;" class="icofont-binoculars"></i>
-            
-              </div>
-              <div class="col-11 ">
-                <p>Explore profiles</p> 
-              </div>
-          </div>
-          <div class="row">
-              
-              <div onclick="modify()" class="col-lg-4 col-md-6 col-sm-7 col-9">
-                <div class="row mod curs">
-                    <div class="col-1">
-                        <i class="icofont-listine-dots"></i>
-                    </div>
+        <div class="row padding-25">
 
-                    <div class="col-9">
-                        <p>Advanced Search</p>
-                    </div>
-                    <input type="hidden" name="search" id="search" value="{{search}}">
-                </div>
-              </div>
+          <div class="col-lg-3 col-md-4 d-sm-none d-md-block">
+  
+              <div class="left-panel">
 
-              <div class="col-lg-4 col-1">
+                <section class="person">
 
-              </div>
+                  <div class="inner">
 
-              <div class="col-lg-4 col-md-5 col-sm-4 col-1 d-none">
-                <ul class="pager d-flex mt-4 ulsm">  
-                    <li><a href="#"><i class="icofont-ui-previous mr-2"></i>Previous</a></li>  
-                    <li><input type="text" placeholder="10"></li>
-                    <li><a href="#">Next<i class="icofont-ui-next ml-2"></i></a></li>  
+                    <a class="float-left" href="#">
+                      <img width="50px" src="{% static 'web/image/profile.jpg' %}" alt="">
+                    </a>
+
+                    <h6>Name</h6>
+                    <h6>NMID:109</h6>
+
+
+                  </div>
+                  <a href="{% url 'web:myprofile' %}" class="link">My Profile<span class="float-right"><i class="icofont-arrow-right"></i></span> </a>
+                  <a href="{% url 'web:partnerpref' %}" class="link">Partner Preferences<span class="float-right"><i class="icofont-arrow-right"></i></span> </a>
+                  <a href="{% url 'web:addphotos' %}" class="link">Edit Photo<span class="float-right"><i class="icofont-arrow-right"></i></span> </a>
+                  <a href="{% url 'web:modify' %}" class="link">Advance Search<span class="float-right"><i class="icofont-arrow-right"></i></span> </a>
+                  <a href="#" class="link">Delete Account<span class="float-right"><i class="icofont-arrow-right"></i></span> </a>
+                  <a href="#" class="link">Logout<span class="float-right"><i class="icofont-power"></i></span> </a>
+                </section>
+
+                <div class="form-group has-search m-0">
+                  <span class="icofont-search form-control-feedback"></span>
+                  <input type="text" class="form-control" placeholder="NMID Search" id="searchbox">
+                </div> 
+
+                <div class="get-prem">
+                  <img class="mb-4" width="50px" src="{% static 'web/image/king.png' %}" alt="">
+                  <div class="titkl">PREMIUM MEMBERSHIP</div>
+
+                  <ul>
+                    <li><i class="icofont-safety"></i><span>Feature 1</span></li>
+                    <li><i class="icofont-safety"></i><span>Feature 2</span></li>
+                    <li><i class="icofont-safety"></i><span>Feature 3</span></li>
                   </ul>
+
+                  <button class="btn">UPGRADE NOW</button>
+                </div>
+
+                <div class="offr">
+                  <img width="100%" src="{% static 'web/image/ofr.png' %}" alt="">
+                </div>
+
               </div>
           </div>
+
+          <div class="col-lg-9 col-md-8 col-sm-12 col-12 col-pad-md">
+            <div class="right-panel">
+              <div class="expro">
+                <h4>EXPLORE PROFILE</h4>
+              </div>
+
+
+
+
+              <div class="row md-15-md">
+
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 col-pad-md">
+                  <div class="pcard">
+
+                  <img class="position-relative" width="100%" src="{% static 'web/image/profile.jpg' %}" alt="">
+
+                  <div class="position-absolute pcard-det">  
+                    <h5>Muhammed Niyas CP</h5>
+                    <h6>NMID12654</h6>
+
+                    <ul class="d-flex justify-content-space-between">
+                      <li>27 Years |&nbsp</li> 
+                      <li>180 cm |&nbsp</li> 
+                      <li>Never Married</li>  </ul>
+
+                    <ul class="d-flex justify-content-space-between">
+                      <li>Graphical |&nbsp</li> 
+                      <li>Muslim |&nbsp</li> 
+                      <li>Kondotty ...</li>  
+                    </ul>
+                    <div class="margin-top10">
+                   <i class="icofont-ui-love float-left"></i> 
+                  <i class="icofont-ui-text-chat float-right chta"></i> 
+                </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 col-pad-md">
+                  <div class="pcard">
+
+                  <img class="position-relative" width="100%" src="{% static 'web/image/profile.jpg' %}" alt="">
+
+                  <div class="position-absolute pcard-det">  
+                    <h5>Muhammed Niyas CP</h5>
+                    <h6>NMID12654</h6>
+
+                    <ul class="d-flex justify-content-space-between">
+                      <li>27 Years |&nbsp</li> 
+                      <li>180 cm |&nbsp</li> 
+                      <li>Never Married</li>  </ul>
+
+                    <ul class="d-flex justify-content-space-between">
+                      <li>Graphical |&nbsp</li> 
+                      <li>Muslim |&nbsp</li> 
+                      <li>Kondotty ...</li>  
+                    </ul>
+                    <div class="margin-top10">
+                   <i class="icofont-ui-love float-left"></i> 
+                  <i class="icofont-ui-text-chat float-right chta"></i> 
+                </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 col-pad-md">
+                  <div class="pcard">
+
+                  <img class="position-relative" width="100%" src="{% static 'web/image/profile.jpg' %}" alt="">
+
+                  <div class="position-absolute pcard-det">  
+                    <h5>Muhammed Niyas CP</h5>
+                    <h6>NMID12654</h6>
+
+                    <ul class="d-flex justify-content-space-between">
+                      <li>27 Years |&nbsp</li> 
+                      <li>180 cm |&nbsp</li> 
+                      <li>Never Married</li>  </ul>
+
+                    <ul class="d-flex justify-content-space-between">
+                      <li>Graphical |&nbsp</li> 
+                      <li>Muslim |&nbsp</li> 
+                      <li>Kondotty ...</li>  
+                    </ul>
+                    <div class="margin-top10">
+                   <i class="icofont-ui-love float-left"></i> 
+                  <i class="icofont-ui-text-chat float-right chta"></i> 
+                </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12 col-pad-md">
+                  <div class="pcard">
+
+                  <img class="position-relative" width="100%" src="{% static 'web/image/profile.jpg' %}" alt="">
+
+                  <div class="position-absolute pcard-det">  
+                    <h5>Muhammed Niyas CP</h5>
+                    <h6>NMID12654</h6>
+
+                    <ul class="d-flex justify-content-space-between">
+                      <li>27 Years |&nbsp</li> 
+                      <li>180 cm |&nbsp</li> 
+                      <li>Never Married</li>  </ul>
+
+                    <ul class="d-flex justify-content-space-between">
+                      <li>Graphical |&nbsp</li> 
+                      <li>Muslim |&nbsp</li> 
+                      <li>Kondotty ...</li>  
+                    </ul>
+                    <div class="margin-top10">
+                   <i class="icofont-ui-love float-left"></i> 
+                  <i class="icofont-ui-text-chat float-right chta"></i> 
+                </div>
+                  </div>
+                </div>
+                </div>
+              
+
+
+         
+       
+              </div>
+          </div>
+
+          
+
+        </div>
       </div>
+
     </section>
 
     <div class="container pager" style="margin-top: 35px;">
