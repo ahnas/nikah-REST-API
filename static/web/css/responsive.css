@@ -397,10 +397,10 @@
 
     
     .member a {
-        color: #36c982;
+        /* color: #36c982;
         border: 1px solid #36c982;
         padding: 4% 25%;
-        border-radius: 15px;
+        border-radius: 15px; */
     }
     .numberr p {
     font-size: 17px;
@@ -1534,7 +1534,7 @@
         padding: 0;
     }
     .pager img {
-        width: 65%;
+        /* width: 65%; */
     }
     .sta {
         border: 1px solid #36c982;
