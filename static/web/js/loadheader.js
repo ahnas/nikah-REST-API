@@ -10,8 +10,6 @@ function loadlikecount(){
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) { 
-            console.log(response)
-            
             var total_like =parseInt(response['likedyoucount']);
             $('[id="intr"]').html(total_like); 
             
@@ -34,9 +32,13 @@ $(document).ready(function () {
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) { 
             const myArr = response.split(",");
+            console.log(myArr)
             $('#usernamefield1').html(myArr[0] + "&nbsp&nbsp&nbsp<img style='border-radius: 50%;width:30px;height:30px;'src='" + myArr[1] + "' alt='Image'>");
             $('#usernameimage').html("<img style='border-radius: 50%;width:30px;height:30px;'src='" + myArr[1] + "' alt='Image'>");
             $('#modifyUsername').html(myArr[0]);
+            $('#LogedInUserName').html(myArr[0]);
+            $('#LogedInUserImage').attr("src",myArr[1]);
+            $('#LogedInUserNMID').html(myArr[2]);
         }
     });
     $.ajax({

@@ -21,7 +21,6 @@ $(document).ready(function () {
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
             const obj = JSON.parse(JSON.stringify(response));
-            console.log(obj);
             $('#ageFrom').val(obj[0]['ageFrom']);
             $('#ageTo').val(obj[0]['ageTo']);
             $('#heightFrom').val(obj[0]['heightFrom']);

@@ -1,5 +1,4 @@
 function createOrdisplayChat(id){
-    alert('worked user ID :'+id)
     $.ajax({
         url: "http://127.0.0.1:8000/api/user/chats/",
         type: 'GET',
