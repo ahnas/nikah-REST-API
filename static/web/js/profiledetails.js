@@ -180,6 +180,7 @@ $(document).ready(function () {
 
             // }
             // $('#username').html("<a href='#' class='text-white'>"+myArr[1]+"</a>");
+            }
             const obj = JSON.parse(JSON.stringify(response));
 
         },
