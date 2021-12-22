@@ -4,7 +4,7 @@
         <div class="col-sm-12">
             <nav class="nav-menu iconn">
                 <ul class="plac">
-                  <li><a href="#about"><i class="icofont-ui-text-chat mr-2"></i></a></li>
+                  <li><a href="{% url 'web:chat_direct' %}"><i class="icofont-ui-text-chat mr-2"></i></a></li>
                   <li class="{% if is_home %}active{% endif %}"><a href="{% url 'web:home' %}"><i class="icofont-binoculars mr-2"></i></a></li>
                   <li class="{% if is_youlike %}active{% endif %}"> <a href="{% url 'web:youlike' %}"><i class="icofont-ui-love-add mr-2"></i></a></li>
                   

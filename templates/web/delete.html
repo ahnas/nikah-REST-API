@@ -25,7 +25,7 @@
 
 
         <div class="col-12 reli mb-4">
-            <div class="prremm mt-4">
+            <div class="prremm mt-4" style="background: white;">
 
                 <h2 class="mb-0 viewp" style="color: #1C57C9;">Do You Realy Want to Delete Account!</h2>
 
@@ -141,7 +141,7 @@
                     case "catch":
                     collectdata();
                         $.ajax({
-                            url: "http://127.0.0.1:8000/api/user/delete/",
+                            url: "http://192.168.1.65:8000/api/user/delete/",
                             type: 'DELETE',
                             beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                             success: function (response) {

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     id = $('#profileID').val()
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
+        url: "http://192.168.1.65:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
@@ -17,6 +17,9 @@ $(document).ready(function () {
                 like="<span class='float-right disp'><button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-ui-love mr-2 border-radius-50'></i></button></span>";
             
             }
+
+            $('#chatbutton').html("<i id='mobilechatbutton' onclick='ChatWithUser("+obj['user'].id+")' class='icofont-ui-text-chat'></i>")
+            $('#Likebutton').html("<i id='mobileLikebutton' class='icofont-ui-love' onclick='likeProfile("+obj['user'].id+")'></i>")
             $('#profileimage').attr('src', obj['image'].medium_square_crop)
             $('#profileimage2').attr('src', obj['image_two'].medium_square_crop)
             $('#profileimage3').attr('src', obj['image_three'].medium_square_crop)
@@ -26,7 +29,16 @@ $(document).ready(function () {
             $("#dateOfBirthpcc").html(age);
             $("#martialStatuspc").html(obj['profile'].martialStatus);
             $("#martialStatuspc2").html(obj['profile'].martialStatus);
-            $("#languagespoken").html(obj['profile'].languagespoken);
+
+            // split Word 
+
+            var arr = obj['profile'].languagespoken.split(",");
+            var languagespoken=''
+            for(var i=0;i<arr.length;i++){
+                languagespoken+=arr[i]+', ';
+
+            }
+            $("#languagespoken").html(languagespoken);
             $("#martialStatus").html(obj['profile'].martialStatus);
             $("#workingwith").html(obj['education'].workingwith);
             $("#workingas").html(obj['education'].workingas);
@@ -86,7 +98,7 @@ $(document).ready(function () {
             var s = (parseInt(obj['profile'].sisters) > 1) ? "s" : "";
             $("#brothersister").html(obj['profile'].brothers + " Brother" + b + " | " + obj['profile'].sisters + " Sister" + s);
             $.ajax({
-                url: "http://127.0.0.1:8000/api/user/getpreferenceofuser/" + obj['user'].id + "/",
+                url: "http://192.168.1.65:8000/api/user/getpreferenceofuser/" + obj['user'].id + "/",
                 type: 'GET',
                 beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                 success: function (response) {
@@ -104,7 +116,7 @@ $(document).ready(function () {
                     if (jqXHR.status == 404) {
                         var responseText = jQuery.parseJSON(jqXHR.responseText);
                     } else {
-                        // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                        // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
                     }
                 }
             });
@@ -113,7 +125,7 @@ $(document).ready(function () {
             if (jqXHR.status == 404) {
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
             } else {
-                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     });
@@ -123,7 +135,7 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/collectproperties/",
+        url: "http://192.168.1.65:8000/api/user/collectproperties/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
@@ -174,7 +186,7 @@ $(document).ready(function () {
             if (jqXHR.status == 404) {
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
             } else {
-                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     });
@@ -186,7 +198,7 @@ $(document).ready(function () {
 });
 function loadpremiumFeatures(){
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
+        url: "http://192.168.1.65:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
@@ -215,7 +227,7 @@ function loadpremiumFeatures(){
             if (jqXHR.status == 404) {
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
             } else {
-                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     });

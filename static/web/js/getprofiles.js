@@ -1,20 +1,20 @@
 
 var pageURL = $(location).attr("href");
 $(document).ready(function () {
-    if (pageURL != "http://127.0.0.1:8000/pending/" && pageURL != "http://127.0.0.1:8000/delete/") {
+    if (pageURL != "http://192.168.1.65:8000/pending/" && pageURL != "http://192.168.1.65:8000/delete/") {
     getdatas('');
     }
 });
 function getdatas(nmid){
     var url="";
     if($('#search').val()=='true'){
-        url="http://127.0.0.1:8000/api/user/collectproperties/?search=true/";
+        url="http://192.168.1.65:8000/api/user/collectproperties/?search=true/";
     }
     else{
-        url="http://127.0.0.1:8000/api/user/collectproperties/";
+        url="http://192.168.1.65:8000/api/user/collectproperties/";
     }
     if(nmid!=''){
-        url="http://127.0.0.1:8000/api/user/collectproperties/?NMID="+nmid;
+        url="http://192.168.1.65:8000/api/user/collectproperties/?NMID="+nmid;
     }
     
     
@@ -30,11 +30,11 @@ function getdatas(nmid){
                 var age= new Date().getFullYear()-new Date(obj[i]['profile'].dateOfBirth).getFullYear();
                 var html=''
                     html+=`<div class="col-lg-4 col-md-6 col-sm-12 col-12 col-pad-md" >
-                    <div class="pcard">
+                    <div class="pcard bord-rad-down">
 
                     <img class="position-relative" width="100%" src=`+obj[i].image['medium_square_crop']+` alt="" onclick='profileview(`+obj[i].id+`)'>
 
-                    <div class="position-absolute pcard-det">  
+                    <div class="position-absolute pcard-det bord-rad-down">  
                     <h5>`+obj[i]['profile'].name+`</h5>
                     <h6>`+obj[i].nmId+`</h6>
 
@@ -62,10 +62,10 @@ function getdatas(nmid){
         },
         error: function (jqXHR) {
             if (jqXHR.status == 404) { 
-                window.location.href = "http://127.0.0.1:8000/pending"
+                window.location.href = "http://192.168.1.65:8000/pending"
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
             } else {
-                $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     }); 

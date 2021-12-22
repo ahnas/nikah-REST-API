@@ -16,13 +16,13 @@ function editprofile(){
 
 function updateUserPropertiest(data){
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/UpdateUserProperties/",
+        url: "http://192.168.1.65:8000/api/user/UpdateUserProperties/",
         type: 'PUT',
         data:data,
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
             $.ajax({
-                url: "http://127.0.0.1:8000/api/user/UpdateUserProperties/",
+                url: "http://192.168.1.65:8000/api/user/UpdateUserProperties/",
                 type: 'GET',
                 beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                 success: function (response) {
@@ -106,13 +106,13 @@ function updateUserPropertiest(data){
 
 function updateUserLocationDetails(data){
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/UpdateUserLocationDetails/",
+        url: "http://192.168.1.65:8000/api/user/UpdateUserLocationDetails/",
         type: 'PUT',
         data:data,
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
             $.ajax({
-                url: "http://127.0.0.1:8000/api/user/UpdateUserLocationDetails/",
+                url: "http://192.168.1.65:8000/api/user/UpdateUserLocationDetails/",
                 type: 'GET',
                 beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                 success: function (response) {

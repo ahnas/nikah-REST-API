@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $.ajax({
-    url: "http://127.0.0.1:8000/api/user/getchats/",
+    url: "http://192.168.1.65:8000/api/user/getchats/",
     type: "GET",
     beforeSend: function (xhr) {
       xhr.setRequestHeader(
@@ -13,7 +13,7 @@ $(document).ready(function () {
       var id = GetURLParameter("id");
         if (id) {
           $.ajax({
-            url: "http://127.0.0.1:8000/api/user/getchats/?chatuser=" + id,
+            url: "http://192.168.1.65:8000/api/user/getchats/?chatuser=" + id,
             type: "GET",
             beforeSend: function (xhr) {
               xhr.setRequestHeader(

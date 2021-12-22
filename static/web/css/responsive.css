@@ -371,7 +371,7 @@
     }
     .deaser .logo a {
         color: #fff;
-        background-color: #36c982 !important;
+        
         padding: 18px 0px !important;
     }
     .maa {
@@ -648,6 +648,11 @@
 
 
 @media only screen and (max-width: 576px) {
+
+
+    .mb-80{
+        margin-bottom: 60px;
+    }
     .color-red{
         color: red;
     }
@@ -670,6 +675,10 @@
         
     }
 
+    #closed{
+        font-size: 20px;
+    }
+
      .mob-hedr{
         background-color: white;
         right: 0;
@@ -678,6 +687,7 @@
         height: 100%;
         padding-top: 25px;
         padding-left: 25px;
+        padding-right: 23px;
     }
 
     .mob-hedr img{
@@ -700,7 +710,7 @@
 
     .deaser .logo a {
         color: #fff;
-        background-color: #ffffff !important;
+        
         padding: 18px 0px !important;
     }
 
@@ -739,6 +749,7 @@
     .d-sm-blockk span{
         color: black;
         font-weight: 600;
+        font-size: 25px;
     }
     .d-sm-blockk{
         display: block !important;
@@ -886,9 +897,7 @@
         padding-bottom: 8px;
     }
     .viewp {
-        color: #1C57C9;
-        font-size: 18px;
-        font-weight: 600;
+        
     }
     .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
         padding-left: 84px;
@@ -1163,7 +1172,7 @@
         border-top-right-radius: 20px;
         display: block !important;
         padding: 10px 15px;
-        background-color: #36c982;
+        background-color: #155235;
     }
     .member span {
         color: #1c57c9;
@@ -1225,6 +1234,7 @@
     .profiler-head {
         justify-content: center;
         padding: 0 0;
+        margin-bottom: 50px;
     }
     input::-webkit-input-placeholder {
         font-size: 13px;
@@ -3240,9 +3250,7 @@
         padding-left: 0%;
     }
     .viewp {
-        color: #1C57C9;
-        font-size: 16px;
-        font-weight: 600;
+       
     }
     .viewp .row {
         padding-bottom: 4px;

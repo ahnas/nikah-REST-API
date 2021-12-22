@@ -11,7 +11,8 @@
     <div class="d-none d-sm-blockk" id="imagecli">
       <span class="icofont-navigation-menu form-control-feedback"></span>
     </div>
-    <a id="usernameimage" class="d-lg-none" href="{% url 'web:myprofile' %}"></a>
+
+    
 
     <nav class="nav-menu d-none d-lg-block iconn">
       <ul class="place-items-center">
@@ -33,17 +34,17 @@
 
     <div class="position-fixed mob-hedr" id="mob-hedrr">
 
-      <img width="40px" height="40px" src="{% static 'web/image/profile.jpg' %}" alt="">
-      <span>Muhammed Niyas <i id="closed" style="font-weight: 600;" class="icofont-close-circled float-right"></i> </span>
+      <img width="40px" id="mobilemenuImage" height="40px" alt="">
+      <span id="mobileName">Muhammed Niyas</span> <span><i id="closed" style="font-weight: 600;" class="icofont-close-circled float-right"></i> </span>
       <ul>
 
         <li><a href="{% url 'web:myprofile' %}" class="link">My Profile<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
         <li><a href="{% url 'web:partnerpref' %}" class="link">Partner Preferences<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
         <li><a href="{% url 'web:addphotos' %}" class="link">Edit Photo<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
         <li><a href="{% url 'web:modify' %}" class="link">Advance Search<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
-        <li><a href="#" class="link">Delete Account<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
+        <li><a href="{% url 'web:delete' %}" class="link">Delete Account<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
        
-        <li class="color-redd"><a href="#" class="link color-red">Logout<span class="float-right"><i class="icofont-power color-red"></i></span> </a></li>
+        <li class="color-redd"><a id="logout" href="#" class="link color-red">Logout<span class="float-right"><i class="icofont-power color-red"></i></span> </a></li>
         
       </ul>
     </div>

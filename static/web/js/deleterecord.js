@@ -18,7 +18,7 @@ function collectdata() {
             }
 
             $.ajax({
-                url: "http://127.0.0.1:8000/api/user/deletedrecord/",
+                url: "http://192.168.1.65:8000/api/user/deletedrecord/",
                 type: 'POST',
                 dataType: "JSON",
                 data: data,

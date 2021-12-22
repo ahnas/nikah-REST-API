@@ -1,19 +1,19 @@
 $(document).ready(function () {
   var pageURL = $(location).attr("href");
   $.ajax({
-    url: "http://127.0.0.1:8000/api/user/userdetailsFillCheck/",
+    url: "http://192.168.1.65:8000/api/user/userdetailsFillCheck/",
     type: 'GET',
     beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
     success: function (response) {
       if (response['userProperties'] == false) {
-        if (pageURL != "http://127.0.0.1:8000/profiler") {
-          window.location.href = "http://127.0.0.1:8000/profiler"
+        if (pageURL != "http://192.168.1.65:8000/profiler") {
+          window.location.href = "http://192.168.1.65:8000/profiler"
         }
       }
 
       if (response['user'] == false) {
-        if (pageURL != "http://127.0.0.1:8000/profilerB") {
-          window.location.href = "http://127.0.0.1:8000/profilerB"
+        if (pageURL != "http://192.168.1.65:8000/profilerB") {
+          window.location.href = "http://192.168.1.65:8000/profilerB"
         }
       }
 
@@ -97,7 +97,7 @@ $(document).ready(function () {
     formData.append("image_three", $("#image_three")[0].files[0]);
     formData.append("csrfmiddlewaretoken", csrf_token1);
     $.ajax({
-      url: "http://127.0.0.1:8000/api/user/userImageUpload/",
+      url: "http://192.168.1.65:8000/api/user/userImageUpload/",
       type: $(this).attr("method"),
       data: formData,
       beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
@@ -105,7 +105,7 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       success: function () {
-        window.location = "http://127.0.0.1:8000/pending/";
+        window.location = "http://192.168.1.65:8000/pending/";
       },
       error: function () {
       },

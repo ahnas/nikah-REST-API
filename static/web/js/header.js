@@ -1,16 +1,16 @@
 $("#logout").click(function(){
     localStorage.removeItem('token');
-    window.location.href = "http://127.0.0.1:8000/";
+    window.location.href = "http://192.168.1.65:8000/";
 });
 function logout(){
     localStorage.removeItem('token');
-    window.location.href = "http://127.0.0.1:8000/";
+    window.location.href = "http://192.168.1.65:8000/";
 }
 
 $(document).ready(function () {
     if(localStorage.getItem('token')!=null){
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/test_auth/",
+        url: "http://192.168.1.65:8000/api/user/test_auth/",
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
@@ -19,14 +19,14 @@ $(document).ready(function () {
         error: function (jqXHR) {
             if (jqXHR.status == 400) { 
             } else {
-                $('#username').html("<a href='http://127.0.0.1:8000/login/' class='get-started-btnn'>Sign In</a>");
-                window.location.href = "http://127.0.0.1:8000/";
+                $('#username').html("<a href='http://192.168.1.65:8000/login/' class='get-started-btnn'>Sign In</a>");
+                window.location.href = "http://192.168.1.65:8000/";
             }
         }
     }); 
 }
 else{
-    window.location.href = "http://127.0.0.1:8000/";
+    window.location.href = "http://192.168.1.65:8000/";
 }
 
 

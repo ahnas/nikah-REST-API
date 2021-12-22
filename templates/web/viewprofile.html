@@ -22,7 +22,7 @@
     <input type="hidden" id="profileID" value="{{id}}">
 </form>
 
-<div class="container pager boardd">
+<div class="container pager boardd mb-80">
 
     <div class="row member board">
 
@@ -180,14 +180,10 @@
                                 <div class="d-none three justify-content-center">
                                     <div class="row">
 
-                                        <div class="col-4">
-                                            <p class="sta"><i class="icofont-ui-text-chat"></i></p>
+                                        <div class="col-4" id="chatbutton">
+                                           
                                         </div>
-                                        <div class="col-4">
-                                            <p class="sta"><i class="icofont-heart"></i></p>
-                                        </div>
-                                        <div class="col-4">
-                                            <p class="sta"><i class="icofont-star"></i></p>
+                                        <div class="col-4" id="Likebutton">
                                         </div>
 
                                     </div>
@@ -581,5 +577,6 @@
 <script src="{% static 'web/js/loadheader.js' %}"></script>
 <script src="{% static 'web/js/profileselect.js' %}"></script>
 <script src="{% static 'web/js/header.js' %}"></script>
+<script src="{% static 'chatbox/js/create-or-get-chat.js' %}"></script>
 
 {% endblock %}

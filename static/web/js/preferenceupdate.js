@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     $.ajax({
-        url: "http://127.0.0.1:8000/api/user/GetUserSearch/",
+        url: "http://192.168.1.65:8000/api/user/GetUserSearch/",
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
@@ -23,10 +23,10 @@ $(document).ready(function () {
         error: function (jqXHR) {
             if (jqXHR.status == 404) { 
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
-                window.location.href = "http://127.0.0.1:8000/"
+                window.location.href = "http://192.168.1.65:8000/"
             } else {
-                window.location.href = "http://127.0.0.1:8000/"
-                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                window.location.href = "http://192.168.1.65:8000/"
+                // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     }); 
@@ -94,14 +94,14 @@ $(document).ready(function () {
                 "complexion": complexion,
             }
             $.ajax({
-                url: "http://127.0.0.1:8000/api/user/UserSearchUpdate/",
+                url: "http://192.168.1.65:8000/api/user/UserSearchUpdate/",
                 type: 'POST',
                 dataType: "JSON",
                 data: data,
                             
                 beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
                 success: function (response) {
-                    window.location.href = "http://127.0.0.1:8000/home/?search="+true;
+                    window.location.href = "http://192.168.1.65:8000/home/?search="+true;
                 },
                 error: function (jqXHR) {
                     if (jqXHR.status == 400) { 
