@@ -1758,10 +1758,10 @@ h3::before {
 }
 
 .member{
-  border-color: #1C57C9;
+  /* border-color: #1C57C9;
   border-width: 0.1em;
   border-style: solid;
-  padding: 2%;
+  padding: 2%; */
 }
 .view h2{
   font-size: 30px;
@@ -2481,7 +2481,7 @@ border-radius: 20px;
   padding: 10px;
   background: linear-gradient(
     179.33deg, rgba(0, 0, 0, 0) 2.58%, #000000 75.98%);
-  width: 246px;
+    width: 88%;
 }
 
 .pcard h6{

@@ -11,10 +11,10 @@ $(document).ready(function () {
                 age = age - 1;
             }
             if(obj['is_liked']!=0){
-                var like=""
+                var like="<span class='float-right disp'><button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-thumbs-down border-radius-50 float-left mr-2'></i></button></span>"
             }
             else{
-                like="<span class='float-right disp'>Like this profile? <button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-ui-love mr-2 border-radius-50'></i>Like</button></span>";
+                like="<span class='float-right disp'><button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-ui-love mr-2 border-radius-50'></i></button></span>";
             
             }
             $('#profileimage').attr('src', obj['image'].medium_square_crop)
