@@ -17,7 +17,6 @@ function likeProfile(id){
         success: function (response) {
             $("#"+id).attr("class","icofont-thumbs-down border-radius-50 float-left");
             alert("liked")
-
             loadlikecount();
         },
         error: function (jqXHR) {

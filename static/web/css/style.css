@@ -119,13 +119,14 @@ display: none;
 }
 
 .nav-menu a {
+  font-family: 'Poppins', sans-serif;
   display: block;
   position: relative;
   color: white;
   transition: 0.3s;
   font-size: 15px;
   font-weight: 600;
-  
+  letter-spacing: .5px;
   padding: 0px 10px;
 }
 
