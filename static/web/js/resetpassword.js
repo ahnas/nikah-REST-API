@@ -42,14 +42,14 @@ $(document).ready(function () {
             data = { 'password': inputPassword, 'newPassword': newpass, csrfmiddlewaretoken: csrf_token1 }
 
             $.ajax({
-                url: "http://192.168.1.65:8000/api/user/ResetPasswordView/",
+                url: "http://127.0.0.1:8000/api/user/ResetPasswordView/",
                 type: 'POST',
                 dataType: "JSON",
                 data: data,
                 beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                 success: function (response) {
                     localStorage.removeItem('token');
-                    window.location.href = "http://192.168.1.65:8000/";
+                    window.location.href = "http://127.0.0.1:8000/";
                 },
                 error: function (jqXHR) {
                     $('#error').html("Invalid Password");

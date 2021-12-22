@@ -4,7 +4,7 @@ $(document).ready(function(){
   }
   else{
     $.ajax({
-      url: "http://192.168.1.65:8000/api/user/test_auth/",
+      url: "http://127.0.0.1:8000/api/user/test_auth/",
       type: "GET",
       beforeSend: function (xhr) {
         xhr.setRequestHeader(
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 
   $.ajax({
-    url: "http://192.168.1.65:8000/api/user/getprofilescounts/",
+    url: "http://127.0.0.1:8000/api/user/getprofilescounts/",
     type: "GET",
     beforeSend: function (xhr) {
       xhr.setRequestHeader(
@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 $("#logout").click(function(){
     $.ajax({
-        url: "http://192.168.1.65:8000/official/api/logout/",
+        url: "http://127.0.0.1:8000/official/api/logout/",
         type: "GET",
         beforeSend: function (xhr) {
           xhr.setRequestHeader(

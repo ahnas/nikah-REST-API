@@ -19,13 +19,13 @@ $(document).ready(function () {
     $("#workingasoptions").html('<input id="workingas" name="workingas" type="text" class="form-control" placeholder="Working as" onfocus="workingInputToselect()">')
 
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/userdetailsFillCheck/",
+        url: "http://127.0.0.1:8000/api/user/userdetailsFillCheck/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
             if (response['user'] == true) {
                 $.ajax({
-                    url: "http://192.168.1.65:8000/api/user/Bproperties/",
+                    url: "http://127.0.0.1:8000/api/user/Bproperties/",
                     type: 'GET',
                     dataType: "JSON",
                                 
@@ -64,8 +64,8 @@ $(document).ready(function () {
                 }); 
             }
             if (response['userProperties'] == false) {
-                if (pageURL != "http://192.168.1.65:8000/profiler") {
-                    window.location.href = "http://192.168.1.65:8000/profiler"
+                if (pageURL != "http://127.0.0.1:8000/profiler") {
+                    window.location.href = "http://127.0.0.1:8000/profiler"
                 }
             }
         },
@@ -73,7 +73,7 @@ $(document).ready(function () {
         }
     });
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/Profesions/",
+        url: "http://127.0.0.1:8000/api/user/Profesions/",
         type: 'GET',
         success: function (response) {
             
@@ -220,7 +220,7 @@ $(document).ready(function () {
 
             }
             $.ajax({
-                url: "http://192.168.1.65:8000/api/user/Bproperties/",
+                url: "http://127.0.0.1:8000/api/user/Bproperties/",
                 type: 'POST',
                 dataType: "JSON",
                 data: data,
@@ -229,7 +229,7 @@ $(document).ready(function () {
                 success: function (response) {
                     // var responseText = jQuery.parseJSON(response);   
                     //sessionStorage.setItem("token", response['token'])
-                    window.location.href = "http://192.168.1.65:8000/basicpref/"
+                    window.location.href = "http://127.0.0.1:8000/basicpref/"
                 },
                 error: function (jqXHR) {
                     if (jqXHR.status == 400) { 

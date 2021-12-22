@@ -18,13 +18,13 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/userdetailsFillCheck/",
+        url: "http://127.0.0.1:8000/api/user/userdetailsFillCheck/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
             if (response['userProperties'] == true) {
                 $.ajax({
-                    url: "http://192.168.1.65:8000/api/user/properties/",
+                    url: "http://127.0.0.1:8000/api/user/properties/",
                     type: 'GET',
                     dataType: "JSON",
 
@@ -245,14 +245,14 @@ $(document).ready(function () {
             }
 
             $.ajax({
-                url: "http://192.168.1.65:8000/api/user/properties/",
+                url: "http://127.0.0.1:8000/api/user/properties/",
                 type: 'POST',
                 dataType: "JSON",
                 data: data,
 
                 beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                 success: function (response) {
-                    window.location.href = "http://192.168.1.65:8000/profilerB/"
+                    window.location.href = "http://127.0.0.1:8000/profilerB/"
                 },
                 error: function (jqXHR) {
                     if (jqXHR.status == 400) {

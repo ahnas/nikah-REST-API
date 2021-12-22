@@ -47,7 +47,7 @@ $(document).ready(function () {
             data = {'email':email,'password':password1,csrfmiddlewaretoken:csrf_token1}
             
             $.ajax({
-                    url : "http://192.168.1.65:8000/api/user/create/",
+                    url : "http://127.0.0.1:8000/api/user/create/",
                     type: 'POST',
                     dataType:"JSON",
                     data:data,
@@ -71,7 +71,7 @@ $(document).ready(function () {
 
 function generatetoken(data){
     $.ajax({
-        url : "http://192.168.1.65:8000/api/user/token/",
+        url : "http://127.0.0.1:8000/api/user/token/",
         type: 'POST',
         dataType:"JSON",
         data:data,
@@ -80,7 +80,7 @@ function generatetoken(data){
                 // var responseText = jQuery.parseJSON(response);
                 localStorage.setItem("token", response['token'])
                 //sessionStorage.setItem("token", response['token'])
-                window.location.href="http://192.168.1.65:8000/profiler/"
+                window.location.href="http://127.0.0.1:8000/profiler/"
                 },
                 error: function (jqXHR) {
                     if (jqXHR.status == 400) {

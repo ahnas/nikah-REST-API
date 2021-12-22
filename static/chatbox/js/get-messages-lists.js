@@ -3,7 +3,7 @@ $(document).ready(function(){
     var id = GetURLParameter("id");
         if (id) {
           $.ajax({
-            url: "http://192.168.1.65:8000/api/user/getchats/?chatuser=" + id,
+            url: "http://127.0.0.1:8000/api/user/getchats/?chatuser=" + id,
             type: "GET",
             beforeSend: function (xhr) {
               xhr.setRequestHeader(
@@ -40,7 +40,7 @@ function LoadChat(roomID, HeaderImage, HeaderName,chatToUser) {
   $("#roomID").val(roomID);
   $("#chatToUser").val(chatToUser);
   $.ajax({
-    url: "http://192.168.1.65:8000/api/user/getmessages/?roomID=" + roomID,
+    url: "http://127.0.0.1:8000/api/user/getmessages/?roomID=" + roomID,
     type: "GET",
     beforeSend: function (xhr) {
       xhr.setRequestHeader(
@@ -140,7 +140,7 @@ function sendMessageToServer(roomID, message,chatToUser) {
         "message":message,
       }
       $.ajax({
-        url: "http://192.168.1.65:8000/api/user/getmessages/",
+        url: "http://127.0.0.1:8000/api/user/getmessages/",
         type: "POST",
         data: data,
         beforeSend: function (xhr) {
@@ -153,7 +153,7 @@ function sendMessageToServer(roomID, message,chatToUser) {
           400: function (response) {
           },
           201: function (response) {
-            window.location = "http://192.168.1.65:8000/chat-direct/?id=" + chatToUser;
+            window.location = "http://127.0.0.1:8000/chat-direct/?id=" + chatToUser;
           },
         },
         

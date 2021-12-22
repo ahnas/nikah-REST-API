@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/pendingverification/?status=False",
+        url: "http://127.0.0.1:8000/api/user/pendingverification/?status=False",
         type: "GET",
         beforeSend: function (xhr) {
             xhr.setRequestHeader(
@@ -146,7 +146,7 @@ function verifyUser(id) {
         csrfmiddlewaretoken:csrf_token
     }
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/verifyview/"+id+"/",
+        url: "http://127.0.0.1:8000/api/user/verifyview/"+id+"/",
         type: "GET",
         beforeSend: function (xhr) {
             xhr.setRequestHeader(

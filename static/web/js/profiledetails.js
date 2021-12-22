@@ -1,7 +1,7 @@
 $(document).ready(function () {
     id = $('#profileID').val()
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
+        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
@@ -98,7 +98,7 @@ $(document).ready(function () {
             var s = (parseInt(obj['profile'].sisters) > 1) ? "s" : "";
             $("#brothersister").html(obj['profile'].brothers + " Brother" + b + " | " + obj['profile'].sisters + " Sister" + s);
             $.ajax({
-                url: "http://192.168.1.65:8000/api/user/getpreferenceofuser/" + obj['user'].id + "/",
+                url: "http://127.0.0.1:8000/api/user/getpreferenceofuser/" + obj['user'].id + "/",
                 type: 'GET',
                 beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                 success: function (response) {
@@ -116,7 +116,7 @@ $(document).ready(function () {
                     if (jqXHR.status == 404) {
                         var responseText = jQuery.parseJSON(jqXHR.responseText);
                     } else {
-                        // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                        // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
                     }
                 }
             });
@@ -125,7 +125,7 @@ $(document).ready(function () {
             if (jqXHR.status == 404) {
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
             } else {
-                // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     });
@@ -135,7 +135,7 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/collectproperties/",
+        url: "http://127.0.0.1:8000/api/user/collectproperties/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
@@ -186,7 +186,7 @@ $(document).ready(function () {
             if (jqXHR.status == 404) {
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
             } else {
-                // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     });
@@ -198,7 +198,7 @@ $(document).ready(function () {
 });
 function loadpremiumFeatures(){
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
+        url: "http://127.0.0.1:8000/api/user/UaerpropertiesLikedandAndNonLiked/" + id + "/",
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
@@ -227,7 +227,7 @@ function loadpremiumFeatures(){
             if (jqXHR.status == 404) {
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
             } else {
-                // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     });

@@ -10,7 +10,7 @@ function calculateAge(dob) {
 
 function genderbasedprofile(gender) {
 $.ajax({
-    url: "http://192.168.1.65:8000/api/user/adminsdashboard/?gender="+gender,
+    url: "http://127.0.0.1:8000/api/user/adminsdashboard/?gender="+gender,
     type: "GET",
     beforeSend: function (xhr) {
       xhr.setRequestHeader(

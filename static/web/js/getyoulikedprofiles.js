@@ -1,6 +1,6 @@
 function deletelike(id){
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/likeprofile/"+id+"/",
+        url: "http://127.0.0.1:8000/api/user/likeprofile/"+id+"/",
         type: 'DELETE',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
                
@@ -23,7 +23,7 @@ $(document).ready(function () {
    
     
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/UserLikedProfiles/",
+        url: "http://127.0.0.1:8000/api/user/UserLikedProfiles/",
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
@@ -55,10 +55,10 @@ $(document).ready(function () {
         },
         error: function (jqXHR) {
             if (jqXHR.status == 404) { 
-                window.location.href = "http://192.168.1.65:8000/pending"
+                window.location.href = "http://127.0.0.1:8000/pending"
                 var responseText = jQuery.parseJSON(jqXHR.responseText);
             } else {
-                // $('#username').html("<a href='http://192.168.1.65:8000/signup/' class='get-started-btnn'>Sign Up</a>");
+                // $('#username').html("<a href='http://127.0.0.1:8000/signup/' class='get-started-btnn'>Sign Up</a>");
             }
         }
     }); 

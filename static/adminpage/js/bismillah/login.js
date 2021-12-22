@@ -28,7 +28,7 @@ $("#loginAdminForm").validate({
             csrfmiddlewaretoken:csrftoken
         } 
         $.ajax({
-            url:"http://192.168.1.65:8000/api/user/token/",
+            url:"http://127.0.0.1:8000/api/user/token/",
             type: "POST",
             data: data,
             statusCode: {
@@ -37,7 +37,7 @@ $("#loginAdminForm").validate({
                 },
                 200:function(response){
                     localStorage.setItem("admin_token",response['token']);
-                    window.location="http://192.168.1.65:8000/official/dashboard/"
+                    window.location="http://127.0.0.1:8000/official/dashboard/"
                 }
             }
         });

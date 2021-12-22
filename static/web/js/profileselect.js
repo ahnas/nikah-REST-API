@@ -1,12 +1,12 @@
 function profileview(id){
-    window.location.href = "http://192.168.1.65:8000/viewprofile/"+id;
+    window.location.href = "http://127.0.0.1:8000/viewprofile/"+id;
 }
 
 function likeProfile(id){
     data = {'liked_by_user':id,'liked_user':id}
             
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/likeprofile/",
+        url: "http://127.0.0.1:8000/api/user/likeprofile/",
         type: 'POST',
         dataType: "JSON",
         data: data,
@@ -46,5 +46,5 @@ function likeProfile(id){
 
 
 function modify(id){
-    window.location.href = "http://192.168.1.65:8000/modify/";
+    window.location.href = "http://127.0.0.1:8000/modify/";
 }

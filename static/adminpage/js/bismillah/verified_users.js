@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $.ajax({
-        url:"http://192.168.1.65:8000/api/user/pendingverification/?status=True",
+        url:"http://127.0.0.1:8000/api/user/pendingverification/?status=True",
         type:"GET",
         beforeSend: function (xhr) {
             xhr.setRequestHeader(
@@ -144,7 +144,7 @@ function verifyUser(id) {
         csrfmiddlewaretoken:csrf_token
     }
     $.ajax({
-        url: "http://192.168.1.65:8000/api/user/removeVerification/"+id+"/",
+        url: "http://127.0.0.1:8000/api/user/removeVerification/"+id+"/",
         type: "GET",
         data: data,
         beforeSend: function (xhr) {
@@ -165,7 +165,7 @@ function verifyUser(id) {
 
 function getdatas(value){
     $.ajax({
-        url:"http://192.168.1.65:8000/api/user/pendingverification/?search="+value,
+        url:"http://127.0.0.1:8000/api/user/pendingverification/?search="+value,
         type:"GET",
         beforeSend: function (xhr) {
             xhr.setRequestHeader(
