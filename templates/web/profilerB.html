@@ -30,10 +30,11 @@
                             <label for="inputFirstname">Highest Education *</label>
                             {{form.highestEducation}}
                         </div>
-                        <div class="col-sm-6" id="EduSpezializationOption">
+                        <div class="col-sm-6">
                             <label for="inputLastname">Specialization *</label>
+                            <div id="EduSpezializationOption">
 
-                            {% include 'web/partials/selectedu.html' %}
+                            </div>
 
                         </div>
                     </div>
@@ -42,10 +43,11 @@
                             <label for="inputAddressLine2">Working With</label>
                             {{form.workingwith}}
                         </div>
-                        <div class="col-sm-6" id="workingasoptions">
+                        <div class="col-sm-6">
                             <label for="inputAddressLine2">Working as</label>
-                            <!-- <input type="text" class="form-control" name="workingas" id="workingas" placeholder="Working as"> -->
-                            {% include 'web/partials/workingas.html' %}
+                            <div  id="workingasoptions">
+
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">

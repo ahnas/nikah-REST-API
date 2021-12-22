@@ -11,9 +11,7 @@ $.ajax({
     },
     success: function (response) {
       console.log(response)
-        const obj = JSON.parse(JSON.stringify(response))
-        console.log(obj)
-       
+        const obj = JSON.parse(JSON.stringify(response))       
         for(let i =0;i<obj.length;i++)
         {   
             var feedback=obj[i].not_satisfied_reason
@@ -63,3 +61,9 @@ $.ajax({
       }
     },
   });});
+
+  $(function() {
+    $(this).bind("contextmenu", function(e) {
+        e.preventDefault();
+    });
+}); 
