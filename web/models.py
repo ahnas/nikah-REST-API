@@ -35,3 +35,16 @@ class Profile(models.Model):
        
     def __str__(self):
         return str(self.name)
+
+
+class Offer(models.Model):
+    
+    name = models.CharField(max_length=225)
+    image = VersatileImageField('Offer',upload_to="Offer/")
+    
+    class Meta:
+        verbose_name_plural = ('Offer')
+       
+    def __str__(self):
+        return str(self.name)
+
