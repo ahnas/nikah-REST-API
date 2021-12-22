@@ -51,7 +51,7 @@ function getdatas(nmid){
                     <div class="margin-top10">
                     <a class="heartt" id="buttonn">
                     <i class="icofont-ui-love float-left" onclick='likeProfile(`+obj[i]['user']+`)'></i> </a>
-                    <i class="icofont-ui-text-chat float-right chta" onclick='createOrdisplayChat(`+obj[i]['user']+`)'></i> 
+                    <i class="icofont-ui-text-chat float-right chta" onclick='ChatWithUser(`+obj[i]['user']+`)'></i> 
                     </div>
                     </div>
                     </div>
