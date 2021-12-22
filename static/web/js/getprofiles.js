@@ -29,7 +29,7 @@ function getdatas(nmid){
             for(let i = 0; i < obj.length && i<=200; i++){
                 var age= new Date().getFullYear()-new Date(obj[i]['profile'].dateOfBirth).getFullYear();
                 var html=''
-                    html+=`<div class="col-lg-4 col-md-6 col-sm-12 col-12 col-pad-md" id=`+obj[i]['user']+`>
+                    html+=`<div class="col-lg-4 col-md-6 col-sm-12 col-12 col-pad-md" >
                     <div class="pcard">
 
                     <img class="position-relative" width="100%" src=`+obj[i].image['medium_square_crop']+` alt="" onclick='profileview(`+obj[i].id+`)'>
@@ -50,7 +50,7 @@ function getdatas(nmid){
                     </ul>
                     <div class="margin-top10">
                     <a class="heartt" id="buttonn">
-                    <i class="icofont-ui-love float-left" onclick='likeProfile(`+obj[i]['user']+`)'></i> </a>
+                    <i id=`+obj[i]['user']+` class="icofont-ui-love float-left" onclick='likeProfile(`+obj[i]['user']+`)'></i>
                     <i class="icofont-ui-text-chat float-right chta" onclick='createOrdisplayChat(`+obj[i]['user']+`)'></i> 
                     </div>
                     </div>

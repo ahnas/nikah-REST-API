@@ -14,7 +14,7 @@ $(document).ready(function () {
                 var like=""
             }
             else{
-                like="<span id='"+obj['user'].id+"' class='float-right disp'>Like this profile? <button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i class='icofont-ui-love mr-2'></i>Like</button></span>";
+                like="<span class='float-right disp'>Like this profile? <button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-ui-love mr-2 border-radius-50'></i>Like</button></span>";
             
             }
             $('#profileimage').attr('src', obj['image'].medium_square_crop)
@@ -158,7 +158,8 @@ $(document).ready(function () {
                     <li>`+ prof[i]['education'].nativeCity+` ...</li>  
                     </ul>
                     <div class="margin-top10">
-                    <i class="icofont-ui-love float-left" onclick='likeProfile(`+prof[i]['user']+`)'></i> 
+                    <a class="heartt" id="buttonn">
+                    <i class="icofont-ui-love float-left" onclick='likeProfile(`+prof[i]['user']+`)'></i>  </a>
                     <i class="icofont-ui-text-chat float-right chta" onclick='createOrdisplayChat(`+prof[i]['user']+`)'></i> 
                     </div>
                     </div>
