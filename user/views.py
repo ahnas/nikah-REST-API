@@ -122,7 +122,8 @@ class LoadHeaderView(APIView):
         user = UserProperties.objects.filter(user=self.request.user).first()
         nameUser = str(user.name)
         imageUrl=str(image.image.url)
-        return HttpResponse(nameUser +','+imageUrl)
+        nmID=str(image.nmId)
+        return HttpResponse(nameUser +','+imageUrl+','+nmID)
 
 
 # UserAllData = namedtuple('UserAllData', ('userproperties', 'usereducation'))
