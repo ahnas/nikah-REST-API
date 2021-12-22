@@ -31,7 +31,6 @@ $(document).ready(function () {
                                 
                     beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
                     success: function (response) {
-                        console.log(response[0])
                         $('#highestEducation').val(response[0]['highestEducation']);
                         $('#workingwith').val(response[0]['workingwith']);
                         $('#workingas').val(response[0]['workingas']);

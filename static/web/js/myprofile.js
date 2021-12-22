@@ -96,7 +96,6 @@ $(document).ready(function(){
         type: 'GET',
         beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
         success: function (response) {
-            console.log(response)
             $("#highestEducation").html(response['highestEducation'])
             $("#location").html(response['locality'])
             $("#primaryNumber").html(response['primaryNumber'])
@@ -134,7 +133,6 @@ $(document).ready(function(){
             $("#EduSpezialization").val(response['EduSpezialization']) 
             $('input[name=nativeCountry]').val(response['nativeCountry'])
             $('#workingas').val(response['workingas'])
-            console.log(response['workingas'])
             $('select[name=annualincome]').val(response['annualincome'])
             $('select[name=performNamaz]').val(response['performNamaz'])
             $('select[name=readQuran]').val(response['readQuran'])

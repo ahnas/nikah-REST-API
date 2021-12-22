@@ -11,7 +11,6 @@ function selcetedLanguage(a) {
 
 
 
-
 $(document).ready(function () {
     
     $("#ocupationFather").html('<input id="fatherOccupation" name="fatherOccupation" placeholder="Father Occupation" type="text" class="form-control" onfocus="fatherInputToselect()">')
@@ -31,7 +30,6 @@ $(document).ready(function () {
 
                     beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                     success: function (response) {
-                        console.log(response[0]['bodyType'])
                         $('#profileCreated').val(response[0]['profileCreated']);
                         $('#name').val(response[0]['name']);
                         $('#gender').val(response[0]['gender']);

@@ -24,31 +24,39 @@ function getdatas(nmid){
         type: 'GET',
         beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
         success: function (response) {
-            
-            console.log(response)
-            $('#membersList').empty();
             const obj = JSON.parse(JSON.stringify(response));
-            console.log(obj)
+            $('#membersList').empty()
             for(let i = 0; i < obj.length && i<=200; i++){
                 var age= new Date().getFullYear()-new Date(obj[i]['profile'].dateOfBirth).getFullYear();
-                $('#membersList').append("<div class='col-lg-4  col-md-6 col-sm-12 col-12 p-2' id='"+obj[i]['user']+"'>\
-                <div class='pager-coll gext'><div class='row justify-content-center'>\
-                <div class='col-lg-5 col-md-5 col-sm-12 pr-0'>\
-                <img src='"+obj[i].image['medium_square_crop']+"' alt='' class='homeimages'  onclick='profileview("+obj[i].id+")'>\
-                <div class='d-flex mobi'><p class='sta'>\
-                <i class='icofont-ui-text-chat' onclick='ChatWithUser("+obj[i]['user']+")'></i>\
-                </p><p class='sta'><i class='icofont-star'></i>\
-                </p></div></div><div class='col-lg-7 col-md-7\ col-sm-5 col-6 pro-detail'>\
-                <a href='#' class='like mobii' onclick='likeProfile("+obj[i]['user']+")'><i class='icofont-ui-love'></i>Like</a>\
-                <h4>"+obj[i].nmId+"</h4><p>Age  <span class='sp1 ml-4'>"+age+"</span> \
-                </p> <p>Status  <span class='sp2'>"+obj[i]['profile'].martialStatus+"</span></p>\
-                <p ><span><i class='icofont-users-alt-3 mr-2'></span></i>\
-                "+obj[i]['profile'].relegion+"</p><p><span><i class='icofont-web mr-2'></span></i>\
-                "+obj[i]['education'].highestEducation+"</p><p><span><i class='icofont-bag mr-2'></span></i>\
-                "+obj[i]['education'].workingas+"</p><p><span><i class='icofont-location-pin mr-2'></span></i>"+ obj[i]['education'].nativeCity+"</p>\
-                </div></div><div class='d-none three justify-content-center'><p class=''>\
-                <i class='icofont-ui-text-chat' onclick='ChatWithUser("+obj[i]['user']+")'></i></p><p class='ml-3 mr-3'><i class='icofont-star'>\
-                </i></p><p class=''><i class='icofont-heart' onclick='likeProfile("+obj[i]['user']+")'></i></p></div></div></div>");
+                var html=''
+                    html+=`<div class="col-lg-4 col-md-6 col-sm-12 col-12 col-pad-md" id=`+obj[i]['user']+`>
+                    <div class="pcard">
+
+                    <img class="position-relative" width="100%" src=`+obj[i].image['medium_square_crop']+` alt="" onclick='profileview(`+obj[i].id+`)'>
+
+                    <div class="position-absolute pcard-det">  
+                    <h5>`+obj[i]['profile'].name+`</h5>
+                    <h6>`+obj[i].nmId+`</h6>
+
+                    <ul class="d-flex justify-content-space-between">
+                    <li>`+age+` Years |&nbsp</li> 
+                    <li>`+obj[i]['profile'].height+` cm |&nbsp</li> 
+                    <li>`+obj[i]['profile'].martialStatus+`</li>  </ul>
+
+                    <ul class="d-flex justify-content-space-between">
+                    <li>`+obj[i]['education'].workingas+` |&nbsp</li> 
+                    <li>`+obj[i]['profile'].relegion+` |&nbsp</li> 
+                    <li>`+ obj[i]['education'].nativeCity+` ...</li>  
+                    </ul>
+                    <div class="margin-top10">
+                    <a class="heartt" id="buttonn">
+                    <i class="icofont-ui-love float-left" onclick='likeProfile(`+obj[i]['user']+`)'></i> </a>
+                    <i class="icofont-ui-text-chat float-right chta" onclick='createOrdisplayChat(`+obj[i]['user']+`)'></i> 
+                    </div>
+                    </div>
+                    </div>
+                    </div>`
+                    $('#membersList').append(html)
                 }
         },
         error: function (jqXHR) {
