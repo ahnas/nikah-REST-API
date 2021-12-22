@@ -312,6 +312,9 @@ class LikedProfiles(APIView):
 
 
         user =User.objects.get(id=request.data['liked_user'])
+        if LikeProfile.objects.filter(liked_by_user=liked_by_user,liked_user=user).exists():
+            LikeProfile.objects.filter(liked_by_user=liked_by_user,liked_user=user).delete()
+            return Response({'message':"success"})
         data=LikeProfile()
         data.liked_by_user=liked_by_user
         data.liked_user=user
@@ -549,36 +552,6 @@ class MatchedProfiles(viewsets.ModelViewSet):
             return serializers.UserAllserializerDetailled
 
         return self.serializer_class
-
-
-
-
-class LikedProfiles(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-    """
-    List all Likeprodiles, or create a new snippet.
-    """
-    def get(self, request, format=None):
-        Likeprodiles = LikeProfile.objects.all()
-        serializer = serializers.Likeprodileserializer(Likeprodiles, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        liked_by_user = Image.objects.get(user=self.request.user)
-
-        print("#"*20,request.data['liked_user'])
-
-        user =User.objects.get(id=request.data['liked_user'])
-        data=LikeProfile()
-        data.liked_by_user=liked_by_user
-        data.liked_user=user
-        data.save()
-        serializer = serializers.Likeprodileserializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
 
 
 

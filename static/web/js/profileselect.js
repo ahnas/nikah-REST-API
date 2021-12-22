@@ -3,7 +3,6 @@ function profileview(id){
 }
 
 function likeProfile(id){
-    
     data = {'liked_by_user':id,'liked_user':id}
             
     $.ajax({
@@ -15,8 +14,15 @@ function likeProfile(id){
                
         // beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token 6660edb56e1809238b3239f9bb8e3c1961e11c6e');},
         success: function (response) {
+
+            if($("#"+id).hasClass("icofont-thumbs-down")){
+                $("#"+id).attr("class","icofont-ui-love border-radius-50 float-left");
+
+            }
+            else{
             $("#"+id).attr("class","icofont-thumbs-down border-radius-50 float-left");
-            alert("liked")
+            }
+
             loadlikecount();
         },
         error: function (jqXHR) {
