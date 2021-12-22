@@ -105,7 +105,7 @@ class UserPropertieslessfieldSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserProperties
         fields = (
-            'id', 'dateOfBirth', 'name', 'nationality','relegion','martialStatus','gender',
+            'id', 'dateOfBirth', 'name', 'nationality','relegion','martialStatus','gender','height',
         )
         read_only_fields = ('id','dateOfBirth')
 class UserEducationLocationContactSerializer(serializers.ModelSerializer):

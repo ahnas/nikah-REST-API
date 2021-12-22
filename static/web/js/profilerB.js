@@ -28,7 +28,6 @@ $(document).ready(function () {
                                 
                     beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token '+localStorage.getItem('token'));},
                     success: function (response) {
-                        console.log(response[0])
                         $('#highestEducation').val(response[0]['highestEducation']);
                         $('#workingwith').val(response[0]['workingwith']);
                         $('#workingas').val(response[0]['workingas']);
@@ -263,7 +262,6 @@ $('#EduSpezialization').on('change', function (e) {
         html+='<label for="inputContactNumber">Specialization</label>'
         html+='<input type="Text" placeholder="Specify Education" id="EduSpezialization" name="EduSpezialization" class="form-control">'
         $('#EduSpezializationOption').html(html)
-        console.log("Other")
     }
 });
 

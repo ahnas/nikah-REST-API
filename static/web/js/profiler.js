@@ -15,7 +15,6 @@ $('#motherOccupation').on('change', function (e) {
         html+='<label for="inputContactNumber">Mother Occupation *</label>'
         html+='<input type="Text" placeholder="Specify Occupation" id="motherOccupation" name="motherOccupation" class="form-control">'
         $('#ocupationMother').html(html)
-        console.log("Other")
     }
 });
 
@@ -26,7 +25,6 @@ $('#fatherOccupation').on('change', function (e) {
         html+='<label for="inputContactNumber">Father Occupation *</label>'
         html+='<input type="Text" placeholder="Specify Occupation" id="fatherOccupation" name="fatherOccupation" class="form-control">'
         $('#ocupationFather').html(html)
-        console.log("Other")
     }
 });
 
@@ -46,7 +44,6 @@ $(document).ready(function () {
 
                     beforeSend: function (xhr) { xhr.setRequestHeader('Authorization', 'Token ' + localStorage.getItem('token')); },
                     success: function (response) {
-                        console.log(response[0]['bodyType'])
                         $('#profileCreated').val(response[0]['profileCreated']);
                         $('#name').val(response[0]['name']);
                         $('#gender').val(response[0]['gender']);
