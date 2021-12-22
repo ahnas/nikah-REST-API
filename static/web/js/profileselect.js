@@ -15,7 +15,9 @@ function likeProfile(id){
                
         // beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Token 6660edb56e1809238b3239f9bb8e3c1961e11c6e');},
         success: function (response) {
-            $("#"+id).fadeOut();
+            $("#"+id).attr("class","icofont-thumbs-down border-radius-50 float-left");
+            alert("liked")
+
             loadlikecount();
         },
         error: function (jqXHR) {
