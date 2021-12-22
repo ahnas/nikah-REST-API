@@ -49,7 +49,8 @@ function getdatas(nmid){
                     <li>`+ obj[i]['education'].nativeCity+` ...</li>  
                     </ul>
                     <div class="margin-top10">
-                    <i class="icofont-ui-love float-left" onclick='likeProfile(`+obj[i]['user']+`)'></i> 
+                    <a class="heartt" id="buttonn">
+                    <i class="icofont-ui-love float-left" onclick='likeProfile(`+obj[i]['user']+`)'></i> </a>
                     <i class="icofont-ui-text-chat float-right chta" onclick='createOrdisplayChat(`+obj[i]['user']+`)'></i> 
                     </div>
                     </div>

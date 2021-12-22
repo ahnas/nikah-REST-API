@@ -32,7 +32,9 @@ form .error{
 
 a:hover{
   text-decoration: none;
+  color: red;
 }
+
 
 .google {
   font-size: 15px;
@@ -1935,9 +1937,10 @@ h3::before {
   font-size: 25px;
   font-weight: 600;
   color: #1c57c9;
+  text-align: center;
 }
 .reli p{
-  font-weight: 600;
+  font-weight: normal;
 }
 .chat i{
   font-size: 36px;
@@ -2198,23 +2201,25 @@ h3::before {
 
 .viewp{
   color: #000000;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: normal;
 }
 .parttt{
   padding-left: 25px;
 }
 .viewp .row{
-  padding-bottom: 13px;
+  padding-bottom: 5px;
 }
 
 .prremm{
   border: 1px solid black;
   padding: 20px;
+  background-color: #36c982;
 }
 .perss h2{
   font-weight: 600;
   border-bottom: 3px solid #00AB3B;
+  font-size: 22px;
 }
 
 .dyimg {
@@ -2345,9 +2350,9 @@ h3::before {
 
 .favv{
   position: fixed;
-  top: 3px;
+  top: 6px;
   background-color: white;
-  padding: 4px 10px;
+  padding: 1px 8px;
   border-radius: 50%;
   color: #285ec9;
   font-weight: 600;
@@ -2496,4 +2501,13 @@ border-radius: 20px;
 
 .chta{
   color: #36c982;
+}
+
+.heartt {
+  cursor: pointer;
+
+}
+
+.heartt-clicked {
+  color: red;
 }
