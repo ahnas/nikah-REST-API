@@ -287,21 +287,48 @@ class ProfessionTable(models.Model):
 
 
 
-class UserChats(models.Model):
-    chatName = models.CharField(max_length=10 , unique=True)
-    ChatfromUser = models.ForeignKey(Image,on_delete=models.CASCADE)
-    ChatToUser = models.ForeignKey(User,on_delete=models.CASCADE)
-    ChatfromUserID = models.IntegerField(null=True,blank=True)
-    chatimage = models.CharField(max_length=225,null=True,blank=True)
-    chatDisplayName = models.CharField(max_length=225,null=True,blank=True)
+class Chat(models.Model):
+    roome_name    = models.CharField(max_length=128,unique=True)
+    chat_user_one = models.IntegerField()
+    chat_user_two = models.IntegerField()
+    lastUpdated=models.DateTimeField(auto_now=True)
+
+    def __st__(self):
+        return str(self.roome_name)
+    
+    class Meta:
+        unique_together = ('chat_user_one', 'chat_user_two',)
+        ordering=['-lastUpdated']
 
 
-class Messages(models.Model):
-    chat = models.ForeignKey(UserChats,on_delete=models.CASCADE)
-    message = models.CharField(max_length=225)
-    time = models.TimeField(auto_now_add=True)
+class Message(models.Model):
+    chat = models.ForeignKey(Chat,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    chatimage=models.CharField(max_length=225,null=True,blank=True)
+    message = models.TextField()
+    time = models.TimeField(auto_now=True)
+
+    class Meta:
+        ordering=['-time']
+
+    def __st__(self):
+        return str(self.user)
+
+
+# class UserChats(models.Model):
+#     chatName = models.CharField(max_length=10 , unique=True)
+#     ChatfromUser = models.ForeignKey(Image,on_delete=models.CASCADE)
+#     ChatToUser = models.ForeignKey(User,on_delete=models.CASCADE)
+#     ChatfromUserID = models.IntegerField(null=True,blank=True)
+#     chatimage = models.CharField(max_length=225,null=True,blank=True)
+#     chatDisplayName = models.CharField(max_length=225,null=True,blank=True)
+
+
+# class Messages(models.Model):
+#     chat = models.ForeignKey(UserChats,on_delete=models.CASCADE)
+#     message = models.CharField(max_length=225)
+#     time = models.TimeField(auto_now_add=True)
+#     user = models.ForeignKey(User,on_delete=models.CASCADE)
+#     chatimage=models.CharField(max_length=225,null=True,blank=True)
 
 
 class DeletedRecord(models.Model):

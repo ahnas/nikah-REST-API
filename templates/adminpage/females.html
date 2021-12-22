@@ -1,23 +1,44 @@
 {% extends 'adminpage/base.html' %} {% load static %} {% block content %}
 
 <div class="container-scroller">
-	<!-- partial:../../partials/_navbar.html -->
+  <!-- partial:../../partials/_navbar.html -->
 
-	<!-- partial -->
-	<div class="container-fluid page-body-wrapper">
-		<!-- partial:../../partials/_settings-panel.html -->
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:../../partials/_settings-panel.html -->
 
-		<!-- partial -->
+    <!-- partial -->
 
-		<!-- partial:../../partials/_sidebar.html -->
-		{% include 'adminpage/partials/sidebar.html' %}
-		<!-- partial -->
-		<div class="main-panel">
-			<div class="content-wrapper">
-				<div class="row" id="femaleMembers">
-					
-
-					<!-- <div class="col-md-4 grid-margin stretch-card">
+    <!-- partial:../../partials/_sidebar.html -->
+    {% include 'adminpage/partials/sidebar.html' %}
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="form-group has-feedback has-search" class="col-lg-4">
+            <span
+              class="glyphicon glyphicon-search form-control-feedback"
+            ></span>
+            <input
+              type="text"
+              id="searchbox2"
+              class="form-control"
+              placeholder="Search"
+            />
+          </div>
+          <div class="form-group pl-5" class="col-lg-4">
+            <select class="form-control" id="selectbox2">
+              <option value="0">All</option>
+              <option value="Never Married">Never Married</option>
+              <option value="Widowed">Widowed</option>
+              <option value="Divorced">Divorced</option>
+              <option value="Awaiting Divorse">Awaiting Divorse</option>
+              <option value="Married">Married</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" id="femaleMembers">
+          <!-- <div class="col-md-4 grid-margin stretch-card">
 						<div class="card p-3">
                             <img class="card-img-top rounded img-size mx-auto" src="{% static 'adminpage/images/faces/1.jpg' %}" alt="Card image cap">
                             
@@ -39,25 +60,24 @@
 							</div>
 						</div>
 					</div> -->
-                    
-				</div>	
-			</div>
-			<!-- content-wrapper ends -->
-			<!-- partial:../../partials/_footer.html -->
-			{% include 'adminpage/partials/footer.html' %}
-			<!-- partial -->
-		</div>
-		<!-- main-panel ends -->
-	</div>
-	<!-- page-body-wrapper ends -->
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:../../partials/_footer.html -->
+      {% include 'adminpage/partials/footer.html' %}
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
 </div>
 
 {% endblock %}
 {% block javascript %}
 <script>
-	$(document).ready(function(){
-		genderbasedprofile('female')
-	});
+    $(document).ready(function () {
+    genderbasedprofile("female");
+  });
 </script>
 <script src="{% static 'adminpage/js/bismillah/collect-profile-to-admin.js' %}"></script>
 {% endblock %}

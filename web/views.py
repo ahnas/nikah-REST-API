@@ -309,6 +309,21 @@ def resetpass(request):
         
     return render(request, 'web/resetpass.html',context) 
 
+    
+def chattwo(request):
+    context  = {
+      
+    }
+    return render(request,'chatbox/index.html',context)
+
+
+def chat_direct(request):
+    context  = {
+      
+    }
+    return render(request,'chatbox/chat-direct.html',context)
+
+
 
 
 
