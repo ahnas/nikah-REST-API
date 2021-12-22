@@ -163,8 +163,8 @@ $(document).ready(function () {
                     </div>
                     </div>
                     </div>`
-                    $('#membersList').append(html)
-            //     $('#similarProfiles').append(
+                    $('#similarProfiles').append(html)
+                    //     $('#similarProfiles').append(
             //         "<div class='col-lg-4 col-md-6 col-sm-12 col-12 p-2'>\
             //  <div class='pager-coll' onclick='profileview("+ prof[i].id + ")'>\
             //   <div class='row'>\
@@ -180,6 +180,7 @@ $(document).ready(function () {
 
             // }
             // $('#username').html("<a href='#' class='text-white'>"+myArr[1]+"</a>");
+            }
             const obj = JSON.parse(JSON.stringify(response));
 
         },
