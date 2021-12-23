@@ -9,7 +9,7 @@ from random import randint, randrange
 from user import forms
 from user.models import Image, UserEducationLocationContact,UserProperties,User,UserPreferences,PassWordReset,UserProperties
 from user.forms import UserPreferencesForm, UserPropertiesForm,UserEducationLocationContactForm
-from web.models import Profile
+from web.models import Offer, Profile
 from web.forms import ImageForm
 from django.contrib.auth import get_user_model
 from django.conf import settings
@@ -121,6 +121,7 @@ def imageupload(request):
 
 
 def home(request):
+    offer = Offer.objects.all()
     search=request.GET.get('search', 'false')
     profileimage = Image.objects.all()
     userproperties = UserProperties.objects.all()
@@ -130,7 +131,8 @@ def home(request):
         "profileimage":profileimage,
         "userproperties":userproperties,
         "profile":profile,
-        "search":search
+        "search":search,
+        "offer":offer,
     }
     return render(request, 'web/home.html',context)
 
@@ -306,6 +308,21 @@ def resetpass(request):
 
         
     return render(request, 'web/resetpass.html',context) 
+
+    
+def chattwo(request):
+    context  = {
+      
+    }
+    return render(request,'chatbox/index.html',context)
+
+
+def chat_direct(request):
+    context  = {
+      
+    }
+    return render(request,'chatbox/chat-direct.html',context)
+
 
 
 

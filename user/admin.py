@@ -29,7 +29,8 @@ import user
 #     )
 admin.site.register(models.User)
 admin.site.register(models.DeletedRecord)
-
+admin.site.register(models.Chat)
+admin.site.register(models.Message)
 
 class ImageInline(admin.TabularInline):
     model = models.Image

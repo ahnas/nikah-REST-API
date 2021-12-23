@@ -47,7 +47,7 @@ $(document).ready(function(){
       $('#femaleProfiles').html(response.females)
       $('#pveridicationc').html(response.notverified)
       $('#Verifiedc').html(response.verified)
-      console.log(response)},
+      },
     error: function(jqXHR, textStatus, responseText) {
         alert(jqXHR,responseText)
         console.log(textStatus, errorThrown);
@@ -78,3 +78,5 @@ $("#logout").click(function(){
         }
     });
 });
+
+

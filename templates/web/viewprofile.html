@@ -22,7 +22,7 @@
     <input type="hidden" id="profileID" value="{{id}}">
 </form>
 
-<div class="container pager boardd">
+<div class="container pager boardd mb-80">
 
     <div class="row member board">
 
@@ -64,20 +64,26 @@
 
 
                         
-                        <div class="d-flex fta">
-                            <p class="sta"><i class="icofont-star"></i>Add to Star list</p>
-                            <p class="sta"><i class="icofont-ui-text-chat"></i>Chat</p>
-                        </div>
+                        
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-12 pro-detail parttt parutt pr-0 view">
 
+
+
+                       
                         <h2 class="m-0 KM101" id="ProfileName">
-<!-- 
-                            <span class="float-right disp">Like this profile?
+                            
+                        
+
+                            <!-- <span class="float-right disp">
+                                
                                 <button class="btnn ml-3"><i class="icofont-ui-love mr-2"></i>Like</button>
                             </span> -->
                         </h2>
-                        <!-- <h2 id="nmId" style="color: #1C57C9;"><b>ID : </b></h2> -->
+                        
+                            
+                        
+                        <!-- <h2 id="nmId" style="color: #066759;"><b>ID : </b></h2> -->
 
                         <!-- <div class="row text-center d-none part">
                             <div class="col-4">
@@ -180,14 +186,10 @@
                                 <div class="d-none three justify-content-center">
                                     <div class="row">
 
-                                        <div class="col-4">
-                                            <p class="sta"><i class="icofont-ui-text-chat"></i></p>
+                                        <div class="col-4" id="chatbutton">
+                                           
                                         </div>
-                                        <div class="col-4">
-                                            <p class="sta"><i class="icofont-heart"></i></p>
-                                        </div>
-                                        <div class="col-4">
-                                            <p class="sta"><i class="icofont-star"></i></p>
+                                        <div class="col-4" id="Likebutton">
                                         </div>
 
                                     </div>
@@ -206,18 +208,18 @@
         </div>
 
         <div class="col-12 reli ml-2">
-            <h2 style="color: #1C57C9;">My self-summary</h2>
+            <h2 style="color: #066759;">My self-summary</h2>
             <p class="mb-4" id="describe"></p>
         </div>
 
         <div class="col-12 reli mb-4">
             <div class="prremm viewp mt-4">
 
-                <h2 class="mb-0" style="color: #1C57C9;">Premium Features</h2>
+                <h2 class="mb-0" style="color: black;">Premium Features</h2>
 
-                <div id="premiumfeatures" class="mt-4">
-                    <p style="color: black;">Here is your premium features, explore it now!</p>
-                    <p class="text-center" style="color: black;">You to upgrade your membership plan to know the phone number and address of
+                <div id="premiumfeatures" class="">
+                    <p style="color: white;">Here is your premium features, explore it now!</p>
+                    <p class="text-center" style="color: white;">You to upgrade your membership plan to know the phone number and address of
                         this
                         profile.There is a relatively low fee for this.Fees can be paid in various ways.Click here to
                         know
@@ -239,7 +241,7 @@
             <div class="row viewp mt-4 perss">
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
-                    <div class="col-lg-3 col-md-6 col-sm-12 col-12 p-0 mb-3">
+                    <div class="col-lg-2 col-md-6 col-sm-12 col-12 p-0 mb-3">
                         <h2>Personal Details</h2>
                     </div>
 
@@ -278,7 +280,7 @@
             <div class="row viewp mt-4 perss">
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
-                    <div class="col-lg-3 col-md-6 col-sm-12 col-12 p-0 mb-3">
+                    <div class="col-lg-2 col-md-6 col-sm-12 col-12 p-0 mb-3">
                         <h2>Physical Details</h2>
                     </div>
 
@@ -298,7 +300,7 @@
             <div class="row viewp mt-4 perss">
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
-                    <div class="col-lg-3 col-md-6 col-sm-12 col-12 p-0 mb-3">
+                    <div class="col-lg-2 col-md-6 col-sm-12 col-12 p-0 mb-3">
                         <h2>Family Details</h2>
                     </div>
 
@@ -342,7 +344,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-5">Economical status</div> : <div class="col-6" id="financialStatus"></div>
+                        <div class="col-5">Financial status</div> : <div class="col-6" id="financialStatus"></div>
                     </div>
                 </div>
             </div>
@@ -351,7 +353,7 @@
             <div class="row viewp mt-4 perss">
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
-                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 p-0 mb-3">
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-12 p-0 mb-3">
                         <h2>Educational Details</h2>
                     </div>
 
@@ -381,7 +383,7 @@
             <div class="row viewp mt-4 perss">
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
-                    <div class="col-lg-4 col-md-7 col-sm-12 col-12 p-0 mb-3">
+                    <div class="col-lg-3 col-md-7 col-sm-12 col-12 p-0 mb-3">
                         <h2>Religious Information</h2>
                     </div>
 
@@ -390,8 +392,8 @@
                         <div class="col-5">Perform Namaz</div> : <div class="col-6" id="performNamaz"></div>
                     </div>
                     <div class="row">
-                        <div class="col-5">Reliogiousness</div> : <div class="col-6" id="relegiousStatus"></div>
-                    </div>
+                        <div class="col-5">Religiousness</div> : <div class="col-6" id="relegiousStatus"></div>
+                    </div>              
                     <div class="row">
                         <div class="col-5">Read Quran</div> : <div class="col-6" id="quran"></div>
                     </div>
@@ -411,7 +413,7 @@
             <div class="row viewp mt-4 perss">
                 <div class="col-lg-12 col-md-12 col-sm-12">
 
-                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 p-0 mb-3">
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-12 p-0 mb-3">
                         <h2>Partner Preferences</h2>
                     </div>
 
@@ -520,7 +522,7 @@
 
     <div class="text-center privacy">
         <p>Your access to and use of the Nikah Kerala Services or any content is at your own risk. Read Terms &
-            Conditions and Privacy policy <a style="text-decoration: underline; color:#1C57C9;" href="">here</a> </p>
+            Conditions and Privacy policy <a style="text-decoration: underline; color:#066759;" href="">here</a> </p>
     </div>
 
 
@@ -581,5 +583,6 @@
 <script src="{% static 'web/js/loadheader.js' %}"></script>
 <script src="{% static 'web/js/profileselect.js' %}"></script>
 <script src="{% static 'web/js/header.js' %}"></script>
+<script src="{% static 'chatbox/js/create-or-get-chat.js' %}"></script>
 
 {% endblock %}

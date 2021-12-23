@@ -55,11 +55,11 @@ class UserProperties(models.Model):
     profileCreated_CHOICES = (('self','Self'),('parent','Parent'),('Relative','Relative'),('brother','Brother'),('sister','Sister'),('friend','Friend'),('other','Other'))
     martialStatus_CHOICES = (('Never Married','Never Married'),('Widowed','Widowed'),('Divorced','Divorced'),('Awaiting Divorse','Awaiting Divorse'),('Married','Married'))
     bodyType_CHOICES = ((None,None),('Slim','Slim'),('Average','Average'),('Athlatic','Athlatic'),('Heavy','Heavy'))
-    community_CHOICES = (('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jamayath Islam ','Jamayath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
+    community_CHOICES = (('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jama ath Islam ','Jama ath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
     smoking_CHOICES = (('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'),('Social','Social'))
     financialStatus_CHOICES = (('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = (('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Olive skin','Olive skin'),('Brown','Brown'),('Dark','Dark'))
-    relegion_CHOICES = (('Islam','Islam'),('Hindu','Hindu'),('Cristian','Cristian'),('Jainism','Jainism'),('Buddhist','Buddhist'),('Parsi','Parsi'),('Sikhism ','Sikhism '),('Others ','Others '),('Preferred not to say','Preferred not to say'))
+    relegion_CHOICES = (('Islam','Islam'),('Hindu','Hindu'),('Christian','Christian'),('Jainism','Jainism'),('Buddhist','Buddhist'),('Parsi','Parsi'),('Sikhism ','Sikhism '),('Others ','Others '),('Prefer not to say','Prefer not to say'))
     fatherOccupation_CHOICES = (('Private','Private'),('Self Employee','Self Employee'),('Doctor','Doctor'),('Engineer','Engineer'),('Manager','Manager'),('Pharmacist','Pharmacist'),('Accountant','Accountant'),('Teacher','Teacher'),('Late','Late'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
     motherOccupation_CHOICES = (('House Wife','House Wife'),('Doctor','Doctor'),('Engineer','Engineer'),('Manager','Manager'),('Pharmacist','Pharmacist'),('Accountant','Accountant'),('Teacher','Teacher'),('Late','Late'),('Private','Private'),('Self Employee','Self Employee'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
     ethnicGroup_CHOICES = (('Indian','Indian'),('Malayali','Malayali'),('Urdu Muslim','Urdu Muslim'),('Tamil','Tamil'),('Mixed-Race','Mixed-Race'),('Others','Others'),)
@@ -119,7 +119,7 @@ class UserProperties(models.Model):
 class UserEducationLocationContact(models.Model):
 
     performNamaz_CHOICES = (('Always', 'Always'),('Sometimes', 'Sometimes'),('Never', 'Never'),('Prefer not to say', 'Prefer not to say'))
-    releagiosness_CHOICES = (('Very religious', 'Very religious'),('Religious', 'Religious'),('Not Religious', 'Not Religious'),('Prefer not to say', 'Prefer not to say'),('Any', 'Any'))
+    releagiosness_CHOICES = (('Highly religious', 'Highly religious'),('Religious', 'Religious'),('Not Religious', 'Not Religious'),('Prefer not to say', 'Prefer not to say'),('Any', 'Any'))
     attendIslamicServices_CHOICES = (('Yes', 'Yes'),('No', 'No'))
     highestEducation_CHOICES = (('Masters', 'Masters'),('Doctorate', 'Doctorate'),('Bachelors', 'Bachelors'),('Diploma', 'Diploma'),('ITI', 'ITI'),('Islamic Education', 'Islamic Education'),('Higher Secondary','Higher Secondary'),('High School', 'High School'),('Other', 'Other'))
     relation_CHOICE = (('Self', 'Self'),('Parent', 'Parent'),('Sibling', 'Sibling'),('Relative', 'Relatives'),('Friend', 'Friend'),('Uncle', 'Uncle'),('Other', 'Other'))
@@ -205,7 +205,7 @@ class UserPreferences(models.Model):
 
     martialStatus_CHOICES = ((None,'No Preference'),('Never Married','Never Married'),('Widowed','Widowed'),('Divorced','Divorced'),('Awaiting Divorse','Awaiting Divorse'),('Married','Married'))
     bodyType_CHOICES = ((None,'No Preference'),('Slim','Slim'),('Average','Average'),('Athlatic','Athlatic'),('Heavy','Heavy'))
-    community_CHOICES = ((None,'No Preference'),('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jamayath Islam ','Jamayath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
+    community_CHOICES = ((None,'No Preference'),('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jama ath Islam ','Jama ath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
     smoking_CHOICES = ((None,'No Preference'),('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'))
     financialStatus_CHOICES = ((None,'No Preference'),('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Brown','Brown'),('Dark','Dark'))
@@ -242,7 +242,7 @@ class UserSearch(models.Model):
 
     martialStatus_CHOICES = ((None,'No Preference'),('Never Married','Never Married'),('Widowed','Widowed'),('Divorced','Divorced'),('Awaiting Divorse','Awaiting Divorse'),('Married','Married'))
     bodyType_CHOICES = ((None,'No Preference'),('Slim','Slim'),('Average','Average'),('Athlatic','Athlatic'),('Heavy','Heavy'))
-    community_CHOICES = ((None,'No Preference'),('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jamayath Islam ','Jamayath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
+    community_CHOICES = ((None,'No Preference'),('A Muslim','A Muslim'),('Sunni','Sunni'),('Sunni (EK)','Sunni (EK)'),('Sunni (AP)','Sunni (AP)'),('Salafi (KNM)','Salafi (KNM)'),('Salafi (Markaz dawa)','Salafi (Markaz dawa)'),('Salafi (Wisdom)','Salafi (Wisdom)'),('Jama ath Islam ','Jama ath Islam '),('Thableeg Jamath ','Thableeg Jamath '),('Maliki','Maliki'),('Hanafi','Hanafi'),('Sayyid','Sayyid'),('Soofism','Soofism'),('Other','Other'))
     smoking_CHOICES = ((None,'No Preference'),('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'))
     financialStatus_CHOICES = ((None,'No Preference'),('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = ((None,'No Preference'),('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Brown','Brown'),('Dark','Dark'))
@@ -287,21 +287,48 @@ class ProfessionTable(models.Model):
 
 
 
-class UserChats(models.Model):
-    chatName = models.CharField(max_length=10 , unique=True)
-    ChatfromUser = models.ForeignKey(Image,on_delete=models.CASCADE)
-    ChatToUser = models.ForeignKey(User,on_delete=models.CASCADE)
-    ChatfromUserID = models.IntegerField(null=True,blank=True)
-    chatimage = models.CharField(max_length=225,null=True,blank=True)
-    chatDisplayName = models.CharField(max_length=225,null=True,blank=True)
+class Chat(models.Model):
+    roome_name    = models.CharField(max_length=128,unique=True)
+    chat_user_one = models.IntegerField()
+    chat_user_two = models.IntegerField()
+    lastUpdated=models.DateTimeField(auto_now=True)
+
+    def __st__(self):
+        return str(self.roome_name)
+    
+    class Meta:
+        unique_together = ('chat_user_one', 'chat_user_two',)
+        ordering=['-lastUpdated']
 
 
-class Messages(models.Model):
-    chat = models.ForeignKey(UserChats,on_delete=models.CASCADE)
-    message = models.CharField(max_length=225)
-    time = models.TimeField(auto_now_add=True)
+class Message(models.Model):
+    chat = models.ForeignKey(Chat,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    chatimage=models.CharField(max_length=225,null=True,blank=True)
+    message = models.TextField()
+    time = models.TimeField(auto_now=True)
+
+    class Meta:
+        ordering=['-time']
+
+    def __st__(self):
+        return str(self.user)
+
+
+# class UserChats(models.Model):
+#     chatName = models.CharField(max_length=10 , unique=True)
+#     ChatfromUser = models.ForeignKey(Image,on_delete=models.CASCADE)
+#     ChatToUser = models.ForeignKey(User,on_delete=models.CASCADE)
+#     ChatfromUserID = models.IntegerField(null=True,blank=True)
+#     chatimage = models.CharField(max_length=225,null=True,blank=True)
+#     chatDisplayName = models.CharField(max_length=225,null=True,blank=True)
+
+
+# class Messages(models.Model):
+#     chat = models.ForeignKey(UserChats,on_delete=models.CASCADE)
+#     message = models.CharField(max_length=225)
+#     time = models.TimeField(auto_now_add=True)
+#     user = models.ForeignKey(User,on_delete=models.CASCADE)
+#     chatimage=models.CharField(max_length=225,null=True,blank=True)
 
 
 class DeletedRecord(models.Model):

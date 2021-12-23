@@ -11,22 +11,36 @@ $(document).ready(function () {
                 age = age - 1;
             }
             if(obj['is_liked']!=0){
-                var like=""
+                var like="<span class='float-right disp'><button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-thumbs-down border-radius-50 float-left mr-2 c-rd'></i></button></span>"
             }
             else{
-                like="<span id='"+obj['user'].id+"' class='float-right disp'>Like this profile? <button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i class='icofont-ui-love mr-2'></i>Like</button></span>";
+                like="<span class='float-right disp'><button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-ui-love mr-2 border-radius-50'></i></button></span>";
             
+
             }
+            var chat = "<span class='disp'><button class='btnn ml-3' onclick='ChatWithUser("+obj['user'].id+")'><i class='icofont-chat mr-2 border-radius-50' ></i></button></span>"
+
+            $('#chatbutton').html("<i id='mobilechatbutton' onclick='ChatWithUser("+obj['user'].id+")' class='icofont-ui-text-chat'></i>")
+            $('#Likebutton').html("<i id='mobileLikebutton' class='icofont-ui-love' onclick='likeProfile("+obj['user'].id+")'></i>")
             $('#profileimage').attr('src', obj['image'].medium_square_crop)
             $('#profileimage2').attr('src', obj['image_two'].medium_square_crop)
             $('#profileimage3').attr('src', obj['image_three'].medium_square_crop)
-            $('#ProfileName').html(obj['profile'].name +like )
+            $('#ProfileName').html(obj['profile'].name+chat+like )
             $('#dateOfBirth').html(age);
             $("#dateOfBirthpc").html(age);
             $("#dateOfBirthpcc").html(age);
             $("#martialStatuspc").html(obj['profile'].martialStatus);
             $("#martialStatuspc2").html(obj['profile'].martialStatus);
-            $("#languagespoken").html(obj['profile'].languagespoken);
+
+            // split Word 
+
+            var arr = obj['profile'].languagespoken.split(",");
+            var languagespoken=''
+            for(var i=0;i<arr.length;i++){
+                languagespoken+=arr[i]+', ';
+
+            }
+            $("#languagespoken").html(languagespoken);
             $("#martialStatus").html(obj['profile'].martialStatus);
             $("#workingwith").html(obj['education'].workingwith);
             $("#workingas").html(obj['education'].workingas);
@@ -129,30 +143,44 @@ $(document).ready(function () {
         success: function (response) {
             var n = 3;
             const prof = JSON.parse(JSON.stringify(response));
+            console.log(prof)
             for (let i = 0; i < prof.length && i < n; i++) {
                 if (prof[i].id == id) {
                     n++;
                     continue;
 
                 }
-                var ages = new Date().getFullYear() - new Date(prof[i]['profile'].dateOfBirth).getFullYear();
+                var age = new Date().getFullYear() - new Date(prof[i]['profile'].dateOfBirth).getFullYear();
+                var html=''
+                    html+=`<div class="col-lg-3 col-md-6 col-sm-12 col-12 col-pad-md" onclick='profileview(`+ prof[i].id +`)'>
+                    <div class="pcard">
 
-                $('#similarProfiles').append(
-                    "<div class='col-lg-4 col-md-6 col-sm-12 col-12 p-2'>\
-             <div class='pager-coll' onclick='profileview("+ prof[i].id + ")'>\
-              <div class='row'>\
-               <div class='col-lg-6 col-md-6 col-sm-6 col-6 pr-0 simig'>\
-              <img src='"+ prof[i].image['medium_square_crop'] + "' alt='' class='homeimages'>\
-                 <div class='d-flex'> <p class='sta'><i class='icofont-ui-text-chat'></i></p> <p class='sta'><i class='icofont-star'></i></p> </div>\
-                  </div> \
-                  <div class='col-lg-6 col-md-6 col-sm-6 col-6 pro-detail floa pr-0'>\
-                    <h4>"+ prof[i]['profile'].name + "</h4> <p>Age  <span class='sp1 ml-4'>" + ages + "</span> </p>\
-                    <p>Status  <span class='sp2'>"+ prof[i]['profile'].martialStatus + "</span></p> <p><span><i class='icofont-users-alt-3 mr-2'></span></i>" + prof[i]['profile'].relegion + "</p> \
-                    <p><span><i class='icofont-web mr-2'></span></i>"+ prof[i]['education'].highestEducation + "</p> <p><span><i class='icofont-bag mr-2'></span></i>" + prof[i]['education'].workingas + "</p>\
-                     <p><span><i class='icofont-location-pin mr-2'></i></span></i>"+ prof[i]['education'].nativeCity + "</p> </div> </div> </div> </div>")
+                    <img class="position-relative" width="100%" src=`+ prof[i].image['medium_square_crop'] +` alt="" onclick='profileview(`+prof[i].id+`)'>
 
+                    <div class="position-absolute pcard-det">  
+                    <h5>`+ prof[i]['profile'].name +`</h5>
+                    <h6>`+prof[i].nmId+`</h6>
+
+                    <ul class="d-flex justify-content-space-between">
+                    <li>`+age+` Years |&nbsp</li> 
+                    <li>`+prof[i]['profile'].height+` cm |&nbsp</li> 
+                    <li>`+prof[i]['profile'].martialStatus+`</li>  </ul>
+
+                    <ul class="d-flex justify-content-space-between">
+                    <li>`+prof[i]['education'].workingas+` |&nbsp</li> 
+                    <li>`+prof[i]['profile'].relegion+` |&nbsp</li> 
+                    <li>`+ prof[i]['education'].nativeCity+` ...</li>  
+                    </ul>
+                    <div class="margin-top10">
+                    <a class="heartt" id="buttonn">
+                    <i class="icofont-ui-love float-left" onclick='likeProfile(`+prof[i]['user']+`)'></i>  </a>
+                    <i class="icofont-ui-text-chat float-right chta" onclick='createOrdisplayChat(`+prof[i]['user']+`)'></i> 
+                    </div>
+                    </div>
+                    </div>
+                    </div>`
+                    $('#similarProfiles').append(html)
             }
-            // $('#username').html("<a href='#' class='text-white'>"+myArr[1]+"</a>");
             const obj = JSON.parse(JSON.stringify(response));
 
         },

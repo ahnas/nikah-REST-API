@@ -4,28 +4,27 @@
 
     <h1 class="logo"><a href="{% url 'web:home' %}"><img src="{% static 'web/image/logor.png' %}" alt=""></a></h1>
 
-    <div class="form-group has-search m-0">
+    <!-- <div class="form-group has-search m-0">
       <span class="icofont-search form-control-feedback"></span>
       <input type="text" class="form-control" placeholder="Search" id="searchbox">
+    </div> -->
+    <div class="d-none d-sm-blockk" id="imagecli">
+      <span class="icofont-navigation-menu form-control-feedback"></span>
     </div>
 
-    <a id="usernameimage" class="d-lg-none" href="{% url 'web:myprofile' %}"></a>
+    
 
     <nav class="nav-menu d-none d-lg-block iconn">
       <ul class="place-items-center">
-        <li class="active"><a href="#"><i class="icofont-binoculars text-white mr-2"></i>Explore</a></li>
-        <li><a href="#about"><i class="icofont-ui-text-chat mr-2"></i>Chat</a></li>
+        <li class="active"><a href="{% url 'web:home' %}"><i class="icofont-binoculars text-white mr-2"></i>Explore</a></li>
+        <li><a href="{% url 'web:chat_direct' %}"><i class="icofont-ui-text-chat mr-2"></i>Chat</a></li>
 
         <li><a href="/youlike"><span id="intr" class="ml-0 favv">0</span><i class="icofont-ui-love-add mr-2"></i>Interests</a></li>
 
 
         <li>
-          <a id="usernamefield1" class="uder dropdown-toggle" data-toggle="dropdown" href="#features"></a>
-          <ul class="dropdown-menu">
-            <li> <a id="" href="{% url 'web:myprofile' %}">My Profile</a> </li>
-            <li> <a id="" href="{% url 'web:delete' %}">Delete Account</a> </li>
-            <li> <a id="logout" href="#">Logout</a> </li>
-          </ul>
+          <a id="usernamefield1" class="uder " data-toggle="" href="#features"></a>
+          
         </li>
 
 
@@ -33,15 +32,36 @@
     </nav><!-- .nav-menu -->
 
 
+    <div class="position-fixed mob-hedr" id="mob-hedrr">
+
+      <img width="40px" id="mobilemenuImage" height="40px" alt="">
+      <span id="mobileName">Muhammed Niyas</span> <span><i id="closed" style="font-weight: 600;" class="icofont-close-circled float-right"></i> </span>
+      <ul>
+
+        <li><a href="{% url 'web:myprofile' %}" class="link">My Profile<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
+        <li><a href="{% url 'web:partnerpref' %}" class="link">Partner Preferences<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
+        <li><a href="{% url 'web:addphotos' %}" class="link">Edit Photo<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
+        <li><a href="{% url 'web:modify' %}" class="link">Advance Search<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
+        <li><a href="{% url 'web:delete' %}" class="link">Delete Account<span class="float-right"><i class="icofont-arrow-right"></i></span> </a></li>
+       
+        <li class="color-redd"><a id="logout" href="#" class="link color-red">Logout<span class="float-right"><i class="icofont-power color-red"></i></span> </a></li>
+        
+      </ul>
+    </div>
+
 
 
 
   </div>
 </header><!-- End Header -->
+  
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="{% static 'web/js/loadheader.js' %}"></script>
 <script src="{% static 'web/js/getprofiles.js' %}"></script>
+
 <script>
+
   $(document).ready(function () {
     loadlikecount();
     $('#searchbox').keyup(function (e) {
@@ -49,4 +69,18 @@
     });
 
   });
+</script>
+
+<script>
+  $("#imagecli").click(function(){
+  $("#mob-hedrr").fadeIn();
+});
+
+
+$('#closed').on('click', function(){
+  $("#mob-hedrr").fadeOut();
+})
+// $("#show").click(function(){
+//   $("p").show();
+// });
 </script>

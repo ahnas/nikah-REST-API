@@ -18,6 +18,13 @@
 
 
 @media only screen and (max-width: 1200px){
+    .pcard-det {
+        bottom: 0px;
+        padding: 10px;
+        background: linear-gradient( 
+    179.33deg, rgba(0, 0, 0, 0) 2.58%, #000000 75.98%);
+        width: 88.5%;
+    }
     .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
         padding-left: 84px;
         width: 403px;
@@ -37,6 +44,13 @@
 }
 
 @media only screen and (max-width: 992px){
+    .pcard-det {
+        bottom: 0px;
+        padding: 10px;
+        background: linear-gradient( 
+    179.33deg, rgba(0, 0, 0, 0) 2.58%, #000000 75.98%);
+        width: 86.5%;
+    }
     .pl-20 {
         padding-left: 35px;
     }
@@ -59,7 +73,7 @@
     }
     #hero h1 {
         padding-left: 84px;
-        color: #3ACF6E;
+        color: #066759;
         font-weight: 600;
         font-size: 32px;
     }
@@ -96,7 +110,7 @@
     }
     .maa {
         font-size: 20px;
-        color: #3acf6e;
+        color: #066759;
         font-weight: 600;
     }
     .logo-img {
@@ -105,7 +119,7 @@
     .nav-menu a {
         display: block;
         position: relative;
-        color: #1c57c9;
+        color: #066759;
         transition: 0.3s;
         font-size: 15px;
         font-weight: 600;
@@ -128,14 +142,14 @@
     }
     .has-search .form-control {
         padding-left: 3.375rem;
-        width: 265px;
+        width: 100%;
         margin-right: 0px;
         color: white;
         background-color: transparent;
         border: 1px solid #ffffff;
     }
     .member span {
-        color: #1c57c9;
+        color: #066759;
         margin: 0px 0px 0px 0px;
     }
     .pro-detail p {
@@ -153,7 +167,7 @@
         font-size: 15px;
     }
     .sta {
-        border: 1px solid #3acf6e;
+        border: 1px solid #066759;
         padding: 4% 7%;
         margin-left: 7px;
         margin-top: 7%;
@@ -223,6 +237,32 @@
 }
 
 @media only screen and (max-width: 768px){
+
+    .md-15-md{
+        padding: 15px;
+    }
+    .right-panel {
+        background-color: white;
+        padding: 0px 0px;
+    }
+    .pcard {
+        border: none;
+        color: white;
+        margin-top: 0px;
+    }
+
+    .col-pad-md{
+        padding: 5px;
+}
+    
+
+    .pcard-det {
+        bottom: 0px;
+        padding: 5px;
+        background: linear-gradient( 
+    179.33deg, rgba(0, 0, 0, 0) 2.58%, #000000 75.98%);
+        width: 98%;
+    }
     .couple-bot p {
         text-align: center;
         font-size: 20px;
@@ -241,13 +281,13 @@
         font-size: 30px;
         font-weight: 600;
         padding-bottom: 3px;
-        border-bottom: 3px solid #3acf6e;
+        border-bottom: 3px solid #066759;
     }
     .pad-md{
         padding-top: 30px;
     }
     .bg-green {
-        background-color: #3ACF6E;
+        background-color: #066759;
         padding-top: 50px;
         padding-bottom: 40px;
     }
@@ -290,8 +330,8 @@
     #chatnav {
         
         display: block !important;
-        padding: 4%;
-        background-color: #36c982;
+        padding: 5px;
+        background-color: #066759;
         position: fixed;
         z-index: 100;
         bottom: 0;
@@ -331,12 +371,12 @@
     }
     .deaser .logo a {
         color: #fff;
-        background-color: #3acf6e !important;
+        
         padding: 18px 0px !important;
     }
     .maa {
         font-size: 21px;
-        color: #3acf6e;
+        color: #066759;
         font-weight: 600;
         text-align: center;
     }
@@ -357,10 +397,10 @@
 
     
     .member a {
-        color: #3acf6e;
-        border: 1px solid #3ACF6E;
+        /* color: #066759;
+        border: 1px solid #066759;
         padding: 4% 25%;
-        border-radius: 15px;
+        border-radius: 15px; */
     }
     .numberr p {
     font-size: 17px;
@@ -376,11 +416,11 @@
     }
     .pager-colll .sta {
         font-weight: 600;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 4% 5%;
         margin-left: 3px;
         margin-top: 6%;
-        color: #1581D7;
+        color: #11753d;
         border-radius: 15px;
     }
     .disp span{
@@ -399,7 +439,7 @@
         height: 38px;
         width: 100%;
         padding: 4%;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         border-radius: 30px;
     }
     .now h4 span {
@@ -412,7 +452,7 @@
         text-align: center;
     }
     .now {
-        border: 1px solid #1c57c9;
+        border: 1px solid #066759;
         padding: 2% 4%;
     }
     .chattt p {
@@ -435,7 +475,7 @@
     .explore p {
         font-size: 18px;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
         margin: 0;
     }
     .chat i {
@@ -558,7 +598,7 @@
     }   
     #hero h1 {
         padding-left: 21%;
-        color: #3ACF6E;
+        color: #066759;
         font-weight: 600;
         font-size: 40px;
     }
@@ -591,7 +631,7 @@
     }
     
     .slide a{
-        color: #3acf6e;
+        color: #066759;
         border: none;
         padding: 0;
         border-radius: 0px;
@@ -608,6 +648,119 @@
 
 
 @media only screen and (max-width: 576px) {
+
+
+    .mb-80{
+        margin-bottom: 60px;
+    }
+    .color-red{
+        color: red;
+    }
+    .mob-hedr{
+        display: none;
+      }
+
+    .mob-hedr ul{
+        padding: 0;
+        margin-top: 30px;
+    }
+    .mob-hedr li{
+        font-size: 15px;
+        font-weight: 600; 
+        padding: 10px 0px;
+    }
+    
+    .mob-hedr a{
+        color: black;
+        
+    }
+
+    #closed{
+        font-size: 20px;
+    }
+
+     .mob-hedr{
+        background-color: white;
+        right: 0;
+        top: 0;
+        width: 60%;
+        height: 100%;
+        padding-top: 25px;
+        padding-left: 25px;
+        padding-right: 23px;
+    }
+
+    .mob-hedr img{
+        border-radius: 50%;
+    }
+
+    .mob-hedr span{
+        font-weight: 600;
+    }
+
+    .color-red{
+        color: red !important; 
+    }
+
+    .color-redd{
+        position: absolute;
+        bottom: 0;
+    }
+
+
+    .deaser .logo a {
+        color: #fff;
+        
+        padding: 18px 0px !important;
+    }
+
+    .exploore {
+        padding-top: 80px;
+        background-color: white;
+    }
+
+
+    .justify-content-space-between{
+        justify-content: normal;
+    }
+
+    .justify-content-space-between li{
+        padding: 5px 10px;
+    }
+
+
+    .pcard-det {
+        bottom: 0px;
+        padding: 15px;
+        background: linear-gradient( 
+    179.33deg, rgba(0, 0, 0, 0) 2.58%, #000000 75.98%);
+        width: 98%;
+    }
+
+
+
+
+    .expro h4 {
+        font-size: 30px;
+        font-weight: 600;
+        color: #066759;
+        text-align: center;
+    }
+    .padding-25{
+        padding: 25px;
+    }
+
+    .d-sm-blockk span{
+        color: black;
+        font-weight: 600;
+        font-size: 25px;
+    }
+    .d-sm-blockk{
+        display: block !important;
+    }
+    .d-sm-none {
+        display: none!important;
+    }
     .about-new{
         margin-top: 55px;
         text-align-last: center;
@@ -617,7 +770,7 @@
         padding-top: 10px;
     }
     .bg-green {
-        background-color: #3ACF6E;
+        background-color: #066759;
         padding-top: 15px;
         padding-bottom: 15px;
     }
@@ -664,7 +817,7 @@
         font-size: 25px;
         font-weight: 600;
         padding-bottom: 3px;
-        border-bottom: 3px solid #3acf6e;
+        border-bottom: 3px solid #066759;
     }
     .floatsm-left{
         float: left;
@@ -680,7 +833,7 @@
         padding-left: 20px;
     }
     .bg-green i {
-        color: #3ACF6E;
+        color: #066759;
         font-size: 20px;
         background-color: white;
         border-radius: 50%;
@@ -711,7 +864,7 @@
     
     .deaser .logo a {
         color: #fff;
-        background-color: #3acf6e !important;
+        
         padding: 15px 0px !important;
     }
     #header .logo img {
@@ -740,17 +893,15 @@
         font-size: 16px;
     }
     .iconn ul{
-    
-    JUSTIFY-CONTENT: CENTER;
+        
+        place-content: space-between;
 
     }
     .viewp .row {
         padding-bottom: 8px;
     }
     .viewp {
-        color: #1C57C9;
-        font-size: 18px;
-        font-weight: 600;
+        
     }
     .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input, .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=text], .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type=tel] {
         padding-left: 84px;
@@ -803,13 +954,13 @@
         color: white;
         padding: 6px 16px;
         border-radius: 8px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
     }
     .newss {
         padding: 5px 45px;
         background-color: #ffffff;
-        color: #3acf6e;
+        color: #066759;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
     }
     .mbsm-1{
@@ -844,7 +995,7 @@
 
 
     .deaser{
-        padding: 12px 0 !important;
+        padding: 0px 0 !important;
     }
     .sedre{
         margin-top: 15% !important;
@@ -862,7 +1013,7 @@
     .woah{
         padding: 3% 0px;
         margin-left: -32px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         margin-right: -31px;
     }
     .number i {
@@ -886,7 +1037,7 @@
     .part h5{
         font-weight: 600;
         font-size: 22px;
-        color: #1C57C9;
+        color: #066759;
     }
     .part h6{
         font-weight: 600;
@@ -924,7 +1075,7 @@
         background-color: transparent !important;
     }
     .matcsm{
-        background-color: #3acf6e;
+        background-color: #066759;
     }
     .matcsm i{
         color: white !important;
@@ -934,7 +1085,7 @@
         DISPLAY: NONE;
         margin-right: 20px;
         text-align: center;
-        background-color: #3ACF6E;
+        background-color: #066759;
         border-radius: 27px;
     }
     #likesthreed{
@@ -1010,23 +1161,25 @@
         text-align: right;
     }
     .iconn i {
-        color: #1C57C9;
-        font-size: 23px;
+        color: #ffffff;
+        font-size: 28px;
     }
     #userna i {
-        color: #3acf6e;
+        color: #066759;
         border-radius: 50%;
         padding: 25%;
         background-color: white;
     }
     #chatnav {
         
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
         display: block !important;
-        padding: 4%;
-        background-color: #36c982;
+        padding: 10px 15px;
+        background-color: #066759;
     }
     .member span {
-        color: #1c57c9;
+        color: #066759;
         margin: 0px 0px 0px 0px;
     }
     .do {
@@ -1056,7 +1209,7 @@
     .chattt {
         margin-bottom: 2%;
         padding: 1% 0%;
-        border: 1px solid #1c57c9;
+        border: 1px solid #066759;
         border-radius: 3px;
     }
     .chat i {
@@ -1085,6 +1238,7 @@
     .profiler-head {
         justify-content: center;
         padding: 0 0;
+        margin-bottom: 50px;
     }
     input::-webkit-input-placeholder {
         font-size: 13px;
@@ -1130,7 +1284,7 @@
         font-size: 25px;
         position: relative;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
     }
     .login p {
         text-align: left;
@@ -1160,7 +1314,7 @@
         font-weight: 600;
     }
     .btn {
-        background-color: #3acf6e;
+        background-color: #066759;
         padding: 5px 30px;
         border: none;
         font-size: 14px;
@@ -1177,7 +1331,8 @@
     #header {
         transition: all 0.5s;
         z-index: 997;
-        padding: 15px 0;
+        padding: 0px 0;
+        background-color: white;
     }
     
     #hero:before {
@@ -1203,7 +1358,7 @@
     #hero .container {
         position: relative;
         padding-top: 74px;
-        background-color: #3acf6e;
+        background-color: #066759;
     }
     #hero:before {
         content: "";
@@ -1341,7 +1496,7 @@
         font-weight: 600;
     }
     .foo {
-        background-color: #36c982;
+        background-color: #066759;
         padding: 2% 0%;
     }
     li {
@@ -1358,12 +1513,12 @@
         border-radius: 50%;
         background-color: white;
         padding: 7px;
-        color: #36c982;
+        color: #066759;
     }
 
     .explore .exx {
         border-radius: 10px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 2% 1%;
         place-items: center;
         margin-top: 5%;
@@ -1373,7 +1528,7 @@
     .explore p {
         font-size: 18px;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
         margin: 0;
         margin-left: 5%;
     } 
@@ -1384,7 +1539,7 @@
         margin-top: 10%;
         margin-bottom: 4%;
         margin-left: -15px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 1% 0%;
         place-items: center;
     }
@@ -1393,10 +1548,10 @@
         padding: 0;
     }
     .pager img {
-        width: 65%;
+        /* width: 65%; */
     }
     .sta {
-        border: 1px solid #3acf6e;
+        border: 1px solid #066759;
         padding: 3% 5%;
         margin-left: 5px;
         margin-top: 3%;
@@ -1405,14 +1560,14 @@
 
     .pager-coll {
         box-shadow: 5px 5px 18px rgb(0 0 0 / 16%);
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 5px 5px 5px 5px;
         border-radius: 2%;
     }
 
     .sta i {
         background-color: transparent;
-        color: #1c57c9;
+        color: #066759;
         font-size: 20px;
     }
     .pro-detail p {
@@ -1483,7 +1638,7 @@
     .match {
         padding: 3% 0px;
         margin-left: -17px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         margin-right: -16px;
     }
     .woah p{
@@ -1510,7 +1665,7 @@
         justify-content: center;
     }
     .simig .sta{
-        border: 1px solid #3acf6e;
+        border: 1px solid #066759;
         padding: 5% 11%;
         margin-left: 5px;
         margin-top: 3%;
@@ -1593,7 +1748,7 @@
     .maa {
         padding: 0px 10px;
         font-size: 20px;
-        color: #3acf6e;
+        color: #066759;
         font-weight: 600;
         text-align: center;
     }
@@ -1616,7 +1771,7 @@
         color: white;
         padding: 6px 12px;
         border-radius: 5px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
         top: -5px;
         font-size: 14px;
@@ -1643,14 +1798,14 @@
         color: white;
         padding: 5px 14px;
         border-radius: 8px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
       
         
     }
     .newss {
         background-color: #ffffff;
-        color: #3acf6e;
+        color: #066759;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
     }  
     #header {
@@ -1709,7 +1864,7 @@
     .premium h3 {
         font-size: 24px;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
         margin: 0;
         padding: 0px 15px;
     }
@@ -1737,7 +1892,7 @@
     .explore p {
         font-size: 17px;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
         margin: 0;
         margin-left: 3%;
     }
@@ -1748,7 +1903,7 @@
 
     .pager-coll {
     box-shadow: 5px 5px 18px rgb(0 0 0 / 16%);
-    border: 1px solid #1581D7;
+    border: 1px solid #11753d;
     padding: 5px;
     border-radius: 2%;
 }
@@ -1759,7 +1914,7 @@
         margin-top: 15%;
         margin-bottom: 0%;
         margin-left: 0px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 0% 0%;
         place-items: center;
     }
@@ -1773,7 +1928,7 @@
     .nav-menu a {
         display: block;
         position: relative;
-        color: #1c57c9;
+        color: #066759;
         transition: 0.3s;
         font-size: 14px;
         font-weight: 600;
@@ -1985,7 +2140,7 @@
     }
     .explore .exx {
         border-radius: 10px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 2% 0%;
         place-items: center;
         margin-top: 9%;
@@ -2003,7 +2158,7 @@
         font-weight: bolder;
     }
     .simig .sta {
-        border: 1px solid #3acf6e;
+        border: 1px solid #066759;
         padding: 8% 9%;
         margin-left: 5px;
         margin-top: 3%;
@@ -2081,7 +2236,7 @@
     .maa {
         padding: 0px 10px;
         font-size: 20px;
-        color: #3acf6e;
+        color: #066759;
         font-weight: 600;
         text-align: center;
     }
@@ -2104,7 +2259,7 @@
         color: white;
         padding: 6px 12px;
         border-radius: 5px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
         top: -5px;
         font-size: 14px;
@@ -2131,14 +2286,14 @@
         color: white;
         padding: 5px 14px;
         border-radius: 8px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
       
         
     }
     .newss {
         background-color: #ffffff;
-        color: #3acf6e;
+        color: #066759;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
     }  
     #header {
@@ -2197,7 +2352,7 @@
     .premium h3 {
         font-size: 24px;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
         margin: 0;
         padding: 0px 15px;
     }
@@ -2225,7 +2380,7 @@
     .explore p {
         font-size: 17px;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
         margin: 0;
         margin-left: 3%;
     }
@@ -2236,7 +2391,7 @@
 
     .pager-coll {
     box-shadow: 5px 5px 18px rgb(0 0 0 / 16%);
-    border: 1px solid #1581D7;
+    border: 1px solid #11753d;
     padding: 5px;
     border-radius: 2%;
 }
@@ -2247,7 +2402,7 @@
         margin-top: 15%;
         margin-bottom: 0%;
         margin-left: 0px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 0% 0%;
         place-items: center;
     }
@@ -2261,7 +2416,7 @@
     .nav-menu a {
         display: block;
         position: relative;
-        color: #1c57c9;
+        color: #066759;
         transition: 0.3s;
         font-size: 14px;
         font-weight: 600;
@@ -2473,7 +2628,7 @@
     }
     .explore .exx {
         border-radius: 10px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 2% 0%;
         place-items: center;
         margin-top: 9%;
@@ -2491,7 +2646,7 @@
         font-weight: bolder;
     }
     .simig .sta {
-        border: 1px solid #3acf6e;
+        border: 1px solid #066759;
         padding: 8% 9%;
         margin-left: 5px;
         margin-top: 3%;
@@ -2510,6 +2665,13 @@
 
   
 @media only screen and (max-width: 414px){
+    .pcard-det {
+        bottom: 0px;
+        padding: 15px;
+        background: linear-gradient( 
+    179.33deg, rgba(0, 0, 0, 0) 2.58%, #000000 75.98%);
+        width: 97%;
+    }
     .padd-xs{
         padding-top: 10px;
     }
@@ -2576,7 +2738,7 @@
     .maa {
         padding: 0px 10px;
         font-size: 20px;
-        color: #3acf6e;
+        color: #066759;
         font-weight: 600;
         text-align: center;
     }
@@ -2599,7 +2761,7 @@
         color: white;
         padding: 6px 12px;
         border-radius: 5px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
         top: -5px;
         font-size: 14px;
@@ -2626,7 +2788,7 @@
         color: white;
         padding: 5px 14px;
         border-radius: 8px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
       
         
@@ -2634,7 +2796,7 @@
     .newss {
         padding: 5px 43px;
         background-color: #ffffff;
-        color: #3acf6e;
+        color: #066759;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
     }  
     #header {
@@ -2693,7 +2855,7 @@
     .premium h3 {
         font-size: 24px;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
         margin: 0;
         padding: 0px 15px;
     }
@@ -2721,7 +2883,7 @@
     .explore p {
         font-size: 17px;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
         margin: 0;
         margin-left: 3%;
     }
@@ -2732,7 +2894,7 @@
 
     .pager-coll {
     box-shadow: 5px 5px 18px rgb(0 0 0 / 16%);
-    border: 1px solid #1581D7;
+    border: 1px solid #11753d;
     padding: 5px;
     border-radius: 2%;
 }
@@ -2743,7 +2905,7 @@
         margin-top: 15%;
         margin-bottom: 0%;
         margin-left: 0px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 0% 0%;
         place-items: center;
     }
@@ -2757,7 +2919,7 @@
     .nav-menu a {
         display: block;
         position: relative;
-        color: #1c57c9;
+        color: #066759;
         transition: 0.3s;
         font-size: 14px;
         font-weight: 600;
@@ -2969,7 +3131,7 @@
     }
     .explore .exx {
         border-radius: 10px;
-        border: 1px solid #1581D7;
+        border: 1px solid #11753d;
         padding: 2% 0%;
         place-items: center;
         margin-top: 9%;
@@ -2987,7 +3149,7 @@
         font-weight: bolder;
     }
     .simig .sta {
-        border: 1px solid #3acf6e;
+        border: 1px solid #066759;
         padding: 8% 9%;
         margin-left: 5px;
         margin-top: 3%;
@@ -3021,13 +3183,13 @@
         color: white;
         padding: 10px 20px;
         border-radius: 8px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
     }
     .newss {
         padding: 5px 41px;
         background-color: #ffffff;
-        color: #3acf6e;
+        color: #066759;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
     }
     
@@ -3092,9 +3254,7 @@
         padding-left: 0%;
     }
     .viewp {
-        color: #1C57C9;
-        font-size: 16px;
-        font-weight: 600;
+       
     }
     .viewp .row {
         padding-bottom: 4px;
@@ -3169,7 +3329,7 @@
         color: white;
         padding: 6px 18px;
         border-radius: 8px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
     }
 
@@ -3177,7 +3337,7 @@
     .newss{
         padding: 5px 48px;
         background-color: #ffffff;
-        color: #3acf6e;
+        color: #066759;
         box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
     }
 
@@ -3197,7 +3357,7 @@
     .explore p {
         font-size: 15px;
         font-weight: 600;
-        color: #1C57C9;
+        color: #066759;
         margin: 0;
         margin-left: 0%;
     }
@@ -3206,13 +3366,13 @@
         margin-left: -20px;
     }
     .iconn i {
-        color: #1C57C9;
+        color: white;
         font-size: 20px;
     }
     .nav-menu a {
         display: block;
         position: relative;
-        color: #1c57c9;
+        color: #066759;
         transition: 0.3s;
         font-size: 13px;
         font-weight: 600;
@@ -3220,7 +3380,7 @@
     }
     #userna i {
         margin-left: 0px !important;
-        color: #3acf6e;
+        color: #066759;
         border-radius: 50%;
         padding: 25%;
         background-color: white;
@@ -3234,7 +3394,7 @@
         color: white;
         padding: 5px 12px;
         border-radius: 8px;
-        background-color: #3acf6e;
+        background-color: #066759;
         font-weight: 600;
     }
 }

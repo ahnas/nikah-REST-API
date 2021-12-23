@@ -7,12 +7,13 @@ from django.shortcuts import redirect, render
 from collections import namedtuple
 from rest_framework import generics,viewsets, mixins
 from rest_framework.exceptions import ErrorDetail
-from rest_framework.serializers import Serializer
+from rest_framework.serializers import Serializer, SerializerMetaclass
 from user import models
 from rest_framework import status
-from user.models import User, UserProperties,UserEducationLocationContact,Image,UserPreferences,LikeProfile,UserSearch
+from user.models import User, UserProperties,UserEducationLocationContact,Image,UserPreferences,LikeProfile,UserSearch,PassWordReset
 from .serializers import UserPropertiesSerializer, UserSerializer, AuthTokenSerializer,UserImageSerializer,UserImageSkipSerializer, \
-    UserImageForTwoImageSerializer,UserImageForTwoImageSerializer,UserImageForOneImageSerializer,ResetPasswordSerializer
+    UserImageForTwoImageSerializer,UserImageForTwoImageSerializer,UserImageForOneImageSerializer,ResetPasswordSerializer,\
+        ChatUserSerializer,MessageSerializer
 from rest_framework.authtoken.views import ObtainAuthToken,APIView
 from rest_framework.settings import api_settings
 from . import serializers
@@ -122,7 +123,8 @@ class LoadHeaderView(APIView):
         user = UserProperties.objects.filter(user=self.request.user).first()
         nameUser = str(user.name)
         imageUrl=str(image.image.url)
-        return HttpResponse(nameUser +','+imageUrl)
+        nmID=str(image.nmId)
+        return HttpResponse(nameUser +','+imageUrl+','+nmID)
 
 
 # UserAllData = namedtuple('UserAllData', ('userproperties', 'usereducation'))
@@ -310,6 +312,9 @@ class LikedProfiles(APIView):
 
 
         user =User.objects.get(id=request.data['liked_user'])
+        if LikeProfile.objects.filter(liked_by_user=liked_by_user,liked_user=user).exists():
+            LikeProfile.objects.filter(liked_by_user=liked_by_user,liked_user=user).delete()
+            return Response({'message':"success"})
         data=LikeProfile()
         data.liked_by_user=liked_by_user
         data.liked_user=user
@@ -550,36 +555,6 @@ class MatchedProfiles(viewsets.ModelViewSet):
 
 
 
-
-class LikedProfiles(APIView):
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
-    """
-    List all Likeprodiles, or create a new snippet.
-    """
-    def get(self, request, format=None):
-        Likeprodiles = LikeProfile.objects.all()
-        serializer = serializers.Likeprodileserializer(Likeprodiles, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        liked_by_user = Image.objects.get(user=self.request.user)
-
-        print("#"*20,request.data['liked_user'])
-
-        user =User.objects.get(id=request.data['liked_user'])
-        data=LikeProfile()
-        data.liked_by_user=liked_by_user
-        data.liked_user=user
-        data.save()
-        serializer = serializers.Likeprodileserializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors)
-
-
-
 class Profesions(APIView):
     """
     List all Likeprodiles, or create a new snippet.
@@ -728,10 +703,10 @@ class UserImageViewSet(viewsets.GenericViewSet,
         if self.request.POST:
             try:
                 
-                image_one = self.request.FILES['image']
+                image = self.request.FILES['image']
             except:
                 return UserImageSkipSerializer
-            if image_one:
+            if image:
                 try:
                     image_two = self.request.FILES['image_two']
                 except:
@@ -775,10 +750,10 @@ class UserImageUpdateViewSet(viewsets.GenericViewSet,
         """Return appropriate serializer class"""
         if self.request.POST:
             try:
-                image_one = self.request.FILES['image']
+                image = self.request.FILES['image']
             except:
                 return UserImageSkipSerializer
-            if image_one:
+            if image:
                 try:
                     image_two = self.request.FILES['image_two']
                 except:
@@ -845,87 +820,145 @@ class GetLikesAndMatches(APIView):
 
         return Response(profilecheck)
       
-class UserChats(generics.ListCreateAPIView):
-    """Manage recipes in the database"""
-    serializer_class = serializers.UserChatsserializer
-    queryset = models.UserChats.objects.all()
+# class UserChats(generics.ListCreateAPIView):
+#     """Manage recipes in the database"""
+#     serializer_class = serializers.UserChatsserializer
+#     queryset = models.UserChats.objects.all()
 
 
-    def get(self,request):
-        chats = models.UserChats.objects.all()
-        for chat in chats:
-            chat.ChatfromUserID=chat.ChatfromUser.user_id
-            print(chat.ChatfromUser.user_id)
-            if chat.ChatfromUser.user_id != 4 :
-                chat.chatimage=chat.ChatfromUser.image.url
-                chat.chatDisplayName=chat.ChatfromUser.nmId
-            else:
-                print("ELse")
-                image =Image.objects.get(user = chat.ChatToUser)
-                chat.chatimage=image.image.url
-                chat.chatDisplayName=image.nmId
+#     def get(self,request):
+#         chats = models.UserChats.objects.all()
+#         for chat in chats:
+#             chat.ChatfromUserID=chat.ChatfromUser.user_id
+#             print(chat.ChatfromUser.user_id)
+#             if chat.ChatfromUser.user_id != 4 :
+#                 chat.chatimage=chat.ChatfromUser.image.url
+#                 chat.chatDisplayName=chat.ChatfromUser.nmId
+#             else:
+#                 print("ELse")
+#                 image =Image.objects.get(user = chat.ChatToUser)
+#                 chat.chatimage=image.image.url
+#                 chat.chatDisplayName=image.nmId
 
-        queryset = chats
-        serializer = serializers.UserChatsserializer(queryset, many=True)
-        return Response(serializer.data)
+#         queryset = chats
+#         serializer = serializers.UserChatsserializer(queryset, many=True)
+#         return Response(serializer.data)
 
-    def perform_create(self, serializer):
-        print(self.request)
-        chatName= self.request.POST['chatName']+'NM1207DS'
-        ChatToUser=User.objects.get(id=self.request.POST['ChatToUser'])
-        print(ChatToUser)
-        ChatfromUser=Image.objects.first()
-        print()
-        """Create a new recipe"""
-        serializer.save(chatName=chatName,ChatfromUser=ChatfromUser,ChatToUser=ChatToUser)
+#     def perform_create(self, serializer):
+#         print(self.request)
+#         chatName= self.request.POST['chatName']+'NM1207DS'
+#         ChatToUser=User.objects.get(id=self.request.POST['ChatToUser'])
+#         print(ChatToUser)
+#         ChatfromUser=Image.objects.first()
+#         print()
+#         """Create a new recipe"""
+#         serializer.save(chatName=chatName,ChatfromUser=ChatfromUser,ChatToUser=ChatToUser)
 
 
 
-class MessagesView(viewsets.ModelViewSet):
-    """Manage recipes in the database"""
-    serializer_class = serializers.Messagesserializer
-    queryset = models.Messages.objects.all()
+# class MessagesView(viewsets.ModelViewSet):
+#     """Manage recipes in the database"""
+#     serializer_class = serializers.Messagesserializer
+#     queryset = models.Messages.objects.all()
 
-    def get_queryset(self):
-        """Retrieve the recipes for the authenticated user"""
-        return self.queryset.all()
-    def perform_create(self, serializer):
-        """Create a new recipe"""
-        serializer.save()
+#     def get_queryset(self):
+#         """Retrieve the recipes for the authenticated user"""
+#         return self.queryset.all()
+#     def perform_create(self, serializer):
+#         """Create a new recipe"""
+#         serializer.save()
 
 
     
  
-class MessagesViewList(generics.ListCreateAPIView):
-    queryset = models.Messages.objects.all()
-    serializer_class=serializers.Messagesserializer
-    # authentication_classes = (TokenAuthentication,)
-    # permission_classes = (IsAuthenticated,)
-    """
-    Retrieve, update or delete a snippet instance.
-    """
+# class MessagesViewList(generics.ListCreateAPIView):
+#     queryset = models.Messages.objects.all()
+#     serializer_class=serializers.Messagesserializer
+#     # authentication_classes = (TokenAuthentication,)
+#     # permission_classes = (IsAuthenticated,)
+#     """
+#     Retrieve, update or delete a snippet instance.
+#     """
+#     def get(self,request):
+#         chat = self.request.query_params.get('chatID')
+#         print(chat,'*'*20)
+#         messages = models.Messages.objects.filter(chat__chatName=chat)
+        
+#         for message in messages:
+#             print(message.user)
+#             userImage = Image.objects.first()
+#             message.chatimage=userImage.image.url
+
+        
+#         queryset = messages
+#         serializer = serializers.Messagesserializer(queryset, many=True)
+#         return Response(serializer.data)
+#     def perform_create(self, serializer):
+#         user = User.objects.all().first()
+#         userchat = models.UserChats.objects.get(chatName='NM100NM1207DS')
+#         print(self.request.POST['chat'])
+#         """Create a new message"""
+#         serializer.save(user=user,chat=userchat)
+
+class ChatView(generics.ListCreateAPIView):
+    serializer_class = ChatUserSerializer
+    queryset = models.Chat.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
     def get(self,request):
-        chat = self.request.query_params.get('chatID')
-        print(chat,'*'*20)
-        messages = models.Messages.objects.filter(chat__chatName=chat)
-        
-        for message in messages:
-            print(message.user)
-            userImage = Image.objects.first()
-            message.chatimage=userImage.image.url
+        user=self.request.user
+        ##Return ChatName
+        if self.request.query_params.get('chatuser'):
+            id=self.request.query_params.get('chatuser')
+            if models.Chat.objects.filter(chat_user_one=user.id,chat_user_two=id).exists():
+                chats=models.Chat.objects.get(chat_user_one=user.id,chat_user_two=id)
+                queryset = chats
+                serializer = ChatUserSerializer(queryset,context={'request': request})
+                return Response(serializer.data)
+            if models.Chat.objects.filter(chat_user_one=id,chat_user_two=user.id).exists():
+                chats=models.Chat.objects.get(chat_user_one=id,chat_user_two=user.id)
+                queryset = chats
+                serializer = ChatUserSerializer(queryset,context={'request': request})
+                return Response(serializer.data)
+            raise Http404
 
-        
-        queryset = messages
-        serializer = serializers.Messagesserializer(queryset, many=True)
+        chats = models.Chat.objects.filter(Q(chat_user_one=self.request.user.id) | Q(chat_user_two =self.request.user.id))
+        queryset = chats
+        serializer = ChatUserSerializer(queryset, many=True,context={'request': request})
         return Response(serializer.data)
+
     def perform_create(self, serializer):
-        user = User.objects.all().first()
-        userchat = models.UserChats.objects.get(chatName='NM100NM1207DS')
-        print(self.request.POST['chat'])
-        """Create a new message"""
-        serializer.save(user=user,chat=userchat)
+        chatUserOne=self.request.user.id
+        chatUserTwo=self.request.POST['chat_user_two']
+        UserOneBID=models.Image.objects.get(user__id=chatUserOne).nmId
+        UserTwoBID=models.Image.objects.get(user__id=chatUserTwo).nmId  
+        roomName=UserOneBID+UserTwoBID
+        serializer.save(roome_name=roomName,chat_user_one=chatUserOne)
 
 
+class MessageView(generics.ListCreateAPIView):
+    serializer_class = MessageSerializer
+    queryset = models.Message.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
+    def get(self,request):
+        roomID=self.request.query_params.get('roomID')
+        if models.Chat.objects.filter(id=roomID).exists():
+            chat=models.Chat.objects.get(id=roomID)
+            Messages = models.Message.objects.filter(chat=chat)
+            queryset = Messages
+            serializer = MessageSerializer(queryset, many=True,context={'request': request})
+            return Response(serializer.data)
+        raise Http404
+
+    def perform_create(self, serializer):
+        chatID=self.request.POST['chat']
+        chat=models.Chat.objects.get(id=chatID)
+        chat.lastUpdated=datetime.datetime.now()
+        chat.save()
+        serializer.save(user=self.request.user)
 
 class DeletedRecordView(generics.ListCreateAPIView):
     """Manage recipes in the database"""
@@ -1088,9 +1121,8 @@ class GetProfileCounts(APIView):
     permission_classes = (IsAuthenticated,IsAdminUser)
 
     def get(self, request,format=None):
-
-        males=models.UserProperties.objects.filter(gender='male')
-        females=models.UserProperties.objects.filter(gender='female')
+        males=models.Image.objects.filter(profile__gender='male')
+        females=models.Image.objects.filter(profile__gender='female')
         count=0
         if models.LikeProfile.objects.filter().exists():
             likedProfiles = models.LikeProfile.objects.all()
@@ -1122,3 +1154,11 @@ class GetProfileCounts(APIView):
         }
         return Response(profilecounts) 
 
+class ViewPassword(APIView):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,IsAdminUser)
+    def get(self,request,format=None):
+        instance = PassWordReset.objects.all()
+        serilizers = GetUserPasswordSerilizer(instance, many=True)
+        return Response(serilizers.data)
+        
