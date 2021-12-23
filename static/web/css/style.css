@@ -2,7 +2,7 @@
 body{
   font-family: 'Poppins', sans-serif;
   font-size: 15px;  
-  background: #ecedec;
+  background: white;
 }
 .mob-hedr{
   display: none;
@@ -23,7 +23,7 @@ form .error{
   bottom: 100px;
   z-index: 100;
   right: 25px;
-  background-color: #36c982;
+  background-color: #066759;
   padding: 10px 15px;
   border-radius: 50%;
 
@@ -32,7 +32,7 @@ form .error{
 
 a:hover{
   text-decoration: none;
-  color: red;
+  color: black;
 }
 
 
@@ -75,7 +75,7 @@ display: none;
   transition: all 0.5s;
   z-index: 997;
   padding: 10px 0;
-  background-color: #36c982;
+  background-color: #26bd68;
 }
 
 #header.header-scrolled, #header.header-inner-pages {
@@ -170,7 +170,7 @@ display: none;
 
 .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
   color: #151515;
-  background: #36c982;
+  background: #066759;
 }
 
 .nav-menu .drop-down > a:after {
@@ -310,7 +310,7 @@ display: none;
 .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
   color: #151515;
   text-decoration: none;
-  background: #36c982;
+  background: #066759;
 }
 
 .mobile-nav .drop-down > a:after {
@@ -389,12 +389,12 @@ header .container-fluid{
     color: white;
     padding: 8px 20px;
     border-radius: 8px;
-    background-color: #36c982;
+    background-color: #066759;
     font-weight: 600;
 }
 .newss{
   background-color: #ffffff;
-  color: #36c982;
+  color: #066759;
   box-shadow: 0px 0px 15px rgb(0 0 0 / 50%);
 }
 .noo p{
@@ -520,13 +520,13 @@ hr {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #36c982;
+  background-color: #066759;
   transition: width .6s ease;
 }
 
 #hero h1 {
   padding-left: 100px;
-  color: #36c982;
+  color: #066759;
   font-weight: 600;
   font-size: 40px;
   
@@ -537,7 +537,7 @@ hr {
 }
 
 #hero h1 span {
-  color: #36c982;
+  color: #066759;
 }
 
 #hero h2 {
@@ -557,7 +557,7 @@ hr {
 #hero .icon-box i {
   font-size: 32px;
   line-height: 1;
-  color: #36c982;
+  color: #066759;
 }
 
 #hero .icon-box h3 {
@@ -575,11 +575,11 @@ hr {
 }
 
 #hero .icon-box h3 a:hover {
-  color: #36c982;
+  color: #066759;
 }
 
 #hero .icon-box:hover {
-  border-color: #36c982;
+  border-color: #066759;
 }
 
 @media (min-width: 1024px) {
@@ -654,7 +654,7 @@ section {
 .about-para hr{
 
   height: 5px;
-  background: #36c982;
+  background: #066759;
   width: 25%;
   margin-left: 0px;
 }
@@ -668,12 +668,12 @@ section {
 }
 .about-para a{
   text-decoration: none;
-  color: #36c982;
+  color: #066759;
   font-size: 27px;
 }
 
 .about-para i{
-  color: #36c982;
+  color: #066759;
 }
 
 
@@ -1188,7 +1188,7 @@ section {
 }
 
 .foo{
-  background-color:#36c982 ;
+  background-color:#26bd68 ;
   padding: 0% 6%;
 }
 .social ul{
@@ -1204,7 +1204,7 @@ section {
   border-radius: 50%;
   background-color: white;
   padding: 8px;
-  color: #36c982;
+  color: #066759;
 }
 
 
@@ -1248,7 +1248,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 1px solid #36c982;
+  border: 1px solid #066759;
   border-radius: 50%;
   margin: 25px auto 0;
 }
@@ -1468,10 +1468,10 @@ section {
 }
 .login a:hover{
   text-decoration: none;
-  color: #36c982;
+  color: #066759;
 }
 .btn {
-  background-color: #36c982;
+  background-color: #066759;
   padding: 8px 35px;
   border: none;
 }
@@ -1488,14 +1488,14 @@ section {
 
 .login .sign:hover{
   text-decoration-line: none;
-  color:#36c982;
+  color:#066759;
 }
 
 h3 {
   font-size: 30px;
   position: relative;
   font-weight: 600;
-  color: #1C57C9;
+  color: #066759;
 }
 h3::before {
   content: '';
@@ -1616,7 +1616,7 @@ h3::before {
 }
 
 .disp{
-  margin-top: 6px !important;
+  margin-top: 0px !important;
 }
 
 
@@ -1630,7 +1630,7 @@ h3::before {
 }
 
 #userna i{
-  color: #36c982;
+  color: #066759;
   
   border-radius: 50%;
   padding: 5px;
@@ -1643,12 +1643,12 @@ h3::before {
 .explore p{
   font-size: 25px;
   font-weight: 600;
-  color: #1C57C9;
+  color: #066759;
   margin: 0;
 }
 .explore .exx{
   border-radius: 10px;
-  border: 1px solid #1581D7;
+  border: 1px solid #11753d;
   padding: 2% 1%;
   place-items: center;
 }
@@ -1663,7 +1663,7 @@ h3::before {
   border-radius: 6px;
   margin-top: 10%;
   margin-left: 10%;
-  border: 1px solid #1581D7;
+  border: 1px solid #11753d;
   padding: 1% 0%;
   place-items: center;
 }
@@ -1683,7 +1683,7 @@ h3::before {
   /* color: black; */
 }
 .pager i{
-  /* color: #1581D7;
+  /* color: #11753d;
   font-size: 16px; */
 }
 
@@ -1692,12 +1692,12 @@ h3::before {
   font-size: 15px;
   border-radius: 50%;
   padding: 6px;
-  background-color: #1581D7; */
+  background-color: #11753d; */
 }
 
 .member a{
-  /* color: #36c982;
-  border: 1px solid #36c982;
+  /* color: #066759;
+  border: 1px solid #066759;
   padding: 5% 25%;
   border-radius: 15px; */
 }
@@ -1719,7 +1719,7 @@ h3::before {
   font-weight: bolder;
 }
 .pro-detail i{
-  color: #1c57c9;
+  color: #066759;
   padding: 0px;
   background-color: transparent;
 }
@@ -1740,7 +1740,7 @@ h3::before {
   margin-right: 5px;
 }
 .sta{
-  border: 1px solid #36c982;
+  border: 1px solid #066759;
   padding: 5% 10%;
   margin-left: 7px;
   margin-top: 7%;
@@ -1748,18 +1748,18 @@ h3::before {
 
 .sta i{
   background-color: transparent;
-  color: #1c57c9;
+  color: #066759;
   font-size: 25px;
 }
 .pager-coll{
   box-shadow: 5px 5px 18px rgb(0 0 0 / 16%);
-  border: 1px solid #1581D7;
+  border: 1px solid #11753d;
   padding: 20px 0px 0px 0px;
   border-radius: 2%;
 }
 
 .member{
-  /* border-color: #1C57C9;
+  /* border-color: #066759;
   border-width: 0.1em;
   border-style: solid;
   padding: 2%; */
@@ -1776,14 +1776,14 @@ h3::before {
 .btnn {
   color: #039A00;
   background-color: white;
-  padding: 10px 15px;
-  border: 1px solid;
+  padding: 5px 15px;
+  border: none;
   border-radius: 15px;
   font-weight: 600;
 }
 
 .btnn i{
-  padding: 5px;
+  padding: 10px;
   color: white;
   background-color: #039A00;
 }
@@ -1802,11 +1802,11 @@ h3::before {
 
 .pager-colll .sta{
   font-weight: 600;
-  border: 1px solid #1581D7;
+  border: 1px solid #11753d;
   padding: 6% 7%;
   margin-left: 13px;
   margin-top: 6%;
-  color:  #1581D7;
+  color:  #11753d;
   border-radius: 15px;
 }
 
@@ -1817,7 +1817,7 @@ h3::before {
 .premium h3{
   font-size: 25px;
   font-weight: 600;
-  color: #1C57C9;
+  color: #066759;
   margin: 0;
   padding: 0px 15px;
 }
@@ -1871,7 +1871,7 @@ h3::before {
 }
 
 .boardd{
-  border-color: #1C57C7;
+  border-color: #066759;
     border-width: 0.1em;
     border-style: solid;
     padding-bottom: 4%;
@@ -1880,12 +1880,12 @@ h3::before {
 .match{
   padding: 3% 0px;
   margin-left: -16px;
-    border: 1px solid #1581D7;
+    border: 1px solid #11753d;
     margin-right: -17px;  
 }
 
 .match p{
-  color: #1c57c9;
+  color: #066759;
 }
 .match i{
   color: black;
@@ -1914,7 +1914,7 @@ h3::before {
 
 .similiar .pager-coll {
   box-shadow: 5px 5px 18px rgb(0 0 0 / 16%);
-  border: 1px solid #1581D7;
+  border: 1px solid #11753d;
   padding: 25px 10px 12px 10px;
   border-radius: 2%;
 }
@@ -1937,7 +1937,7 @@ h3::before {
   margin-bottom: 17px;
   font-size: 25px;
   font-weight: 600;
-  color: #1c57c9;
+  color: #066759;
   text-align: center;
 }
 .reli p{
@@ -1964,7 +1964,7 @@ h3::before {
 .chattt{
   margin-bottom: 4%;
   padding: 3% 0%;
-    border: 1px solid #1c57c9;
+    border: 1px solid #066759;
     border-radius: 5px;
 }
 
@@ -1987,7 +1987,7 @@ h3::before {
   padding: 0;
 }
 .now{
-  border: 1px solid #1c57c9;
+  border: 1px solid #066759;
   padding: 3% 10%
 }
 .now h4{
@@ -2010,7 +2010,7 @@ h3::before {
   font-weight: 600;
 }
 .screen{
-  border: 1px solid #1c57c9;
+  border: 1px solid #066759;
   border-top: none;
 }
 .time{
@@ -2036,7 +2036,7 @@ h3::before {
 .msgg input{
   width: 100%;
   padding: 4%;
-  border: 1px solid #1581D7;
+  border: 1px solid #11753d;
   border-radius: 30px;
 }
 .inter i{
@@ -2054,7 +2054,7 @@ h3::before {
 
 .icofont-ui-delete{
   font-size: 18px !important;
-  color: red !important;
+  color: rgba(188, 23, 88, 1) !important;
 }
 .icofont-like{
   font-size: 18px !important;
@@ -2068,7 +2068,7 @@ h3::before {
 }
 
 .inter li a{
-  color:#1C57C7;
+  color:#066759;
   font-weight: 600;
 }
 
@@ -2080,7 +2080,7 @@ h3::before {
   
   margin-right: 20px;
   text-align: center;
-  background-color: #36c982;
+  background-color: #066759;
   border-radius: 27px;
 }
 
@@ -2105,10 +2105,10 @@ h3::before {
   background-color:transparent !important ;
 }
 .maa{
-  font-size: 22px;
-  color: #36c982;
+  font-size: 20px;
+  color: #066759;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 30px;  
 }
 .trmatch{
   padding: 0% 0%;
@@ -2131,7 +2131,7 @@ h3::before {
 
 .exxd{
   border-radius: 2px;
-  border: 1px solid #1581D7;
+  border: 1px solid #11753d;
   padding: 2% 1%;
   place-items: center;
 }
@@ -2151,19 +2151,19 @@ h3::before {
   font-size: 30px;
   position: relative;
   font-weight: 600;
-  color: #1C57C9;
+  color: #066759;
   margin-bottom: 14px;
 }
 
 .proff label{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     
 }
 
 .proff p{
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 100;
   margin-bottom: 0px;
 }
 
@@ -2178,7 +2178,7 @@ h3::before {
   font-weight: 600;
 }
 .linne{
-  border-bottom: 3px solid #36c982;
+  border-bottom: 3px solid #066759;
 }
 
 .place-content-center{
@@ -2216,7 +2216,7 @@ h3::before {
 .prremm{
   border: 1px solid black;
   padding: 20px;
-  background-color: #36c982;
+  background-color: #066759;
 }
 .perss h2{
   font-weight: 600;
@@ -2225,12 +2225,12 @@ h3::before {
 }
 
 .dyimg {
-  border:4px solid red;
+  border:4px solid rgba(188, 23, 88, 1);
   
 }
 
 .slide a{
-  color: #36c982;
+  color: #066759;
   border: none;
   padding: 0;
   border-radius: 0px;
@@ -2283,13 +2283,13 @@ h3::before {
 }
 
 .bg-green{
-  background-color: #36c982;
+  background-color: #066759;
   padding-top: 35px;
   padding-bottom: 35px;
 }
 
 .bg-green i {
-  color: #36c982;
+  color: #066759;
   font-size: 35px;
   background-color: white;
   border-radius: 50%;
@@ -2315,7 +2315,7 @@ h3::before {
   font-size: 40px;
   font-weight: 600;
   padding-bottom: 10px;
-  border-bottom: 4px solid #36c982;
+  border-bottom: 4px solid #066759;
 }
 .manual h4{
   font-size: 20px;
@@ -2354,7 +2354,7 @@ h3::before {
   position: fixed;
   top: 13px;
   
-  background-color: red;
+  background-color: rgba(188, 23, 88, 1);
   padding: 1px 5px;
   border-radius: 50%;
   color: #ffffff;
@@ -2418,8 +2418,9 @@ h3::before {
 .get-prem{
   text-align: -webkit-center;
   padding: 35px 0px;
-  background-color: #2194fe;
+  background-color: #0b9db7;
   margin-top: 15px;
+  border-radius: 10px;
 
 }
 .titkl{
@@ -2441,7 +2442,7 @@ h3::before {
 }
 
 .get-prem .btn{
-background-color: #36c982;
+background-color: #26bd68;
 padding: 5px 24px;
 border: none;
 font-size: 14px;
@@ -2458,7 +2459,7 @@ border-radius: 20px;
 .expro h4{
   font-size: 30px;
   font-weight: 600;
-  color: #36c982;
+  color: #066759;
 }
 .pcard{
   border: 1px solid #e1e1e1;
@@ -2510,7 +2511,7 @@ border-radius: 20px;
 }
 
 .chta{
-  color: #36c982;
+  color: #a1f6cc;
 }
 
 .heartt {
@@ -2519,9 +2520,26 @@ border-radius: 20px;
 }
 
 .heartt-clicked {
-  color: red;
+  color: rgba(188, 23, 88, 1);
+}
+
+.heartt:hover{
+  color: rgba(188, 23, 88, 1);
 }
 
 .bord-rad-down{
   border-radius: 0px 0px 15px 15px;
   }
+#logout:hover{
+  color: rgba(188, 23, 88, 1);
+}
+
+#logout span:hover{
+  color: rgba(188, 23, 88, 1);
+}
+
+.linkd{
+  color: rgba(188, 23, 88, 1);
+    font-size: 25px;
+    font-weight: 700;
+}

@@ -11,19 +11,21 @@ $(document).ready(function () {
                 age = age - 1;
             }
             if(obj['is_liked']!=0){
-                var like="<span class='float-right disp'><button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-thumbs-down border-radius-50 float-left mr-2'></i></button></span>"
+                var like="<span class='float-right disp'><button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-thumbs-down border-radius-50 float-left mr-2 c-rd'></i></button></span>"
             }
             else{
                 like="<span class='float-right disp'><button class='btnn ml-3' onclick='likeProfile("+obj['user'].id+")'><i id='"+obj['user'].id+"' class='icofont-ui-love mr-2 border-radius-50'></i></button></span>";
             
+
             }
+            var chat = "<span class='disp'><button class='btnn ml-3' onclick='ChatWithUser("+obj['user'].id+")'><i class='icofont-chat mr-2 border-radius-50' ></i></button></span>"
 
             $('#chatbutton').html("<i id='mobilechatbutton' onclick='ChatWithUser("+obj['user'].id+")' class='icofont-ui-text-chat'></i>")
             $('#Likebutton').html("<i id='mobileLikebutton' class='icofont-ui-love' onclick='likeProfile("+obj['user'].id+")'></i>")
             $('#profileimage').attr('src', obj['image'].medium_square_crop)
             $('#profileimage2').attr('src', obj['image_two'].medium_square_crop)
             $('#profileimage3').attr('src', obj['image_three'].medium_square_crop)
-            $('#ProfileName').html(obj['profile'].name +like )
+            $('#ProfileName').html(obj['profile'].name+chat+like )
             $('#dateOfBirth').html(age);
             $("#dateOfBirthpc").html(age);
             $("#dateOfBirthpcc").html(age);

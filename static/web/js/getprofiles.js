@@ -46,7 +46,7 @@ function getdatas(nmid){
                     <ul class="d-flex justify-content-space-between">
                     <li>`+obj[i]['education'].workingas+` |&nbsp</li> 
                     <li>`+obj[i]['profile'].relegion+` |&nbsp</li> 
-                    <li>`+ obj[i]['education'].nativeCity+` ...</li>  
+                    <li>`+ obj[i]['education'].nativeCity+` </li>  
                     </ul>
                     <div class="margin-top10">
                     <a class="heartt" id="buttonn">
