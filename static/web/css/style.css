@@ -2462,7 +2462,7 @@ border-radius: 20px;
   color: #066759;
 }
 .pcard{
-  border: 1px solid #e1e1e1;
+  border: none;
   color: white;
   margin-top: 10px;
   cursor: pointer;
@@ -2542,4 +2542,12 @@ border-radius: 20px;
   color: rgba(188, 23, 88, 1);
     font-size: 25px;
     font-weight: 700;
+}
+
+
+.hei-pro{
+
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #cf456a;
 }

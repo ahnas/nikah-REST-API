@@ -47,7 +47,7 @@ class AuthTokenSerializer(serializers.Serializer):
             password=password
         )
         if not user:
-            msg = _('Unable to authenticate with provided credentials')
+            msg = _('Incorrect Username or Password')
             raise serializers.ValidationError(msg, code='authorization')
  
         attrs['user'] = user
@@ -80,7 +80,7 @@ class ResetPasswordSerializer(serializers.Serializer):
             password=password
         )
         if not user:
-            msg = _('Unable to authenticate with provided credentials')
+            msg = _('Incorrect Username or Password')
             raise serializers.ValidationError(msg, code='authorization')
  
         
