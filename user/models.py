@@ -59,7 +59,7 @@ class UserProperties(models.Model):
     smoking_CHOICES = (('Yes','Yes'),('No','No'),('Occasionally','Occasionally'),('Addicted','Addicted'),('Social','Social'))
     financialStatus_CHOICES = (('Rich','Rich'),('Upper Middle Class','Upper Middle Class'),('Middle Class','Middle Class'),('Lower Middle Class','Lower Middle Class'),('Poor','Poor'))
     complexion_CHOICES = (('Very Fair','Very Fair'),('Fair','Fair'),('Wheatish','Wheatish'),('Wheatish Brown','Wheatish Brown'),('Olive skin','Olive skin'),('Brown','Brown'),('Dark','Dark'))
-    relegion_CHOICES = (('Islam','Islam'),('Hindu','Hindu'),('Cristian','Cristian'),('Jainism','Jainism'),('Buddhist','Buddhist'),('Parsi','Parsi'),('Sikhism ','Sikhism '),('Others ','Others '),('Preferred not to say','Preferred not to say'))
+    relegion_CHOICES = (('Islam','Islam'),('Hindu','Hindu'),('Christian','Christian'),('Jainism','Jainism'),('Buddhist','Buddhist'),('Parsi','Parsi'),('Sikhism ','Sikhism '),('Others ','Others '),('Prefer not to say','Prefer not to say'))
     fatherOccupation_CHOICES = (('Private','Private'),('Self Employee','Self Employee'),('Doctor','Doctor'),('Engineer','Engineer'),('Manager','Manager'),('Pharmacist','Pharmacist'),('Accountant','Accountant'),('Teacher','Teacher'),('Late','Late'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
     motherOccupation_CHOICES = (('House Wife','House Wife'),('Doctor','Doctor'),('Engineer','Engineer'),('Manager','Manager'),('Pharmacist','Pharmacist'),('Accountant','Accountant'),('Teacher','Teacher'),('Late','Late'),('Private','Private'),('Self Employee','Self Employee'),('NRI','NRI'),('Home Maker','Home Maker'),('Govt Employee','Govt Employee'),('Retired','Retired'),('Buisness','Buisness'),('Coolie','Coolie'),('Farmer','Farmer'),('Others','Others'))
     ethnicGroup_CHOICES = (('Indian','Indian'),('Malayali','Malayali'),('Urdu Muslim','Urdu Muslim'),('Tamil','Tamil'),('Mixed-Race','Mixed-Race'),('Others','Others'),)
@@ -119,7 +119,7 @@ class UserProperties(models.Model):
 class UserEducationLocationContact(models.Model):
 
     performNamaz_CHOICES = (('Always', 'Always'),('Sometimes', 'Sometimes'),('Never', 'Never'),('Prefer not to say', 'Prefer not to say'))
-    releagiosness_CHOICES = (('Very religious', 'Very religious'),('Religious', 'Religious'),('Not Religious', 'Not Religious'),('Prefer not to say', 'Prefer not to say'),('Any', 'Any'))
+    releagiosness_CHOICES = (('Highly religious', 'Highly religious'),('Religious', 'Religious'),('Not Religious', 'Not Religious'),('Prefer not to say', 'Prefer not to say'),('Any', 'Any'))
     attendIslamicServices_CHOICES = (('Yes', 'Yes'),('No', 'No'))
     highestEducation_CHOICES = (('Masters', 'Masters'),('Doctorate', 'Doctorate'),('Bachelors', 'Bachelors'),('Diploma', 'Diploma'),('ITI', 'ITI'),('Islamic Education', 'Islamic Education'),('Higher Secondary','Higher Secondary'),('High School', 'High School'),('Other', 'Other'))
     relation_CHOICE = (('Self', 'Self'),('Parent', 'Parent'),('Sibling', 'Sibling'),('Relative', 'Relatives'),('Friend', 'Friend'),('Uncle', 'Uncle'),('Other', 'Other'))
