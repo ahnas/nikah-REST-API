@@ -7,7 +7,8 @@ $(document).ready(function () {
 });
 function getdatas(nmid){
     var url="";
-    if($('#search').val()=='true'){
+    var search=GetURLParameter("search")
+    if(search=='true'){
         url="http://127.0.0.1:8000/api/user/collectproperties/?search=true/";
     }
     else{
@@ -72,3 +73,15 @@ function getdatas(nmid){
 }
 
 
+
+function GetURLParameter(sParam) {
+    var pageURL = window.location.search.substring(1);
+    var sURLVariables = pageURL.split("&");
+    for (var i = 0; i < sURLVariables.length; i++) {
+      var sParameterName = sURLVariables[i].split("=");
+      if (sParameterName[0] == sParam) {
+        return sParameterName[1];
+      }
+    }
+    return false;
+  }
